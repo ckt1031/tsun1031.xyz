@@ -41,7 +41,7 @@
     "dayjs": "1.11.5",
     "feed": "4.2.2",
     "firebase": "9.9.2",
-    "framer-motion": "7.1.0",
+    "framer-motion": "7.1.2",
     "lodash": "4.17.21",
     "next": "12.2.5",
     "next-mdx-remote": "4.1.0",
