@@ -31,7 +31,7 @@ specifiers:
   lint-staged: 13.0.3
   next: 12.3.1
   next-mdx-remote: 4.1.0
-  next-sanity: 0.8.4
+  next-sanity: 0.8.5
   next-seo: 5.5.0
   next-sitemap: 3.1.24
   next-themes: 0.2.1
@@ -72,7 +72,7 @@ dependencies:
   framer-motion: 7.5.3_biqbaboplfbrettd7655fr4n2y
   next: 12.3.1_qugu52izettqdqqm5qcjcltcia
   next-mdx-remote: 4.1.0_biqbaboplfbrettd7655fr4n2y
-  next-sanity: 0.8.4_react@18.2.0
+  next-sanity: 0.8.5_react@18.2.0
   next-seo: 5.5.0_azq6kxkn3od7qdylwkyksrwopy
   next-sitemap: 3.1.24_mna6xsgplvxkrmeg4ftolwenke
   next-themes: 0.2.1_azq6kxkn3od7qdylwkyksrwopy
@@ -1877,8 +1877,8 @@ packages:
     resolution: {integrity: sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==}
     dev: true
 
-  /@sanity/client/3.3.6:
-    resolution: {integrity: sha512-UgCHWnpb0N0q1K8NYqAZ4iWpja0ts9LEnuUXcYYbx2xmA57LgA6myCxIVXsF/XH1ArbCQNth0r7zcVpxYH++bQ==}
+  /@sanity/client/3.4.1:
+    resolution: {integrity: sha512-WSvnroCHqboUeyY0nl71vDPKmfurXI0mtqdNDb5u8MW00CAHRyCt1+Sgy39D/g+6R35FYniV31vTSTo3ofim0A==}
     engines: {node: '>=12'}
     dependencies:
       '@sanity/eventsource': 4.0.0
@@ -1908,7 +1908,7 @@ packages:
       '@sanity/types': 2.29.5
       eventsource: 1.1.2
       fast-deep-equal: 3.1.3
-      groq: 2.29.3
+      groq: 2.33.2
       groq-js: 1.0.1
       mendoza: 2.1.1
       simple-get: 4.0.1
@@ -1931,7 +1931,7 @@ packages:
   /@sanity/types/2.29.5:
     resolution: {integrity: sha512-opsUt96xJy6j8LVw8L96HMCyF84Li9p4CNUZEUyKEa63nfG4IYD6fNY5ISiBthkw1os/J6E5EQfjkvME84seQA==}
     dependencies:
-      '@sanity/client': 3.3.6
+      '@sanity/client': 3.4.1
       '@sanity/color': 2.1.11
       '@types/react': 17.0.48
       rxjs: 6.6.7
@@ -4602,8 +4602,8 @@ packages:
     resolution: {integrity: sha512-bv2UkWYkaQkZAEbsfKy+bqdeFAzrQnWZ7zYislCGANzhZSqBVf0uRKeY8r/nXdBiMwuMDA6TxHgwG2FJVKAy6Q==}
     dev: false
 
-  /groq/2.29.3:
-    resolution: {integrity: sha512-j3HFq8Qwg36rREp2Xl2vecUz47LX6cedD8cqq+JKX0iNj9yiwelOSKpRS5jxhkDZQv5xBAiqtpU2Ylv5DQ5g2A==}
+  /groq/2.33.2:
+    resolution: {integrity: sha512-5pf4c91JESCS28IJCgolJq/WBw4Xvf2m8FgZVUlrCig17I+qERosALAHLyyutXu403EYnyCD3DdCLaPb3aGneA==}
     engines: {node: '>=6'}
     dev: false
 
@@ -6131,15 +6131,15 @@ packages:
       - supports-color
     dev: false
 
-  /next-sanity/0.8.4_react@18.2.0:
-    resolution: {integrity: sha512-3ZgW+1+X0Y2PPCqdt7RIKID4EyX9jqnn3lrHahqLW6N6C/8Up71TA0M+Ltq2vlLUSt9YkvqsTmHP5hgaOg2SWQ==}
+  /next-sanity/0.8.5_react@18.2.0:
+    resolution: {integrity: sha512-WJat3KIecCrwSnReVrGE1LlAQF4VnxhueesJaEy4yvLIwg0xdLNVEBYpxgiX17axehZbRQ/c7Dfah/aZfoRSxw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: ^16.3 || ^17 || ^18
     dependencies:
-      '@sanity/client': 3.3.6
+      '@sanity/client': 3.4.1
       '@sanity/groq-store': 0.4.1
-      groq: 2.29.3
+      groq: 2.33.2
       react: 18.2.0
     transitivePeerDependencies:
       - supports-color
