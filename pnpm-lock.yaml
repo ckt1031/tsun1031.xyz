@@ -37,7 +37,7 @@ specifiers:
   next-sitemap: 3.1.28
   next-themes: 0.2.1
   nextjs-progressbar: 0.0.16
-  nextjs-routes: 0.1.4
+  nextjs-routes: 0.1.5
   playwright: 1.27.1
   postcss: 8.4.18
   prettier: 2.7.1
@@ -80,7 +80,7 @@ dependencies:
   next-sitemap: 3.1.28_mna6xsgplvxkrmeg4ftolwenke
   next-themes: 0.2.1_azq6kxkn3od7qdylwkyksrwopy
   nextjs-progressbar: 0.0.16_next@12.3.1+react@18.2.0
-  nextjs-routes: 0.1.4_next@12.3.1
+  nextjs-routes: 0.1.5_next@12.3.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-ga: 3.3.1_sh5qlbywuemxd2y3xkrw2y2kr4
@@ -6426,8 +6426,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /nextjs-routes/0.1.4_next@12.3.1:
-    resolution: {integrity: sha512-KUzjmx7JbapcdcSO+dZSqlAf8uYvnewtS++hGv/CEYsfCpKQzl1WV9sUx53vUAV9fgV0eUFLxYuymM9uXjecuA==}
+  /nextjs-routes/0.1.5_next@12.3.1:
+    resolution: {integrity: sha512-styKpyVM8xX4OqdYjzrjxLtcnhOonA2RxbYLbzMz2CcGSCfwunnOOBHvCqAxeCxFQcXxK6yGAM7GI5vKsbRPqg==}
     hasBin: true
     peerDependencies:
       next: '*'
