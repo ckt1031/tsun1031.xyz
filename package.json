@@ -38,7 +38,7 @@
         "@sentry/nextjs": "7.15.0",
         "cssnano": "5.1.13",
         "csstype": "3.1.1",
-        "dayjs": "1.11.5",
+        "dayjs": "1.11.6",
         "feed": "4.2.2",
         "framer-motion": "7.6.1",
         "next": "12.3.1",

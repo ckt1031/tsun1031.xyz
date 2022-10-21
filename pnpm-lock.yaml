@@ -19,7 +19,7 @@ specifiers:
   cssnano: 5.1.13
   csstype: 3.1.1
   cz-conventional-changelog: 3.3.0
-  dayjs: 1.11.5
+  dayjs: 1.11.6
   eslint: 8.25.0
   eslint-config-next: 12.3.1
   eslint-plugin-jsx-a11y: 6.6.1
@@ -70,7 +70,7 @@ dependencies:
   '@sentry/nextjs': 7.15.0_pcjhksnfiwukgtv6mo7boe2qra
   cssnano: 5.1.13_postcss@8.4.18
   csstype: 3.1.1
-  dayjs: 1.11.5
+  dayjs: 1.11.6
   feed: 4.2.2
   framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
   next: 12.3.1_qugu52izettqdqqm5qcjcltcia
@@ -3636,8 +3636,8 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
-  /dayjs/1.11.5:
-    resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+  /dayjs/1.11.6:
+    resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
     dev: false
 
   /debug/2.6.9:
