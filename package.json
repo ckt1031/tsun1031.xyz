@@ -69,7 +69,7 @@
     },
     "devDependencies": {
         "@playwright/test": "1.27.1",
-        "@svgr/webpack": "6.5.0",
+        "@svgr/webpack": "6.5.1",
         "@tailwindcss/typography": "0.5.7",
         "@types/node": "18.11.5",
         "@types/react": "18.0.23",
