@@ -39,7 +39,6 @@ specifiers:
   next-themes: 0.2.1
   nextjs-progressbar: 0.0.16
   nextjs-routes: 0.1.6
-  playwright: 1.27.1
   postcss: 8.4.18
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13
@@ -54,7 +53,7 @@ specifiers:
   rehype-code-titles: 1.1.0
   rehype-external-img-size: 0.1.0
   rehype-external-links: 2.0.1
-  rehype-slug: 5.0.1
+  rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   remark-normalize-headings: 3.0.1
   remark-parse: 10.0.1
@@ -94,7 +93,7 @@ dependencies:
   rehype-code-titles: 1.1.0
   rehype-external-img-size: 0.1.0
   rehype-external-links: 2.0.1
-  rehype-slug: 5.0.1
+  rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   remark-normalize-headings: 3.0.1
   remark-parse: 10.0.1
@@ -120,7 +119,6 @@ devDependencies:
   eslint-plugin-tailwindcss: 3.6.2
   husky: 8.0.1
   lint-staged: 13.0.3
-  playwright: 1.27.1
   postcss: 8.4.18
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
@@ -4388,8 +4386,8 @@ packages:
       get-intrinsic: 1.1.2
     dev: true
 
-  /github-slugger/1.4.0:
-    resolution: {integrity: sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==}
+  /github-slugger/2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
     dev: false
 
   /glob-parent/5.1.2:
@@ -6561,15 +6559,6 @@ packages:
     hasBin: true
     dev: true
 
-  /playwright/1.27.1:
-    resolution: {integrity: sha512-xXYZ7m36yTtC+oFgqH0eTgullGztKSRMb4yuwLPl8IYSmgBM88QiB+3IWb1mRIC9/NNwcgbG0RwtFlg+EAFQHQ==}
-    engines: {node: '>=14'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      playwright-core: 1.27.1
-    dev: true
-
   /popmotion/11.0.5:
     resolution: {integrity: sha512-la8gPM1WYeFznb/JqF4GiTkRRPZsfaj2+kCxqQgr2MJylMmIKUwBfWW8Wa5fml/8gmtlD5yI01MP1QCZPWmppA==}
     dependencies:
@@ -7287,11 +7276,11 @@ packages:
       unist-util-visit: 4.1.0
     dev: false
 
-  /rehype-slug/5.0.1:
-    resolution: {integrity: sha512-X5v3wV/meuOX9NFcGhJvUpEjIvQl2gDvjg3z40RVprYFt7q3th4qMmYLULiu3gXvbNX1ppx+oaa6JyY1W67pTA==}
+  /rehype-slug/5.1.0:
+    resolution: {integrity: sha512-Gf91dJoXneiorNEnn+Phx97CO7oRMrpi+6r155tTxzGuLtm+QrI4cTwCa9e1rtePdL4i9tSO58PeSS6HWfgsiw==}
     dependencies:
       '@types/hast': 2.3.4
-      github-slugger: 1.4.0
+      github-slugger: 2.0.0
       hast-util-has-property: 2.0.0
       hast-util-heading-rank: 2.1.0
       hast-util-to-string: 2.0.0
