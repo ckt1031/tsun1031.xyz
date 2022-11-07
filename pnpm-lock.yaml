@@ -32,7 +32,7 @@ specifiers:
   husky: 8.0.1
   lint-staged: 13.0.3
   next: 13.0.2
-  next-mdx-remote: 4.1.0
+  next-mdx-remote: 4.2.0
   next-sanity: 1.0.6
   next-seo: 5.13.0
   next-sitemap: 3.1.30
@@ -75,7 +75,7 @@ dependencies:
   feed: 4.2.2
   framer-motion: 7.6.4_biqbaboplfbrettd7655fr4n2y
   next: 13.0.2_qtpcxnaaarbm4ws7ughq6oxfve
-  next-mdx-remote: 4.1.0_biqbaboplfbrettd7655fr4n2y
+  next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 1.0.6_next@13.0.2+react@18.2.0
   next-seo: 5.13.0_pknogjuzx4bv7zxtatcb2ahtsq
   next-sitemap: 3.1.30_vgqyd6xszme3vbxjduhyhsztkm
@@ -6025,8 +6025,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-mdx-remote/4.1.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-ZdL5AFJcEqvInGkYYRKda930D6AJt1GOLX/OXFE/vTwaqV/Mw+l3/njZ4kWqvYSAkl89Z6W7WZrTtN0fd0XwPg==}
+  /next-mdx-remote/4.2.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-X5RhD7f7b78pH2abbuusObSGgII5l54OdusS/2iXljN7WN1cel6ToLlZeCZcyxx9cR4wmBGQYGongIttDYNmAA==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=18.x'
