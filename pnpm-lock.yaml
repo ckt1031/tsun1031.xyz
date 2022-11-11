@@ -59,7 +59,7 @@ specifiers:
   remark-parse: 10.0.1
   remark-unwrap-images: 3.0.1
   sanity-codegen: 0.9.8
-  tailwindcss: 3.2.3
+  tailwindcss: 3.2.4
   typescript: 4.8.4
 
 dependencies:
@@ -101,7 +101,7 @@ dependencies:
 
 devDependencies:
   '@playwright/test': 1.27.1
-  '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.3
+  '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.8
@@ -123,7 +123,7 @@ devDependencies:
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   sanity-codegen: 0.9.8_4cmvcujk52mpchbozpsjimxkw4
-  tailwindcss: 3.2.3_postcss@8.4.18
+  tailwindcss: 3.2.4_postcss@8.4.18
   typescript: 4.8.4
 
 packages:
@@ -2118,7 +2118,7 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@tailwindcss/typography/0.5.8_tailwindcss@3.2.3:
+  /@tailwindcss/typography/0.5.8_tailwindcss@3.2.4:
     resolution: {integrity: sha512-xGQEp8KXN8Sd8m6R4xYmwxghmswrd0cPnNI2Lc6fmrC3OojysTBJJGSIVwPV56q4t6THFUK3HJ0EaWwpglSxWw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
@@ -2127,7 +2127,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.2.3_postcss@8.4.18
+      tailwindcss: 3.2.4_postcss@8.4.18
     dev: true
 
   /@tootallnate/once/2.0.0:
@@ -3856,7 +3856,7 @@ packages:
     dependencies:
       fast-glob: 3.2.11
       postcss: 8.4.18
-      tailwindcss: 3.2.3_postcss@8.4.18
+      tailwindcss: 3.2.4_postcss@8.4.18
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -7929,8 +7929,8 @@ packages:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: true
 
-  /tailwindcss/3.2.3_postcss@8.4.18:
-    resolution: {integrity: sha512-Xt9D4PK4zuuQCEB8bwK9JUCKmTgUwyac/6b0/42Vqhgl6YJkep+Wf5wq+5uXYfmrupdAD0YY2NY1hyZp1HjRrg==}
+  /tailwindcss/3.2.4_postcss@8.4.18:
+    resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
     peerDependencies:
