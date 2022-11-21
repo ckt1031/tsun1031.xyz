@@ -33,7 +33,7 @@ specifiers:
   lint-staged: 13.0.3
   next: 13.0.4
   next-mdx-remote: 4.2.0
-  next-sanity: 2.0.2
+  next-sanity: 2.1.0
   next-seo: 5.14.1
   next-sitemap: 3.1.32
   next-themes: 0.2.1
@@ -76,7 +76,7 @@ dependencies:
   framer-motion: 7.6.7_biqbaboplfbrettd7655fr4n2y
   next: 13.0.4_mqvh5p7ejg4taogoj6tpk3gd5a
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
-  next-sanity: 2.0.2_next@13.0.4+react@18.2.0
+  next-sanity: 2.1.0_next@13.0.4+react@18.2.0
   next-seo: 5.14.1_dcors23iqtgxrhrwosgnnc4xji
   next-sitemap: 3.1.32_5onsal3mz77zvmmbchlexi75wu
   next-themes: 0.2.1_dcors23iqtgxrhrwosgnnc4xji
@@ -6213,15 +6213,18 @@ packages:
       - supports-color
     dev: false
 
-  /next-sanity/2.0.2_next@13.0.4+react@18.2.0:
-    resolution: {integrity: sha512-PbxIENw2Exu4yprgnjriaeOQ65XD5xNUhPnQWdAokhQHzRnThL7zen9cW3ov+7OB5Y4TiUyUCtqOGh/dY8o4mQ==}
+  /next-sanity/2.1.0_next@13.0.4+react@18.2.0:
+    resolution: {integrity: sha512-Sjb46B6q097w6fXBd63xn2Ooo6no1U/lblXPnB6tzEaL2hgF+bSL/WFanUHA7x39eJzYMFdoeM8zDzFJyRZwIA==}
     engines: {node: '>=16'}
     peerDependencies:
+      '@sanity/types': '*'
       next: ^12 || ^13
       react: ^16.3 || ^17 || ^18
       sanity: dev-preview
       styled-components: ^5.2
     peerDependenciesMeta:
+      '@sanity/types':
+        optional: true
       sanity:
         optional: true
       styled-components:
@@ -6229,6 +6232,7 @@ packages:
     dependencies:
       '@sanity/client': 3.4.1
       '@sanity/preview-kit': 1.2.8_react@18.2.0
+      '@sanity/webhook': 2.0.0
       groq: 2.33.2
       next: 13.0.4_mqvh5p7ejg4taogoj6tpk3gd5a
       react: 18.2.0
