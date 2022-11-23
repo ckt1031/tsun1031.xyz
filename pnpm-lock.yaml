@@ -41,7 +41,7 @@ specifiers:
   nextjs-progressbar: 0.0.16
   nextjs-routes: 1.0.3
   postcss: 8.4.19
-  prettier: 2.7.1
+  prettier: 2.8.0
   prettier-plugin-tailwindcss: 0.1.13
   react: 18.2.0
   react-dom: 18.2.0
@@ -124,9 +124,9 @@ devDependencies:
   husky: 8.0.2
   lint-staged: 13.0.3
   postcss: 8.4.19
-  prettier: 2.7.1
-  prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
-  sanity-codegen: 0.9.8_bxtp7jitutwpnq5wr3njns5su4
+  prettier: 2.8.0
+  prettier-plugin-tailwindcss: 0.1.13_prettier@2.8.0
+  sanity-codegen: 0.9.8_pz2ehhbl6ajseuexeennv7yvaq
   tailwindcss: 3.2.4_v776zzvn44o7tpgzieipaairwm
   typescript: 4.9.3
 
@@ -7166,17 +7166,17 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss/0.1.13_prettier@2.7.1:
+  /prettier-plugin-tailwindcss/0.1.13_prettier@2.8.0:
     resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       prettier: '>=2.2.0'
     dependencies:
-      prettier: 2.7.1
+      prettier: 2.8.0
     dev: true
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -7687,7 +7687,7 @@ packages:
     resolution: {integrity: sha512-effkSW9cap879l6CVNdwL5iubVz8tkspqgfiqwgBgFQspV7152WHaLzr5590yR8oFgt7E1d4lO09uUhtAgUPoA==}
     dev: false
 
-  /sanity-codegen/0.9.8_bxtp7jitutwpnq5wr3njns5su4:
+  /sanity-codegen/0.9.8_pz2ehhbl6ajseuexeennv7yvaq:
     resolution: {integrity: sha512-kwyBQioWD4UJBgi1RJx8J/HQ4i753yLgnL5MUwbuAyJZrO9W33anNNawbtcePw9PK+5+IovbSLOs+xicULb2hA==}
     hasBin: true
     peerDependencies:
@@ -7711,7 +7711,7 @@ packages:
       babel-plugin-css-modules-transform: 1.6.2
       babel-plugin-module-resolver: 4.1.0
       jsdom-global: 3.0.2_jsdom@20.0.2
-      prettier: 2.7.1
+      prettier: 2.8.0
       regenerator-runtime: 0.13.9
     transitivePeerDependencies:
       - jsdom
