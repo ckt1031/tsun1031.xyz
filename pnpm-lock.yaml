@@ -39,7 +39,7 @@ specifiers:
   next-sitemap: 3.1.32
   next-themes: 0.2.1
   nextjs-progressbar: 0.0.16
-  nextjs-routes: 1.0.3
+  nextjs-routes: 1.0.4
   postcss: 8.4.19
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13
@@ -84,7 +84,7 @@ dependencies:
   next-sitemap: 3.1.32_5onsal3mz77zvmmbchlexi75wu
   next-themes: 0.2.1_dcors23iqtgxrhrwosgnnc4xji
   nextjs-progressbar: 0.0.16_next@13.0.4+react@18.2.0
-  nextjs-routes: 1.0.3_next@13.0.4
+  nextjs-routes: 1.0.4_next@13.0.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-ga: 3.3.1_sh5qlbywuemxd2y3xkrw2y2kr4
@@ -6351,8 +6351,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /nextjs-routes/1.0.3_next@13.0.4:
-    resolution: {integrity: sha512-dE9MRmyPL8OSzFvrYAkm+i0TRdqXYuJK+7rhldGYU9ytrX8c0d/JY5NIYMCMR7Bp/zTFBienEHUvNniNE789kw==}
+  /nextjs-routes/1.0.4_next@13.0.4:
+    resolution: {integrity: sha512-BdlLv1sdiH2+qXWsWrrVfW8N1dR3iV0pjUvpO4JcQyt51fLUwVPX+G5uABA/tLzkWhK3MPUcXUoc3fILfi2cmg==}
     peerDependencies:
       next: '*'
     dependencies:
