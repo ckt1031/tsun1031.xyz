@@ -45,7 +45,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-ga: 3.3.1
-  react-icons: 4.6.0
+  react-icons: 4.7.1
   react-photo-view: 1.2.3
   react-use: 17.4.0
   reading-time: 1.5.0
@@ -87,7 +87,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-ga: 3.3.1_sh5qlbywuemxd2y3xkrw2y2kr4
-  react-icons: 4.6.0_react@18.2.0
+  react-icons: 4.7.1_react@18.2.0
   react-photo-view: 1.2.3_biqbaboplfbrettd7655fr4n2y
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
   reading-time: 1.5.0
@@ -7240,8 +7240,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-icons/4.6.0_react@18.2.0:
-    resolution: {integrity: sha512-rR/L9m9340yO8yv1QT1QurxWQvWpbNHqVX0fzMln2HEb9TEIrQRGsqiNFQfiv9/JEUbyHmHPlNTB2LWm2Ttz0g==}
+  /react-icons/4.7.1_react@18.2.0:
+    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
     peerDependencies:
       react: '*'
     dependencies:
