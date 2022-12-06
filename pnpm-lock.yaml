@@ -19,7 +19,7 @@ specifiers:
   cssnano: 5.1.14
   csstype: 3.1.1
   cz-conventional-changelog: 3.3.0
-  dayjs: 1.11.6
+  dayjs: 1.11.7
   eslint: 8.29.0
   eslint-config-next: 13.0.6
   eslint-plugin-jsx-a11y: 6.6.1
@@ -72,7 +72,7 @@ dependencies:
   clsx: 1.2.1
   cssnano: 5.1.14_postcss@8.4.19
   csstype: 3.1.1
-  dayjs: 1.11.6
+  dayjs: 1.11.7
   feed: 4.2.2
   framer-motion: 7.6.18_biqbaboplfbrettd7655fr4n2y
   fuse.js: 6.6.2
@@ -3499,8 +3499,8 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
-  /dayjs/1.11.6:
-    resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: false
 
   /debug/2.6.9:
