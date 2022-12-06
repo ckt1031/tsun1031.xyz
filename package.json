@@ -83,7 +83,7 @@
         "@typescript-eslint/eslint-plugin": "5.45.0",
         "@typescript-eslint/parser": "5.45.0",
         "autoprefixer": "10.4.13",
-        "commitizen": "4.2.5",
+        "commitizen": "4.2.6",
         "cross-env": "7.0.3",
         "cz-conventional-changelog": "3.3.0",
         "eslint": "8.29.0",
