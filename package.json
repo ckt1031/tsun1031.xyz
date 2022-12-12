@@ -35,7 +35,7 @@
         "node": ">=18.0.0",
         "pnpm": ">=7.18.0"
     },
-    "packageManager": "pnpm@7.18.1",
+    "packageManager": "pnpm@7.18.2",
     "dependencies": {
         "@next/env": "13.0.6",
         "@next/font": "13.0.6",
