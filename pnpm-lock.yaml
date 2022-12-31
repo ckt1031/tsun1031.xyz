@@ -35,7 +35,7 @@ specifiers:
   lint-staged: 13.1.0
   next: 13.1.1
   next-mdx-remote: 4.2.0
-  next-sanity: 3.1.8
+  next-sanity: 3.1.9
   next-seo: 5.15.0
   next-sitemap: 3.1.43
   next-themes: 0.2.1
@@ -80,7 +80,7 @@ dependencies:
   fuse.js: 6.6.2
   next: 13.1.1_mqvh5p7ejg4taogoj6tpk3gd5a
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
-  next-sanity: 3.1.8_next@13.1.1+react@18.2.0
+  next-sanity: 3.1.9_next@13.1.1+react@18.2.0
   next-seo: 5.15.0_q76c2b4vyoegvsbrcwkfvimnai
   next-sitemap: 3.1.43_syentjjt63dukspj2zj7hzem6y
   next-themes: 0.2.1_q76c2b4vyoegvsbrcwkfvimnai
@@ -1661,7 +1661,7 @@ packages:
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
+      ts-node: 10.9.1_rju6pyblifsagdmqm3y74zsi6q
       typescript: 4.9.4
     transitivePeerDependencies:
       - '@swc/core'
@@ -2113,8 +2113,8 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: false
 
-  /@sanity/preview-kit/1.2.14_react@18.2.0:
-    resolution: {integrity: sha512-cnUlaWjlK+DjIK24KhCfTd6NgJD7AGka/4TYc9PonTR0DkRDaQiSes1Bl5MuAps80XeTel3+ZT6yq9+z5zeDZw==}
+  /@sanity/preview-kit/1.2.15_react@18.2.0:
+    resolution: {integrity: sha512-zd9bkpx1Xh7chQu39tG9SOGjTxepd4LKcH2YEznmsaPSr9PJgK3/U2vlVflbX6gHdPSGH3U1yQnq8RW0MkEzdw==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^18
@@ -3427,7 +3427,7 @@ packages:
     dependencies:
       '@types/node': 14.18.33
       cosmiconfig: 7.0.1
-      ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
+      ts-node: 10.9.1_rju6pyblifsagdmqm3y74zsi6q
       typescript: 4.9.4
     dev: true
 
@@ -6530,8 +6530,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-sanity/3.1.8_next@13.1.1+react@18.2.0:
-    resolution: {integrity: sha512-ZsxLc1eSPDIYP9bsOQ4EXLA9b/tRentaWmUVS6woWqk+0DNordHf12PGm0LAdv6KLatL2ISCqurvYKQWCl9zYw==}
+  /next-sanity/3.1.9_next@13.1.1+react@18.2.0:
+    resolution: {integrity: sha512-HL9e0UjOzriRYggNH2Jf4xcLEOwlKUJfVM3g0Qlg9Lo4h0TXGfYf/CjMVxDebE01kQ7BWLSAgWbpjzI1rzpR1Q==}
     engines: {node: '>=16'}
     peerDependencies:
       '@sanity/icons': ^2
@@ -6554,7 +6554,7 @@ packages:
         optional: true
     dependencies:
       '@sanity/client': 3.4.1
-      '@sanity/preview-kit': 1.2.14_react@18.2.0
+      '@sanity/preview-kit': 1.2.15_react@18.2.0
       '@sanity/webhook': 2.0.0
       groq: 2.33.2
       next: 13.1.1_mqvh5p7ejg4taogoj6tpk3gd5a
@@ -8732,6 +8732,37 @@ packages:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
       '@types/node': 18.11.18
+      acorn: 8.8.1
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 4.9.4
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: true
+
+  /ts-node/10.9.1_rju6pyblifsagdmqm3y74zsi6q:
+    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.3
+      '@types/node': 14.18.33
       acorn: 8.8.1
       acorn-walk: 8.2.0
       arg: 4.1.3
