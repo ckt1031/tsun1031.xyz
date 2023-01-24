@@ -28,7 +28,7 @@ specifiers:
   eslint-plugin-jsx-a11y: 6.7.1
   eslint-plugin-react: 7.32.1
   eslint-plugin-simple-import-sort: 9.0.0
-  eslint-plugin-tailwindcss: 3.8.0
+  eslint-plugin-tailwindcss: 3.8.2
   feed: 4.2.2
   fuse.js: 6.6.2
   husky: 8.0.3
@@ -120,7 +120,7 @@ devDependencies:
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.32.0
   eslint-plugin-react: 7.32.1_eslint@8.32.0
   eslint-plugin-simple-import-sort: 9.0.0_eslint@8.32.0
-  eslint-plugin-tailwindcss: 3.8.0_ts-node@10.9.1
+  eslint-plugin-tailwindcss: 3.8.2_qky6impwyxxk2bvue62g4cldp4
   husky: 8.0.3
   lint-staged: 13.1.0
   postcss: 8.4.21
@@ -138,6 +138,22 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.1.1
       '@jridgewell/trace-mapping': 0.3.17
+
+  /@angular-eslint/bundled-angular-compiler/15.2.0:
+    resolution: {integrity: sha512-a0bfXxYyGoWJHrVQ4QER0HdRgselcTtJeyqiFPAxID2ZxF0IBGKLNTtugUTXekEmiLev8yGLX9TqAtthN57fEg==}
+    dev: true
+
+  /@angular-eslint/template-parser/15.2.0_7uibuqfxkfaozanbtbziikiqje:
+    resolution: {integrity: sha512-xnnxPfV/G0Ll3B0HGrF1ucsc/DHmNE6UhhmWxYPTERq0McbZGRiATa66hCoOZ/Rdylun4ogBfsRKAG8XxEvlvw==}
+    peerDependencies:
+      eslint: ^7.20.0 || ^8.0.0
+      typescript: '*'
+    dependencies:
+      '@angular-eslint/bundled-angular-compiler': 15.2.0
+      eslint: 8.32.0
+      eslint-scope: 7.1.1
+      typescript: 4.9.4
+    dev: true
 
   /@babel/code-frame/7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}
@@ -5228,15 +5244,22 @@ packages:
       eslint: 8.32.0
     dev: true
 
-  /eslint-plugin-tailwindcss/3.8.0_ts-node@10.9.1:
-    resolution: {integrity: sha512-Lsyncgp/eXZriAEUK9zfGHOH+9iQplygHiOuGY8SFFHKIeT0BYjyST/ownHF8UPa1TEh+jJPkdE2vlV3778C3w==}
+  /eslint-plugin-tailwindcss/3.8.2_qky6impwyxxk2bvue62g4cldp4:
+    resolution: {integrity: sha512-99DPr//xTFNls1xjXX+1p45OEvG87B+SiNkSi0DfeatKBnckjCO5831lUfwCisXSgzXd9p//gNKQJGq1ewCLJQ==}
     engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: ^3.2.2
     dependencies:
+      '@angular-eslint/template-parser': 15.2.0_7uibuqfxkfaozanbtbziikiqje
+      '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
       fast-glob: 3.2.12
       postcss: 8.4.21
       tailwindcss: 3.2.4_aesdjsunmf4wiehhujt67my7tu
+      vue-eslint-parser: 9.1.0_eslint@8.32.0
     transitivePeerDependencies:
-      - ts-node
+      - eslint
+      - supports-color
+      - typescript
     dev: true
 
   /eslint-scope/5.1.1:
@@ -11078,6 +11101,24 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: false
+
+  /vue-eslint-parser/9.1.0_eslint@8.32.0:
+    resolution: {integrity: sha512-NGn/iQy8/Wb7RrRa4aRkokyCZfOUWk19OP5HP6JEozQFX5AoS/t+Z0ZN7FY4LlmWc4FNI922V7cvX28zctN8dQ==}
+    engines: {node: ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: '>=6.0.0'
+    dependencies:
+      debug: 4.3.4
+      eslint: 8.32.0
+      eslint-scope: 7.1.1
+      eslint-visitor-keys: 3.3.0
+      espree: 9.4.0
+      esquery: 1.4.0
+      lodash: 4.17.21
+      semver: 7.3.8
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /w3c-xmlserializer/3.0.0:
     resolution: {integrity: sha512-3WFqGEgSXIyGhOmAFtlicJNMjEps8b1MG31NCA0/vOF9+nKMUW1ckhi9cnNHmf88Rzw5V+dwIwsm2C7X8k9aQg==}
