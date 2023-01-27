@@ -32,7 +32,7 @@
         "node": ">=16",
         "pnpm": ">=7"
     },
-    "packageManager": "pnpm@7.26.0",
+    "packageManager": "pnpm@7.26.1",
     "dependencies": {
         "@headlessui/react": "1.7.7",
         "@next/env": "13.1.5",
