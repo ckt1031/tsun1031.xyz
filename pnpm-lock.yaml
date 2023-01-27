@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ckt1031/eslint-config': 0.0.8
+  '@ckt1031/tsconfig': 0.0.9
   '@commitlint/cli': 17.4.2
   '@commitlint/config-conventional': 17.4.2
   '@headlessui/react': 1.7.7
@@ -97,6 +98,7 @@ dependencies:
 
 devDependencies:
   '@ckt1031/eslint-config': 0.0.8_27qx33f7yaoeokch6626vvpsxe
+  '@ckt1031/tsconfig': 0.0.9_typescript@4.9.4
   '@commitlint/cli': 17.4.2
   '@commitlint/config-conventional': 17.4.2
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
@@ -1653,6 +1655,14 @@ packages:
       - supports-color
       - tailwindcss
       - typescript
+    dev: true
+
+  /@ckt1031/tsconfig/0.0.9_typescript@4.9.4:
+    resolution: {integrity: sha512-Ak3Nt8G1OSok5UrQtSX4tofBmbayIlHKhhiRCW8n2pjEIhnuQiDlW0HuI6VU/jgbA9IPFnJtusbcCyBLj4pLRg==}
+    peerDependencies:
+      typescript: 4.x
+    dependencies:
+      typescript: 4.9.4
     dev: true
 
   /@commitlint/cli/17.4.2:

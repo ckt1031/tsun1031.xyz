@@ -63,6 +63,8 @@ export default function Pagination({
                                     </Link>
                                 </div>
                             );
+                        } else {
+                            return <></>;
                         }
                     })}
                     {pagination.currentPage + 2 - pagination.totalPages < 0 && <div>...</div>}

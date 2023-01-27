@@ -72,6 +72,7 @@
     },
     "devDependencies": {
         "@ckt1031/eslint-config": "0.0.8",
+        "@ckt1031/tsconfig": "0.0.9",
         "@commitlint/cli": "17.4.2",
         "@commitlint/config-conventional": "17.4.2",
         "@tailwindcss/typography": "0.5.9",
