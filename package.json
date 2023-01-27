@@ -34,7 +34,7 @@
     },
     "packageManager": "pnpm@7.26.1",
     "dependencies": {
-        "@headlessui/react": "1.7.7",
+        "@headlessui/react": "1.7.8",
         "@next/env": "13.1.5",
         "@next/font": "13.1.5",
         "@sanity/image-url": "1.0.2",
