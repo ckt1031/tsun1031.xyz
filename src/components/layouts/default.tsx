@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import dynamic from 'next/dynamic';
+
+import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 
 import Footer from '$components/global/footer';

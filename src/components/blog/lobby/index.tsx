@@ -1,6 +1,7 @@
+import { useEffect, useMemo, useState } from 'react';
+
 import Fuse from 'fuse.js';
 import type { ChangeEvent } from 'react';
-import { useEffect, useMemo, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 
 import type { BlogPostLobbyProps } from '$lib/types';
@@ -24,7 +25,7 @@ export default function ListPage({ allPosts, displayPosts, pagination }: BlogPos
 
     const onSearch = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
-        if (!value || value.length < 1) setQueryPost(displayPosts);
+        if (!value || value.length === 0) setQueryPost(displayPosts);
         else {
             const result = fuse.search(value);
             setQueryPost(result.map(({ item }) => item));

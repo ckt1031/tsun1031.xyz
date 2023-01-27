@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import Link from 'next/link';
+
+import clsx from 'clsx';
 import sAgo from 's-ago';
 
 import Image from '$components/image';
@@ -13,7 +14,7 @@ export default function ExplorerBlogList({
 }) {
     return (
         <div className="grid space-y-5 divide-y-2 divide-gray-400 dark:divide-gray-500">
-            {postList.length !== 0 ? (
+            {postList.length > 0 ? (
                 postList.map(({ breif, publishedAt, slug, thumbnail, title }) => {
                     return (
                         <div

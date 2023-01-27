@@ -1,6 +1,7 @@
-import clsx from 'clsx';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+
+import clsx from 'clsx';
 import { MdClose, MdMenu } from 'react-icons/md';
 
 import { config } from '$lib/constants';

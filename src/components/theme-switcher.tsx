@@ -1,5 +1,6 @@
-import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
+
+import { useTheme } from 'next-themes';
 import { MdComputer, MdDarkMode, MdLightMode } from 'react-icons/md';
 
 type ThemeNames = 'system' | 'light' | 'dark';
@@ -26,13 +27,9 @@ export default function ThemeSwitcher() {
                 aria-label="Toggle Theme Mode"
                 className="base-button-animation p-2"
                 onClick={toggleThemes}>
-                {themeName === 'system' ? (
-                    <MdComputer />
-                ) : themeName === 'dark' ? (
-                    <MdDarkMode />
-                ) : (
-                    <MdLightMode />
-                )}
+                {themeName === 'system' && <MdComputer />}
+                {themeName === 'dark' && <MdDarkMode />}
+                {themeName === 'light' && <MdLightMode />}
             </button>
         </div>
     );

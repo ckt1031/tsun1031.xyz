@@ -1,6 +1,7 @@
+import { useRouter } from 'next/router';
+
 import dayjs from 'dayjs';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useRouter } from 'next/router';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import readingTimeModule from 'reading-time';
 

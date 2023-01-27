@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import Link from 'next/link';
+
+import clsx from 'clsx';
 import type { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import { HiExternalLink } from 'react-icons/hi';
 

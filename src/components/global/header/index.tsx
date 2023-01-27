@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import { memo, useState } from 'react';
+
+import clsx from 'clsx';
 import { useEvent } from 'react-use';
 
 import MobileMenu from '$components/global/header/mobile-menu';

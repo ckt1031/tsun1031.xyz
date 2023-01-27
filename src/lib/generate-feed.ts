@@ -7,7 +7,7 @@ import type { Author } from './sanity/schema';
 
 export default function generateRSS(posts: BlogPostLobbyProps['allPosts']) {
     const feed = new Feed({
-        title: `ckt1031's personal site`,
+        title: "ckt1031's personal site",
         description: config.description,
         id: config.url,
         link: config.url,

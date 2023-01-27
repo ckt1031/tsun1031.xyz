@@ -1,7 +1,12 @@
-import clsx from 'clsx';
 import { useState } from 'react';
+
+import clsx from 'clsx';
 import { FaArrowUp } from 'react-icons/fa';
 import { useEvent } from 'react-use';
+
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 export default function ScrollUpButton() {
     const [showScrollUpBtn, setShowScrollUpBtn] = useState(false);
@@ -9,10 +14,6 @@ export default function ScrollUpButton() {
     useEvent('scroll', () => {
         setShowScrollUpBtn(window.scrollY > 400);
     });
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
 
     return (
         <div className="fixed right-6 bottom-6 flex flex-row">

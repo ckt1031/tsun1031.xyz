@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import Link from 'next/link';
+
+import clsx from 'clsx';
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from 'react-icons/fa';
 
 import type { BlogPostLobbyProps } from '$lib/types';
@@ -34,7 +35,7 @@ export default function Pagination({
                 </div>
                 <div className="flex flex-row items-center justify-center space-x-1">
                     {pagination.currentPage - 2 > 0 && <div>...</div>}
-                    {[...Array.from({ length: pagination.totalPages })].map((_, index) => {
+                    {Array.from({ length: pagination.totalPages }).map((_, index) => {
                         const pageNumber = index + 1;
 
                         if (
@@ -48,7 +49,8 @@ export default function Pagination({
                                             'bg-orange-400 dark:bg-orange-700',
                                         'rounded-lg px-2 py-1',
                                     )}
-                                    key={`PAGINATION-${index}`}>
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    key={index}>
                                     <Link
                                         passHref
                                         href={{
