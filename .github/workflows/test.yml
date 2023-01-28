@@ -27,3 +27,6 @@ jobs:
 
       - name: Lint Project
         run: pnpm lint
+
+      - name: Check code style
+        run: pnpm prettier --check .
