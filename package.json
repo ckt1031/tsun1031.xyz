@@ -24,7 +24,7 @@
     "node": ">=16",
     "pnpm": ">=7"
   },
-  "packageManager": "pnpm@7.26.1",
+  "packageManager": "pnpm@7.26.3",
   "dependencies": {
     "@fontsource/inter": "4.5.15",
     "@fontsource/noto-sans-tc": "4.5.12",
