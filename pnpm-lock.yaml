@@ -7,7 +7,7 @@ specifiers:
   '@commitlint/config-conventional': 17.4.2
   '@fontsource/inter': 4.5.15
   '@fontsource/noto-sans-tc': 4.5.12
-  '@headlessui/react': 1.7.8
+  '@headlessui/react': 1.7.9
   '@next/env': 13.1.6
   '@sanity/image-url': 1.0.2
   '@sanity/webhook': 2.0.0
@@ -64,7 +64,7 @@ specifiers:
 dependencies:
   '@fontsource/inter': 4.5.15
   '@fontsource/noto-sans-tc': 4.5.12
-  '@headlessui/react': 1.7.8_biqbaboplfbrettd7655fr4n2y
+  '@headlessui/react': 1.7.9_biqbaboplfbrettd7655fr4n2y
   '@next/env': 13.1.6
   '@sanity/image-url': 1.0.2
   '@sanity/webhook': 2.0.0
@@ -2187,8 +2187,8 @@ packages:
     resolution: {integrity: sha512-c4OUY5Wq03ZLI4Ds9IEHEiPqpjmEXvDpANXufCTlk+bMb8MnweXPVWJSrSHydXnz7r+qstZl3HvWDl2RI5o/1A==}
     dev: false
 
-  /@headlessui/react/1.7.8_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zcwb0kd7L05hxmoAMIioEaOn235Dg0fUO+iGbLPgLVSjzl/l39V6DTpC2Df49PE5aG5/f5q0PZ9ZHZ78ENNV+A==}
+  /@headlessui/react/1.7.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Bobh/+mDciu8kEE2hvdukFYjbfaG4MEkK/6TjWOgqcODLKYpRhWPKPE+dCcCSz/YrwjFVrEAMOiWtfk6sW20/w==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16 || ^17 || ^18
