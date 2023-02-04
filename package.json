@@ -6,11 +6,11 @@
   "license": "MIT",
   "author": "ckt1031",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "next build",
     "commit": "cz",
     "dev": "next dev -p 4072",
     "format": "prettier . -w",
+    "preinstall": "npx only-allow pnpm",
     "lint": "tsc && eslint --fix .",
     "prepare": "husky install",
     "start": "next start"
@@ -20,15 +20,9 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "engines": {
-    "node": ">=16",
-    "pnpm": ">=7"
-  },
-  "packageManager": "pnpm@7.26.3",
   "dependencies": {
     "@fontsource/inter": "4.5.15",
     "@fontsource/noto-sans-tc": "4.5.12",
-    "@headlessui/react": "1.7.9",
     "@next/env": "13.1.6",
     "@sanity/image-url": "1.0.2",
     "@sanity/webhook": "2.0.0",
@@ -65,8 +59,9 @@
     "zustand": "4.3.2"
   },
   "devDependencies": {
-    "@ckt1031/eslint-config": "0.0.12",
-    "@ckt1031/tsconfig": "0.0.14",
+    "@ckt1031/eslint-config": "0.0.15",
+    "@ckt1031/prettier-config": "0.0.15",
+    "@ckt1031/tsconfig": "0.0.15",
     "@commitlint/cli": "17.4.2",
     "@commitlint/config-conventional": "17.4.2",
     "@tailwindcss/typography": "0.5.9",
@@ -88,6 +83,10 @@
     "tailwindcss": "3.2.4",
     "typescript": "4.9.5"
   },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint"
@@ -95,5 +94,7 @@
     "*.{yml,cjs,mjs,js,jsx,ts,tsx,json,css,html,md}": [
       "prettier -c"
     ]
-  }
+  },
+  "packageManager": "pnpm@7.26.3",
+  "prettier": "@ckt1031/prettier-config"
 }
