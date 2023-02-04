@@ -7,7 +7,7 @@ specifiers:
   '@commitlint/config-conventional': 17.4.2
   '@fontsource/inter': 4.5.15
   '@fontsource/noto-sans-tc': 4.5.12
-  '@headlessui/react': 1.7.8
+  '@headlessui/react': 1.7.9
   '@next/env': 13.1.6
   '@sanity/image-url': 1.0.2
   '@sanity/webhook': 2.0.0
@@ -64,7 +64,7 @@ specifiers:
 dependencies:
   '@fontsource/inter': 4.5.15
   '@fontsource/noto-sans-tc': 4.5.12
-  '@headlessui/react': 1.7.8_biqbaboplfbrettd7655fr4n2y
+  '@headlessui/react': 1.7.9_biqbaboplfbrettd7655fr4n2y
   '@next/env': 13.1.6
   '@sanity/image-url': 1.0.2
   '@sanity/webhook': 2.0.0
@@ -2187,8 +2187,8 @@ packages:
     resolution: {integrity: sha512-c4OUY5Wq03ZLI4Ds9IEHEiPqpjmEXvDpANXufCTlk+bMb8MnweXPVWJSrSHydXnz7r+qstZl3HvWDl2RI5o/1A==}
     dev: false
 
-  /@headlessui/react/1.7.8_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zcwb0kd7L05hxmoAMIioEaOn235Dg0fUO+iGbLPgLVSjzl/l39V6DTpC2Df49PE5aG5/f5q0PZ9ZHZ78ENNV+A==}
+  /@headlessui/react/1.7.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Bobh/+mDciu8kEE2hvdukFYjbfaG4MEkK/6TjWOgqcODLKYpRhWPKPE+dCcCSz/YrwjFVrEAMOiWtfk6sW20/w==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16 || ^17 || ^18
@@ -2679,7 +2679,7 @@ packages:
       eventsource: 2.0.2
       fast-deep-equal: 3.1.3
       groq: 3.2.3
-      groq-js: 1.2.1-beta.0
+      groq-js: 1.2.1-beta.1
       mendoza: 2.1.1
       simple-get: 4.0.1
       split2: 4.1.0
@@ -6390,8 +6390,8 @@ packages:
     resolution: {integrity: sha512-qJeuEgziddryH1ClsJvMoZM9aXNQbBViNZZrJwhHKr2wU8HGGM7uNWNVFglWXMX60MMaa2SClX3UohP76Ut68g==}
     dev: false
 
-  /groq-js/1.2.1-beta.0:
-    resolution: {integrity: sha512-XuR2maCVCn+VYoMiDXI0dOWTvQ/U5MbgStSfcLpGdgEiM9b22D0P8YSWhsvr6Y4WnOT9EpoMbB/Yd2TIzMV9YA==}
+  /groq-js/1.2.1-beta.1:
+    resolution: {integrity: sha512-hmfctKi0Za0wj9VRRVytMiJKAe/QdqOtYKnHAIL8VgzuLSOP3EzXHEYJFNDbkaml8mVuFvfT9vO6DsPtofPp8w==}
     engines: {node: '>= 14'}
     dev: false
 
