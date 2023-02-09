@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ckt1031/eslint-config': 0.0.16
-  '@ckt1031/prettier-config': 0.0.15
+  '@ckt1031/prettier-config': 0.1.1
   '@ckt1031/tsconfig': 0.0.16
   '@commitlint/cli': 17.4.2
   '@commitlint/config-conventional': 17.4.2
@@ -100,7 +100,7 @@ dependencies:
 
 devDependencies:
   '@ckt1031/eslint-config': 0.0.16_7o3zyhmhae64kv7yymmwkxsgky
-  '@ckt1031/prettier-config': 0.0.15_kcm2pbg4372aakdkvxabn7z2ri
+  '@ckt1031/prettier-config': 0.1.1_kcm2pbg4372aakdkvxabn7z2ri
   '@ckt1031/tsconfig': 0.0.16_typescript@4.9.5
   '@commitlint/cli': 17.4.2
   '@commitlint/config-conventional': 17.4.2
@@ -1644,14 +1644,14 @@ packages:
       - tailwindcss
     dev: true
 
-  /@ckt1031/prettier-config/0.0.15_kcm2pbg4372aakdkvxabn7z2ri:
-    resolution: {integrity: sha512-3Cl7rfdToWj0VB+1ugimgsVoHvIGtNrM4Ra2lU2l/BKKnW6802aXVgn72yAB/FWwWhej5UGoj73jdblzGWoRHQ==}
+  /@ckt1031/prettier-config/0.1.1_kcm2pbg4372aakdkvxabn7z2ri:
+    resolution: {integrity: sha512-1i10K4Wv+q72UF7jn5B8USWVzHtsQl/VxnaISi5by4gBla5WgUw7v7zdlZ0ZfLMFkJxuGXJ0KTa8x/fQXV7xwQ==}
     peerDependencies:
       prettier: 2.x
     dependencies:
       prettier: 2.8.4
       prettier-plugin-package-perfection: 1.1.0_eslint@8.33.0
-      prettier-plugin-prisma: 4.9.0_prettier@2.8.4
+      prettier-plugin-prisma: 4.10.0_prettier@2.8.4
       prettier-plugin-sort-json: 1.0.0_prettier@2.8.4
       prettier-plugin-tailwindcss: 0.2.2_prettier@2.8.4
     transitivePeerDependencies:
@@ -2533,8 +2533,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
-  /@prisma/prisma-fmt-wasm/4.9.0-44.b29121153404aa8eda60ec38e41e477cc1c0ee66:
-    resolution: {integrity: sha512-+bsLKaDvK46lVN8dv0FicmnbG5/si9A4ONXFd6sYLYX1T3+Z6H5eq+MRbXZOK993s1vJvTgD0LYcRHcieMeHDw==}
+  /@prisma/prisma-fmt-wasm/4.10.0-85.d02666423b9d2b618381d5bee85532527a012123:
+    resolution: {integrity: sha512-0ZBIrOQ3Glr4l7l/ehu+nl8EzJ/FgqNjlhVodEWCk649DVeb7+czOrpCDv+DJO3uU9Xai4mBQ5TifzYzGsndNQ==}
     dev: true
 
   /@rexxars/react-json-inspector/8.0.1_react@18.2.0:
@@ -9618,13 +9618,13 @@ packages:
       tslib: 2.5.0
     dev: true
 
-  /prettier-plugin-prisma/4.9.0_prettier@2.8.4:
-    resolution: {integrity: sha512-qR6/FyViOXi3KZZ8q/WsdjwPoVnjMl9YFj0DAa81t38qP3ySBrOcg23AxvFX5QCTjMslY/+HLuwgRuQqlDDBrw==}
+  /prettier-plugin-prisma/4.10.0_prettier@2.8.4:
+    resolution: {integrity: sha512-tSt7ILOdva2IXbHzzqsBxwSKgsbNQQGUwtCpKnFpjMACIjbX4ghZTM9jYuZMfByCjhv0IJLl+eQlfxO17rRLew==}
     engines: {node: '>=14'}
     peerDependencies:
       prettier: '>=2'
     dependencies:
-      '@prisma/prisma-fmt-wasm': 4.9.0-44.b29121153404aa8eda60ec38e41e477cc1c0ee66
+      '@prisma/prisma-fmt-wasm': 4.10.0-85.d02666423b9d2b618381d5bee85532527a012123
       prettier: 2.8.4
     dev: true
 
