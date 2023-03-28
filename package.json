@@ -28,7 +28,7 @@
     "@tabler/icons-react": "2.11.0",
     "@wits/next-themes": "0.2.16",
     "clsx": "1.2.1",
-    "contentlayer": "0.3.0",
+    "contentlayer": "0.3.1",
     "cssnano": "5.1.15",
     "csstype": "3.1.1",
     "dayjs": "1.11.7",
