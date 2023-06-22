@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: { number: string } 
 
   return {
     title: `Posts Page: ${params.number}`,
-    description: hasPosts ? 'Posts for cktidy' : 'No posts found',
+    description: hasPosts ? 'Posts for ckt1031' : 'No posts found',
   };
 }
 

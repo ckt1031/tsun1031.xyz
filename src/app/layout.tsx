@@ -31,7 +31,7 @@ const notoSansSC = Noto_Sans_SC({
 export const metadata: Metadata = {
   title: {
     default: "Cktsun's Site",
-    template: '%s - Cktidy',
+    template: '%s - ckt1031',
   },
   robots: {
     index: true,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   manifest: `${config.url}/site.webmanifest`,
   twitter: {
-    title: 'cktidy',
+    title: 'ckt1031',
     card: 'summary_large_image',
   },
   openGraph: {

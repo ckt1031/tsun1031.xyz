@@ -10,7 +10,7 @@ const components = {
   ) => (
     <Image
       src={props.src ?? ''}
-      alt={props.alt ?? 'cktidy'}
+      alt={props.alt ?? 'ckt1031'}
       blurEnabled
       enableLightBox
       layout="responsive"

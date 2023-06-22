@@ -1,4 +1,4 @@
-# cktidy.xyz
+# ckt1031.xyz
 
 [![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react)](https://reactjs.org)
@@ -11,7 +11,7 @@ Currently hosted on [Vercel](https://vercel.com).
 
 ## Official Website
 
-Visit the official website [here](https://cktidy.xyz).
+Visit the official website [here](https://ckt1031.xyz).
 
 ## Get Started
 
