@@ -4,7 +4,7 @@ export const isDevelopment = process.env.NODE_ENV === 'development';
 
 export const config = {
   author: {
-    email: 'me@cktidy.xyz',
+    email: 'me@ckt1031.xyz',
     name: 'cktsun',
     social: {
       discordServer: 'https://discord.gg/Y2ZnZc5Nnh',
@@ -35,7 +35,7 @@ export const config = {
       href: UrlObject;
     }[],
   },
-  github_project_url: 'https://github.com/ckt1031/cktidy.xyz',
+  github_project_url: 'https://github.com/ckt1031/ckt1031.xyz',
   headbar: {
     routes: [
       {
@@ -59,13 +59,13 @@ export const config = {
       href: UrlObject;
     }[],
   },
-  name: 'cktidy',
-  siteName: 'ckt',
+  name: 'ckt1031',
+  siteName: 'ckt1031',
   twitter: '@cktsun1031',
-  url: 'https://cktidy.xyz',
+  url: 'https://ckt1031.xyz',
   projects: [
     {
-      github: 'https://github.com/ckt1031/cktidy.xyz',
+      github: 'https://github.com/ckt1031/ckt1031.xyz',
       tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     },
     {
@@ -86,7 +86,7 @@ export const config = {
       tags: ['Discord.js', 'Express.js', 'TypeScript', 'Node.js'],
     },
     {
-      github: 'https://github.com/ckt1031/cktidy.xyz-sanity',
+      github: 'https://github.com/ckt1031/sanity-studio',
       tags: ['Sanity'],
     },
     {

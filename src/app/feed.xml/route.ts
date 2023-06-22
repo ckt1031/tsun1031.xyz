@@ -32,7 +32,7 @@ export async function GET() {
     },
     copyright: `©${new Date().getFullYear()} ${config.author.name}`,
     description: config.description,
-    generator: 'Cktidy RSS Generator',
+    generator: 'Ckt1031 RSS Generator',
     id: config.url,
     link: config.url,
     title: "ckt1031's personal site",
