@@ -66,11 +66,19 @@ export const config = {
   projects: [
     {
       github: 'https://github.com/ckt1031/ckt1031.xyz',
-      tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      tags: ['Next.js', 'Tailwind CSS'],
     },
     {
       github: 'https://github.com/ckt1031/nodejs-config',
-      tags: ['ESLint', 'Prettier', 'TypeScript', 'Node.js'],
+      tags: ['ESLint', 'Prettier', 'Node.js'],
+    },
+    {
+      github: 'https://github.com/ckt1031/obsidian-wordwise-plugin',
+      tags: ['Obsidian', 'OpenAI'],
+    },
+    {
+      github: 'https://github.com/ckt1031/cktsun-helper',
+      tags: ['Node.js', 'Discord.js', 'OpenAI', 'RSS'],
     },
     {
       github: 'https://github.com/ckt1031/android-toolbox',
@@ -79,11 +87,11 @@ export const config = {
     },
     {
       github: 'https://github.com/ckt1031/DraconianBot',
-      tags: ['Discord.js', 'TypeScript', 'Node.js'],
+      tags: ['Discord.js', 'Node.js'],
     },
     {
       github: 'https://github.com/ckt1031/discord-captcha-site',
-      tags: ['Discord.js', 'Express.js', 'TypeScript', 'Node.js'],
+      tags: ['Discord.js', 'Express.js', 'Node.js'],
     },
     {
       github: 'https://github.com/ckt1031/sanity-studio',
