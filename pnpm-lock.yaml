@@ -21,8 +21,8 @@ dependencies:
     specifier: 0.6.0
     version: 0.6.0(typescript@5.1.6)(zod@3.21.4)
   '@tabler/icons-react':
-    specifier: 2.26.0
-    version: 2.26.0(react@18.2.0)
+    specifier: 2.29.0
+    version: 2.29.0(react@18.2.0)
   '@wits/next-themes':
     specifier: 0.2.16
     version: 0.2.16(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
@@ -1413,18 +1413,18 @@ packages:
       zod: 3.21.4
     dev: false
 
-  /@tabler/icons-react@2.26.0(react@18.2.0):
-    resolution: {integrity: sha512-IRhaSfCIRy2uMcUHQxJBSrQWh7KcTFFpGGqvYf+5YITWgr7HD2ipuBCR9d5MYx9o6DqM/B+9kKaUU63JA+dt0A==}
+  /@tabler/icons-react@2.29.0(react@18.2.0):
+    resolution: {integrity: sha512-qApkLT6STXr8lL9/2JM+DTECfuGNhL8WRzMPs4twh1M1m64jeYRGRYpYPGYnI4GtwxqO3IuPKzos2XXcLb0C7Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tabler/icons': 2.26.0
+      '@tabler/icons': 2.29.0
       prop-types: 15.8.1
       react: 18.2.0
     dev: false
 
-  /@tabler/icons@2.26.0:
-    resolution: {integrity: sha512-fYUgqy2txHrFLxhO54lFbNCLdTIf0WtEwABdQ70fH/C6WvGDWpXSln7ntUwK1Z3MNtBkoyXUhtJgtue1yP8Gww==}
+  /@tabler/icons@2.29.0:
+    resolution: {integrity: sha512-HhDdIFzL8UmliujHEcPzoWypLmnO9MXFipYzwRnjAYXYpU68Kiw5KROtVxJ3h2cXTXj6ZMQZgXPdr3CEhBCCJw==}
     dev: false
 
   /@tailwindcss/typography@0.5.9(tailwindcss@3.3.3):
@@ -6549,7 +6549,7 @@ packages:
       eslint: 8.45.0
       prettier: 2.8.8
       prettier-package-json: 2.6.0
-      tslib: 2.6.0
+      tslib: 2.6.1
     dev: true
 
   /prettier-plugin-prisma@4.13.0(prettier@3.0.0):
@@ -7707,6 +7707,10 @@ packages:
 
   /tslib@2.6.0:
     resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
+
+  /tslib@2.6.1:
+    resolution: {integrity: sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==}
+    dev: true
 
   /tsutils@3.21.0(typescript@5.1.6):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
