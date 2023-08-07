@@ -26,7 +26,7 @@
     "@next/env": "13.4.13",
     "@sanity/client": "6.4.0",
     "@sanity/image-url": "1.0.2",
-    "@sentry/nextjs": "7.61.0",
+    "@sentry/nextjs": "7.61.1",
     "@t3-oss/env-nextjs": "0.6.0",
     "@tabler/icons-react": "2.30.0",
     "@wits/next-themes": "0.2.16",
