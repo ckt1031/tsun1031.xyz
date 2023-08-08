@@ -9,8 +9,8 @@ dependencies:
     specifier: 13.4.13
     version: 13.4.13
   '@sanity/client':
-    specifier: 6.4.0
-    version: 6.4.0
+    specifier: 6.4.4
+    version: 6.4.4
   '@sanity/image-url':
     specifier: 1.0.2
     version: 1.0.2
@@ -1215,12 +1215,12 @@ packages:
     resolution: {integrity: sha512-IthPJsJR85GhOkp3Hvp8zFOPK5ynKn6STyHa/WZpioK7E1aYDiBzpqQPrngc14DszIUkIrdd3k9Iu0XSzlP/1w==}
     dev: true
 
-  /@sanity/client@6.4.0:
-    resolution: {integrity: sha512-nmu9/gtKPruR6CROvKAqvK/vYfEMMi/La8k/w/leQpRtKySivOIsWX+BT7S5xvK+9wBn0Q8dj9L64no3SEa5vg==}
+  /@sanity/client@6.4.4:
+    resolution: {integrity: sha512-A+BZY68/6fOf+UZqx5cjMcBMTmpsdL3HHa1P6phtnnzYjzV3xP3WQ+NVi0U6PgahnEH5aSW6y882QUsBS8jYpQ==}
     engines: {node: '>=14.18'}
     dependencies:
       '@sanity/eventsource': 5.0.0
-      get-it: 8.3.1
+      get-it: 8.4.1
       rxjs: 7.8.1
     transitivePeerDependencies:
       - supports-color
@@ -3933,8 +3933,8 @@ packages:
       has-symbols: 1.0.3
     dev: true
 
-  /get-it@8.3.1:
-    resolution: {integrity: sha512-fi5wQakZVHWRy3zP0env52PHXP9Zl/p8Q2Ow8z9SmwpYgfCaA90hCSW2twC5/cpV5M1wB6tSmLqldVMP1tS1qw==}
+  /get-it@8.4.1:
+    resolution: {integrity: sha512-B81/lof6jHW2/YyvH4gzKclBMdHNl2B4hRpuIiwVYtZjUiV5mBAQa2GTX6EPTuNhPxw8K5c14cJAFUa78b4A/g==}
     engines: {node: '>=14.0.0'}
     dependencies:
       debug: 4.3.4
