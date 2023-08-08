@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon';
+
+import config from '@/config';
+
+const footerSocialLinks = [
+  {
+    href: config.social.instagram,
+    icon: 'tabler:brand-instagram',
+  },
+  {
+    href: config.social.github,
+    icon: 'tabler:brand-github',
+  },
+  {
+    href: config.social.youtube,
+    icon: 'tabler:brand-youtube',
+  },
+  {
+    href: config.social.feed,
+    icon: 'tabler:rss',
+  },
+];
+---
+
+<footer class="footer-default">
+  <div class="flex flex-row gap-3">
+    {
+      footerSocialLinks.map(({ href, icon }) => (
+        <a href={href}>
+          <Icon name={icon} size={23} />
+        </a>
+      ))
+    }
+  </div>
+  <div class="flex flex-col items-center justify-center gap-1 sm:flex-row sm:gap-3">
+    {
+      config.footer.routes.map(item => {
+        return (
+          <span>
+            <a href={item.href} class="text-sm text-blue-600 dark:text-blue-400">
+              {item.name}
+            </a>
+          </span>
+        );
+      })
+    }
+  </div>
+  <p>
+    &copy; {new Date().getFullYear()}
+    {config.author}
+  </p>
+</footer>

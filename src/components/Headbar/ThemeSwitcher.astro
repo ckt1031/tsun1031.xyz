@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div
+  class="flex items-center justify-center rounded-lg ring-gray-300 hover:bg-gray-200 hover:dark:bg-gray-800"
+>
+  <button type="button" id="themeToggle" aria-label="Toggle Theme Mode" class="base-button-animation p-2">
+    <Icon name="tabler:sun" id="sun" size={24} />
+    <Icon name="tabler:moon" id="moon" size={24} />
+  </button>
+</div>
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  })();
+
+  const toggleTheme = theme => {
+    // set documentElement data-theme="light"
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.setProperty('color-scheme', theme);
+
+    // If dark, set the id="sun" class hidden
+    if (theme === 'dark') {
+      document.getElementById('sun').classList.add('hidden');
+      document.getElementById('moon').classList.remove('hidden');
+    } else {
+      document.getElementById('sun').classList.remove('hidden');
+      document.getElementById('moon').classList.add('hidden');
+    }
+  };
+
+  toggleTheme(theme);
+
+  window.localStorage.setItem('theme', theme);
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    const isDark = element.getAttribute('data-theme') === 'dark';
+
+    toggleTheme(isDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  };
+
+  document.getElementById('themeToggle').addEventListener('click', handleToggleClick);
+</script>

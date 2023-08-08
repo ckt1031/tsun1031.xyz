@@ -1,0 +1,99 @@
+---
+import { Icon } from 'astro-icon';
+import { z } from 'zod';
+
+import PageTitle from '@/components/PageTitle.astro';
+import config from '@/config';
+import MainLayout from '@/layouts/main.astro';
+
+const GithubRepositoryDataSchema = z.object({
+  name: z.string(),
+  language: z.string(),
+  description: z.string(),
+  pushed_at: z.coerce.date(),
+});
+
+const getIconByLanguage = (language: string) => {
+  switch (language) {
+    case 'TypeScript': {
+      return 'tabler:brand-javascript';
+    }
+    case 'JavaScript': {
+      return 'tabler:brand-javascript';
+    }
+    case 'Kotlin': {
+      return 'tabler:brand-kotlin';
+    }
+    case 'Python': {
+      return 'tabler:brand-python';
+    }
+    default: {
+      return 'tabler:code';
+    }
+  }
+};
+
+const projectsFetching = await Promise.all(
+  config.projects.map(async project => {
+    const response = await fetch(project.github.replace('github.com', 'api.github.com/repos'));
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${project.github} (${response.status})`);
+    }
+
+    const _json = await response.json();
+    const repoInfo = GithubRepositoryDataSchema.parse(_json);
+
+    return {
+      ...project,
+      name: repoInfo.name,
+      description: repoInfo.description,
+      pushed_at: repoInfo.pushed_at,
+      language: repoInfo.language,
+      icon: getIconByLanguage(repoInfo.language),
+    };
+  }),
+);
+
+// Sort projects by last updated date
+const projects = projectsFetching.sort((a, b) => b.pushed_at.getTime() - a.pushed_at.getTime());
+---
+
+<MainLayout>
+  <div class="mt-5 flex w-full flex-col items-center text-left">
+    <PageTitle
+      title="Projects"
+      description="You can have a quick look of what projects I have been working on."
+    />
+    <div class="mb-10 mt-3 w-full space-y-5 text-left">
+      {
+        projects.map(project => (
+          <div class="base-border flex flex-col space-y-2 rounded-md border p-5 duration-150 hover:bg-gray-200 dark:hover:bg-gray-800">
+            <div class="flex flex-row items-center space-x-2">
+              <a
+                class="text-xl font-bold hover:underline"
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {project.name}
+              </a>
+            </div>
+            <div class="flex flex-row gap-1">
+              <Icon name={project.icon} size={22} />
+              <span>{project.language}</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400">{project.description}</p>
+            <div class="flex flex-row flex-wrap gap-2">
+              {project.tags.map(tag => (
+                <span class="base-border rounded-full border bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>
