@@ -1,0 +1,45 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/noto-sans-tc';
+import '@/styles/main.css';
+
+import Footer from '@/components/Footer.astro';
+import Headbar from '@/components/Headbar.astro';
+import config from '@/config';
+
+const { metaDescription } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" href={config.siteIconPublicPath} />
+    <link rel="icon" type="image/svg+xml" href={config.siteIconPublicPath} />
+    <link rel="alternate icon" type="image/x-icon" href={config.siteIconPublicPath} />
+
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <title>{config.siteTitle}</title>
+    <meta name="description" content={metaDescription} />
+
+    <meta property="og:title" content={config.siteTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={config.url} />
+
+    <style>
+      body {
+        font-family: 'Inter Variable', 'Noto Sans TC', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="root">
+    <Headbar />
+    <main class="m-auto flex w-full max-w-[800px] flex-1 flex-col items-center px-5">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -7,15 +7,17 @@
   "author": "ckt1031",
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "astro": "astro",
+    "build": "astro build",
     "commit": "cz",
-    "dev": "next dev -p 4072",
+    "dev": "astro dev",
     "format": "prettier . -w",
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint --fix .",
     "prepare": "is-ci || husky install",
-    "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "start": "astro dev",
+    "typecheck": "tsc --noEmit",
+    "preview": "astro preview"
   },
   "config": {
     "commitizen": {
@@ -23,39 +25,16 @@
     }
   },
   "dependencies": {
-    "@next/env": "13.4.12",
-    "@sanity/client": "6.2.0",
-    "@sanity/image-url": "1.0.2",
-    "@sentry/nextjs": "7.60.1",
-    "@t3-oss/env-nextjs": "0.6.0",
-    "@tabler/icons-react": "2.30.0",
-    "@wits/next-themes": "0.2.16",
+    "@astrojs/mdx": "0.19.7",
+    "@astrojs/rss": "2.4.4",
+    "@astrojs/sitemap": "2.0.1",
+    "@astrojs/tailwind": "4.0.0",
+    "@fontsource-variable/inter": "5.0.8",
+    "@fontsource/noto-sans-tc": "5.0.7",
+    "astro": "2.10.3",
+    "astro-icon": "0.8.1",
     "clsx": "2.0.0",
-    "cssnano": "6.0.1",
-    "csstype": "3.1.2",
-    "dayjs": "1.11.9",
-    "esbuild": "0.18.17",
-    "feed": "4.2.2",
-    "fuse.js": "6.6.2",
     "is-ci": "3.0.1",
-    "next": "13.4.12",
-    "next-mdx-remote": "4.4.1",
-    "next-sitemap": "4.1.8",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-photo-view": "1.2.3",
-    "reading-time": "1.5.0",
-    "rehype-autolink-headings": "6.1.1",
-    "rehype-code-titles": "1.2.0",
-    "rehype-external-img-size": "0.1.0",
-    "rehype-external-links": "2.1.0",
-    "rehype-slug": "5.1.0",
-    "remark-gfm": "3.0.1",
-    "remark-normalize-headings": "3.0.1",
-    "remark-parse": "10.0.1",
-    "remark-unwrap-images": "3.0.1",
-    "s-ago": "2.2.0",
-    "server-only": "0.0.1",
     "zod": "3.21.4"
   },
   "devDependencies": {
@@ -75,11 +54,13 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "eslint-plugin-astro": "0.28.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
     "picocolors": "1.0.0",
     "postcss": "8.4.27",
     "prettier": "3.0.0",
+    "prettier-plugin-astro": "0.11.0",
     "tailwindcss": "3.3.3",
     "tsx": "3.12.7",
     "typescript": "5.1.6"
@@ -90,7 +71,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "next/core-web-vitals",
+      "plugin:astro/recommended",
       "@ckt1031/eslint-config/typescript-strict"
     ],
     "ignorePatterns": [
@@ -99,7 +80,26 @@
     "parserOptions": {
       "ecmaVersion": "latest",
       "project": "./tsconfig.json"
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.astro"
+        ],
+        "parser": "astro-eslint-parser",
+        "parserOptions": {
+          "parser": "@typescript-eslint/parser",
+          "extraFileExtensions": [
+            ".astro"
+          ]
+        },
+        "rules": {
+          "react/jsx-key": 0,
+          "unicorn/filename-case": 0,
+          "react/no-unknown-property": 0
+        }
+      }
+    ]
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -109,6 +109,5 @@
       "prettier -c"
     ]
   },
-  "packageManager": "pnpm@8.6.10",
-  "prettier": "@ckt1031/prettier-config"
+  "packageManager": "pnpm@8.6.10"
 }

@@ -1,0 +1,33 @@
+---
+import LinkComponent from '@/components/LinkComponent.astro';
+import PageTitle from '@/components/PageTitle.astro';
+import config from '@/config';
+import MainLayout from '@/layouts/main.astro';
+---
+
+<MainLayout>
+  <div class="mt-5 flex w-full flex-col items-center text-left">
+    <PageTitle
+      title="Technology"
+      description="You can have a quick look of what technologies I have been using when building this website."
+    />
+    <div class="mb-10 mt-3 w-full space-y-6 text-left">
+      <p>
+        This website is crafted using{' '}
+        <LinkComponent href="https://www.typescriptlang.org/">TypeScript</LinkComponent>
+         ,{' '}
+        <LinkComponent href="https://tailwindcss.com/">TailwindCSS</LinkComponent>
+         ,{' '}
+        <LinkComponent href="https://astro.build/">Astro</LinkComponent>{' '}
+         and{' '}
+        <LinkComponent href="https://reactjs.org/">React</LinkComponent>
+         .
+      </p>
+      <p>
+        The source code is hosted on{' '}
+        <LinkComponent href={config.github_project_url}>Github Repository</LinkComponent>
+         .
+      </p>
+    </div>
+  </div>
+</MainLayout>
