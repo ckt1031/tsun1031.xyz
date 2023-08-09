@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import sAgo from 's-ago';
 
 interface Props {
-  allPosts: CollectionEntry<"posts">[];
+  allPosts: CollectionEntry<'posts'>[];
 }
 
 const { allPosts } = Astro.props;
@@ -31,7 +31,7 @@ const { allPosts } = Astro.props;
                   {data.title}
                 </a>
                 {data.tags && (
-                  <div class="flex flex-row flex-wrap gap-2 my-2">
+                  <div class="my-2 flex flex-row flex-wrap gap-2">
                     {data.tags.map(tag => (
                       <a
                         href={`/posts/tags/${tag}`}
@@ -49,7 +49,7 @@ const { allPosts } = Astro.props;
             {data.heroImage && (
               <Image
                 alt="Thumbnail"
-                class="rounded-lg md:mt-0 w-full md:w-auto md:rounded"
+                class="w-full rounded-lg md:mt-0 md:w-auto md:rounded"
                 src={data.heroImage}
                 width={1600 * 0.2}
                 height={900 * 0.2}

@@ -13,7 +13,7 @@ const { href, className, external, ...rest } = Astro.props;
 
 <a
   href={href}
-  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
   class={clsx('text-blue-500 hover:underline dark:text-blue-300', className)}
   {...rest}
 >

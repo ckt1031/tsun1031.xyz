@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
-import MainLayout from '@/layouts/main.astro';
 import PostList from '@/components/Posts/List.astro';
+import MainLayout from '@/layouts/main.astro';
 
 const allPosts = (await getCollection('posts')).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
