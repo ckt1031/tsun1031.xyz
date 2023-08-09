@@ -1,0 +1,48 @@
+---
+import '@/styles/post.css';
+
+import { getCollection } from 'astro:content';
+import PageTitle from '@/components/PageTitle.astro';
+import MainLayout from '@/layouts/main.astro';
+import PostList from '@/components/Posts/List.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const tags = posts.reduce((acc, post) => {
+    if (!post.data.tags) return acc;
+
+    return [...acc, ...post.data.tags];
+  }, []);
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  return tags.map((t: string) => {
+    return {
+      params: {
+        slug: t,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+
+// get all posts with the same tag
+const posts = (await getCollection('posts')).filter(post => {
+  if (!post.data.tags || !slug) return false;
+
+  return post.data.tags.includes(slug);
+});
+---
+
+<MainLayout>
+  <div class="mt-5 w-full max-w-[1000px]">
+    <div class="mb-2">
+      <PageTitle title={`Tag: ${slug}`} />
+    </div>
+    <PostList allPosts={posts} />
+  </div>
+</MainLayout>

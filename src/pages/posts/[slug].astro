@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
 
 import MainLayout from '@/layouts/main.astro';
+import type { InferGetStaticPropsType } from 'astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -23,7 +24,9 @@ export async function getStaticPaths() {
   });
 }
 
-const { post, readingMinutes } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post, readingMinutes } = Astro.props as Props;
 const { Content } = await post.render();
 ---
 
@@ -52,20 +55,22 @@ const { Content } = await post.render();
     <div class="prose-neutral blog-style prose max-w-full dark:prose-dark">
       <Content />
     </div>
-    <div class="base-border mt-7 border-t">
-      <div class="mt-5">
-        <span>Tags:</span>
-        {
-          post.data.tags.map((tag: string) => (
-            <a
-              class="mr-2 rounded bg-gray-200 px-1 py-0.5 dark:text-white dark:bg-gray-700 border base-border"
-              href={`/posts/tags/${tag}`}
-            >
-              {tag}
-            </a>
-          ))
-        }
-      </div>
-    </div>
+    {
+      post.data.tags && (
+        <div class="base-border mt-7 border-t">
+          <div class="mt-5">
+            <span>Tags:</span>
+            {post.data.tags.map((tag: string) => (
+              <a
+                class="mr-2 rounded bg-gray-200 px-1 py-0.5 dark:text-white dark:bg-gray-700 border base-border"
+                href={`/posts/tags/${tag}`}
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </article>
 </MainLayout>
