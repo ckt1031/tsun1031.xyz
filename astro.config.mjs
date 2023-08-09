@@ -2,6 +2,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
+import robotsTxt from 'astro-robots-txt';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -11,6 +12,7 @@ import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
 
 export default defineConfig({
+  site: 'https://ckt1031.xyz',
   markdown: {
     rehypePlugins: [
       rehypeSlug,
@@ -32,7 +34,24 @@ export default defineConfig({
     ],
     remarkPlugins: [remarkGfm, remarkNormalizeHeadings, remarkParse],
   },
-  integrations: [tailwind(), sitemap(), mdx()],
+  integrations: [
+    tailwind(),
+    sitemap(),
+    mdx(),
+    robotsTxt({
+      sitemap: ['https://ckt1031.xyz/sitemap-index.xml'],
+      policy: [
+        {
+          userAgent: '*',
+          disallow: ['/404', '/api'],
+        },
+        {
+          userAgent: '*',
+          allow: ['/'],
+        },
+      ],
+    }),
+  ],
   experimental: {
     assets: true,
   },
