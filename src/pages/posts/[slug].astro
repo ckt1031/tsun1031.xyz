@@ -1,9 +1,11 @@
 ---
 import '@/styles/post.css';
-import { Image } from 'astro:assets'
+
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
-import { getCollection } from 'astro:content';
+
 import MainLayout from '@/layouts/main.astro';
 
 export async function getStaticPaths() {
@@ -13,9 +15,6 @@ export async function getStaticPaths() {
     const readingTime = readingTimeModule(p.body);
     const readingMinutes =
       readingTime.minutes >= 1 ? Math.round(readingTime.minutes) : 'Less than 1 ' + 'minutes';
-
-    // Date should be 2023-01-01 15:00 (+0100)
-    p.data.published = dayjs(p.data.published).format('YYYY-MM-DD HH:mm (Z)');
 
     return {
       params: { slug: p.slug },
@@ -33,7 +32,7 @@ const { Content } = await post.render();
     <div class="mb-3 min-w-max border-b border-gray-300 dark:border-gray-600">
       <div class="mb-2">
         <h1 class="text-2xl font-bold md:text-3xl">{post.data.title}</h1>
-        <p class="mt-2 text-gray-600 dark:text-gray-400">{post.data.published}</p>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">{dayjs(post.data.published).format('YYYY-MM-DD HH:mm (Z)')}</p>
         <p class="mt-1 italic text-slate-600 dark:text-slate-400">{readingMinutes}</p>
       </div>
       {
@@ -41,21 +40,21 @@ const { Content } = await post.render();
           <div class="relative mb-3 h-[250px] md:h-[450px]">
             <Image
               alt="Thumbnail"
-              class="absolute h-full w-full object-cover rounded-md"
+              class="absolute h-full w-full rounded-md object-cover"
               src={post.data.heroImage}
             />
           </div>
         )
       }
     </div>
-    <div class="prose prose-neutral max-w-full dark:prose-dark blog-style">
+    <div class="prose-neutral blog-style prose max-w-full dark:prose-dark">
       <Content />
     </div>
     <div class="base-border mt-7 border-t">
       <div class="mt-2">
         <span>Tags:</span>
         {
-          post.data.tags.map(tag => (
+          post.data.tags.map((tag: string) => (
             <span class="mr-2 rounded bg-gray-500 px-1 py-0.5 text-white dark:bg-gray-600">
               {tag}
             </span>

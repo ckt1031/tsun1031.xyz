@@ -1,13 +1,13 @@
 ---
-import sAgo from 's-ago';
 import { Image } from 'astro:assets';
-import clsx from 'clsx';
-import MainLayout from '@/layouts/main.astro';
-import PageTitle from '@/components/PageTitle.astro';
-
 import { getCollection } from 'astro:content';
+import clsx from 'clsx';
+import sAgo from 's-ago';
 
-const allPosts = (await getCollection('posts')).sort((a, b) => b.published - a.published);
+import PageTitle from '@/components/PageTitle.astro';
+import MainLayout from '@/layouts/main.astro';
+
+const allPosts = (await getCollection('posts')).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
 ---
 
 <MainLayout>

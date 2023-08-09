@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro build",
+    "build": "astro check && tsc --noEmit && astro build",
     "commit": "cz",
     "dev": "astro dev",
     "format": "prettier . -w",
@@ -16,7 +16,7 @@
     "lint": "eslint --fix .",
     "prepare": "is-ci || husky install",
     "start": "astro dev",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "astro check && tsc --noEmit",
     "preview": "astro preview"
   },
   "config": {
@@ -50,6 +50,7 @@
     "zod": "3.21.4"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "1.1.1",
     "@ckt1031/eslint-config": "1.1.11",
     "@ckt1031/prettier-config": "1.1.11",
     "@ckt1031/tsconfig": "1.1.11",
@@ -57,7 +58,7 @@
     "@commitlint/config-conventional": "17.6.7",
     "@tailwindcss/typography": "0.5.9",
     "@types/is-ci": "3.0.0",
-    "@types/node": "20.4.8",
+    "@types/node": "20.4.9",
     "@types/react": "18.2.19",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
