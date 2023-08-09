@@ -1,7 +1,7 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import { defineConfig } from 'astro/config';
+import { defineConfig, sharpImageService } from 'astro/config';
 import robotsTxt from 'astro-robots-txt';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeCodeTitles from 'rehype-code-titles';
@@ -54,5 +54,8 @@ export default defineConfig({
   ],
   experimental: {
     assets: true,
+  },
+  image: {
+    service: sharpImageService(),
   },
 });
