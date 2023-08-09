@@ -37,6 +37,7 @@
     "clsx": "2.0.0",
     "dayjs": "1.11.9",
     "is-ci": "3.0.1",
+    "markdown-it": "13.0.1",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "6.1.1",
     "rehype-code-titles": "1.2.0",
@@ -46,6 +47,7 @@
     "remark-normalize-headings": "3.0.1",
     "remark-parse": "10.0.2",
     "s-ago": "2.2.0",
+    "sanitize-html": "2.11.0",
     "sharp": "0.32.4",
     "zod": "3.21.4"
   },
