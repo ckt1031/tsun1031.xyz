@@ -8,15 +8,14 @@ interface Props {
   [key: string]: any;
 }
 
-const { href, className, ...rest } = Astro.props;
+const { href, className, external, ...rest } = Astro.props;
 ---
 
-<span>
-  <a
-    href={href}
-    class={clsx('text-blue-500 hover:underline dark:text-blue-300', className)}
-    {...rest}
-  >
-    <slot />
-  </a>
-</span>
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  class={clsx('text-blue-500 hover:underline dark:text-blue-300', className)}
+  {...rest}
+>
+  <slot />
+</a>
