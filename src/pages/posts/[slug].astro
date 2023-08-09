@@ -1,5 +1,6 @@
 ---
 import '@/styles/post.css';
+import { Image } from 'astro:assets'
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
 import { getCollection } from 'astro:content';
@@ -38,7 +39,7 @@ const { Content } = await post.render();
       {
         post.data.heroImage && (
           <div class="relative mb-3 h-[250px] md:h-[450px]">
-            <img
+            <Image
               alt="Thumbnail"
               class="absolute h-full w-full object-cover rounded-md"
               src={post.data.heroImage}
