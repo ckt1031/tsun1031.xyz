@@ -32,7 +32,13 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [remarkGfm, remarkNormalizeHeadings, remarkParse],
+    remarkPlugins: [
+      remarkGfm,
+      remarkNormalizeHeadings,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      remarkParse,
+    ],
   },
   integrations: [
     tailwind(),

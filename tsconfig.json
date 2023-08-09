@@ -10,12 +10,12 @@
       "@components/*": ["./src/components/*"],
       "@/*": ["./src/*"]
     },
+    "strictNullChecks": true,
     "plugins": [
       {
-        "name": "next"
+        "name": "@astrojs/ts-plugin"
       }
-    ],
-    "strictNullChecks": true
+    ]
   },
   "moduleResolution": "node",
   "exclude": ["node_modules"],
