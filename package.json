@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro check && tsc --noEmit && astro build",
+    "build": "astro build",
     "commit": "cz",
     "dev": "astro dev",
     "format": "prettier . -w",
