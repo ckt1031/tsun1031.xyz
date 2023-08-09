@@ -17,42 +17,44 @@ import { Icon } from 'astro-icon';
 </div>
 
 <script>
-  const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+  // Function to get the current theme
+  const getTheme = () => {
+    if (localStorage && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') ?? 'light';
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  })();
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
 
+  // Function to toggle the theme
   const toggleTheme = (theme: string) => {
-    // set documentElement data-theme="light"
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.style.setProperty('color-scheme', theme);
 
-    // If dark, set the id="sun" class hidden
+    const sunIcon = document.getElementById('sun-theme-toggle-id');
+    const moonIcon = document.getElementById('moon-theme-toggle-id');
+
     if (theme === 'dark') {
-      document.getElementById('sun-theme-toggle-id')?.classList.add('hidden');
-      document.getElementById('moon-theme-toggle-id')?.classList.remove('hidden');
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
     } else {
-      document.getElementById('sun-theme-toggle-id')?.classList.remove('hidden');
-      document.getElementById('moon-theme-toggle-id')?.classList.add('hidden');
+      sunIcon?.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
     }
   };
 
-  toggleTheme(theme);
+  // Get the current theme and apply it
+  const currentTheme = getTheme();
+  toggleTheme(currentTheme);
+  localStorage.setItem('theme', currentTheme);
 
-  window.localStorage.setItem('theme', theme);
-
+  // Function to handle the theme toggle click
   const handleThemeToggleClick = () => {
-    const element = document.documentElement;
-    const isDark = element.getAttribute('data-theme') === 'dark';
-
-    toggleTheme(isDark ? 'light' : 'dark');
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    toggleTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
+  // Add event listener to the theme toggle button
   document.getElementById('themeToggle')?.addEventListener('click', handleThemeToggleClick);
 </script>

@@ -3,7 +3,7 @@
 
 const config = {
   url: import.meta.env.VITE_SITE_URL, // Site domain. Do not include a trailing slash!
-  author: 'ckt1031', // Your name.
+  author: 'cktsun', // Your name.
   siteTitle: 'ckt1031', // Site title.
   siteIconPublicPath: '/favicon.ico', // Path to the public folder, where the site icon is located.
 

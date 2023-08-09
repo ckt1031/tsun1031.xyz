@@ -1,0 +1,31 @@
+.blog-style {
+  @apply flex flex-col gap-3;
+}
+
+.blog-style h1 {
+  @apply text-3xl font-bold;
+}
+
+.blog-style h2 {
+  @apply text-2xl font-bold;
+}
+
+.blog-style h3 {
+  @apply text-xl font-bold;
+}
+
+.blog-style h4 {
+  @apply text-lg font-bold;
+}
+
+.blog-style h5 {
+  @apply text-base font-bold;
+}
+
+.blog-style h6 {
+  @apply font-semibold;
+}
+
+.blog-style p {
+  @apply text-base;
+}
