@@ -1,13 +1,13 @@
 ---
 import '@/styles/post.css';
 
+import type { InferGetStaticPropsType } from 'astro';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
 
 import MainLayout from '@/layouts/main.astro';
-import type { InferGetStaticPropsType } from 'astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post, readingMinutes } = Astro.props as Props;
+const { post, readingMinutes } = Astro.props ;
 const { Content } = await post.render();
 ---
 
@@ -36,7 +36,7 @@ const { Content } = await post.render();
       <div class="mb-2">
         <h1 class="text-2xl font-bold md:text-3xl">{post.data.title}</h1>
         <p class="mt-2 text-gray-600 dark:text-gray-400">
-          {dayjs(post.data.published as Date).format('YYYY-MM-DD HH:mm (Z)')}
+          {dayjs(post.data.published ).format('YYYY-MM-DD HH:mm (Z)')}
         </p>
         <p class="mt-1 italic text-slate-600 dark:text-slate-400">{readingMinutes}</p>
       </div>
@@ -62,7 +62,7 @@ const { Content } = await post.render();
             <span>Tags:</span>
             {post.data.tags.map((tag: string) => (
               <a
-                class="mr-2 rounded bg-gray-200 px-1 py-0.5 dark:text-white dark:bg-gray-700 border base-border"
+                class="base-border mr-2 rounded border bg-gray-200 px-1 py-0.5 dark:bg-gray-700 dark:text-white"
                 href={`/posts/tags/${tag}`}
               >
                 {tag}
