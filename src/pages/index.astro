@@ -1,13 +1,14 @@
 ---
+import { Image } from 'astro:assets'
 import Avatar from '@/assets/avatar.png';
 import MainLayout from '@/layouts/main.astro';
 ---
 
 <MainLayout>
   <div class="my-10 flex flex-col items-center justify-center text-center">
-    <img
+    <Image
       alt="ckt"
-      src={Avatar.src}
+      src={Avatar}
       class="h-32 w-32 rounded-full"
       height={150}
       width={150}

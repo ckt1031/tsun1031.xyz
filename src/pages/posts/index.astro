@@ -1,5 +1,6 @@
 ---
 import sAgo from 's-ago';
+import { Image } from 'astro:assets';
 import clsx from 'clsx';
 import MainLayout from '@/layouts/main.astro';
 import PageTitle from '@/components/PageTitle.astro';
@@ -43,7 +44,7 @@ const allPosts = (await getCollection('posts')).sort((a, b) => b.published - a.p
                   </p>
                 </div>
                 {data.heroImage && (
-                  <img
+                  <Image
                     alt="Thumbnail"
                     class="rounded md:mt-0"
                     src={data.heroImage}
