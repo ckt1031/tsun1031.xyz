@@ -6,7 +6,6 @@ import '@/styles/main.css';
 import Footer from '@/components/Footer.astro';
 import Headbar from '@/components/Headbar.astro';
 import config from '@/config';
-
 ---
 
 <html lang="en">
@@ -28,7 +27,7 @@ import config from '@/config';
   </head>
   <body class="root">
     <Headbar />
-    <main class="m-auto flex w-full max-w-[800px] flex-1 flex-col items-center px-5">
+    <main class="m-auto flex w-full max-w-[800px] flex-1 flex-col items-center px-5" id="swup">
       <slot />
     </main>
     <Footer />
