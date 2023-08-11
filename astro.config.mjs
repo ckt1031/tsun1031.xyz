@@ -1,4 +1,5 @@
 import mdx from '@astrojs/mdx';
+import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig, sharpImageService } from 'astro/config';
@@ -44,6 +45,7 @@ export default defineConfig({
     tailwind(),
     sitemap(),
     mdx(),
+    prefetch(),
     robotsTxt({
       sitemap: ['https://ckt1031.xyz/sitemap-index.xml'],
       policy: [
