@@ -2,6 +2,7 @@ import mdx from '@astrojs/mdx';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import swup from '@swup/astro';
 import { defineConfig, sharpImageService } from 'astro/config';
 import robotsTxt from 'astro-robots-txt';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -45,6 +46,7 @@ export default defineConfig({
     tailwind(),
     sitemap(),
     mdx(),
+    swup(),
     prefetch(),
     robotsTxt({
       sitemap: ['https://ckt1031.xyz/sitemap-index.xml'],

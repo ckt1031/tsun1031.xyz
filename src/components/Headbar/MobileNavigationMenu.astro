@@ -3,8 +3,6 @@ import { Icon } from 'astro-icon';
 import clsx from 'clsx';
 
 import config from '@/config';
-
-const pathname = Astro.url.pathname;
 ---
 
 <div class="md:hidden">
@@ -30,17 +28,7 @@ const pathname = Astro.url.pathname;
         {
           config.headbar.routes.map(item => (
             <a href={item.href}>
-              <p
-                class={clsx(
-                  (pathname === '/'
-                    ? pathname === item.href
-                    : pathname.startsWith(item.href ?? '') && item.href !== '/') &&
-                    'text-orange-600',
-                  'cursor-pointer p-3 text-center',
-                )}
-              >
-                {item.name}
-              </p>
+              <p class={clsx('cursor-pointer p-3 text-center')}>{item.name}</p>
             </a>
           ))
         }
