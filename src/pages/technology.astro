@@ -3,15 +3,24 @@ import LinkComponent from '@/components/LinkComponent.astro';
 import PageTitle from '@/components/PageTitle.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
+import MainSEO from '@components/SEO/Main.astro';
+
+// Meta data
+const meta = {
+  title: 'Technology',
+  description:
+    'You can have a quick look of what technologies I have been using when building this website.',
+};
 ---
 
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
   <div class="mt-5 flex w-full flex-col items-center text-left">
     <PageTitle
       title="Technology"
       description="You can have a quick look of what technologies I have been using when building this website."
     />
-    <div class="mb-10 mt-3 w-full space-y-6 text-left">
+    <div class="mb-10 mt-3 w-full space-y-5 text-left">
       <p>
         This website is crafted using
         <LinkComponent external href="https://www.typescriptlang.org/">TypeScript</LinkComponent>

@@ -3,17 +3,24 @@ import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
+import MainSEO from '@components/SEO/Main.astro';
 
 const allPosts = await getCollection('posts');
 
 const allTags = [...new Set(allPosts.flatMap(post => post.data.tags))];
+
+// Meta data
+const meta = {
+  title: 'Available Tags for Posts',
+  description: 'A list of all tags used in posts on this site.',
+};
 ---
 
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
   <div class="my-5 w-full max-w-[1000px]">
     <div class="mb-2">
-      <PageTitle title="Available Tags for Posts"
-      />
+      <PageTitle title="Available Tags for Posts" />
     </div>
 
     <div class="flex flex-wrap gap-2">

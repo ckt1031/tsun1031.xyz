@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon';
 import PageTitle from '@/components/PageTitle.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
+import MainSEO from '@components/SEO/Main.astro';
 
 const socialMedia = [
   {
@@ -27,8 +28,16 @@ const socialMedia = [
     link: config.social.twitter,
   },
 ];
+
+// Meta data
+const meta = {
+  title: 'About Me',
+  description:
+    "Hey there! I'm cktsun, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me.",
+};
 ---
 
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
   <div class="mt-5 flex flex-col items-center">
     <PageTitle

@@ -1,0 +1,49 @@
+---
+import { SEO } from 'astro-seo';
+import config from '@/config';
+
+interface Props {
+  title: string;
+  description: string;
+  includeSiteTitle?: boolean;
+
+  // Article
+  published_time: string;
+  author: string[];
+  section: string;
+  tags: string[];
+  images: string[];
+}
+
+const { title, description, includeSiteTitle, published_time, author, section, tags, images } = Astro.props;
+---
+
+<head>
+  <SEO
+    title={includeSiteTitle ? `${config.siteTitle} - ${title}` : title}
+    canonical={config.url}
+    description={description}
+    openGraph={{
+      article: {
+        publishedTime: published_time,
+        authors: author,
+        section: section,
+        tags: tags,
+      },
+      basic: {
+        title: title,
+        type: 'website',
+        image: images[0],
+      },
+    }}
+    twitter={{
+      creator: config.twitter,
+    }}
+    extend={{
+      meta: [
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
+      ],
+    }}
+  />
+</head>

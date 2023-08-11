@@ -7,7 +7,6 @@ import Footer from '@/components/Footer.astro';
 import Headbar from '@/components/Headbar.astro';
 import config from '@/config';
 
-const { metaDescription } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,14 +19,6 @@ const { metaDescription } = Astro.props;
     <link rel="alternate icon" type="image/x-icon" href={config.siteIconPublicPath} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-
-    <title>{config.siteTitle}</title>
-    <meta name="description" content={metaDescription} />
-
-    <meta property="og:title" content={config.siteTitle} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={config.url} />
 
     <style>
       body {

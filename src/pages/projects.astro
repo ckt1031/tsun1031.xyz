@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon';
 import { z } from 'zod';
 
+import MainSEO from '@components/SEO/Main.astro';
 import PageTitle from '@/components/PageTitle.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
@@ -55,10 +56,17 @@ const projectsFetching = await Promise.all(
   }),
 );
 
+// Meta data
+const meta = {
+  title: 'Projects',
+  description: 'You can have a quick look of what projects I have been working on.',
+};
+
 // Sort projects by last updated date
 const projects = projectsFetching.sort((a, b) => b.pushed_at.getTime() - a.pushed_at.getTime());
 ---
 
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
   <div class="mt-5 flex w-full flex-col items-center text-left">
     <PageTitle
