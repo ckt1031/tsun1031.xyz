@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import PageTitle from '@/components/PageTitle.astro';
 import PostList from '@/components/Posts/List.astro';
 import MainLayout from '@/layouts/main.astro';
+import MainSEO from '@components/SEO/Main.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -33,8 +34,15 @@ const posts = (await getCollection('posts')).filter(post => {
 
   return post.data.tags.includes(slug);
 });
+
+// Meta data
+const meta = {
+  title: `Tag: ${slug}`,
+  description: `Posts tagged with #${slug}`,
+};
 ---
 
+<MainSEO title={meta.title} description={meta.description} />
 <MainLayout>
   <div class="mt-5 w-full max-w-[1000px]">
     <div class="mb-2">

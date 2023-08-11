@@ -4,12 +4,21 @@ import { getCollection } from 'astro:content';
 import PageTitle from '@/components/PageTitle.astro';
 import PostList from '@/components/Posts/List.astro';
 import MainLayout from '@/layouts/main.astro';
+import MainSEO from '@components/SEO/Main.astro';
 
 const allPosts = (await getCollection('posts')).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
+
+// Meta data
+const meta = {
+  title: 'Posts',
+  description:
+    'Welcome to my post, where I embark on a journey of sharing knowledge and meaningful insights with the world.',
+};
 ---
 
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
   <div class="mt-5 w-full max-w-[1000px]">
     <div class="mb-2">
