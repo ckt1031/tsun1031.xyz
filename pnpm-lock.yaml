@@ -84,8 +84,8 @@ dependencies:
     specifier: 0.32.4
     version: 0.32.4
   zod:
-    specifier: 3.22.0
-    version: 3.22.0
+    specifier: 3.22.1
+    version: 3.22.1
 
 devDependencies:
   '@astrojs/ts-plugin':
@@ -299,7 +299,7 @@ packages:
     resolution: {integrity: sha512-dFWtdFwN8kxDiqIxF8T8ODqsUr6hG+EQlFEqm+3oQkhAkucF9QkYLM5Q72mEbYytkL4jvKyHbW1u10T5sWBZew==}
     dependencies:
       sitemap: 7.1.1
-      zod: 3.22.0
+      zod: 3.22.1
     dev: false
 
   /@astrojs/tailwind@4.0.0(astro@2.10.7)(tailwindcss@3.3.3)(ts-node@10.9.1):
@@ -2169,7 +2169,7 @@ packages:
     resolution: {integrity: sha512-MJDcxBDjEKSp7Uvw32cnmkPHlmjQ/pW5JwzMhKEegFRoGaiSh2i1kkh1QEhk1UpGnAsSondWCoIt2xpG8qjSgA==}
     dependencies:
       valid-filename: 4.0.0
-      zod: 3.22.0
+      zod: 3.22.1
     dev: false
 
   /astro-seo@0.7.5:
@@ -2244,7 +2244,7 @@ packages:
       vitefu: 0.2.4(vite@4.4.9)
       which-pm: 2.0.0
       yargs-parser: 21.1.1
-      zod: 3.22.0
+      zod: 3.22.1
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8538,8 +8538,8 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
 
-  /zod@3.22.0:
-    resolution: {integrity: sha512-y5KZY/ssf5n7hCGDGGtcJO/EBJEm5Pa+QQvFBeyMOtnFYOSflalxIFFvdaYevPhePcmcKC4aTbFkCcXN7D0O8Q==}
+  /zod@3.22.1:
+    resolution: {integrity: sha512-+qUhAMl414+Elh+fRNtpU+byrwjDFOS1N7NioLY+tSlcADTx4TkCUua/hxJvxwDXcV4397/nZ420jy4n4+3WUg==}
     dev: false
 
   /zwitch@2.0.4:
