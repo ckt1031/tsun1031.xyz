@@ -75,7 +75,7 @@
     "eslint-config-next": "13.4.13",
     "eslint-plugin-astro": "0.28.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.3",
+    "lint-staged": "14.0.0",
     "picocolors": "1.0.0",
     "postcss": "8.4.27",
     "prettier": "3.0.1",
