@@ -63,7 +63,7 @@
     "@tailwindcss/typography": "0.5.9",
     "@types/is-ci": "3.0.0",
     "@types/markdown-it": "13.0.0",
-    "@types/node": "20.4.9",
+    "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@types/sanitize-html": "2.9.0",
