@@ -50,7 +50,7 @@
     "remark-parse": "10.0.2",
     "s-ago": "2.2.0",
     "sanitize-html": "2.11.0",
-    "sharp": "0.32.4",
+    "sharp": "0.32.5",
     "zod": "3.22.1"
   },
   "devDependencies": {
