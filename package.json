@@ -50,7 +50,7 @@
     "remark-parse": "10.0.2",
     "s-ago": "2.2.0",
     "sanitize-html": "2.11.0",
-    "sharp": "0.32.4",
+    "sharp": "0.32.5",
     "zod": "3.22.1"
   },
   "devDependencies": {
@@ -67,19 +67,18 @@
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@types/sanitize-html": "2.9.0",
-    "autoprefixer": "10.4.14",
+    "autoprefixer": "10.4.15",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
+    "eslint": "8.47.0",
     "eslint-plugin-astro": "0.28.0",
     "husky": "8.0.3",
     "lint-staged": "14.0.0",
     "picocolors": "1.0.0",
-    "postcss": "8.4.27",
+    "postcss": "8.4.28",
     "prettier": "3.0.2",
-    "prettier-plugin-astro": "0.11.0",
+    "prettier-plugin-astro": "0.11.1",
     "tailwindcss": "3.3.3",
     "tsx": "3.12.7",
     "typescript": "5.1.6"
@@ -92,9 +91,6 @@
     "extends": [
       "plugin:astro/recommended",
       "@ckt1031/eslint-config/typescript-strict"
-    ],
-    "ignorePatterns": [
-      "next-env.d.ts"
     ],
     "parserOptions": {
       "ecmaVersion": "latest",
