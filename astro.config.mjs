@@ -11,6 +11,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig({
   site: 'https://ckt1031.xyz',
@@ -65,5 +66,8 @@ export default defineConfig({
   },
   image: {
     service: sharpImageService(),
+  },
+  vite: {
+    plugins: [ViteImageOptimizer()],
   },
 });

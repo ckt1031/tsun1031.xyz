@@ -1,9 +1,9 @@
 ---
+import MainSEO from '@components/SEO/Main.astro';
 import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
-import MainSEO from '@components/SEO/Main.astro';
 
 const allPosts = await getCollection('posts');
 
