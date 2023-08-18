@@ -1,13 +1,11 @@
 # ckt1031.xyz
 
-[![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=fff&style=for-the-badge)](https://astro.build)
 [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-black?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
 A personal website showcasing information about me and my articles!
-
-Currently hosted on [Vercel](https://vercel.com).
 
 ## Official Website
 
