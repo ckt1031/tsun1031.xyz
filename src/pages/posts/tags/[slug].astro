@@ -1,12 +1,12 @@
 ---
 import '@/styles/post.css';
 
+import MainSEO from '@components/SEO/Main.astro';
 import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
 import PostList from '@/components/Posts/List.astro';
 import MainLayout from '@/layouts/main.astro';
-import MainSEO from '@components/SEO/Main.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
