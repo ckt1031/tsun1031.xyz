@@ -73,7 +73,7 @@ const { Content } = await post.render();
             <span>Tags:</span>
             {post.data.tags.map((tag: string) => (
               <a
-                class="base-border mr-2 rounded border bg-gray-200 px-1 py-0.5 dark:bg-gray-700 dark:text-white"
+                class="base-border rounded-lg border bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400"
                 href={`/posts/tags/${tag}`}
               >
                 {tag}
