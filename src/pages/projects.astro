@@ -73,35 +73,43 @@ const projects = projectsFetching.sort((a, b) => b.pushed_at.getTime() - a.pushe
       title="Projects"
       description="You can have a quick look of what projects I have been working on."
     />
-    <div class="mb-10 mt-3 w-full space-y-5 text-left">
-      {
-        projects.map(project => (
-          <div class="base-border flex flex-col space-y-2 rounded-md border p-5 duration-150 hover:bg-gray-200 dark:hover:bg-gray-800">
-            <div class="flex flex-row items-center space-x-2">
-              <a
-                class="text-xl font-bold hover:underline"
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {project.name}
-              </a>
+    <div class="mb-10 mt-3 w-full text-left">
+      <a href={config.social.github} target="_blank" rel="noreferrer" class="mb-3">
+        <img
+          src="https://ckt1031-github-readme-stats.vercel.app/api?username=ckt1031&show_icons=true&count_private=true&theme=dark"
+        />
+      </a>
+      <div class="border-b base-border my-4"></div>
+      <div class="space-y-5">
+        {
+          projects.map(project => (
+            <div class="base-border flex flex-col space-y-2 rounded-md border p-5 duration-150 hover:bg-gray-200 dark:hover:bg-gray-800">
+              <div class="flex flex-row items-center space-x-2">
+                <a
+                  class="text-xl font-bold hover:underline"
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {project.name}
+                </a>
+              </div>
+              <div class="flex flex-row gap-1">
+                <Icon name={project.icon} size={22} />
+                <span>{project.language}</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400">{project.description}</p>
+              <div class="flex flex-row flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span class="base-border rounded-full border bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div class="flex flex-row gap-1">
-              <Icon name={project.icon} size={22} />
-              <span>{project.language}</span>
-            </div>
-            <p class="text-gray-600 dark:text-gray-400">{project.description}</p>
-            <div class="flex flex-row flex-wrap gap-2">
-              {project.tags.map(tag => (
-                <span class="base-border rounded-full border bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
   </div>
 </MainLayout>
