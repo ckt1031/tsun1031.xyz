@@ -39,8 +39,8 @@ dependencies:
     specifier: 0.5.0
     version: 0.5.0
   astro-seo:
-    specifier: 0.7.5
-    version: 0.7.5
+    specifier: 0.8.0
+    version: 0.8.0
   clsx:
     specifier: 2.0.0
     version: 2.0.0
@@ -2161,8 +2161,8 @@ packages:
       zod: 3.22.2
     dev: false
 
-  /astro-seo@0.7.5:
-    resolution: {integrity: sha512-bo5PiB4Y30PP9QS6OnYcVOr1fKDE52mvJys/3HgeiM2h+/hS7jESUHZMx6VX7yRid1yMGHsp2OyVTA9DrdPyPg==}
+  /astro-seo@0.8.0:
+    resolution: {integrity: sha512-7gq6lhibCM8FuzZIJlbLLWP5EJ9KL2/4XqeFrAg9O6ZK2xMFxJ5ubKf+a0VJwwTu8W8Xr421CmpiXu6Hq7n/7Q==}
     dev: false
 
   /astro@2.10.14(@types/node@20.5.6)(sharp@0.32.5):
