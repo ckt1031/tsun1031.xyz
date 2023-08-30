@@ -27,8 +27,8 @@ dependencies:
     specifier: 5.0.8
     version: 5.0.8
   '@fontsource/noto-sans-tc':
-    specifier: 5.0.7
-    version: 5.0.7
+    specifier: 5.0.10
+    version: 5.0.10
   astro:
     specifier: 2.10.15
     version: 2.10.15(@types/node@20.5.7)(sharp@0.32.5)
@@ -1316,8 +1316,8 @@ packages:
     resolution: {integrity: sha512-WkYfFNccmEIeL2fNg0mYeLWqOoB7xD8MFxFRc4IwbSP2o8ZaBt36v5aW4by4MyrgGRMNk7uNi5LbvYKq6clPjw==}
     dev: false
 
-  /@fontsource/noto-sans-tc@5.0.7:
-    resolution: {integrity: sha512-Kireuo1IctzbeIyrDXKj+bz971mzubVFlKB2N/mxeiNxW1CNxRgMy8V+y2iWzvC3DvNHIEGSdziKHfAzO7fVBA==}
+  /@fontsource/noto-sans-tc@5.0.10:
+    resolution: {integrity: sha512-Q23meJKqpJDzAdr+nKNjgBE91Ovfx1X97E3K3W3amvX0C+hcnIUfEUidFsPojzlyhbl7Zf+HXPZeJxvE+t4kzQ==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:
