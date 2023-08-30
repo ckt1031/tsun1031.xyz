@@ -28,7 +28,7 @@
     "svgo": "2.8.0"
   },
   "dependencies": {
-    "@astrojs/mdx": "0.19.7",
+    "@astrojs/mdx": "1.0.0",
     "@astrojs/prefetch": "0.3.0",
     "@astrojs/rss": "2.4.4",
     "@astrojs/sitemap": "2.0.2",
