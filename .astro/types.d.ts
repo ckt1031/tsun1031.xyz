@@ -24,25 +24,6 @@ declare module 'astro:content' {
   type Flatten<T> = T extends { [K: string]: infer U } ? U : never;
   export type CollectionEntry<C extends keyof AnyEntryMap> = Flatten<AnyEntryMap[C]>;
 
-  // TODO: Remove this when having this fallback is no longer relevant. 2.3? 3.0? - erika, 2023-04-04
-  /**
-   * @deprecated
-   * `astro:content` no longer provide `image()`.
-   *
-   * Please use it through `schema`, like such:
-   * ```ts
-   * import { defineCollection, z } from "astro:content";
-   *
-   * defineCollection({
-   *   schema: ({ image }) =>
-   *     z.object({
-   *       image: image(),
-   *     }),
-   * });
-   * ```
-   */
-  export const image: never;
-
   // This needs to be in sync with ImageMetadata
   export type ImageFunction = () => import('astro/zod').ZodObject<{
     src: import('astro/zod').ZodString;
@@ -63,12 +44,9 @@ declare module 'astro:content' {
 
   type BaseSchemaWithoutEffects =
     | import('astro/zod').AnyZodObject
-    | import('astro/zod').ZodUnion<import('astro/zod').AnyZodObject[]>
+    | import('astro/zod').ZodUnion<[BaseSchemaWithoutEffects, ...BaseSchemaWithoutEffects[]]>
     | import('astro/zod').ZodDiscriminatedUnion<string, import('astro/zod').AnyZodObject[]>
-    | import('astro/zod').ZodIntersection<
-        import('astro/zod').AnyZodObject,
-        import('astro/zod').AnyZodObject
-      >;
+    | import('astro/zod').ZodIntersection<BaseSchemaWithoutEffects, BaseSchemaWithoutEffects>;
 
   type BaseSchema =
     | BaseSchemaWithoutEffects
