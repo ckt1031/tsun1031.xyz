@@ -28,6 +28,7 @@
     "svgo": "2.8.0"
   },
   "dependencies": {
+    "@astrojs/check": "0.2.0",
     "@astrojs/mdx": "1.0.0",
     "@astrojs/prefetch": "0.4.0",
     "@astrojs/rss": "3.0.0",
@@ -35,7 +36,7 @@
     "@astrojs/tailwind": "5.0.0",
     "@fontsource-variable/inter": "5.0.8",
     "@fontsource/noto-sans-tc": "5.0.10",
-    "astro": "2.10.15",
+    "astro": "3.0.3",
     "astro-icon": "0.8.1",
     "astro-robots-txt": "0.5.0",
     "astro-seo": "0.8.0",
