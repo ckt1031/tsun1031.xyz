@@ -1,5 +1,6 @@
 import mdx from '@astrojs/mdx';
 import prefetch from '@astrojs/prefetch';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig, sharpImageService } from 'astro/config';
@@ -44,6 +45,9 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
+    react({
+      experimentalReactChildren: true,
+    }),
     sitemap(),
     mdx(),
     prefetch(),
