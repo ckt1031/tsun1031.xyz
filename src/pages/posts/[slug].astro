@@ -1,12 +1,13 @@
 ---
 import '@/styles/post.css';
 
+import LightBox from '@components/Lightbox';
 import type { InferGetStaticPropsType } from 'astro';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
-import LightBox from '@components/Lightbox';
+
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
 

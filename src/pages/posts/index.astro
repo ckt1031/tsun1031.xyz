@@ -1,9 +1,9 @@
 ---
+import PostList from '@components/Posts/List';
 import MainSEO from '@components/SEO/Main.astro';
 import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
-import PostList from '@components/Posts/List';
 import MainLayout from '@/layouts/main.astro';
 
 const allPosts = (await getCollection('posts')).sort(
