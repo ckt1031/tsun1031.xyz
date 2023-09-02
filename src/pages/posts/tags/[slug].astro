@@ -5,7 +5,7 @@ import MainSEO from '@components/SEO/Main.astro';
 import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
-import PostList from '@/components/Posts/List.astro';
+import PostList from '@components/Posts/List';
 import MainLayout from '@/layouts/main.astro';
 
 export const prerender = true;
@@ -50,6 +50,6 @@ const meta = {
     <div class="mb-2">
       <PageTitle title={`Tag: ${slug}`} />
     </div>
-    <PostList allPosts={posts} />
+    <PostList allPosts={posts} client:only="react" />
   </div>
 </MainLayout>

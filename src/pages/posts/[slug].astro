@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
-
+import LightBox from '@components/Lightbox';
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
 
@@ -56,11 +56,13 @@ const { Content } = await post.render();
       {
         post.data.heroImage && (
           <div class="relative mb-3 h-[250px] md:h-[450px]">
-            <Image
-              alt="Thumbnail"
-              class="absolute h-full w-full rounded-md object-cover"
-              src={post.data.heroImage}
-            />
+            <LightBox src={post.data.heroImage.src} client:only="react">
+              <Image
+                alt="Thumbnail"
+                class="absolute h-full w-full rounded-md object-cover"
+                src={post.data.heroImage}
+              />
+            </LightBox>
           </div>
         )
       }
