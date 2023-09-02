@@ -110,8 +110,13 @@
       "project": "./tsconfig.json"
     },
     "rules": {
+      "deprecation/deprecation": 0,
       "unicorn/filename-case": 0
     },
+    "ignorePatterns": [
+      "dist",
+      "node_modules"
+    ],
     "overrides": [
       {
         "files": [
