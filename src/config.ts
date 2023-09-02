@@ -25,7 +25,7 @@ const config = {
   projects: [
     {
       github: 'https://github.com/ckt1031/ckt1031.xyz',
-      tags: ['Next.js', 'Tailwind CSS'],
+      tags: ['Astro', 'Tailwind CSS'],
     },
     {
       github: 'https://github.com/ckt1031/nodejs-config',
