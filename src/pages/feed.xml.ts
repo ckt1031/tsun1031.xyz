@@ -27,6 +27,5 @@ export async function GET(context: { site: string | URL }) {
       content: sanitizeHtml(parser.render(post.body)),
       link: `/posts/${post.slug}/`,
     })),
-    stylesheet: '/rss.xsl',
   });
 }
