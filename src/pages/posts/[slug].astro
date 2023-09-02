@@ -10,6 +10,8 @@ import readingTimeModule from 'reading-time';
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
 
@@ -70,10 +72,10 @@ const { Content } = await post.render();
       post.data.tags && (
         <div class="base-border mt-7 border-t">
           <div class="mt-5">
-            <span>Tags:</span>
+            <span>Tags: </span>
             {post.data.tags.map((tag: string) => (
               <a
-                class="base-border rounded-lg border bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+                class="base-border rounded border bg-gray-100 p-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400"
                 href={`/posts/tags/${tag}`}
               >
                 {tag}
