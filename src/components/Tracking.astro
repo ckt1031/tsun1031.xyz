@@ -1,10 +1,17 @@
+---
+
+---
+
 <!-- Sentry -->
+<div id="sentry-dsn" data-dsn={import.meta.env.VITE_SENTRY_DSN}></div>
 <script>
   import * as Sentry from '@sentry/browser';
-  
-  if (import.meta.env.SENTRY_DSN) {
+
+  const SENTRY_DSN = document.getElementById('sentry-dsn')?.dataset.dsn;
+
+  if (SENTRY_DSN) {
     Sentry.init({
-      dsn: import.meta.env.SENTRY_DSN,
+      dsn: SENTRY_DSN,
       tracesSampleRate: 0.5,
       // This sets the sample rate to be 10%. You may want this to be 100% while
       // in development and sample at a lower rate in production
@@ -13,6 +20,6 @@
       // sessions when an error occurs.
       replaysOnErrorSampleRate: 1.0,
       integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
-  });
-}
+    });
+  }
 </script>
