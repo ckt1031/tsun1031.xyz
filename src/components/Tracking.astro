@@ -5,11 +5,11 @@
 <!-- Sentry -->
 <div id="sentry-dsn" data-dsn={import.meta.env.VITE_SENTRY_DSN}></div>
 <script>
-  import * as Sentry from '@sentry/browser';
-
   const SENTRY_DSN = document.getElementById('sentry-dsn')?.dataset.dsn;
 
   if (SENTRY_DSN) {
+    const Sentry = await import('@sentry/browser');
+
     Sentry.init({
       dsn: SENTRY_DSN,
       tracesSampleRate: 0.5,
