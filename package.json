@@ -73,7 +73,7 @@
     "@ckt1031/tsconfig": "1.1.12",
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
-    "@tailwindcss/typography": "0.5.9",
+    "@tailwindcss/typography": "0.5.10",
     "@types/is-ci": "3.0.0",
     "@types/markdown-it": "13.0.1",
     "@types/node": "20.5.8",
