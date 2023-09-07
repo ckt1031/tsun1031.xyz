@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post, readingMinutes } = Astro.props;
+const { post, readingMinutes } = Astro.props as Props;
 const { Content } = await post.render();
 ---
 
@@ -44,6 +44,9 @@ const { Content } = await post.render();
   section={post.data.tags ? post.data.tags[0] : 'post'}
   images={[post.data.heroImage?.src ?? '']}
 />
+<head>
+  {post.data.heroImage && <link rel="preload" href={post.data.heroImage.src} as="image" />}
+</head>
 <MainLayout>
   <article class="mb-20 mt-5 w-full">
     <div class="mb-3 min-w-max border-b border-gray-300 dark:border-gray-600">
