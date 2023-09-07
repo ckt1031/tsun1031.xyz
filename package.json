@@ -38,6 +38,7 @@
     "@fontsource-variable/inter": "5.0.8",
     "@fontsource/noto-sans-tc": "5.0.10",
     "@sentry/browser": "7.68.0",
+    "@sentry/vite-plugin": "2.7.1",
     "@tabler/icons-react": "2.33.0",
     "astro": "3.0.10",
     "astro-icon": "0.8.1",
