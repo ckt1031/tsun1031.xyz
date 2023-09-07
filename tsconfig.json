@@ -6,19 +6,19 @@
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
-      "@layouts/*": ["./src/layouts/*"],
+      "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@/*": ["./src/*"]
+      "@layouts/*": ["./src/layouts/*"]
     },
-    "strictNullChecks": true,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
-  "moduleResolution": "node",
   "exclude": ["node_modules"],
   "extends": "@ckt1031/tsconfig/web.json",
-  "include": ["src", "*.js", "*.cjs", "*.ts", "*.mjs"]
+  "include": ["src", "*.js", "*.cjs", "*.ts", "*.mjs"],
+  "moduleResolution": "node"
 }
