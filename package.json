@@ -39,7 +39,7 @@
     "@fontsource/noto-sans-tc": "5.0.10",
     "@sentry/browser": "7.66.0",
     "@tabler/icons-react": "2.32.0",
-    "astro": "3.0.9",
+    "astro": "3.0.10",
     "astro-icon": "0.8.1",
     "astro-robots-txt": "0.5.0",
     "astro-seo": "0.8.0",
