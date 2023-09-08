@@ -1,8 +1,11 @@
+import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
+import node from '@astrojs/node';
 import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel/serverless';
 import { sentryVitePlugin } from '@sentry/vite-plugin';
 import { defineConfig, sharpImageService } from 'astro/config';
 import robotsTxt from 'astro-robots-txt';
@@ -14,6 +17,29 @@ import remarkGfm from 'remark-gfm';
 import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { sri } from 'vite-plugin-sri2';
+
+import { headers } from './src/custom-http-headers.mjs';
+
+const adapter = () => {
+  const output = process.env.OUTPUT;
+
+  switch (output) {
+    case 'cloudflare': {
+      return cloudflare();
+    }
+    case 'vercel': {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return vercel();
+    }
+    default: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return node({
+        mode: 'standalone',
+      });
+    }
+  }
+};
 
 export default defineConfig({
   site: 'https://ckt1031.xyz',
@@ -71,6 +97,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [
+      sri(),
       ViteImageOptimizer(),
       ...(process.env.SENTRY_AUTH_TOKEN
         ? sentryVitePlugin({
@@ -86,5 +113,10 @@ export default defineConfig({
     build: {
       sourcemap: true,
     },
+  },
+  output: 'server',
+  adapter: adapter(),
+  server: {
+    headers,
   },
 });
