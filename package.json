@@ -24,26 +24,23 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "resolutions": {
-    "svgo": "2.8.0"
-  },
   "dependencies": {
     "@astrojs/check": "0.2.0",
     "@astrojs/cloudflare": "7.0.2",
-    "@astrojs/mdx": "1.0.2",
+    "@astrojs/mdx": "1.0.3",
     "@astrojs/node": "6.0.0",
     "@astrojs/prefetch": "0.4.0",
-    "@astrojs/react": "3.0.1",
+    "@astrojs/react": "3.0.2",
     "@astrojs/rss": "3.0.0",
     "@astrojs/sitemap": "3.0.0",
     "@astrojs/tailwind": "5.0.0",
-    "@astrojs/vercel": "4.0.4",
+    "@astrojs/vercel": "4.0.5",
     "@fontsource-variable/inter": "5.0.8",
     "@fontsource/noto-sans-tc": "5.0.10",
     "@sentry/browser": "7.68.0",
     "@sentry/vite-plugin": "2.7.1",
     "@tabler/icons-react": "2.34.0",
-    "astro": "3.0.10",
+    "astro": "3.0.11",
     "astro-icon": "0.8.1",
     "astro-robots-txt": "0.5.0",
     "astro-seo": "0.8.0",
@@ -67,7 +64,6 @@
     "s-ago": "2.2.0",
     "sanitize-html": "2.11.0",
     "sharp": "0.32.5",
-    "svgo": "3.0.2",
     "vite-plugin-image-optimizer": "1.1.7",
     "vite-plugin-sri2": "1.0.0",
     "zod": "3.22.2"
