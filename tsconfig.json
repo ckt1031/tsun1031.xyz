@@ -19,6 +19,6 @@
   },
   "exclude": ["node_modules"],
   "extends": "@ckt1031/tsconfig/web.json",
-  "include": ["src", "*.js", "*.cjs", "*.ts", "*.mjs"],
+  "include": ["src", "*.js", "*.cjs", "*.ts", "*.mjs", "scripts"],
   "moduleResolution": "node"
 }
