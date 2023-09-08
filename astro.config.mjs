@@ -17,6 +17,7 @@ import remarkGfm from 'remark-gfm';
 import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { sri } from 'vite-plugin-sri2';
 
 import { headers } from './src/custom-http-headers.mjs';
 
@@ -96,6 +97,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [
+      sri(),
       ViteImageOptimizer(),
       ...(process.env.SENTRY_AUTH_TOKEN
         ? sentryVitePlugin({
