@@ -86,7 +86,7 @@
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.48.0",
+    "eslint": "8.49.0",
     "eslint-plugin-astro": "0.29.0",
     "husky": "8.0.3",
     "lint-staged": "14.0.1",
