@@ -126,8 +126,8 @@ dependencies:
     specifier: 1.1.7
     version: 1.1.7
   vite-plugin-sri2:
-    specifier: 1.0.0
-    version: 1.0.0
+    specifier: 1.1.0
+    version: 1.1.0
   zod:
     specifier: 3.22.2
     version: 3.22.2
@@ -8945,8 +8945,8 @@ packages:
       pathe: 1.1.1
     dev: false
 
-  /vite-plugin-sri2@1.0.0:
-    resolution: {integrity: sha512-3cfnxIWbfkRb/YCRzjA+jo5znEi0+hIXYTwzEAOAMS3gkJ6gDORNJ2RoQzseaxo6gdxA5K4N29My9bddlIj49g==}
+  /vite-plugin-sri2@1.1.0:
+    resolution: {integrity: sha512-NkjGSD8T/tZgPIZqVvwdCmKpYXx82dITj7yYyj+WWHs1oPVG8Ma6o6nUNjP3dE6HHJ7Cnwic2BUnLV3FpKXwtQ==}
     engines: {node: '>=18'}
     peerDependencies:
       vite: ^3.0.4
