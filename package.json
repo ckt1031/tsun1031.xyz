@@ -43,7 +43,7 @@
     "astro-seo": "0.8.0",
     "clsx": "2.0.0",
     "content-security-policy-builder": "2.1.1",
-    "dayjs": "1.11.9",
+    "dayjs": "1.11.10",
     "fuse.js": "6.6.2",
     "is-ci": "3.0.1",
     "markdown-it": "13.0.1",
