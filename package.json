@@ -74,7 +74,7 @@
     "@types/is-ci": "3.0.0",
     "@types/markdown-it": "13.0.1",
     "@types/node": "20.6.2",
-    "@types/react": "18.2.21",
+    "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "@types/sanitize-html": "2.9.0",
     "autoprefixer": "10.4.15",
