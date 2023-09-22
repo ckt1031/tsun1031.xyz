@@ -54,7 +54,7 @@
     "rehype-slug": "6.0.0",
     "remark-gfm": "3.0.1",
     "remark-normalize-headings": "3.0.1",
-    "remark-parse": "10.0.2",
+    "remark-parse": "11.0.0",
     "s-ago": "2.2.0",
     "sanitize-html": "2.11.0",
     "sharp": "0.32.6",
