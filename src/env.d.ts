@@ -5,7 +5,6 @@
 
 interface ImportMetaEnv {
   readonly SITE_URL: string;
-  readonly SENTRY_DSN: string;
 }
 
 interface ImportMeta {
