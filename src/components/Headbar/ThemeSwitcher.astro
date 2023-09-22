@@ -26,6 +26,10 @@ import { Icon } from 'astro-icon';
   };
 
   // Function to toggle the theme
+  /**
+   * 
+   * @param {string} theme 
+   */
   const toggleTheme = theme => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.style.setProperty('color-scheme', theme);
