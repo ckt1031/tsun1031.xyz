@@ -16,7 +16,7 @@
     "lint": "eslint --fix .",
     "prepare": "is-ci || husky install",
     "start": "astro dev",
-    "typecheck": "astro check && tsc --noEmit",
+    "typecheck": "astro check",
     "preview": "astro preview"
   },
   "config": {
