@@ -9,9 +9,6 @@ import MainLayout from '@/layouts/main.astro';
 export const prerender = true;
 ---
 
-<head>
-  <link rel="preload" href={Avatar.src} as="image" />
-</head>
 <MainSEO title={config.siteTitle} description={config.description} />
 <MainLayout>
   <div class="my-10 flex flex-col items-center justify-center text-center">

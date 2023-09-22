@@ -39,16 +39,16 @@ const posts = (await getCollection('posts')).filter(post => {
 
 // Meta data
 const meta = {
-  title: `Tag: ${slug}`,
+  title: `Tag of ${slug}`,
   description: `Posts tagged with #${slug}`,
 };
 ---
 
 <MainSEO title={meta.title} description={meta.description} />
 <MainLayout>
-  <div class="mt-5 w-full max-w-[1000px]">
+  <div class="my-5 w-full max-w-[1000px]">
     <div class="mb-2">
-      <PageTitle title={`Tag: ${slug}`} />
+      <PageTitle title={`Posts tagged with "${slug}"`} />
     </div>
     <PostList allPosts={posts} client:only="react" />
   </div>
