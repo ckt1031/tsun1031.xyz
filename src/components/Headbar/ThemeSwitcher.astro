@@ -16,7 +16,7 @@ import { Icon } from 'astro-icon';
   </button>
 </div>
 
-<script>
+<script is:inline>
   // Function to get the current theme
   const getTheme = () => {
     if (localStorage && localStorage.getItem('theme')) {
@@ -26,7 +26,7 @@ import { Icon } from 'astro-icon';
   };
 
   // Function to toggle the theme
-  const toggleTheme = (theme: string) => {
+  const toggleTheme = theme => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.style.setProperty('color-scheme', theme);
 
