@@ -60,8 +60,8 @@ dependencies:
     specifier: 3.0.1
     version: 3.0.1
   markdown-it:
-    specifier: 13.0.1
-    version: 13.0.1
+    specifier: 13.0.2
+    version: 13.0.2
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -134,8 +134,8 @@ devDependencies:
     specifier: 3.0.0
     version: 3.0.0
   '@types/markdown-it':
-    specifier: 13.0.1
-    version: 13.0.1
+    specifier: 13.0.2
+    version: 13.0.2
   '@types/node':
     specifier: 20.7.0
     version: 20.7.0
@@ -1652,8 +1652,8 @@ packages:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
     dev: true
 
-  /@types/markdown-it@13.0.1:
-    resolution: {integrity: sha512-SUEb8Frsxs3D5Gg9xek6i6EG6XQ5s+O+ZdQzIPESZVZw3Pv3CPQfjCJBI+RgqZd1IBeu18S0Rn600qpPnEK37w==}
+  /@types/markdown-it@13.0.2:
+    resolution: {integrity: sha512-Tla7hH9oeXHOlJyBFdoqV61xWE9FZf/y2g+gFVwQ2vE1/eBzjUno5JCd3Hdb5oATve5OF6xNjZ/4VIZhVVx+hA==}
     dependencies:
       '@types/linkify-it': 3.0.2
       '@types/mdurl': 1.0.2
@@ -5372,8 +5372,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /markdown-it@13.0.1:
-    resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==}
+  /markdown-it@13.0.2:
+    resolution: {integrity: sha512-FtwnEuuK+2yVU7goGn/MJ0WBZMM9ZPgU9spqlFs7/A/pDIUNSOQZhUgOqYCficIuR2QaFnrt8LHqBWsbTAoI5w==}
     hasBin: true
     dependencies:
       argparse: 2.0.1
