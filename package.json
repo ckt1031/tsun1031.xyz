@@ -65,7 +65,7 @@
     "@ckt1031/eslint-config": "1.1.13",
     "@ckt1031/prettier-config": "1.1.13",
     "@ckt1031/tsconfig": "1.1.13",
-    "@commitlint/cli": "17.7.1",
+    "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
     "@tailwindcss/typography": "0.5.10",
     "@types/is-ci": "3.0.0",
