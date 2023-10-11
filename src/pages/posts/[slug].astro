@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post, readingMinutes } = Astro.props as Props;
+const { post, readingMinutes } = Astro.props ;
 const { Content } = await post.render();
 ---
 
