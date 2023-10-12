@@ -35,7 +35,7 @@
     "@fontsource-variable/inter": "5.0.13",
     "@fontsource/noto-sans-tc": "5.0.14",
     "@tabler/icons-react": "2.39.0",
-    "astro": "3.2.4",
+    "astro": "3.3.0",
     "astro-icon": "0.8.1",
     "astro-robots-txt": "1.0.0",
     "astro-seo": "0.8.0",
