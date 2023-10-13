@@ -110,8 +110,8 @@ dependencies:
 
 devDependencies:
   '@astrojs/ts-plugin':
-    specifier: 1.1.3
-    version: 1.1.3
+    specifier: 1.2.0
+    version: 1.2.0
   '@ckt1031/eslint-config':
     specifier: 1.1.14
     version: 1.1.14(eslint@8.51.0)(prettier@3.0.3)(tailwindcss@3.3.3)(typescript@5.2.2)
@@ -403,8 +403,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/ts-plugin@1.1.3:
-    resolution: {integrity: sha512-nErNpgHGMzOOBHmUdml3cEZv4nxowGpO4G+IfAsPBQXOKLLGbVXzNpIGrdIthk3ryGD3jsYOKBvv2/PrnTkRdA==}
+  /@astrojs/ts-plugin@1.2.0:
+    resolution: {integrity: sha512-DyDAup5Z5LBjmURKW8rT35KYp16Hh6GoHU7t6l+UWAm2iBUf3aTM0KDI0lL7UePKv5QpDaMyqnPlA9XrJ8eenA==}
     dependencies:
       '@astrojs/compiler': 1.5.7
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -564,6 +564,7 @@ packages:
   /@babel/highlight@7.22.20:
     resolution: {integrity: sha512-dkdMCN3py0+ksCgYmGG8jKeGA/8Tk+gJwSYYlFGxG5lmhfKNoAy004YpLxpS1W2J8m/EK2Ew+yOs9pVRwO89mg==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
     dependencies:
       '@babel/helper-validator-identifier': 7.22.20
       chalk: 2.4.2
