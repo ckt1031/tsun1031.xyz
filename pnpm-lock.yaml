@@ -131,8 +131,8 @@ devDependencies:
     specifier: 0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
   '@types/is-ci':
-    specifier: 3.0.2
-    version: 3.0.2
+    specifier: 3.0.3
+    version: 3.0.3
   '@types/markdown-it':
     specifier: 13.0.2
     version: 13.0.2
@@ -1628,8 +1628,8 @@ packages:
       '@types/unist': 3.0.0
     dev: false
 
-  /@types/is-ci@3.0.2:
-    resolution: {integrity: sha512-9PyP1rgCro6xO3R7zOEoMgx5U9HpLhIg1FFb9p2mWX/x5QI8KMuCWWYtCT1dUQpicp84OsxEAw3iqwIKQY5Pog==}
+  /@types/is-ci@3.0.3:
+    resolution: {integrity: sha512-FdHbjLiN2e8fk9QYQyVYZrK8svUDJpxSaSWLUga8EZS1RGAvvrqM9zbVARBtQuYPeLgnJxM2xloOswPwj1o2cQ==}
     dependencies:
       ci-info: 3.9.0
     dev: true
