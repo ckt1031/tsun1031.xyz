@@ -11,7 +11,7 @@ const pathname = Astro.url.pathname;
   <button
     aria-label="Mobile Menu"
     type="button"
-    class="flex items-center"
+    class="flex items-center p-2"
     id="mobile-navigation-menu-button"
   >
     <Icon name="tabler:x" size={24} class="hidden" id="mobile-navigation-menu-button-x" />
@@ -26,7 +26,7 @@ const pathname = Astro.url.pathname;
     )}
   >
     <div class="overflow-auto">
-      <div class="grid space-y-2 divide-y divide-gray-300 p-3 dark:divide-gray-700">
+      <div class="grid divide-y divide-gray-300 p-3 dark:divide-gray-700">
         {
           config.headbar.routes.map(item => (
             <a href={item.href}>
@@ -36,7 +36,7 @@ const pathname = Astro.url.pathname;
                     ? pathname === item.href
                     : pathname.startsWith(item.href ?? '') && item.href !== '/') &&
                     'text-orange-600',
-                  'cursor-pointer p-3 text-center',
+                  'cursor-pointer p-4 text-center',
                 )}
               >
                 {item.name}

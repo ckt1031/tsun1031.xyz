@@ -5,18 +5,22 @@ import config from '@/config';
 
 const footerSocialLinks = [
   {
+    title: 'Instagram',
     href: config.social.instagram,
     icon: 'tabler:brand-instagram',
   },
   {
+    title: 'GitHub',
     href: config.social.github,
     icon: 'tabler:brand-github',
   },
   {
+    title: 'YouTube',
     href: config.social.youtube,
     icon: 'tabler:brand-youtube',
   },
   {
+    title: 'RSS',
     href: config.social.feed,
     icon: 'tabler:rss',
   },
@@ -26,8 +30,8 @@ const footerSocialLinks = [
 <footer class="footer-default">
   <div class="flex flex-row gap-3">
     {
-      footerSocialLinks.map(({ href, icon }) => (
-        <a href={href}>
+      footerSocialLinks.map(({ title, href, icon }) => (
+        <a href={href} title={title}>
           <Icon name={icon} size={24} />
         </a>
       ))
@@ -38,7 +42,7 @@ const footerSocialLinks = [
       config.footer.routes.map(item => {
         return (
           <span>
-            <a href={item.href} class="text-sm text-blue-600 dark:text-blue-400">
+            <a href={item.href} class="text-sm text-blue-600 dark:text-blue-400" title={item.name}>
               {item.name}
             </a>
           </span>
