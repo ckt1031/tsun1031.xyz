@@ -22,7 +22,7 @@ import { Icon } from 'astro-icon';
      * Get the current theme.
      * @returns {('dark'|'light')} The current theme, either 'dark' or 'light'.
      */
-    export const getTheme = () => {
+    const getTheme = () => {
       if (localStorage && localStorage.getItem('theme')) {
         return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
       }
