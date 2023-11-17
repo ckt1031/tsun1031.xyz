@@ -1,4 +1,6 @@
+import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
+import node from '@astrojs/node';
 import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -13,6 +15,30 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
+
+const adapter = () => {
+  const buildTarget = process.env.ASTRO_BUILD_TARGET;
+
+  if (buildTarget === 'vercel') {
+    return vercel({
+      imageService: true,
+      webAnalytics: {
+        enabled: true,
+      },
+      speedInsights: {
+        enabled: true,
+      },
+    });
+  }
+
+  if (buildTarget === 'cloudflare') {
+    return cloudflare();
+  }
+
+  return node({
+    mode: 'standalone',
+  });
+};
 
 export default defineConfig({
   site: 'https://ckt1031.xyz',
@@ -69,13 +95,5 @@ export default defineConfig({
     service: sharpImageService(),
   },
   output: 'server',
-  adapter: vercel({
-    imageService: true,
-    webAnalytics: {
-      enabled: true,
-    },
-    speedInsights: {
-      enabled: true,
-    },
-  }),
+  adapter: adapter(),
 });
