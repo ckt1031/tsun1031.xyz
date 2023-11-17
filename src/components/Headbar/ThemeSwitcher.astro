@@ -18,18 +18,20 @@ import { Icon } from 'astro-icon';
 
 <head>
   <script is:inline>
-    // Function to get the current theme
-    const getTheme = () => {
+    /**
+     * Get the current theme.
+     * @returns {('dark'|'light')} The current theme, either 'dark' or 'light'.
+     */
+    export const getTheme = () => {
       if (localStorage && localStorage.getItem('theme')) {
-        return localStorage.getItem('theme') ?? 'light';
+        return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     };
 
-    // Function to toggle the theme
     /**
      *
-     * @param {string} theme
+     * @param {('dark' | 'light')} theme
      */
     const toggleTheme = theme => {
       document.documentElement.setAttribute('data-theme', theme);
