@@ -96,4 +96,11 @@ export default defineConfig({
   },
   output: 'server',
   adapter: adapter(),
+  vite: {
+    resolve: {
+      alias: {
+        "svgo": import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo"
+      }
+    }
+  },
 });
