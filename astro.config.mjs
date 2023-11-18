@@ -32,7 +32,9 @@ const adapter = () => {
   }
 
   if (buildTarget === 'cloudflare') {
-    return cloudflare();
+    return cloudflare({
+      mode: "directory",
+    });
   }
 
   return node({
