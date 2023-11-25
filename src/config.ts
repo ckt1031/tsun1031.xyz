@@ -78,7 +78,7 @@ const config = {
       },
       {
         href: '/technology',
-        name: 'Techs',
+        name: 'Site Tech',
       },
     ],
   },
