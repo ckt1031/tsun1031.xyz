@@ -76,7 +76,7 @@
     "@types/node": "20.9.1",
     "@types/react": "18.2.37",
     "@types/react-dom": "18.2.15",
-    "@types/sanitize-html": "2.9.4",
+    "@types/sanitize-html": "2.9.5",
     "autoprefixer": "10.4.16",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
