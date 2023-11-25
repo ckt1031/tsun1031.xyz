@@ -37,7 +37,7 @@
     "@astrojs/vercel": "5.2.0",
     "@fontsource-variable/inter": "5.0.15",
     "@fontsource/noto-sans-tc": "5.0.16",
-    "@tabler/icons-react": "2.40.0",
+    "@tabler/icons-react": "2.42.0",
     "astro": "3.5.5",
     "astro-icon": "0.8.1",
     "astro-robots-txt": "1.0.0",
