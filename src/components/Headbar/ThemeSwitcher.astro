@@ -17,16 +17,16 @@ import { Icon } from 'astro-icon';
 </div>
 
 <head>
-  <script>
+  <script is:inline>
     // Get the current theme.
-    const getTheme = (): 'dark' | 'light' => {
+    const getTheme = () => {
       if (localStorage && localStorage.getItem('theme')) {
         return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     };
 
-    const toggleTheme = (theme: 'dark' | 'light') => {
+    const toggleTheme = (/** @type {'dark' | 'light'} */ theme) => {
       document.documentElement.setAttribute('data-theme', theme);
       document.documentElement.style.setProperty('color-scheme', theme);
 

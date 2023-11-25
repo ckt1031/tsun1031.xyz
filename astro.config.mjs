@@ -1,11 +1,11 @@
-import cloudflare from '@astrojs/cloudflare';
+// import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
-import node from '@astrojs/node';
+// import node from '@astrojs/node';
 import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/serverless';
+// import vercel from '@astrojs/vercel/serverless';
 import { defineConfig, sharpImageService } from 'astro/config';
 import robotsTxt from 'astro-robots-txt';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -17,31 +17,31 @@ import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
 import Icons from 'unplugin-icons/vite';
 
-const adapter = () => {
-  const buildTarget = process.env.ASTRO_BUILD_TARGET;
+// const adapter = () => {
+//   const buildTarget = process.env.ASTRO_BUILD_TARGET;
 
-  if (buildTarget === 'vercel') {
-    return vercel({
-      imageService: true,
-      webAnalytics: {
-        enabled: true,
-      },
-      speedInsights: {
-        enabled: true,
-      },
-    });
-  }
+//   if (buildTarget === 'vercel') {
+//     return vercel({
+//       imageService: true,
+//       webAnalytics: {
+//         enabled: true,
+//       },
+//       speedInsights: {
+//         enabled: true,
+//       },
+//     });
+//   }
 
-  if (buildTarget === 'cloudflare') {
-    return cloudflare({
-      mode: 'directory',
-    });
-  }
+//   if (buildTarget === 'cloudflare') {
+//     return cloudflare({
+//       mode: 'directory',
+//     });
+//   }
 
-  return node({
-    mode: 'standalone',
-  });
-};
+//   return node({
+//     mode: 'standalone',
+//   });
+// };
 
 export default defineConfig({
   site: 'https://ckt1031.xyz',
@@ -97,14 +97,14 @@ export default defineConfig({
   image: {
     service: sharpImageService(),
   },
-  output: 'server',
-  adapter: adapter(),
+  // output: 'hybrid', // 'server',
+  // adapter: adapter(),
   vite: {
-    resolve: {
-      alias: {
-        svgo: import.meta.env.PROD ? 'svgo/dist/svgo.browser.js' : 'svgo',
-      },
-    },
+    // resolve: {
+    //   alias: {
+    //     svgo: import.meta.env.PROD ? 'svgo/dist/svgo.browser.js' : 'svgo',
+    //   },
+    // },
     plugins: [
       Icons({
         compiler: 'jsx',
