@@ -15,6 +15,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
+import Icons from 'unplugin-icons/vite';
 
 const adapter = () => {
   const buildTarget = process.env.ASTRO_BUILD_TARGET;
@@ -33,7 +34,7 @@ const adapter = () => {
 
   if (buildTarget === 'cloudflare') {
     return cloudflare({
-      mode: "directory",
+      mode: 'directory',
     });
   }
 
@@ -101,8 +102,14 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "svgo": import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo"
-      }
-    }
+        svgo: import.meta.env.PROD ? 'svgo/dist/svgo.browser.js' : 'svgo',
+      },
+    },
+    plugins: [
+      Icons({
+        compiler: 'jsx',
+        jsx: 'react',
+      }),
+    ],
   },
 });

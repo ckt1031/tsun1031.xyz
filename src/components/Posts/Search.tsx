@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 
-import { IconSearch } from '@tabler/icons-react';
 import type { CollectionEntry } from 'astro:content';
 import Fuse from 'fuse.js';
+
+import TablerSearch from '~icons/tabler/search';
 
 interface Props {
   posts: CollectionEntry<'posts'>[];
@@ -29,7 +30,7 @@ export default function Search({ posts, orginalPosts, setPosts }: Props) {
 
   return (
     <div className="base-border mb-2 mt-3 flex flex-row items-center space-x-3 rounded-md border bg-gray-100 px-3 py-1 dark:bg-gray-800">
-      <IconSearch size={22} />
+      <TablerSearch className="h-[22] w-[22]" />
       <input
         placeholder="Search"
         onChange={onSearch}
