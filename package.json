@@ -140,5 +140,5 @@
       "prettier -c"
     ]
   },
-  "packageManager": "pnpm@8.10.5"
+  "packageManager": "pnpm@8.11.0"
 }
