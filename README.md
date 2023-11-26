@@ -25,14 +25,14 @@ corepack prepare # if you haven't prepared corepack
 Then run the following commands:
 
 ```bash
-pnpm install
-pnpm dev
+bun install
+bun run dev
 ```
 
 Build the project:
 
 ```bash
-pnpm build
+bun run build
 ```
 
 ## License

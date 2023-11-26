@@ -16,22 +16,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2.4.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v1
         with:
-          cache: pnpm
-          node-version: 18
+          bun-version: latest
 
       - name: Install Dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Type Checking
-        run: pnpm typecheck
+        run: bun run typecheck
 
       - name: Lint Project
-        run: pnpm lint
+        run: bun run lint
 
       - name: Test Build
-        run: pnpm build
+        run: bun run build
