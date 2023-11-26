@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 // import vercel from '@astrojs/vercel/serverless';
-import { defineConfig, sharpImageService } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import robotsTxt from 'astro-robots-txt';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeCodeTitles from 'rehype-code-titles';
@@ -95,7 +95,7 @@ export default defineConfig({
     }),
   ],
   image: {
-    service: sharpImageService(),
+    service: squooshImageService(),
   },
   // output: 'hybrid', // 'server',
   // adapter: adapter(),
