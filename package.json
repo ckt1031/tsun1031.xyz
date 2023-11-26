@@ -12,7 +12,7 @@
     "commit": "cz",
     "dev": "astro dev",
     "format": "prettier . -w",
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow bun",
     "lint": "eslint --fix .",
     "prepare": "is-ci || husky install",
     "start": "astro dev",
@@ -99,8 +99,8 @@
     "vite-plugin-entry-shaking": "0.3.3"
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=7"
+    "bun": ">=1",
+    "node": ">=16"
   },
   "eslintConfig": {
     "extends": [
@@ -146,5 +146,5 @@
       "prettier -c"
     ]
   },
-  "packageManager": "pnpm@8.11.0"
+  "packageManager": "bun@1.0.14"
 }
