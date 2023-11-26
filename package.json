@@ -98,10 +98,6 @@
     "vite": "5.0.2",
     "vite-plugin-entry-shaking": "0.3.3"
   },
-  "engines": {
-    "bun": ">=1",
-    "node": ">=16"
-  },
   "eslintConfig": {
     "extends": [
       "plugin:astro/recommended",
