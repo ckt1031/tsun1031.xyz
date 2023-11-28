@@ -70,7 +70,7 @@
     "@ckt1031/tsconfig": "1.1.15",
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
-    "@iconify-json/tabler": "1.1.98",
+    "@iconify-json/tabler": "1.1.100",
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@tailwindcss/typography": "0.5.10",
