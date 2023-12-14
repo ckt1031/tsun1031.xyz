@@ -15,7 +15,7 @@
     "preinstall": "npx only-allow bun",
     "prepare": "is-ci || husky install",
     "start": "astro dev",
-    "check": "biome check --apply . && astro check",
+    "check": "biome check . && astro check",
     "preview": "astro preview"
   },
   "config": {
