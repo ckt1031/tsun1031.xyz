@@ -1,0 +1,14 @@
+---
+
+---
+
+<script type="text/partytown">
+  let scriptEle = document.createElement('script');
+  scriptEle.setAttribute('src', 'https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js');
+  document.body.appendChild(scriptEle);
+
+  scriptEle.addEventListener('load', () => {
+    // @ts-ignore
+    new Snowflakes();
+  });
+</script>

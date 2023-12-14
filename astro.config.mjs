@@ -1,5 +1,6 @@
 // import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
 // import node from '@astrojs/node';
 import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
@@ -73,6 +74,7 @@ export default defineConfig({
     ],
   },
   integrations: [
+    partytown(),
     tailwind(),
     react({
       experimentalReactChildren: true,

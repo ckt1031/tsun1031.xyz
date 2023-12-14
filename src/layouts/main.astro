@@ -3,6 +3,8 @@ import '@fontsource-variable/inter';
 import '@fontsource/noto-sans-tc';
 import '@/styles/main.css';
 
+import Snowflake from '@/components/Snowflake.astro';
+
 import Footer from '@/components/Footer.astro';
 import Headbar from '@/components/Headbar.astro';
 import config from '@/config';
@@ -26,6 +28,7 @@ import config from '@/config';
     </style>
   </head>
   <body class="root">
+    <Snowflake />
     <Headbar />
     <main class="m-auto flex w-full max-w-[800px] flex-1 flex-col items-center px-5">
       <slot />
