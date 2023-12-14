@@ -4,16 +4,16 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
 interface LightBoxProp {
-  src: string;
-  children: ReactElement;
+	src: string;
+	children: ReactElement;
 }
 
 export default function LightBox({ src, children }: LightBoxProp) {
-  return (
-    <PhotoProvider>
-      <PhotoView src={src}>
-        <div className="cursor-zoom-in">{children}</div>
-      </PhotoView>
-    </PhotoProvider>
-  );
+	return (
+		<PhotoProvider>
+			<PhotoView src={src}>
+				<div className="cursor-zoom-in">{children}</div>
+			</PhotoView>
+		</PhotoProvider>
+	);
 }
