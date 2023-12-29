@@ -1,0 +1,32 @@
+---
+
+---
+
+<script>
+  const container = document.querySelector("#firework");
+
+  if (!container) throw new Error("No container found");
+
+  // Get the current date
+  const now = new Date();
+
+  // Define the start and end dates of the desired range
+  const start = new Date(now.getFullYear(), 0, 1); // January 1st of the current year
+  const end = new Date(now.getFullYear(), 0, 2, 23, 59, 59, 999); // January 2nd of the current year at 23:59:59.999
+
+  // Check if the current date is within the range
+  if (now >= start && now <= end) {
+    // dynamically import
+    import("fireworks-js").then((module) => {
+      const fireworks = new module.Fireworks(container, {
+        autoresize: true,
+        boundaries: {
+          width: container.clientWidth,
+          height: container.clientHeight,
+        },
+      });
+
+      fireworks.start();
+    });
+  }
+</script>
