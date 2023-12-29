@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@astrojs/check": "0.3.2",
+    "@astrojs/check": "0.3.4",
     "@astrojs/mdx": "2.0.1",
     "@astrojs/partytown": "^2.0.2",
     "@astrojs/prefetch": "0.4.1",
