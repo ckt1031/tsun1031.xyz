@@ -2,7 +2,7 @@
 title: What is this site?
 description: The introduction to my blog website.
 published: 2022-12-31 21:08
-heroImage: ./images/what-is-this-site-1.jpg
+heroImage: ./images/what-is-this-site-thumbnail.jpg
 tags: ['introduction']
 ---
 

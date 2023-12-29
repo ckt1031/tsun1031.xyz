@@ -1,0 +1,49 @@
+---
+title: My Accomplishments in 2023
+description: Dive into my key achievements in 2023, coupled with personal insights and forward-looking aspirations as the new year approaches.
+published: 2023-12-30 00:12
+tags: ['new-year']
+heroImage: ./images/my-accomplishments-in-2023-thumbnail.png
+---
+
+## My Accomplishments in 2023
+
+### 2023: A Year of Growth and Discovery
+
+**As we kicked off 2023**, artificial intelligence and tech were on a hot streak, and I was right there soaking up the latest developments. I've always been a bit behind on staying current, but this year, I turned a new leaf. I dived into the waves of AI updates, political happenings, and technological breakthroughs. It was a turning point of learning—picking up new terms and honing my ability to think critically was an unexpected bonus.
+
+Besides my newfound news-savviness, I poured a lot of energy into preparing for the HKDSE. It was intense, but the rewards were immense. I met incredible new friends, expanded my knowledge, and became more involved in conversations and group activities. It's clear now that every ounce of effort was worth it.
+
+### Coding My Way Through Challenges
+
+Sure, my main focus was on exams, but coding remained a vital piece of my daily puzzle. It's my mental gym, after all. Learning and practicing various programming languages kept me sharp. I channeled this passion into building a full-stack website called "Cktidy Manager" and creating a "Personal Discord Bot" to stay abreast of news.
+
+These projects might not be active anymore, but the lessons linger. I've faced down problems, mastered new tools, and embraced fresh tech. There's something magical about being so engrossed in coding—it's like the world fades away, and it's just you and the endless possibilities of programming.
+
+### Embracing Digital Efficiency
+
+Old habits die hard—they say 😅, but change can be refreshing and transformative. I used to steer clear of notetaking and journaling, but then I discovered the power of digital notes. Today, **I swear by [Obsidian](https://obsidian.md/) for logging my daily thoughts and storing knowledge**.
+
+![](https://b2.ckt1031.xyz/img/2023/12/5d9fac074874256313853e5e9221d860.png)
+
+This small shift has been revolutionary. I've cut down the time I used to spend searching for information in half. Plus, keeping a digital diary has given me a record of my life to reflect on and learn from. It's boosted my confidence and made everyday life more enjoyable.
+
+### Forward to 2024
+
+Looking ahead, I've got my sights set on acing the 2024 HKDSE and earning my place at my dream school, the **[Hong Kong University of Science and Technology](https://hkust.edu.hk/)**, majoring in Engineering and potentially [**Computer Science** or **Computer Engineering**](https://cse.hkust.edu.hk/) 😎.
+
+![](https://b2.ckt1031.xyz/img/2023/10/1c83d95df53a12247baba69b03b14d8d.jpg)
+
+Once I'm past the exams, I'm excited about university life and all that it offers—staying passionate, making connections, and benefiting from the vast pool of knowledge friends have to offer.
+
+I'm also eager to **dive into more books**, particularly those that will help me grow personally and emotionally.
+
+### In Conclusion
+
+A big shout-out to you for reading this far. Your support means so much to me 😌.
+
+I apologize for not sticking to the weekly blog post schedule I set out initially. My hope is to share my journey and thoughts more regularly with all of you, tech enthusiasts out there.
+
+Thank you, everyone, for sticking with me. Here's to the world and the society that keeps us connected.
+
+**Cheers to the New Year—2024, here we come!**

@@ -17,7 +17,7 @@ export default function List({ allPosts }: Props) {
 	return (
 		<>
 			<Search posts={posts} orginalPosts={allPosts} setPosts={setposts} />
-			<div className="grid space-y-5 divide-y-2 divide-gray-400 dark:divide-gray-500">
+			<div className="grid space-y-5 divide-y-2 divide-gray-400 dark:divide-gray-700 mb-3">
 				{posts.length > 0 ? (
 					posts.map(({ data, slug }) => {
 						return (

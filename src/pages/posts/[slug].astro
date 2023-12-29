@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   return posts.map(p => {
     const readingTime = readingTimeModule(p.body);
     const readingMinutes =
-      readingTime.minutes >= 1 ? Math.round(readingTime.minutes) : 'Less than 1 ' + 'minutes';
+      readingTime.minutes >= 1 ? 'Under ' + Math.round(readingTime.minutes) + ' minutes' : 'Less than 1' + ' minute';
 
     return {
       params: { slug: p.slug },
