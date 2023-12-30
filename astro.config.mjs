@@ -1,9 +1,9 @@
 import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
 import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, squooshImageService } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -36,15 +36,10 @@ export default defineConfig({
 				},
 			],
 		],
-		remarkPlugins: [
-			remarkGfm,
-			remarkNormalizeHeadings,
-			// @ts-expect-error
-			remarkParse,
-		],
+		remarkPlugins: [remarkGfm, remarkNormalizeHeadings, remarkParse],
 	},
 	integrations: [
-		partytown(),
+		icon(),
 		tailwind(),
 		react({
 			experimentalReactChildren: true,
@@ -68,6 +63,7 @@ export default defineConfig({
 	],
 	image: {
 		service: squooshImageService(),
+		remotePatterns: [{ protocol: 'https' }],
 	},
 	vite: {
 		plugins: [

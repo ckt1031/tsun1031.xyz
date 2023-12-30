@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import LightBox from '@components/Lightbox';
 import clsx from 'clsx';
 import sAgo from 's-ago';
 import type { CollectionEntry } from 'astro:content';
@@ -60,15 +59,13 @@ export default function List({ allPosts }: Props) {
 									</p>
 								</div>
 								{data.heroImage && (
-									<LightBox src={data.heroImage.src}>
-										<img
-											alt="Thumbnail"
-											className="rounded-lg md:mt-0 md:rounded"
-											src={data.heroImage.src}
-											width={1600 * 0.2}
-											height={900 * 0.2}
-										/>
-									</LightBox>
+									<img
+										alt="Thumbnail"
+										className="rounded-lg md:mt-0 md:rounded"
+										src={data.heroImage.src}
+										width={1600 * 0.2}
+										height={900 * 0.2}
+									/>
 								)}
 							</div>
 						);
