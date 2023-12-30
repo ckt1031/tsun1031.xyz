@@ -1,6 +1,5 @@
 import mdx from '@astrojs/mdx';
 import prefetch from '@astrojs/prefetch';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
@@ -13,7 +12,6 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkNormalizeHeadings from 'remark-normalize-headings';
 import remarkParse from 'remark-parse';
-import Icons from 'unplugin-icons/vite';
 
 export default defineConfig({
 	site: 'https://ckt1031.xyz',
@@ -41,9 +39,6 @@ export default defineConfig({
 	integrations: [
 		icon(),
 		tailwind(),
-		react({
-			experimentalReactChildren: true,
-		}),
 		sitemap(),
 		mdx(),
 		prefetch(),
@@ -64,13 +59,5 @@ export default defineConfig({
 	image: {
 		service: squooshImageService(),
 		remotePatterns: [{ protocol: 'https' }],
-	},
-	vite: {
-		plugins: [
-			Icons({
-				compiler: 'jsx',
-				jsx: 'react',
-			}),
-		],
 	},
 });
