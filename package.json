@@ -27,7 +27,6 @@
     "@astrojs/check": "0.3.4",
     "@astrojs/mdx": "2.0.3",
     "@astrojs/prefetch": "0.4.1",
-    "@astrojs/react": "3.0.9",
     "@astrojs/rss": "4.0.1",
     "@astrojs/sitemap": "3.0.4",
     "@astrojs/tailwind": "5.1.0",
@@ -38,7 +37,7 @@
     "astro-icon": "1.0.1",
     "astro-robots-txt": "1.0.0",
     "astro-seo": "0.8.0",
-    "clsx": "2.1.0",
+    "clsx": "^2.1.0",
     "dayjs": "1.11.10",
     "fireworks-js": "2.10.7",
     "is-ci": "3.0.1",
@@ -78,7 +77,6 @@
     "postcss": "8.4.32",
     "tailwindcss": "3.4.0",
     "typescript": "5.3.3",
-    "unplugin-icons": "0.18.1",
     "vite": "5.0.10"
   },
   "lint-staged": {
