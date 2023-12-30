@@ -1,5 +1,5 @@
 ---
-import PostList from '@components/Posts/List';
+import PostList from '@components/Posts/List.astro';
 import MainSEO from '@components/SEO/Main.astro';
 import { getCollection } from 'astro:content';
 
@@ -27,6 +27,6 @@ const meta = {
         description="Welcome to my blog, where I embark on a journey of sharing knowledge and meaningful insights with the world."
       />
     </div>
-    <PostList allPosts={allPosts} client:only="react" />
+    <PostList allPosts={allPosts} />
   </div>
 </MainLayout>
