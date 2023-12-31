@@ -1,5 +1,4 @@
 import mdx from '@astrojs/mdx';
-import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
@@ -17,7 +16,6 @@ export default defineConfig({
 			lastmod: new Date(),
 		}),
 		mdx(),
-		prefetch(),
 		robotsTxt({
 			sitemap: ['https://ckt1031.xyz/sitemap-index.xml'],
 			policy: [
