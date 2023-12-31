@@ -3,11 +3,11 @@ import MarkdownIt from 'markdown-it';
 import sanitizeHtml from 'sanitize-html';
 import { getCollection } from 'astro:content';
 
-const parser = new MarkdownIt();
-
 import config from '@/config';
 
 export async function GET(context: { site: string | URL }) {
+	const parser = new MarkdownIt();
+
 	const posts = await getCollection('posts');
 
 	return rss({
