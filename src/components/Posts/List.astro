@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import sAgo from 's-ago';
 import type { CollectionEntry } from 'astro:content';
 
+import { Picture } from 'astro:assets';
+
 interface Props {
   allPosts: CollectionEntry<'posts'>[];
 }
@@ -51,10 +53,10 @@ const { allPosts } = Astro.props;
             </p>
           </div>
           {data.heroImage && (
-            <img
+            <Picture
               alt="Thumbnail"
               class="rounded-lg md:mt-0 md:rounded"
-              src={data.heroImage.src}
+              src={data.heroImage}
               width={1600 * 0.2}
               height={900 * 0.2}
             />

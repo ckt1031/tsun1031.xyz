@@ -1,17 +1,21 @@
+.thumbnail {
+  @apply rounded-md object-cover;
+}
+
 .blog-style {
   @apply flex flex-col gap-3;
 }
 
 .blog-style h1 {
-  @apply text-3xl font-bold;
+  @apply text-4xl font-bold;
 }
 
 .blog-style h2 {
-  @apply text-2xl font-bold;
+  @apply text-3xl font-bold;
 }
 
 .blog-style h3 {
-  @apply text-xl font-bold;
+  @apply text-2xl font-bold;
 }
 
 .blog-style h4 {
