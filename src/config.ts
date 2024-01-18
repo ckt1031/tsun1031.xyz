@@ -36,10 +36,6 @@ const config = {
 			tags: ['Obsidian', 'OpenAI'],
 		},
 		{
-			github: 'https://github.com/ckt1031/obsidian-tinypng-plugin',
-			tags: ['Obsidian'],
-		},
-		{
 			github: 'https://github.com/ckt1031/DraconianBot',
 			tags: ['Discord.js', 'Node.js'],
 		},

@@ -208,13 +208,13 @@ declare module 'astro:content' {
 				collection: 'posts';
 				data: InferEntrySchema<'posts'>;
 			} & { render(): Render['.mdx'] };
-			'what-is-this-site.md': {
-				id: 'what-is-this-site.md';
+			'what-is-this-site.mdx': {
+				id: 'what-is-this-site.mdx';
 				slug: 'what-is-this-site';
 				body: string;
 				collection: 'posts';
 				data: InferEntrySchema<'posts'>;
-			} & { render(): Render['.md'] };
+			} & { render(): Render['.mdx'] };
 		};
 	};
 
