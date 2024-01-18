@@ -15,7 +15,7 @@
     "preinstall": "npx only-allow bun",
     "prepare": "is-ci || husky install",
     "start": "astro dev",
-    "check": "biome check . && astro check",
+    "check": "biome check . && astro check && biome format . --write",
     "preview": "astro preview"
   },
   "config": {
@@ -33,6 +33,7 @@
     "@fontsource-variable/inter": "5.0.16",
     "@fontsource/noto-sans-tc": "5.0.17",
     "astro": "4.2.0",
+    "astro-compress": "astro-community/AstroCompress#no-sharp",
     "astro-icon": "1.0.2",
     "astro-robots-txt": "1.0.0",
     "astro-seo": "0.8.0",
