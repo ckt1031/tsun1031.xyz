@@ -34,7 +34,7 @@
     "@fontsource/noto-sans-tc": "5.0.17",
     "astro": "4.2.6",
     "astro-compress": "astro-community/AstroCompress#no-sharp",
-    "astro-icon": "1.0.2",
+    "astro-icon": "1.0.3",
     "astro-robots-txt": "1.0.0",
     "astro-seo": "0.8.0",
     "clsx": "^2.1.0",
