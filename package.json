@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro build",
+    "build": "astro build && npx pagefind --site dist",
     "commit": "cz",
     "dev": "astro dev",
     "format": "biome format . --write",
@@ -43,6 +43,7 @@
     "is-ci": "3.0.1",
     "magic-snowflakes": "6.3.0",
     "markdown-it": "14.0.0",
+    "pagefind": "1.0.4",
     "purgecss": "5.0.0",
     "reading-time": "1.5.0",
     "s-ago": "2.2.0",

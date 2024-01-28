@@ -1,0 +1,42 @@
+---
+import MainSEO from '@components/SEO/Main.astro';
+
+import MainLayout from '@/layouts/main.astro';
+---
+
+<head>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+</head>
+<MainSEO title="{config.siteTitle}" description="{config.description}" />
+<MainLayout>
+  <div
+    class="my-10 flex flex-col items-center justify-center text-center"
+    data-pagefind-ignore="all"
+  >
+    <div id="search" class="text-white"></div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        // @ts-ignore
+        new PagefindUI({
+          element: "#search",
+          resetStyles: false,
+          showImages: false,
+        });
+      });
+    </script>
+
+    <style is:global>
+      /* when html tag data-theme is dark */
+      html[data-theme="dark"] {
+        --pagefind-ui-primary: #eeeeee;
+        --pagefind-ui-text: #eeeeee;
+        --pagefind-ui-background: #353535;
+        --pagefind-ui-border: #525252;
+        --pagefind-ui-tag: #464646;
+        --pagefind-ui-font: "Inter Variable", "Noto Sans TC", sans-serif;
+      }
+    </style>
+  </div>
+</MainLayout>

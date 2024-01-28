@@ -6,7 +6,7 @@ import config from '@/config';
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="hidden flex-row gap-1 md:flex">
+<nav class="hidden flex-row gap-1 md:flex" data-pagefind-ignore="all">
   {
     config.headbar.routes.map(item => (
       <a href={item.href}>
