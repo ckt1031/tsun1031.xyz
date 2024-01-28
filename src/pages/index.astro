@@ -11,11 +11,11 @@ export const prerender = true;
 
 <MainSEO title={config.siteTitle} description={config.description} />
 <MainLayout>
-  <div class="my-10 flex flex-col items-center justify-center text-center">
-    <Picture alt="ckt" src={Avatar} class="h-32 w-32 rounded-full" height={150} width={150} />
+  <main class="my-10 flex flex-col items-center justify-center text-center" data-pagefind-body>
+    <Picture data-pagefind-ignore alt="ckt" src={Avatar} class="h-32 w-32 rounded-full" height={150} width={150} />
     <h1 class="mt-4 text-4xl font-bold">Chan Ka Tsun</h1>
     <p class="mt-2 text-lg font-medium italic text-gray-600 dark:text-gray-300">
       A secondary school (Form 6) student in Hong Kong.
     </p>
-  </div>
+  </main>
 </MainLayout>

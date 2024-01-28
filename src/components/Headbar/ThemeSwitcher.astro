@@ -2,19 +2,20 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<div
-  class="flex items-center justify-center rounded-lg ring-gray-300 hover:bg-gray-200 hover:dark:bg-gray-800"
+<button
+  type="button"
+  id="themeToggle"
+  aria-label="Toggle Theme Mode"
+  class="base-button-hover base-button-animation p-2"
 >
-  <button
-    type="button"
-    id="themeToggle"
-    aria-label="Toggle Theme Mode"
-    class="base-button-animation p-2"
-  >
-    <Icon name="tabler:sun" id="sun-theme-toggle-id" size={24} class="hidden" />
-    <Icon name="tabler:moon" id="moon-theme-toggle-id" size={24} class="hidden" />
-  </button>
-</div>
+  <Icon name="tabler:sun" id="sun-theme-toggle-id" size={24} class="hidden" />
+  <Icon
+    name="tabler:moon"
+    id="moon-theme-toggle-id"
+    size={24}
+    class="hidden"
+  />
+</button>
 
 <head>
   <script is:inline>
