@@ -26,7 +26,7 @@
   "dependencies": {
     "@astrojs/check": "0.4.1",
     "@astrojs/mdx": "2.1.1",
-    "@astrojs/rss": "4.0.4",
+    "@astrojs/rss": "4.0.5",
     "@astrojs/sitemap": "3.0.5",
     "@astrojs/tailwind": "5.1.0",
     "@fireworks-js/web": "2.10.7",
