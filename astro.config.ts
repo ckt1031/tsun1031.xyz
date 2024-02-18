@@ -36,6 +36,6 @@ export default defineConfig({
 	],
 	image: {
 		service: squooshImageService(),
-		domains: ['b2.ckt1031.xyz'],
+		domains: ['obsidian-img.ckt1031.xyz'],
 	},
 });
