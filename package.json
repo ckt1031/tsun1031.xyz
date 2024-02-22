@@ -13,7 +13,7 @@
     "dev": "astro dev",
     "format": "biome format . --write",
     "preinstall": "npx only-allow bun",
-    "prepare": "is-ci || bunx husky install",
+    "prepare": "is-ci || husky install || true",
     "start": "astro dev",
     "check": "biome check . && astro check && biome format . --write",
     "preview": "astro preview"
