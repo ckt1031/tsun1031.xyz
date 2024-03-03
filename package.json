@@ -36,7 +36,7 @@
     "astro-compress": "astro-community/AstroCompress#no-sharp",
     "astro-icon": "1.1.0",
     "astro-robots-txt": "1.0.0",
-    "astro-seo": "0.8.2",
+    "astro-seo": "0.8.3",
     "clsx": "^2.1.0",
     "dayjs": "1.11.10",
     "fireworks-js": "2.10.7",
