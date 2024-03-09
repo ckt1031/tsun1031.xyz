@@ -2,9 +2,9 @@
 import clsx from 'clsx';
 
 interface Props {
-  href: string;
-  className?: string;
-  [key: string]: any;
+	href: string;
+	className?: string;
+	[key: string]: unknown;
 }
 
 const { href, className, external, ...rest } = Astro.props;

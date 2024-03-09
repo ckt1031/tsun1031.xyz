@@ -10,57 +10,60 @@ import MainLayout from '@/layouts/main.astro';
 export const prerender = true;
 
 const GithubRepositoryDataSchema = z.object({
-  name: z.string(),
-  language: z.string(),
-  description: z.string(),
-  pushed_at: z.coerce.date(),
+	name: z.string(),
+	language: z.string(),
+	description: z.string(),
+	pushed_at: z.coerce.date(),
 });
 
 const getIconByLanguage = (language: string) => {
-  switch (language) {
-    case 'TypeScript': {
-      return 'tabler:brand-javascript';
-    }
-    case 'JavaScript': {
-      return 'tabler:brand-javascript';
-    }
-    case 'Kotlin': {
-      return 'tabler:brand-kotlin';
-    }
-    case 'Python': {
-      return 'tabler:brand-python';
-    }
-    default: {
-      return 'tabler:code';
-    }
-  }
+	switch (language) {
+		case 'TypeScript': {
+			return 'tabler:brand-javascript';
+		}
+		case 'JavaScript': {
+			return 'tabler:brand-javascript';
+		}
+		case 'Kotlin': {
+			return 'tabler:brand-kotlin';
+		}
+		case 'Python': {
+			return 'tabler:brand-python';
+		}
+		default: {
+			return 'tabler:code';
+		}
+	}
 };
 
 const projects = await Promise.all(
-  config.projects.map(async project => {
-    const response = await fetch(project.github.replace('github.com', 'api.github.com/repos'));
+	config.projects.map(async (project) => {
+		const response = await fetch(
+			project.github.replace('github.com', 'api.github.com/repos'),
+		);
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${project.github} (${response.status})`);
-    }
+		if (!response.ok) {
+			throw new Error(`Failed to fetch ${project.github} (${response.status})`);
+		}
 
-    const _json = await response.json();
-    const repoInfo = GithubRepositoryDataSchema.parse(_json);
+		const _json = await response.json();
+		const repoInfo = GithubRepositoryDataSchema.parse(_json);
 
-    return {
-      ...project,
-      name: repoInfo.name,
-      description: repoInfo.description,
-      language: repoInfo.language,
-      icon: getIconByLanguage(repoInfo.language),
-    };
-  }),
+		return {
+			...project,
+			name: repoInfo.name,
+			description: repoInfo.description,
+			language: repoInfo.language,
+			icon: getIconByLanguage(repoInfo.language),
+		};
+	}),
 );
 
 // Meta data
 const meta = {
-  title: 'Projects',
-  description: 'You can have a quick look of what projects I have been working on.',
+	title: 'Projects',
+	description:
+		'You can have a quick look of what projects I have been working on.',
 };
 ---
 

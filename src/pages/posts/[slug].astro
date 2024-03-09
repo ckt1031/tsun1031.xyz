@@ -1,9 +1,9 @@
 ---
 import '@/styles/post.css';
 
-import type { InferGetStaticPropsType } from 'astro';
 import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
 
@@ -13,18 +13,20 @@ import MainLayout from '@/layouts/main.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+	const posts = await getCollection('posts');
 
-  return posts.map(p => {
-    const readingTime = readingTimeModule(p.body);
-    const readingMinutes =
-      readingTime.minutes >= 1 ? 'Under ' + Math.round(readingTime.minutes) + ' minutes' : 'Less than 1' + ' minute';
+	return posts.map((p) => {
+		const readingTime = readingTimeModule(p.body);
+		const readingMinutes =
+			readingTime.minutes >= 1
+				? `Under·${Math.round(readingTime.minutes)}·minutes`
+				: 'Less than 1' + ' minute';
 
-    return {
-      params: { slug: p.slug },
-      props: { post: p, readingMinutes },
-    };
-  });
+		return {
+			params: { slug: p.slug },
+			props: { post: p, readingMinutes },
+		};
+	});
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
