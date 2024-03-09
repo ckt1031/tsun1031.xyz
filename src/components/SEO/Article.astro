@@ -4,20 +4,28 @@ import { SEO } from 'astro-seo';
 import config from '@/config';
 
 interface Props {
-  title: string;
-  description: string;
-  includeSiteTitle?: boolean;
+	title: string;
+	description: string;
+	includeSiteTitle?: boolean;
 
-  // Article
-  published_time: string;
-  author: string[];
-  section: string;
-  tags: string[];
-  images: string[];
+	// Article
+	published_time: string;
+	author: string[];
+	section: string;
+	tags: string[];
+	images: string[];
 }
 
-const { title, description, includeSiteTitle, published_time, author, section, tags, images } =
-  Astro.props;
+const {
+	title,
+	description,
+	includeSiteTitle,
+	published_time,
+	author,
+	section,
+	tags,
+	images,
+} = Astro.props;
 ---
 
 <head>

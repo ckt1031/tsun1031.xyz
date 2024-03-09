@@ -1,9 +1,9 @@
 ---
 import '@/styles/post.css';
 
+import { getCollection } from 'astro:content';
 import PostList from '@components/Posts/List.astro';
 import MainSEO from '@components/SEO/Main.astro';
-import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
@@ -11,36 +11,36 @@ import MainLayout from '@/layouts/main.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+	const posts = await getCollection('posts');
 
-  const tags = posts.flatMap(post => {
-    if (!post.data.tags) return [];
+	const tags = posts.flatMap((post) => {
+		if (!post.data.tags) return [];
 
-    return post.data.tags;
-  });
+		return post.data.tags;
+	});
 
-  return tags.map((t: string) => {
-    return {
-      params: {
-        slug: t,
-      },
-    };
-  });
+	return tags.map((t: string) => {
+		return {
+			params: {
+				slug: t,
+			},
+		};
+	});
 }
 
 const { slug } = Astro.params;
 
 // get all posts with the same tag
-const posts = (await getCollection('posts')).filter(post => {
-  if (!post.data.tags || !slug) return false;
+const posts = (await getCollection('posts')).filter((post) => {
+	if (!post.data.tags || !slug) return false;
 
-  return post.data.tags.includes(slug);
+	return post.data.tags.includes(slug);
 });
 
 // Meta data
 const meta = {
-  title: `Tag of ${slug}`,
-  description: `Posts tagged with #${slug}`,
+	title: `Tag of ${slug}`,
+	description: `Posts tagged with #${slug}`,
 };
 ---
 

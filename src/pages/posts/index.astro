@@ -1,20 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
 import PostList from '@components/Posts/List.astro';
 import MainSEO from '@components/SEO/Main.astro';
-import { getCollection } from 'astro:content';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
 
 const allPosts = (await getCollection('posts')).sort(
-  (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+	(a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
 
 // Meta data
 const meta = {
-  title: 'Posts',
-  description:
-    'Welcome to my post, where I embark on a journey of sharing knowledge and meaningful insights with the world.',
+	title: 'Posts',
+	description:
+		'Welcome to my post, where I embark on a journey of sharing knowledge and meaningful insights with the world.',
 };
 ---
 

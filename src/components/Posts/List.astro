@@ -1,12 +1,12 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import clsx from 'clsx';
 import sAgo from 's-ago';
-import type { CollectionEntry } from 'astro:content';
 
 import { Picture } from 'astro:assets';
 
 interface Props {
-  allPosts: CollectionEntry<'posts'>[];
+	allPosts: CollectionEntry<'posts'>[];
 }
 
 const { allPosts } = Astro.props;
