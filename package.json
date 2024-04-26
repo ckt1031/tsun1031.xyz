@@ -78,7 +78,7 @@
 	},
 	"overrides": {
 		"@iconify/utils": {
-			"@antfu/install-pkg": "0.3.2"
+			"@antfu/install-pkg": "0.3.3"
 		}
 	}
 }
