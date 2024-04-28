@@ -38,7 +38,7 @@
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "0.8.3",
 		"clsx": "^2.1.1",
-		"dayjs": "1.11.10",
+		"dayjs": "1.11.11",
 		"fireworks-js": "2.10.7",
 		"is-ci": "3.0.1",
 		"magic-snowflakes": "6.3.0",
