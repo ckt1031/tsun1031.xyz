@@ -16,20 +16,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v3
-        with:
-          version: latest
+          bun-version: latest
 
       - name: Install Dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Check Project
-        run: pnpm run check
+        run: bun run check
 
       - name: Test Build
-        run: pnpm run build
+        run: bun run build
