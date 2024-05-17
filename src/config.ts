@@ -28,10 +28,6 @@ const config = {
 			tags: ['Astro', 'Tailwind CSS'],
 		},
 		{
-			github: 'https://github.com/ckt1031/nodejs-config',
-			tags: ['ESLint', 'Prettier', 'Node.js'],
-		},
-		{
 			github: 'https://github.com/ckt1031/obsidian-wordwise-plugin',
 			tags: ['Obsidian', 'OpenAI'],
 		},
@@ -71,10 +67,6 @@ const config = {
 			{
 				href: '/about',
 				name: 'About Me',
-			},
-			{
-				href: '/technology',
-				name: 'Site Tech',
 			},
 		],
 	},
