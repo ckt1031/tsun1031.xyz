@@ -14,7 +14,8 @@
 		"format": "biome format . --write",
 		"prepare": "is-ci || husky || true",
 		"start": "astro dev",
-		"check": "biome check . && astro check",
+		"lint": "biome check . && astro check",
+		"lint:fix": "biome check . --apply",
 		"preview": "astro preview"
 	},
 	"config": {
@@ -23,15 +24,15 @@
 		}
 	},
 	"dependencies": {
-		"@astrojs/check": "0.6.0",
+		"@astrojs/check": "0.7.0",
 		"@astrojs/mdx": "3.0.0",
-		"@astrojs/rss": "4.0.5",
+		"@astrojs/rss": "4.0.6",
 		"@astrojs/sitemap": "3.1.4",
 		"@astrojs/tailwind": "5.1.0",
 		"@fireworks-js/web": "2.10.7",
 		"@fontsource-variable/inter": "5.0.18",
 		"@fontsource/noto-sans-tc": "5.0.19",
-		"astro": "4.8.2",
+		"astro": "4.8.5",
 		"astro-icon": "1.1.0",
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "0.8.3",
@@ -49,15 +50,15 @@
 		"zod": "3.23.8"
 	},
 	"devDependencies": {
-		"@astrojs/ts-plugin": "1.7.0",
+		"@astrojs/ts-plugin": "1.8.0",
 		"@biomejs/biome": "1.7.3",
 		"@ckt1031/tsconfig": "1.1.17",
 		"@commitlint/cli": "19.3.0",
 		"@commitlint/config-conventional": "19.2.2",
-		"@iconify-json/tabler": "1.1.111",
+		"@iconify-json/tabler": "1.1.112",
 		"@tailwindcss/typography": "0.5.13",
 		"@types/markdown-it": "14.1.1",
-		"@types/node": "20.12.11",
+		"@types/node": "20.12.12",
 		"@types/sanitize-html": "2.11.0",
 		"autoprefixer": "10.4.19",
 		"commitizen": "4.3.0",
@@ -73,5 +74,6 @@
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": ["biome check && tsc"],
 		"*.{yml,cjs,mjs,js,jsx,ts,tsx,json,css,html,md}": ["biome check"]
-	}
+	},
+	"trustedDependencies": ["@biomejs/biome", "esbuild", "sharp"]
 }
