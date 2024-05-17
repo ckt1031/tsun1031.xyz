@@ -3,7 +3,7 @@
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
-		"ignore": ["node_modules", ".vercel", "dist"],
+		"ignore": ["node_modules", ".vercel", "dist", "public"],
 		"indentStyle": "tab",
 		"indentWidth": 2,
 		"lineEnding": "lf",
@@ -19,7 +19,7 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": ["node_modules", ".vercel", "dist", ".astro"]
+		"ignore": ["node_modules", ".vercel", "dist", ".astro", "public"]
 	},
 	"organizeImports": {
 		"enabled": true

@@ -31,3 +31,5 @@ replit.nix
 .replit
 
 dist
+
+public/pagefind
