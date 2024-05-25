@@ -31,6 +31,7 @@ export default defineConfig({
 				},
 			],
 		}),
+		(await import('@playform/compress')).default(),
 	],
 	image: {
 		service: squooshImageService(),

@@ -24,7 +24,7 @@ jobs:
         run: bun install
 
       - name: Check Project
-        run: bun run check
+        run: bun run lint
 
       - name: Test Build
         run: bun run build
