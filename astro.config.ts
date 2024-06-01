@@ -6,7 +6,7 @@ import robotsTxt from 'astro-robots-txt';
 import { defineConfig, squooshImageService } from 'astro/config';
 
 export default defineConfig({
-	site: 'https://ckt1031.xyz',
+	site: 'https://tsun1031.xyz',
 	integrations: [
 		icon(),
 		tailwind(),
@@ -19,7 +19,7 @@ export default defineConfig({
 			optimize: true,
 		}),
 		robotsTxt({
-			sitemap: ['https://ckt1031.xyz/sitemap-index.xml'],
+			sitemap: ['https://tsun1031.xyz/sitemap-index.xml'],
 			policy: [
 				{
 					userAgent: '*',
@@ -35,6 +35,6 @@ export default defineConfig({
 	],
 	image: {
 		service: squooshImageService(),
-		domains: ['obsidian-img.ckt1031.xyz'],
+		domains: ['obsidian-img.tsun1031.xyz'],
 	},
 });
