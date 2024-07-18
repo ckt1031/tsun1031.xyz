@@ -3,7 +3,7 @@
 }
 
 .blog-style {
-  @apply prose prose-neutral dark:prose-invert;
+  @apply w-full max-w-full prose prose-neutral dark:prose-invert;
 }
 
 .blog-style h1 {
