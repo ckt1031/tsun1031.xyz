@@ -9,8 +9,6 @@ import readingTimeModule from 'reading-time';
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
 
-export const prerender = true;
-
 export async function getStaticPaths() {
 	const posts = await getCollection('posts');
 
@@ -18,7 +16,7 @@ export async function getStaticPaths() {
 		const readingTime = readingTimeModule(p.body);
 		const readingMinutes =
 			readingTime.minutes >= 1
-				? `Under·${Math.round(readingTime.minutes)}·minutes`
+				? `Under ${Math.round(readingTime.minutes)} minutes`
 				: 'Less than 1' + ' minute';
 
 		return {
@@ -34,6 +32,7 @@ const { post, readingMinutes } = Astro.props;
 const { Content } = await post.render();
 ---
 
+<meta charset="utf-8" />
 <ArticleSEO
   includeSiteTitle
   title={post.data.title}
@@ -48,13 +47,13 @@ const { Content } = await post.render();
     <div class="mb-3">
       <div class="mb-4 text-center">
         <p class="mt-2 text-gray-600 dark:text-gray-400">
-          {dayjs(post.data.published).format('YYYY-MM-DD HH:mm (Z)')}
+          {dayjs(post.data.published).format('YYYY-MM-DD HH:mm')}
         </p>
         <h1 class="text-3xl break-words font-bold md:text-4xl">{post.data.title}</h1>
         <p class="mt-3 italic text-slate-600 dark:text-slate-400" data-pagefind-ignore>{readingMinutes}</p>
       </div>
     </div>
-    <div class="prose-neutral blog-style prose max-w-full dark:prose-dark">
+    <div class="blog-style max-w-full">
       <Content />
     </div>
     {

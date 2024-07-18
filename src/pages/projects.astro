@@ -7,8 +7,6 @@ import PageTitle from '@/components/PageTitle.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
 
-export const prerender = true;
-
 const GithubRepositoryDataSchema = z.object({
 	name: z.string(),
 	language: z.string(),

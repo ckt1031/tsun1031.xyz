@@ -8,8 +8,6 @@ import MainSEO from '@components/SEO/Main.astro';
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
 
-export const prerender = true;
-
 export async function getStaticPaths() {
 	const posts = await getCollection('posts');
 
