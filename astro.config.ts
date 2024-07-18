@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
@@ -34,7 +34,7 @@ export default defineConfig({
 		(await import('@playform/compress')).default(),
 	],
 	image: {
-		service: squooshImageService(),
+		service: passthroughImageService(),
 		domains: ['obsidian-img.tsun1031.xyz'],
 	},
 });

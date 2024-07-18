@@ -3,7 +3,7 @@
 }
 
 .blog-style {
-  @apply flex flex-col gap-3;
+  @apply w-full max-w-full prose prose-neutral dark:prose-invert;
 }
 
 .blog-style h1 {

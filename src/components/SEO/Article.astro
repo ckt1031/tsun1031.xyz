@@ -13,7 +13,7 @@ interface Props {
 	author: string[];
 	section: string;
 	tags: string[];
-	images: string[];
+	//images: string[];
 }
 
 const {
@@ -24,7 +24,7 @@ const {
 	author,
 	section,
 	tags,
-	images,
+	//images,
 } = Astro.props;
 ---
 
@@ -43,7 +43,7 @@ const {
       basic: {
         title: title,
         type: 'website',
-        image: images[0],
+        image: '',
       },
     }}
     twitter={{
