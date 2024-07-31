@@ -36,6 +36,10 @@ const config = {
 				href: '/about',
 				name: 'About',
 			},
+			{
+				href: '/contact',
+				name: 'Contact',
+			},
 		],
 	},
 

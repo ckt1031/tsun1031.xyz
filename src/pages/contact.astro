@@ -1,0 +1,30 @@
+---
+import MainSEO from '@components/SEO/Main.astro';
+
+import MainLayout from '@/layouts/main.astro';
+
+// Meta data
+const meta = {
+	title: 'Contact',
+	description:
+		'Informations about how to contact me, feel free to reach out to me!',
+};
+---
+
+<meta charset="utf-8" />
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
+<MainLayout>
+  <div class="mt-5 flex flex-col items-center">
+    <main class="mb-10 mt-3 w-full space-y-6 text-left" data-pagefind-body>
+      <p>
+        Have questions or want to chat? Feel free to reach out!
+        Please be respectful in your communication.
+      </p>
+      <p>
+        I'm available via Email, Discord, and Instagram DMs.
+      </p>
+      <p>
+        Email: <a href="mailto:me@tsun1031.xyz" class="text-blue-500">me@tsun1031.xyz</a>
+      </p>
+  </div>
+</MainLayout>
