@@ -22,34 +22,11 @@ const config = {
 		youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 	},
 
-	projects: [
-		{
-			github: 'https://github.com/ckt1031/tsun1031.xyz',
-			tags: ['Astro', 'Tailwind CSS'],
-		},
-		{
-			github: 'https://github.com/ckt1031/obsidian-wordwise-plugin',
-			tags: ['Obsidian', 'OpenAI'],
-		},
-		{
-			github: 'https://github.com/ckt1031/DraconianBot',
-			tags: ['Discord.js', 'Node.js'],
-		},
-		{
-			github: 'https://github.com/ckt1031/discord-captcha-site',
-			tags: ['Discord.js', 'Express.js', 'Node.js'],
-		},
-	],
-
 	headbar: {
 		routes: [
 			{
 				href: '/',
 				name: 'Home',
-			},
-			{
-				href: '/projects',
-				name: 'Projects',
 			},
 			{
 				href: '/posts',
