@@ -25,7 +25,7 @@ const pathname = Astro.url.pathname;
       'fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-gray-100 duration-150 ease-in-out dark:bg-gray-900',
     )}
   >
-    <div class="overflow-auto">
+    <div class="overflow-y-auto mb-5">
       <div class="grid divide-y divide-gray-300 p-3 dark:divide-gray-700">
         {
           config.headbar.routes.map(item => (
@@ -69,6 +69,9 @@ const pathname = Astro.url.pathname;
         element.classList.remove('translate-y-0');
         xButton.classList.add('hidden');
         menuButton.classList.remove('hidden');
+
+        // Enable global scroll
+        document.body.style.overflow = 'auto';
       }, 0);
     } else {
       element.setAttribute('data-menu-opened', 'true');
@@ -78,6 +81,9 @@ const pathname = Astro.url.pathname;
         element.classList.remove('translate-y-full');
         xButton.classList.remove('hidden');
         menuButton.classList.add('hidden');
+
+      // Disable global scroll
+      document.body.style.overflow = 'hidden';
       }, 0);
     }
   };
