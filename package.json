@@ -39,6 +39,7 @@
 		"astro-seo": "0.8.4",
 		"clsx": "^2.1.1",
 		"dayjs": "1.11.12",
+		"feed": "^4.2.2",
 		"fireworks-js": "2.10.8",
 		"is-ci": "3.0.1",
 		"magic-snowflakes": "6.3.0",
