@@ -33,7 +33,7 @@
 		"@fontsource-variable/inter": "5.0.19",
 		"@fontsource/noto-sans-tc": "5.0.19",
 		"@playform/compress": "^0.0.13",
-		"astro": "4.12.0",
+		"astro": "4.12.3",
 		"astro-icon": "1.1.0",
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "0.8.4",
