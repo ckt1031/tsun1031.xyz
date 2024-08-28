@@ -61,7 +61,7 @@
 		"@iconify-json/tabler": "1.1.120",
 		"@tailwindcss/typography": "0.5.14",
 		"@types/markdown-it": "14.1.2",
-		"@types/node": "22.5.0",
+		"@types/node": "22.5.1",
 		"@types/sanitize-html": "2.13.0",
 		"autoprefixer": "10.4.20",
 		"commitizen": "4.3.0",
