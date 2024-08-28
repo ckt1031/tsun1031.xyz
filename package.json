@@ -58,7 +58,7 @@
 		"@ckt1031/tsconfig": "1.1.17",
 		"@commitlint/cli": "19.4.0",
 		"@commitlint/config-conventional": "19.2.2",
-		"@iconify-json/tabler": "1.1.120",
+		"@iconify-json/tabler": "1.1.121",
 		"@tailwindcss/typography": "0.5.14",
 		"@types/markdown-it": "14.1.2",
 		"@types/node": "22.5.0",
