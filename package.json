@@ -53,7 +53,7 @@
 		"zod": "3.23.8"
 	},
 	"devDependencies": {
-		"@astrojs/ts-plugin": "1.10.1",
+		"@astrojs/ts-plugin": "1.10.4",
 		"@biomejs/biome": "1.8.3",
 		"@ckt1031/tsconfig": "1.1.17",
 		"@commitlint/cli": "19.4.1",
