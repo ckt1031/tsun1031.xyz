@@ -8,11 +8,6 @@ import MainLayout from '@/layouts/main.astro';
 
 const socialMedia = [
 	{
-		name: 'Discord',
-		icon: 'tabler:brand-discord',
-		link: config.social.discordServer,
-	},
-	{
 		name: 'Github',
 		icon: 'tabler:brand-github',
 		link: config.social.github,
@@ -35,6 +30,16 @@ const meta = {
 	description:
 		"Hey there! I'm cktsun, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me.",
 };
+
+const birthday = new Date('2006-10-31');
+
+// Calculate age
+const ageDiffMs = Date.now() - birthday.getTime();
+
+// Convert age from milliseconds to years
+const ageDate = new Date(ageDiffMs);
+
+const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 ---
 
 <meta charset="utf-8" />
@@ -42,11 +47,11 @@ const meta = {
 <MainLayout>
   <div class="mt-5 flex flex-col items-center">
     <PageTitle
-      title="About Me"
-      description="👋 Hey there! I'm cktsun 😁, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me."
+      title="About Myself"
+      description="👋 Hey there! I'm CHAN, Ka Tsun (You might call me Kelvin or ckt1031) 😁, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me."
     />
     <main class="mb-10 mt-3 w-full space-y-6 text-left" data-pagefind-body>
-      <p>An undergraduate student in The Hong Kong University of Science and Technology, currently year 1, 17 yrs.</p>
+      <p>An undergraduate student of SENG in The Hong Kong University of Science and Technology, currently year 1, {age} yrs.</p>
       <p>
         Studying Engineering, and I am interested in software development, web development, and machine learning.
       </p>
