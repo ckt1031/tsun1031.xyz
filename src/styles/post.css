@@ -1,35 +1,35 @@
 .thumbnail {
-  @apply rounded-md object-cover;
+	@apply rounded-md object-cover;
 }
 
 .blog-style {
-  @apply w-full max-w-full prose prose-neutral dark:prose-invert;
+	@apply w-full max-w-full prose prose-neutral dark:prose-invert;
 }
 
 .blog-style h1 {
-  @apply text-4xl font-bold;
+	@apply text-4xl font-bold;
 }
 
 .blog-style h2 {
-  @apply text-3xl font-bold;
+	@apply text-3xl font-bold;
 }
 
 .blog-style h3 {
-  @apply text-2xl font-bold;
+	@apply text-2xl font-bold;
 }
 
 .blog-style h4 {
-  @apply text-lg font-bold;
+	@apply text-lg font-bold;
 }
 
 .blog-style h5 {
-  @apply text-base font-bold;
+	@apply text-base font-bold;
 }
 
 .blog-style h6 {
-  @apply font-semibold;
+	@apply font-semibold;
 }
 
 .blog-style p {
-  @apply text-base;
+	@apply text-base;
 }
