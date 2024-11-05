@@ -4,6 +4,7 @@ declare module 'astro:content' {
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
 			remarkPluginFrontmatter: Record<string, any>;
+			components: import('astro').MDXInstance<{}>['components'];
 		}>;
 	}
 }
@@ -150,10 +151,11 @@ declare module 'astro:content' {
 	): import('astro/zod').ZodEffects<import('astro/zod').ZodString, never>;
 
 	type ReturnTypeOrOriginal<T> = T extends (...args: any[]) => infer R ? R : T;
-	type InferEntrySchema<C extends keyof AnyEntryMap> =
-		import('astro/zod').infer<
-			ReturnTypeOrOriginal<Required<ContentConfig['collections'][C]>['schema']>
-		>;
+	type InferEntrySchema<C extends keyof AnyEntryMap> = import(
+		'astro/zod',
+	).infer<
+		ReturnTypeOrOriginal<Required<ContentConfig['collections'][C]>['schema']>
+	>;
 
 	type ContentEntryMap = {
 		posts: {
