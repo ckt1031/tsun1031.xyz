@@ -41,15 +41,6 @@ const config = {
 			},
 		],
 	},
-
-	footer: {
-		routes: [
-			{
-				href: '/about',
-				name: 'About Me',
-			},
-		],
-	},
 };
 
 export default config;
