@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import PostList from '@components/Posts/List.astro';
 import MainSEO from '@components/SEO/Main.astro';
+import { Icon } from 'astro-icon/components';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
@@ -26,6 +27,15 @@ const meta = {
         title="Blog"
         description="Welcome to my blog, where I embark on a journey of sharing knowledge and meaningful insights with the world."
       />
+    </div>
+    <div>
+        <a
+            class="text-gray-600 dark:text-gray-400 border base-border rounded-lg p-2 inline-block hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ease-in-out"
+            href="/posts/subscription"
+            aria-label="RSS Feed"
+        >
+            <Icon name="tabler:rss" size={24} />
+        </a>
     </div>
     <PostList allPosts={allPosts} />
   </div>
