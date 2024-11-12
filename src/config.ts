@@ -14,7 +14,7 @@ const config = {
 	twitter: '@cktsun1031', // Twitter username.
 
 	social: {
-		feed: '/feed.xml',
+		feed: '/rss',
 		github: 'https://github.com/ckt1031',
 		instagram: 'https://www.instagram.com/ckt.1031/',
 		twitter: 'https://twitter.com/@cktsun1031',
@@ -38,15 +38,6 @@ const config = {
 			{
 				href: '/contact',
 				name: 'Contact',
-			},
-		],
-	},
-
-	footer: {
-		routes: [
-			{
-				href: '/about',
-				name: 'About Me',
 			},
 		],
 	},

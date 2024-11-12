@@ -7,6 +7,9 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
+	build: {
+		assets: 'assets',
+	},
 	integrations: [
 		icon(),
 		tailwind(),
