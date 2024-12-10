@@ -9,15 +9,17 @@
   let currentYear = currentDate.getFullYear();
 
   // Create date objects for the start and end of the desired range
-  let startDate = new Date(currentYear, 11, 20); // Months are 0-indexed in JavaScript
-  let endDate = new Date(currentYear, 11, 31);
+  let startDate = new Date(currentYear, 11, 1); // Months are 0-indexed in JavaScript
+  let endDate = new Date(currentYear + 1, 0, 30);
 
   // Check if the current date is within the desired range
   if (currentDate >= startDate && currentDate <= endDate) {
     // dynamically import the snowflakes module
     import('magic-snowflakes').then(module => {
       // create a new instance of the snowflakes class
-      new module.default();
+      new module.default({
+        color: "#ffffff",
+      });
     });
   }
 </script>
