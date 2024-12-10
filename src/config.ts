@@ -3,8 +3,7 @@
 
 const config = {
 	url: 'tsun1031.xyz', // Site domain. Do not include a trailing slash!
-	description: `Welcome to ckt1031's cool website! Expect regular updates as I release exciting new content.
-  I started this site in June 2022, so stay tuned for all the latest updates!`,
+	description: `Welcome to ckt1031's cool website! Expect regular updates as I release exciting new content. I started this site in June 2022, so stay tuned for all the latest updates!`,
 	author: 'cktsun', // Your name.
 	siteTitle: 'ckt1031', // Site title.
 	siteIconPublicPath: '/favicon.ico', // Path to the public folder, where the site icon is located.

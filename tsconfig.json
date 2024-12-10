@@ -5,6 +5,9 @@
 		"incremental": true,
 		"jsx": "preserve",
 		"noEmit": true,
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "bundler",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"paths": {
 			"@/*": ["./src/*"],
