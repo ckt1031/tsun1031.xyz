@@ -7,7 +7,8 @@ import { Icon } from 'astro-icon/components';
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
 
-const allPosts = (await getCollection('posts')).sort(
+const collections = await getCollection('posts');
+const allPosts = collections.sort(
 	(a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
 

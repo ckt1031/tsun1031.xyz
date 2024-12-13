@@ -2,13 +2,12 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
 		"baseUrl": ".",
-		"incremental": true,
-		"jsx": "preserve",
 		"noEmit": true,
-		"target": "esnext",
+		"incremental": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
 		"module": "esnext",
 		"moduleResolution": "bundler",
-		"lib": ["dom", "dom.iterable", "esnext"],
 		"paths": {
 			"@/*": ["./src/*"],
 			"@components/*": ["./src/components/*"],
@@ -18,11 +17,8 @@
 			{
 				"name": "@astrojs/ts-plugin"
 			}
-		],
-		"strictNullChecks": true
+		]
 	},
-	"exclude": ["node_modules"],
-	"extends": "@ckt1031/tsconfig/web.json",
-	"include": ["src", "*.js", "*.cjs", "*.ts", "*.mjs", "scripts"],
-	"moduleResolution": "node"
+	"exclude": ["node_modules", "dist"],
+	"include": [".astro/types.d.ts", "src", "*.ts"]
 }
