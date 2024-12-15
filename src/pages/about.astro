@@ -1,10 +1,10 @@
 ---
 import MainSEO from '@components/SEO/Main.astro';
-import { Icon } from 'astro-icon/components';
 
 import PageTitle from '@/components/PageTitle.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
+import { Icon } from 'astro-icon/components';
 
 const socialMedia = [
 	{
@@ -51,32 +51,39 @@ const age = Math.abs(ageDate.getUTCFullYear() - 1970);
       description="👋 Hey there! I'm CHAN, Ka Tsun (You might call me Kelvin or ckt1031) 😁, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me."
     />
     <main class="mb-10 mt-3 w-full space-y-6 text-left" data-pagefind-body>
-      <p>An undergraduate student of SENG in The Hong Kong University of Science and Technology, currently year 1, {age} yrs.</p>
       <p>
-        Studying Engineering, and I am interested in software development, web development, and machine learning.
+        An undergraduate student of SENG in The Hong Kong University of Science
+        and Technology, currently year 1, {age} yrs.
       </p>
       <p>
-        love reading, writing, and coding. I enjoy investigating philosophical questions and the
-        intersection between technology and ethics
+        Studying Engineering, and I am interested in software development, web
+        development, and machine learning.
       </p>
       <p>
-        Passionated about exploring ideas and discussing them with others, and I enjoy sharing
-        my thoughts and knowledge with people online.
+        love reading, writing, and coding. I enjoy investigating philosophical
+        questions and the intersection between technology and ethics
       </p>
       <p>
-        Additionally, I find programming to be a fascinating way to create and problem-solve, and I
-        love the feeling of accomplishment that comes from building something new and useful with
-        code.
+        Passionated about exploring ideas and discussing them with others, and I
+        enjoy sharing my thoughts and knowledge with people online.
       </p>
-      <div class="flex flex-row flex-wrap gap-2 text-gray-800 dark:text-gray-300">
+      <p>
+        Additionally, I find programming to be a fascinating way to create and
+        problem-solve, and I love the feeling of accomplishment that comes from
+        building something new and useful with code.
+      </p>
+      <div
+        class="flex flex-row flex-wrap gap-2 text-gray-800 dark:text-gray-300"
+      >
         {
-          socialMedia.map(item => (
+          socialMedia.map((item) => (
             <a
               href={item.link}
               class="flex flex-row items-center gap-2 rounded-lg bg-gray-200 p-2 dark:bg-gray-800"
               target="_blank"
               rel="noreferrer"
             >
+              {/* @ts-ignore */}
               <Icon name={item.icon} size={23} />
               <p class="text-xl">{item.name}</p>
             </a>

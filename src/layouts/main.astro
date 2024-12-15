@@ -16,13 +16,17 @@ import config from '@/config';
 
     <link rel="shortcut icon" href={config.siteIconPublicPath} />
     <link rel="icon" type="image/svg+xml" href={config.siteIconPublicPath} />
-    <link rel="alternate icon" type="image/x-icon" href={config.siteIconPublicPath} />
+    <link
+      rel="alternate icon"
+      type="image/x-icon"
+      href={config.siteIconPublicPath}
+    />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <style>
       body {
-        font-family: 'Inter Variable', 'Noto Sans TC', sans-serif;
+        font-family: "Inter Variable", "Noto Sans TC", sans-serif;
       }
     </style>
   </head>
@@ -30,8 +34,15 @@ import config from '@/config';
     <Snowflake />
     <Firework />
     <Headbar />
-    <div id="firework" class="fixed top-0 left-0 w-full h-full pointer-events-none"></div>
-    <div id="main" class="m-auto flex w-full max-w-[800px] flex-1 flex-col items-center px-5">
+    <div
+      id="firework"
+      class="fixed top-0 left-0 w-full h-full pointer-events-none"
+    >
+    </div>
+    <div
+      id="main"
+      class="m-auto flex w-full max-w-[800px] flex-1 flex-col items-center px-5"
+    >
       <slot />
     </div>
   </body>

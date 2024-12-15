@@ -8,109 +8,109 @@ import { Icon } from 'astro-icon/components';
   aria-label="Toggle Theme Mode"
   class="base-button-hover base-button-animation p-2"
 >
-  <Icon name="tabler:device-desktop" id="system-theme-toggle-id" size={24} class="hidden" />
-  <Icon name="tabler:sun" id="sun-theme-toggle-id" size={24} class="hidden" />
   <Icon
-    name="tabler:moon"
-    id="moon-theme-toggle-id"
+    name="tabler:device-desktop"
+    id="system-theme-toggle-id"
     size={24}
     class="hidden"
   />
+  <Icon name="tabler:sun" id="sun-theme-toggle-id" size={24} class="hidden" />
+  <Icon name="tabler:moon" id="moon-theme-toggle-id" size={24} class="hidden" />
 </button>
 
-<head>
-  <script is:inline>
-    const themes = ['system', 'dark', 'light'];
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+<script is:inline>
+  const themes = ["system", "dark", "light"];
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-    /**
-     * @param theme {'dark' | 'light'}
-     * Write the theme to the document
-     */
-    const writeTheme = (theme) => {
-      document.documentElement.setAttribute('data-theme', theme);
-      document.documentElement.style.setProperty('color-scheme', theme);
-    };
-    
-    /**
-     * @returns {'dark' | 'light' | 'system'}
-     */
-    const getConfigTheme = () => {
-      const localThemeString = localStorage.getItem('theme');
+  /**
+   * @param theme {'dark' | 'light'}
+   * Write the theme to the document
+   */
+  const writeTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.setProperty("color-scheme", theme);
+  };
 
-      if (localThemeString && themes.includes(localThemeString ?? '')) {
-        // @ts-ignore
-        return localThemeString;
-      }
+  /**
+   * @returns {'dark' | 'light' | 'system'}
+   */
+  const getConfigTheme = () => {
+    const localThemeString = localStorage.getItem("theme");
 
-      return 'system';
-    };
+    if (localThemeString && themes.includes(localThemeString ?? "")) {
+      // @ts-ignore
+      return localThemeString;
+    }
 
-    const getPreferredTheme = () => {
-      return prefersDark.matches ? 'dark' : 'light';
-    };
+    return "system";
+  };
 
-    /**
-     * @param theme {'dark' | 'light' | 'system'}
-     */
-    const setTheme = (theme) => {
-      writeTheme(theme === 'system' ? getPreferredTheme() : theme);
-      localStorage.setItem('theme', theme);
-      setIconStatus(theme);
-    };
+  const getPreferredTheme = () => {
+    return prefersDark.matches ? "dark" : "light";
+  };
 
-    /**
-     * @param theme {'system' | 'dark' | 'light'}
-     */
-    const setIconStatus = (theme) => {
-      const sunIcon = document.getElementById('sun-theme-toggle-id');
-      const moonIcon = document.getElementById('moon-theme-toggle-id');
-      const systemIcon = document.getElementById('system-theme-toggle-id');
+  /**
+   * @param theme {'dark' | 'light' | 'system'}
+   */
+  const setTheme = (theme) => {
+    writeTheme(theme === "system" ? getPreferredTheme() : theme);
+    localStorage.setItem("theme", theme);
+    setIconStatus(theme);
+  };
 
-      if (theme === 'dark') {
-        sunIcon?.classList.add('hidden');
-        moonIcon?.classList.remove('hidden');
-        systemIcon?.classList.add('hidden');
-      } else if (theme === 'light') {
-        sunIcon?.classList.remove('hidden');
-        moonIcon?.classList.add('hidden');
-        systemIcon?.classList.add('hidden');
-      } else {
-        sunIcon?.classList.add('hidden');
-        moonIcon?.classList.add('hidden');
-        systemIcon?.classList.remove('hidden');
-      }
-    };
+  /**
+   * @param theme {'system' | 'dark' | 'light'}
+   */
+  const setIconStatus = (theme) => {
+    const sunIcon = document.getElementById("sun-theme-toggle-id");
+    const moonIcon = document.getElementById("moon-theme-toggle-id");
+    const systemIcon = document.getElementById("system-theme-toggle-id");
 
-    const handleThemeToggleClick = () => {
-      // Loop through the themes array and get the index of the current theme
-      const currentTheme = localStorage.getItem('theme') ?? 'system';
-      const currentIndex = themes.indexOf(currentTheme);
+    if (theme === "dark") {
+      sunIcon?.classList.add("hidden");
+      moonIcon?.classList.remove("hidden");
+      systemIcon?.classList.add("hidden");
+    } else if (theme === "light") {
+      sunIcon?.classList.remove("hidden");
+      moonIcon?.classList.add("hidden");
+      systemIcon?.classList.add("hidden");
+    } else {
+      sunIcon?.classList.add("hidden");
+      moonIcon?.classList.add("hidden");
+      systemIcon?.classList.remove("hidden");
+    }
+  };
 
-      // Get the next theme in the array
-      const nextIndex = (currentIndex + 1) % themes.length;
+  const handleThemeToggleClick = () => {
+    // Loop through the themes array and get the index of the current theme
+    const currentTheme = localStorage.getItem("theme") ?? "system";
+    const currentIndex = themes.indexOf(currentTheme);
 
-      const selectedTheme = themes[nextIndex];
+    // Get the next theme in the array
+    const nextIndex = (currentIndex + 1) % themes.length;
 
-      if (themes.includes(selectedTheme)) {
-        // @ts-ignore
-        setTheme(selectedTheme);
-      }
-    };
+    const selectedTheme = themes[nextIndex];
 
-    const rewriteTheme = () => {
-      if (getConfigTheme() === 'system') {
-        writeTheme(getPreferredTheme());
-      }
-    };
+    if (themes.includes(selectedTheme)) {
+      // @ts-ignore
+      setTheme(selectedTheme);
+    }
+  };
 
-    const currentTheme = getConfigTheme();
-    setTheme(currentTheme);
+  const rewriteTheme = () => {
+    if (getConfigTheme() === "system") {
+      writeTheme(getPreferredTheme());
+    }
+  };
 
-    document.getElementById('themeToggle')?.addEventListener('click', handleThemeToggleClick);
+  const currentTheme = getConfigTheme();
+  setTheme(currentTheme);
 
-    // System
-    document.addEventListener('astro:after-swap', rewriteTheme);
-    prefersDark.addEventListener('change', rewriteTheme);
-  </script>
-</head>
+  document
+    .getElementById("themeToggle")
+    ?.addEventListener("click", handleThemeToggleClick);
+
+  // System
+  document.addEventListener("astro:after-swap", rewriteTheme);
+  prefersDark.addEventListener("change", rewriteTheme);
+</script>

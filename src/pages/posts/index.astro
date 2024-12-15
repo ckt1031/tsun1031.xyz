@@ -7,7 +7,8 @@ import { Icon } from 'astro-icon/components';
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
 
-const allPosts = (await getCollection('posts')).sort(
+const collections = await getCollection('posts');
+const allPosts = collections.sort(
 	(a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
 
@@ -29,13 +30,13 @@ const meta = {
       />
     </div>
     <div>
-        <a
-            class="text-gray-600 dark:text-gray-400 border base-border rounded-lg p-2 inline-block hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ease-in-out"
-            href="/posts/subscription"
-            aria-label="RSS Feed"
-        >
-            <Icon name="tabler:rss" size={24} />
-        </a>
+      <a
+        class="text-gray-600 dark:text-gray-400 border base-border rounded-lg p-2 inline-block hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ease-in-out"
+        href="/posts/subscription"
+        aria-label="RSS Feed"
+      >
+        <Icon name="tabler:rss" size={24} />
+      </a>
     </div>
     <PostList allPosts={allPosts} />
   </div>

@@ -6,9 +6,14 @@ import MainLayout from '@/layouts/main.astro';
 
 <head>
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-  <script is:inline src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+  <script is:inline src="/pagefind/pagefind-ui.js" type="text/javascript"
+  ></script>
 </head>
-<MainSEO title="Searching" description="Search for anything on this site" />
+<MainSEO
+  title="Search"
+  description="Search for anything on this site"
+  includeSiteTitle
+/>
 <MainLayout>
   <div
     class="my-5 flex flex-col items-center justify-center text-center"
@@ -24,6 +29,8 @@ import MainLayout from '@/layouts/main.astro';
           element: "#search",
           resetStyles: false,
           showImages: false,
+          debounceTimeoutMs: 500,
+          autofocus: true,
         });
       });
     </script>

@@ -33,3 +33,5 @@ replit.nix
 dist
 
 public/pagefind
+
+.astro

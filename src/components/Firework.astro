@@ -1,8 +1,9 @@
 ---
-
 ---
 
 <script>
+  import { Fireworks } from "fireworks-js";
+
   const container = document.querySelector("#firework");
 
   if (!container) throw new Error("No container found");
@@ -16,17 +17,14 @@
 
   // Check if the current date is within the range
   if (now >= start && now <= end) {
-    // dynamically import
-    import("fireworks-js").then((module) => {
-      const fireworks = new module.Fireworks(container, {
-        autoresize: true,
-        boundaries: {
-          width: container.clientWidth,
-          height: container.clientHeight,
-        },
-      });
-
-      fireworks.start();
+    const fireworks = new Fireworks(container, {
+      autoresize: true,
+      boundaries: {
+        width: container.clientWidth,
+        height: container.clientHeight,
+      },
     });
+
+    fireworks.start();
   }
 </script>
