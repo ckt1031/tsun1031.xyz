@@ -55,7 +55,7 @@
 		"@astrojs/ts-plugin": "1.10.4",
 		"@biomejs/biome": "1.9.4",
 		"@ckt1031/tsconfig": "1.1.17",
-		"@commitlint/cli": "19.6.0",
+		"@commitlint/cli": "19.6.1",
 		"@commitlint/config-conventional": "19.6.0",
 		"@iconify-json/tabler": "1.2.11",
 		"@tailwindcss/typography": "0.5.15",
