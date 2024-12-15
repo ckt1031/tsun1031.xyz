@@ -1,19 +1,12 @@
 ---
-import type { Icon as Tconype } from 'virtual:astro-icon';
 import MainSEO from '@components/SEO/Main.astro';
-import { Icon } from 'astro-icon/components';
 
 import PageTitle from '@/components/PageTitle.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
+import { Icon } from 'astro-icon/components';
 
-type SocialMedia = {
-	name: string;
-	icon: Tconype;
-	link: string;
-};
-
-const socialMedia: SocialMedia[] = [
+const socialMedia = [
 	{
 		name: 'Github',
 		icon: 'tabler:brand-github',
@@ -90,6 +83,7 @@ const age = Math.abs(ageDate.getUTCFullYear() - 1970);
               target="_blank"
               rel="noreferrer"
             >
+              {/* @ts-ignore */}
               <Icon name={item.icon} size={23} />
               <p class="text-xl">{item.name}</p>
             </a>
