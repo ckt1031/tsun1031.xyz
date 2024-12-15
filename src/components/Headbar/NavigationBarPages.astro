@@ -8,17 +8,17 @@ const currentPath = Astro.url.pathname;
 
 <nav class="hidden flex-row gap-1 md:flex" data-pagefind-ignore="all">
   {
-    config.headbar.routes.map(item => (
+    config.headbar.routes.map((item) => (
       <a href={item.href}>
         <p
           class={clsx(
-            (currentPath === '/'
+            (currentPath === "/"
               ? currentPath === item.href
-              : currentPath.startsWith(item.href ?? '') && item.href !== '/') &&
-              'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-100',
-            'text-gray-500 dark:text-gray-400',
-            'rounded hover:text-gray-700 dark:hover:text-gray-200',
-            'block px-2 py-0.5 text-center',
+              : currentPath.startsWith(item.href ?? "") && item.href !== "/") &&
+              "bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-100",
+            "text-gray-500 dark:text-gray-400",
+            "rounded hover:text-gray-700 dark:hover:text-gray-200",
+            "block px-2 py-0.5 text-center"
           )}
         >
           {item.name}

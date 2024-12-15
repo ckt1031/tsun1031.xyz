@@ -14,29 +14,38 @@ const pathname = Astro.url.pathname;
     class="flex items-center p-2"
     id="mobile-navigation-menu-button"
   >
-    <Icon name="tabler:x" size={24} class="hidden" id="mobile-navigation-menu-button-x" />
-    <Icon name="tabler:menu-2" size={24} id="mobile-navigation-menu-button-menu" />
+    <Icon
+      name="tabler:x"
+      size={24}
+      class="hidden"
+      id="mobile-navigation-menu-button-x"
+    />
+    <Icon
+      name="tabler:menu-2"
+      size={24}
+      id="mobile-navigation-menu-button-menu"
+    />
   </button>
   <div
     id="mobile-navigation-menu"
     data-menu-opened="false"
     class={clsx(
-      'translate-y-full',
-      'fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-gray-100 duration-150 ease-in-out dark:bg-gray-900',
+      "translate-y-full",
+      "fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-gray-100 duration-150 ease-in-out dark:bg-gray-900"
     )}
   >
     <div class="overflow-y-auto mb-5">
       <div class="grid divide-y divide-gray-300 p-3 dark:divide-gray-700">
         {
-          config.headbar.routes.map(item => (
+          config.headbar.routes.map((item) => (
             <a href={item.href}>
               <p
                 class={clsx(
-                  (pathname === '/'
+                  (pathname === "/"
                     ? pathname === item.href
-                    : pathname.startsWith(item.href ?? '') && item.href !== '/') &&
-                    'text-orange-600',
-                  'cursor-pointer p-4 text-center',
+                    : pathname.startsWith(item.href ?? "") &&
+                      item.href !== "/") && "text-orange-600",
+                  "cursor-pointer p-4 text-center"
                 )}
               >
                 {item.name}
@@ -51,44 +60,46 @@ const pathname = Astro.url.pathname;
 
 <script>
   const handleMobileNavigationToggleClick = () => {
-    const element = document.getElementById('mobile-navigation-menu');
-    const xButton = document.getElementById('mobile-navigation-menu-button-x');
-    const menuButton = document.getElementById('mobile-navigation-menu-button-menu');
+    const element = document.getElementById("mobile-navigation-menu");
+    const xButton = document.getElementById("mobile-navigation-menu-button-x");
+    const menuButton = document.getElementById(
+      "mobile-navigation-menu-button-menu"
+    );
 
     if (!xButton || !menuButton || !element) {
       return;
     }
 
-    const isOpened = element.getAttribute('data-menu-opened') === 'true';
+    const isOpened = element.getAttribute("data-menu-opened") === "true";
 
     if (isOpened) {
-      element.setAttribute('data-menu-opened', 'false');
+      element.setAttribute("data-menu-opened", "false");
       // Replace translate-y-0 with translate-y-full to hide the menu
       setTimeout(() => {
-        element.classList.add('translate-y-full');
-        element.classList.remove('translate-y-0');
-        xButton.classList.add('hidden');
-        menuButton.classList.remove('hidden');
+        element.classList.add("translate-y-full");
+        element.classList.remove("translate-y-0");
+        xButton.classList.add("hidden");
+        menuButton.classList.remove("hidden");
 
         // Enable global scroll
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = "auto";
       }, 0);
     } else {
-      element.setAttribute('data-menu-opened', 'true');
+      element.setAttribute("data-menu-opened", "true");
       // Replace translate-y-full with translate-y-0 to show the menu
       setTimeout(() => {
-        element.classList.add('translate-y-0');
-        element.classList.remove('translate-y-full');
-        xButton.classList.remove('hidden');
-        menuButton.classList.add('hidden');
+        element.classList.add("translate-y-0");
+        element.classList.remove("translate-y-full");
+        xButton.classList.remove("hidden");
+        menuButton.classList.add("hidden");
 
-      // Disable global scroll
-      document.body.style.overflow = 'hidden';
+        // Disable global scroll
+        document.body.style.overflow = "hidden";
       }, 0);
     }
   };
 
   document
-    .getElementById('mobile-navigation-menu-button')
-    ?.addEventListener('click', handleMobileNavigationToggleClick);
+    .getElementById("mobile-navigation-menu-button")
+    ?.addEventListener("click", handleMobileNavigationToggleClick);
 </script>

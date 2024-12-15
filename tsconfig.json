@@ -20,5 +20,5 @@
 		]
 	},
 	"exclude": ["node_modules", "dist"],
-	"include": [".astro/types.d.ts", "src", "*.ts"]
+	"include": [".astro/types.d.ts", ".astro/icon.d.ts", "src", "*.ts"]
 }

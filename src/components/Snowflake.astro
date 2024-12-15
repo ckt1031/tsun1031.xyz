@@ -1,8 +1,8 @@
 ---
-
 ---
 
 <script>
+  import Snowflakes from "magic-snowflakes";
   // Get the current date
   let currentDate = new Date();
   // Get the current year
@@ -14,12 +14,9 @@
 
   // Check if the current date is within the desired range
   if (currentDate >= startDate && currentDate <= endDate) {
-    // dynamically import the snowflakes module
-    import('magic-snowflakes').then(module => {
-      // create a new instance of the snowflakes class
-      new module.default({
-        color: "#ffffff",
-      });
+    // create a new instance of the snowflakes class
+    new Snowflakes({
+      color: "#ffffff",
     });
   }
 </script>

@@ -6,8 +6,8 @@ import config from '@/config';
 export async function GET(context: { site: string | URL }) {
 	const posts = await getCollection('posts');
 
-	const url =
-		typeof context.site === 'string' ? context.site : context.site.href;
+	const site = context.site;
+	const url = typeof site === 'string' ? site : site.href;
 
 	const feed = new Feed({
 		title: config.siteTitle,

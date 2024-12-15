@@ -10,36 +10,34 @@ const { allPosts } = Astro.props;
 ---
 
 <div class="flex flex-col mb-3">
-  {allPosts.length > 0 ? (
-    allPosts.map(({ data, slug }) => {
-      return (
-        <div
-          class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5"
-        >
-          <div
-            class='flex max-h-fit flex-col justify-between break-words'
-          >
-            <div>
-              <a
-                class="cursor-pointer text-2xl font-semibold hover:underline"
-                href={`/posts/${slug}`}
-              >
-                {data.title}
-              </a>
-            <p class="text-gray-500 dark:text-gray-400">
-              {sAgo(new Date(data.published))}
-            </p>
-              <p class="text-gray-600 dark:text-gray-300">
-                {data.description}
-              </p>
+  {
+    allPosts.length > 0 ? (
+      allPosts.map(({ data, slug }) => {
+        return (
+          <div class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5">
+            <div class="flex max-h-fit flex-col justify-between break-words">
+              <div>
+                <a
+                  class="cursor-pointer text-2xl font-semibold hover:underline"
+                  href={`/posts/${slug}`}
+                >
+                  {data.title}
+                </a>
+                <p class="text-gray-500 dark:text-gray-400">
+                  {sAgo(new Date(data.published))}
+                </p>
+                <p class="text-gray-600 dark:text-gray-300">
+                  {data.description}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      );
-    })
-  ) : (
-    <div class="flex flex-col items-center">
-      <p class="p-5">Nothing can be found!</p>
-    </div>
-  )}
+        );
+      })
+    ) : (
+      <div class="flex flex-col items-center">
+        <p class="p-5">Nothing can be found!</p>
+      </div>
+    )
+  }
 </div>

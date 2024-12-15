@@ -17,24 +17,29 @@ const meta = {
 <MainLayout>
   <div class="my-5 w-full max-w-[1000px]">
     <div class="mb-2">
-      <PageTitle
-        title={meta.title}
-        description={meta.description}
-    />
+      <PageTitle title={meta.title} description={meta.description} />
     </div>
     <div class="flex flex-col gap-3">
-        <p class="text-lg">
-You have two ways to subscription, I offer both RSS and ATOM feeds. You can subscribe to my blog using the following links:
-        </p>
-        <div class="mt-2 flex flex-row items-center gap-2 text-lg">
-            <p class="font-bold">RSS: </p>
-            <code class="bg-gray-200 dark:bg-gray-800 py-0.5 px-1 rounded">https://{config.url}/rss</code>
-        </div>
-        <div class="mt-2 flex flex-row items-center gap-2 text-lg">
-            <p class="font-bold">ATOM: </p>
-            <code class="bg-gray-200 dark:bg-gray-800 py-0.5 px-1 rounded">https://{config.url}/atom</code>
-        </div>
-        <p>You can add it to your favourite RSS readers like Feedly, Inoreader, etc.</p>
+      <p class="text-lg">
+        You have two ways to subscription, I offer both RSS and ATOM feeds. You
+        can subscribe to my blog using the following links:
+      </p>
+      <div class="mt-2 flex flex-row items-center gap-2 text-lg">
+        <p class="font-bold">RSS:</p>
+        <code class="bg-gray-200 dark:bg-gray-800 py-0.5 px-1 rounded"
+          >https://{config.url}/rss</code
+        >
+      </div>
+      <div class="mt-2 flex flex-row items-center gap-2 text-lg">
+        <p class="font-bold">ATOM:</p>
+        <code class="bg-gray-200 dark:bg-gray-800 py-0.5 px-1 rounded"
+          >https://{config.url}/atom</code
+        >
+      </div>
+      <p>
+        You can add it to your favourite RSS readers like Feedly, Inoreader,
+        etc.
+      </p>
     </div>
   </div>
 </MainLayout>
