@@ -19,6 +19,10 @@
   if (now >= start && now <= end) {
     const fireworks = new Fireworks(container, {
       autoresize: true,
+      opacity: 0.1,
+      particles: 100,
+      friction: 0.99,
+      intensity: 5,
       boundaries: {
         width: container.clientWidth,
         height: container.clientHeight,

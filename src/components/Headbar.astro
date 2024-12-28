@@ -1,14 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components';
+import Countdown from './Countdown.astro';
 
 import MobileNavigationMenu from './Headbar/MobileNavigationMenu.astro';
 import NavigationBarPages from './Headbar/NavigationBarPages.astro';
 import ThemeSwitcher from './Headbar/ThemeSwitcher.astro';
 ---
 
-<header class="flex w-screen justify-center" data-pagefind-ignore="all">
+<header class="flex flex-col w-screen justify-center" data-pagefind-ignore="all">
+  <Countdown />
   <div
-    class="flex w-full max-w-[800px] flex-row items-center justify-between px-5 py-2 text-lg md:py-3"
+    class="flex w-full max-w-[800px] self-center flex-row items-center justify-between px-5 py-2 text-lg md:py-3"
   >
     <div class="flex flex-row items-center">
       <MobileNavigationMenu />

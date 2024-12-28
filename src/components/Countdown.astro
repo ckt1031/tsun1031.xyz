@@ -1,0 +1,59 @@
+---
+// Check if there is only 15 days left until the end of the year
+const now = new Date();
+const end = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
+
+const daysLeft = Math.floor(
+	(end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24),
+);
+
+const nextYear = now.getFullYear() + 1;
+
+// Make a countdown timer updating every second
+const className =
+	'bg-white p-2 dark:bg-gray-800 dark:text-white rounded-md mx-1';
+---
+
+{daysLeft <= 10 && daysLeft > 0 && (
+    <div class="bg-yellow-100 p-4 dark:bg-yellow-800 text-center text-lg md:text-xl">
+            <span id="day[0]" class={className}></span>
+            <span id="day[1]" class={className}></span>
+            <span>:</span>
+            <span id="hour[0]" class={className}></span>
+            <span id="hour[1]" class={className}></span>
+            <span>:</span>
+            <span id="minute[0]" class={className}></span>
+            <span id="minute[1]" class={className}></span>
+            <span>:</span>
+            <span id="second[0]" class={className}></span>
+            <span id="second[1]" class={className}></span>
+            <span> until <strong>{nextYear}</strong>!</span>
+    </div>
+    <script>
+        const countdown = () => {
+            const params = ['day', 'hour', 'minute', 'second'];
+
+            const now = new Date();
+            const end = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
+
+            for (const param of params) {
+                const time = {
+                    day: Math.floor((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)),
+                    hour: 23 - now.getHours(),
+                    minute: 59 - now.getMinutes(),
+                    second: 59 - now.getSeconds()
+                };
+
+                const timeString = time[param].toString().padStart(2, '0');
+
+                for (let i = 0; i < 2; i++) {
+                    document.getElementById(`${param}[${i}]`).textContent = timeString[i];
+                }
+            }
+        };
+
+        countdown();
+
+        setInterval(countdown, 1000);
+    </script>
+)}
