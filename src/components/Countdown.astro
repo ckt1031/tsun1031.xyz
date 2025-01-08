@@ -14,46 +14,60 @@ const className =
 	'bg-white p-2 dark:bg-gray-800 dark:text-white rounded-md mx-1';
 ---
 
-{daysLeft <= 10 && daysLeft > 0 && (
-    <div class="bg-yellow-100 p-4 dark:bg-yellow-800 text-center text-lg md:text-xl">
-            <span id="day[0]" class={className}></span>
-            <span id="day[1]" class={className}></span>
-            <span>:</span>
-            <span id="hour[0]" class={className}></span>
-            <span id="hour[1]" class={className}></span>
-            <span>:</span>
-            <span id="minute[0]" class={className}></span>
-            <span id="minute[1]" class={className}></span>
-            <span>:</span>
-            <span id="second[0]" class={className}></span>
-            <span id="second[1]" class={className}></span>
-            <span> until <strong>{nextYear}</strong>!</span>
-    </div>
-    <script>
-        const countdown = () => {
-            const params = ['day', 'hour', 'minute', 'second'];
+{(daysLeft <= 15) && (daysLeft > 0) && (
+<div class="bg-yellow-100 p-4 dark:bg-yellow-800 text-center text-lg md:text-xl" id="countdown">
+    <span id="day[0]" class={className}></span>
+    <span id="day[1]" class={className}></span>
+    <span>:</span>
+    <span id="hour[0]" class={className}></span>
+    <span id="hour[1]" class={className}></span>
+    <span>:</span>
+    <span id="minute[0]" class={className}></span>
+    <span id="minute[1]" class={className}></span>
+    <span>:</span>
+    <span id="second[0]" class={className}></span>
+    <span id="second[1]" class={className}></span>
+    <span> until <strong>{nextYear}</strong>!</span>
+</div>
+<script>
+    const currentYear = new Date().getFullYear();
 
-            const now = new Date();
-            const end = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
+    const countdown = () => {
+        const params = ['day', 'hour', 'minute', 'second'];
 
-            for (const param of params) {
-                const time = {
-                    day: Math.floor((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)),
-                    hour: 23 - now.getHours(),
-                    minute: 59 - now.getMinutes(),
-                    second: 59 - now.getSeconds()
-                };
+        const now = new Date();
+        const end = new Date(currentYear, 11, 31, 23, 59, 59, 999);
 
-                const timeString = time[param].toString().padStart(2, '0');
+        // Do not show the countdown if day[0] is larger or equal to 2
+        if (Number(document.getElementById('day[0]').textContent) >= 2) {
+            document.getElementById('countdown').style.display = 'none';
+            return;
+        }
 
-                for (let i = 0; i < 2; i++) {
-                    document.getElementById(`${param}[${i}]`).textContent = timeString[i];
-                }
+        // If the year has already ended, reload the page
+        if (now.getTime() > end.getTime()) {
+            location.reload();
+            return;
+        }
+
+        for (const param of params) {
+            const time = {
+                day: Math.floor((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)),
+                hour: 23 - now.getHours(),
+                minute: 59 - now.getMinutes(),
+                second: 59 - now.getSeconds()
+            };
+
+            const timeString = time[param].toString().padStart(2, '0');
+
+            for (let i = 0; i < 2; i++) {
+                document.getElementById(`${param}[${i}]`).textContent = timeString[i];
             }
-        };
+        }
+    };
 
-        countdown();
+    countdown();
 
-        setInterval(countdown, 1000);
-    </script>
-)}
+    setInterval(countdown, 1000);
+</script>
+    )}
