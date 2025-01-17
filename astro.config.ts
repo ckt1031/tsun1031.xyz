@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, passthroughImageService } from 'astro/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import { getUserAgents } from './src/user-agents';
 
 const normalUA = await getUserAgents('https://www.ditig.com/robots.txt');
@@ -45,5 +47,9 @@ export default defineConfig({
 	image: {
 		service: passthroughImageService(),
 		domains: ['obsidian-img.tsun1031.xyz'],
+	},
+	markdown: {
+		remarkPlugins: [remarkMath],
+		rehypePlugins: [rehypeKatex],
 	},
 });
