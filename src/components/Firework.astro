@@ -2,33 +2,34 @@
 ---
 
 <script>
-  import { Fireworks } from "fireworks-js";
+    const container = document.querySelector("#firework");
 
-  const container = document.querySelector("#firework");
+    if (!container) throw new Error("No container (#firework) found");
 
-  if (!container) throw new Error("No container found");
+    // Get the current date
+    const now = new Date();
+    const currentYear = now.getFullYear();
 
-  // Get the current date
-  const now = new Date();
+    // Define the start and end dates of the desired range
+    const start = new Date(currentYear, 0, 1); // January 1st of the current year
+    const end = new Date(currentYear, 0, 2, 23, 59, 59, 999); // January 2nd of the current year at 23:59:59.999
 
-  // Define the start and end dates of the desired range
-  const start = new Date(now.getFullYear(), 0, 1); // January 1st of the current year
-  const end = new Date(now.getFullYear(), 0, 2, 23, 59, 59, 999); // January 2nd of the current year at 23:59:59.999
+    // Check if the current date is within the range
+    if (now >= start && now <= end) {
+        const {Fireworks} = await import('fireworks-js');
 
-  // Check if the current date is within the range
-  if (now >= start && now <= end) {
-    const fireworks = new Fireworks(container, {
-      autoresize: true,
-      opacity: 0.1,
-      particles: 100,
-      friction: 0.99,
-      intensity: 5,
-      boundaries: {
-        width: container.clientWidth,
-        height: container.clientHeight,
-      },
-    });
+        const fireworks = new Fireworks(container, {
+            autoresize: true,
+            opacity: 0.1,
+            particles: 100,
+            friction: 0.99,
+            intensity: 5,
+            boundaries: {
+                width: container.clientWidth,
+                height: container.clientHeight,
+            },
+        });
 
-    fireworks.start();
-  }
+        fireworks.start();
+    }
 </script>

@@ -2,21 +2,22 @@
 ---
 
 <script>
-  import Snowflakes from "magic-snowflakes";
-  // Get the current date
-  let currentDate = new Date();
-  // Get the current year
-  let currentYear = currentDate.getFullYear();
+    // Get the current date
+    const currentDate = new Date();
+    // Get the current year
+    const currentYear = currentDate.getFullYear();
 
-  // Create date objects for the start and end of the desired range
-  let startDate = new Date(currentYear, 11, 1); // Months are 0-indexed in JavaScript
-  let endDate = new Date(currentYear + 1, 0, 30);
+    // Create date objects for the start and end of the desired range
+    const startDate = new Date(currentYear, 11, 1); // Months are 0-indexed in JavaScript
+    const endDate = new Date(currentYear + 1, 0, 30);
 
-  // Check if the current date is within the desired range
-  if (currentDate >= startDate && currentDate <= endDate) {
-    // create a new instance of the snowflakes class
-    new Snowflakes({
-      color: "#ffffff",
-    });
-  }
+    // Check if the current date is within the desired range
+    if (currentDate >= startDate && currentDate <= endDate) {
+        const {default: Snowflakes} = await import('magic-snowflakes');
+
+        // create a new instance of the snowflakes class
+        new Snowflakes({
+            color: "#ffffff",
+        });
+    }
 </script>
