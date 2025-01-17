@@ -9,37 +9,38 @@ import MainLayout from '@/layouts/main.astro';
 const meta = {
 	title: 'RSS Subscription',
 	description:
-		'Here you can subscribe to my blog via RSS feed. Stay up-to-date with the latest posts and updates from my blog.',
+		'Stay up-to-date with the latest posts and updates from my blog.',
 };
 ---
 
-<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
+<style>
+    .rss-link {
+        @apply text-blue-500 dark:text-blue-400 font-mono hover:underline;
+    }
+</style>
+<MainSEO includeSiteTitle title={meta.title} description={meta.description}/>
 <MainLayout>
-  <div class="my-5 w-full max-w-[1000px]">
-    <div class="mb-2">
-      <PageTitle title={meta.title} description={meta.description} />
+    <div class="my-5 w-full max-w-[1000px]">
+        <div class="mb-2">
+            <PageTitle title={meta.title} description={meta.description}/>
+        </div>
+        <div class="flex flex-col gap-2">
+            <p>
+                We offer different format to subscribe, including RSS and Atom feeds.
+                Add it to RSS readers, for example: Feedly, Inoreader, etc.
+                Here are the links:
+            </p>
+            <div class="mt-2 flex flex-row items-center gap-1">
+                <p class="font-bold">RSS:</p>
+                <a class="rss-link" href={`https://${config.url}/rss`} target="_blank">/rss</a>
+            </div>
+            <div class="flex flex-row items-center gap-1">
+                <p class="font-bold">Atom:</p>
+                <a class="rss-link" href={`https://${config.url}/atom`} target="_blank">/atom</a>
+            </div>
+            <p>
+                I recommend <strong>Atom</strong> format, as it is more modern and has more features.
+            </p>
+        </div>
     </div>
-    <div class="flex flex-col gap-3">
-      <p class="text-lg">
-        You have two ways to subscription, I offer both RSS and ATOM feeds. You
-        can subscribe to my blog using the following links:
-      </p>
-      <div class="mt-2 flex flex-row items-center gap-2 text-lg">
-        <p class="font-bold">RSS:</p>
-        <code class="bg-gray-200 dark:bg-gray-800 py-0.5 px-1 rounded"
-          >https://{config.url}/rss</code
-        >
-      </div>
-      <div class="mt-2 flex flex-row items-center gap-2 text-lg">
-        <p class="font-bold">ATOM:</p>
-        <code class="bg-gray-200 dark:bg-gray-800 py-0.5 px-1 rounded"
-          >https://{config.url}/atom</code
-        >
-      </div>
-      <p>
-        You can add it to your favourite RSS readers like Feedly, Inoreader,
-        etc.
-      </p>
-    </div>
-  </div>
 </MainLayout>
