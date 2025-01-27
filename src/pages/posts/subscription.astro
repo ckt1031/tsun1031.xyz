@@ -15,34 +15,39 @@ const meta = {
 
 <style>
     @reference "tailwindcss";
-    
+
     .rss-link {
         @apply text-blue-500 dark:text-blue-400 font-mono hover:underline;
     }
 </style>
-<MainSEO includeSiteTitle title={meta.title} description={meta.description}/>
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
-    <div class="my-5 w-full max-w-[1000px]">
-        <div class="mb-2">
-            <PageTitle title={meta.title} description={meta.description}/>
+    <PageTitle title={meta.title} description={meta.description} />
+    <div class="flex flex-col gap-2 mt-2">
+        <p>
+            We offer different format to subscribe, including RSS and Atom
+            feeds. Add it to RSS readers, for example: Feedly, Inoreader, etc.
+            Here are the links:
+        </p>
+        <div class="mt-2 flex flex-row items-center gap-1">
+            <p class="font-bold">RSS:</p>
+            <a
+                class="rss-link"
+                href={`https://${config.url}/rss`}
+                target="_blank">/rss</a
+            >
         </div>
-        <div class="flex flex-col gap-2">
-            <p>
-                We offer different format to subscribe, including RSS and Atom feeds.
-                Add it to RSS readers, for example: Feedly, Inoreader, etc.
-                Here are the links:
-            </p>
-            <div class="mt-2 flex flex-row items-center gap-1">
-                <p class="font-bold">RSS:</p>
-                <a class="rss-link" href={`https://${config.url}/rss`} target="_blank">/rss</a>
-            </div>
-            <div class="flex flex-row items-center gap-1">
-                <p class="font-bold">Atom:</p>
-                <a class="rss-link" href={`https://${config.url}/atom`} target="_blank">/atom</a>
-            </div>
-            <p>
-                I recommend <strong>Atom</strong> format, as it is more modern and has more features.
-            </p>
+        <div class="flex flex-row items-center gap-1">
+            <p class="font-bold">Atom:</p>
+            <a
+                class="rss-link"
+                href={`https://${config.url}/atom`}
+                target="_blank">/atom</a
+            >
         </div>
+        <p>
+            I recommend <strong>Atom</strong> format, as it is more modern and has
+            more features.
+        </p>
     </div>
 </MainLayout>
