@@ -10,28 +10,25 @@ const pathname = Astro.url.pathname;
 <div class="md:hidden">
   <button
     aria-label="Mobile Menu"
+    title="Mobile Menu"
     type="button"
-    class="flex items-center p-2"
+    class="flex items-center p-2 base-button-hover base-button-animation"
     id="mobile-navigation-menu-button"
   >
     <Icon
       name="hugeicons:cancel-01"
       size={24}
       class="hidden"
-      id="mobile-navigation-menu-button-x"
+      id="mobile-nav-close-button"
     />
-    <Icon
-      name="hugeicons:menu-02"
-      size={24}
-      id="mobile-navigation-menu-button-menu"
-    />
+    <Icon name="hugeicons:menu-02" size={24} id="mobile-nav-menu-button" />
   </button>
   <div
     id="mobile-navigation-menu"
     data-menu-opened="false"
     class={clsx(
       "translate-y-full",
-      "fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-neutral-100 duration-150 ease-in-out dark:bg-neutral-900"
+      "fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-neutral-100 duration-150 ease-in-out dark:bg-neutral-900",
     )}
   >
     <div class="overflow-y-auto mb-5">
@@ -45,7 +42,7 @@ const pathname = Astro.url.pathname;
                     ? pathname === item.href
                     : pathname.startsWith(item.href ?? "") &&
                       item.href !== "/") && "text-orange-600",
-                  "cursor-pointer p-4 text-center"
+                  "cursor-pointer p-4 text-center",
                 )}
               >
                 {item.name}
@@ -61,14 +58,8 @@ const pathname = Astro.url.pathname;
 <script>
   const handleMobileNavigationToggleClick = () => {
     const element = document.getElementById("mobile-navigation-menu");
-    const xButton = document.getElementById("mobile-navigation-menu-button-x");
-    const menuButton = document.getElementById(
-      "mobile-navigation-menu-button-menu"
-    );
-
-    if (!xButton || !menuButton || !element) {
-      return;
-    }
+    const xButton = document.getElementById("mobile-nav-close-button");
+    const menuButton = document.getElementById("mobile-nav-menu-button");
 
     const isOpened = element.getAttribute("data-menu-opened") === "true";
 
@@ -99,7 +90,7 @@ const pathname = Astro.url.pathname;
     }
   };
 
-  document
-    .getElementById("mobile-navigation-menu-button")
-    ?.addEventListener("click", handleMobileNavigationToggleClick);
+  const menuBtn = document.getElementById("mobile-navigation-menu-button");
+
+  menuBtn.addEventListener("click", handleMobileNavigationToggleClick);
 </script>
