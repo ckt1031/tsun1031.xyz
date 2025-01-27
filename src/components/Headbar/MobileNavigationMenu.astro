@@ -31,11 +31,11 @@ const pathname = Astro.url.pathname;
     data-menu-opened="false"
     class={clsx(
       "translate-y-full",
-      "fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-gray-100 duration-150 ease-in-out dark:bg-gray-900"
+      "fixed left-0 z-10 mt-3 flex h-screen w-screen flex-col bg-neutral-100 duration-150 ease-in-out dark:bg-neutral-900"
     )}
   >
     <div class="overflow-y-auto mb-5">
-      <div class="grid divide-y divide-gray-300 p-3 dark:divide-gray-700">
+      <div class="grid divide-y divide-neutral-300 p-3 dark:divide-neutral-700">
         {
           config.headbar.routes.map((item) => (
             <a href={item.href}>

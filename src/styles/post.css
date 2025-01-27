@@ -1,3 +1,5 @@
+@reference "./main.css";
+
 .thumbnail {
 	@apply rounded-md object-cover;
 }

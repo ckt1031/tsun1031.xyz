@@ -1,6 +1,6 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, passthroughImageService } from 'astro/config';
@@ -21,7 +21,6 @@ export default defineConfig({
 	},
 	integrations: [
 		icon(),
-		tailwind(),
 		sitemap({
 			changefreq: 'weekly',
 			priority: 0.7,
@@ -52,5 +51,8 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkMath],
 		rehypePlugins: [rehypeKatex],
+	},
+	vite: {
+		plugins: [tailwindcss()],
 	},
 });
