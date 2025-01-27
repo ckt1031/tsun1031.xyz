@@ -44,10 +44,8 @@ const meta = {
 
 <MainSEO title={meta.title} description={meta.description} />
 <MainLayout>
-  <div class="my-5 w-full max-w-[1000px]">
-    <div class="mb-2">
-      <PageTitle title={`Posts tagged with "${slug}"`} />
-    </div>
-    <PostList allPosts={posts} />
-  </div>
+	<div class="mb-2">
+		<PageTitle title={`Posts tagged with "${slug}"`} />
+	</div>
+	<PostList allPosts={posts} />
 </MainLayout>

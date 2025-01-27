@@ -18,23 +18,15 @@ const meta = {
 
 <MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
-  <div class="my-5 w-full max-w-[1000px]">
-    <div class="mb-2">
-      <PageTitle title="Available Tags for Posts" />
-    </div>
-
-    <div class="flex flex-wrap gap-2">
-      <!-- Loop through allTags and display each tag -->
-      {
-        allTags.map((tag) => (
-          <a
-            href={`/posts/tags/${tag}`}
-            class="base-border rounded-lg border bg-neutral-100 px-2 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400"
-          >
-            {tag}
-          </a>
-        ))
-      }
-    </div>
+  <PageTitle title="Available Tags for Posts" />
+  <div class="flex flex-wrap gap-2 mt-5">
+    <!-- Loop through allTags and display each tag -->
+    {
+      allTags.map((tag) => (
+        <a href={`/posts/tags/${tag}`} class="post-tag ">
+          {tag}
+        </a>
+      ))
+    }
   </div>
 </MainLayout>

@@ -9,27 +9,27 @@
 }
 
 .blog-style h1 {
-	@apply text-4xl font-bold;
+	@apply text-4xl font-semibold;
 }
 
 .blog-style h2 {
-	@apply text-3xl font-bold;
+	@apply text-3xl font-medium;
 }
 
 .blog-style h3 {
-	@apply text-2xl font-bold;
+	@apply text-2xl font-medium;
 }
 
 .blog-style h4 {
-	@apply text-lg font-bold;
+	@apply text-lg font-medium;
 }
 
 .blog-style h5 {
-	@apply text-base font-bold;
+	@apply text-base font-medium;
 }
 
 .blog-style h6 {
-	@apply font-semibold;
+	@apply font-medium;
 }
 
 .blog-style p {

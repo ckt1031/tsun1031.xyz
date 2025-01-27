@@ -20,22 +20,21 @@ const meta = {
 };
 ---
 
-<MainSEO includeSiteTitle title={meta.title} description={meta.description}/>
+<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
-    <div class="my-5 w-full max-w-[1000px]">
-        <div class="mb-2">
-            <PageTitle
-                    title="Blog"
-                    description="Welcome to my blog, where I embark on a journey of sharing knowledge and meaningful insights with the world."
-            />
-        </div>
-        <a
-                class="text-neutral-600 dark:text-neutral-400"
-                href="/posts/subscription"
-                aria-label="RSS Feed"
-        >
-            <Icon name="iconoir:rss-feed-tag-solid" size={20}/>
-        </a>
-        <PostList allPosts={allPosts}/>
+    <div class="mb-2">
+        <PageTitle
+            title="Blog"
+            description="Welcome to my blog, where I embark on a journey of sharing knowledge and meaningful insights with the world."
+        />
     </div>
+    <a
+        class="text-neutral-600 dark:text-neutral-400"
+        href="/posts/subscription"
+        aria-label="RSS Feed"
+        title="RSS Feed"
+    >
+        <Icon name="iconoir:rss-feed-tag-solid" size={20} />
+    </a>
+    <PostList allPosts={allPosts} />
 </MainLayout>

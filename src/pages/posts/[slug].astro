@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 		const readingTime = readingTimeModule(p.body);
 		const readingMinutes =
 			readingTime.minutes >= 1
-				? `Under ${Math.round(readingTime.minutes)} minutes`
+				? `${Math.round(readingTime.minutes)} minutes`
 				: 'Less than 1' + ' minute';
 
 		return {
@@ -39,27 +39,25 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   author={["ckt1031"]}
-  published_time={dayjs(post.data.published).format("YYYY-MM-DDTHH:mm:ssZ")}
+  published_time={dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
   tags={post.data.tags || []}
   section={post.data.tags ? post.data.tags[0] : "post"}
 />
 <MainLayout>
   <article class="mb-20 mt-5 w-full" data-pagefind-body>
-    <div class="mb-3">
-      <div class="mb-4 text-center">
-        <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-          {dayjs(post.data.published).format("YYYY-MM-DD HH:mm")}
-        </p>
-        <h1 class="text-3xl break-words font-bold md:text-4xl">
-          {post.data.title}
-        </h1>
-        <p
-          class="mt-3 italic text-slate-600 dark:text-slate-400"
-          data-pagefind-ignore
-        >
-          {readingMinutes}
-        </p>
-      </div>
+    <div class="base-border border-b">
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        {dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
+      </p>
+      <h1 class="text-3xl break-words font-bold md:text-4xl">
+        {post.data.title}
+      </h1>
+      <p
+        class="mt-3 mb-4 text-slate-600 dark:text-slate-400 text-left"
+        data-pagefind-ignore
+      >
+        Reading: {readingMinutes}
+      </p>
     </div>
     <div class="blog-style">
       <Content />
@@ -68,12 +66,9 @@ const { Content } = await post.render();
       post.data.tags && (
         <div class="base-border mt-7 border-t">
           <div class="mt-5">
-            <p class="mb-2">Tags:</p>
+            <p class="mb-2 font-medium">Tags:</p>
             {post.data.tags.map((tag: string) => (
-              <a
-                class="font-medium text-blue-600 dark:text-blue-400"
-                href={`/posts/tags/${tag}`}
-              >
+              <a class="post-tag " href={`/posts/tags/${tag}`}>
                 {tag}
               </a>
             ))}
