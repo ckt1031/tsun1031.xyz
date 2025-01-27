@@ -6,20 +6,31 @@ import { Icon } from 'astro-icon/components';
   type="button"
   id="themeToggle"
   aria-label="Toggle Theme Mode"
+  title="Toggle Theme Mode"
   class="base-button-hover base-button-animation p-2"
 >
   <Icon
     name="hugeicons:computer"
-    id="system-theme-toggle-id"
+    id="system-theme-button"
     size={24}
     class="hidden"
   />
-  <Icon name="hugeicons:sun-03" id="sun-theme-toggle-id" size={24} class="hidden" />
-  <Icon name="hugeicons:moon-02" id="moon-theme-toggle-id" size={24} class="hidden" />
+  <Icon
+    name="hugeicons:sun-03"
+    id="light-theme-button"
+    size={24}
+    class="hidden"
+  />
+  <Icon
+    name="hugeicons:moon-02"
+    id="dark-theme-button"
+    size={24}
+    class="hidden"
+  />
 </button>
 
-<script is:inline>
-  const themes = ["system", "dark", "light"];
+<script is:inline lang="ts">
+  const themes = ["system", "light", "dark"];
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
   /**
@@ -62,23 +73,13 @@ import { Icon } from 'astro-icon/components';
    * @param theme {'system' | 'dark' | 'light'}
    */
   const setIconStatus = (theme) => {
-    const sunIcon = document.getElementById("sun-theme-toggle-id");
-    const moonIcon = document.getElementById("moon-theme-toggle-id");
-    const systemIcon = document.getElementById("system-theme-toggle-id");
+    const sunIcon = document.getElementById("light-theme-button");
+    const moonIcon = document.getElementById("dark-theme-button");
+    const systemIcon = document.getElementById("system-theme-button");
 
-    if (theme === "dark") {
-      sunIcon?.classList.add("hidden");
-      moonIcon?.classList.remove("hidden");
-      systemIcon?.classList.add("hidden");
-    } else if (theme === "light") {
-      sunIcon?.classList.remove("hidden");
-      moonIcon?.classList.add("hidden");
-      systemIcon?.classList.add("hidden");
-    } else {
-      sunIcon?.classList.add("hidden");
-      moonIcon?.classList.add("hidden");
-      systemIcon?.classList.remove("hidden");
-    }
+    sunIcon.classList.toggle("hidden", theme !== "light");
+    moonIcon.classList.toggle("hidden", theme !== "dark");
+    systemIcon.classList.toggle("hidden", theme !== "system");
   };
 
   const handleThemeToggleClick = () => {
@@ -92,7 +93,6 @@ import { Icon } from 'astro-icon/components';
     const selectedTheme = themes[nextIndex];
 
     if (themes.includes(selectedTheme)) {
-      // @ts-ignore
       setTheme(selectedTheme);
     }
   };
