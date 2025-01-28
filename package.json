@@ -75,6 +75,5 @@
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": ["biome check && tsc"],
 		"*.{yml,cjs,mjs,js,jsx,ts,tsx,json,css,html,md}": ["biome check"]
-	},
-	"trustedDependencies": ["@biomejs/biome", "esbuild", "sharp"]
+	}
 }

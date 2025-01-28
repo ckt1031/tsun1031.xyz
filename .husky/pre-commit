@@ -1,2 +1,2 @@
 
-npx lint-staged --quiet
+bunx lint-staged --quiet
