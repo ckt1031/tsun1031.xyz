@@ -27,7 +27,6 @@
 		"@astrojs/mdx": "4.0.7",
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/sitemap": "3.2.1",
-		"@astrojs/tailwind": "5.1.5",
 		"@fireworks-js/web": "2.10.8",
 		"@fontsource-variable/lora": "^5.1.1",
 		"@fontsource/lxgw-wenkai-tc": "^5.1.1",
