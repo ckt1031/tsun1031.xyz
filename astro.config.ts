@@ -30,6 +30,10 @@ export default defineConfig({
 					disallow: ['/404'],
 					userAgent: '*',
 				},
+				{
+					allow: ['/'],
+					userAgent: '*',
+				},
 			],
 		}),
 	],
