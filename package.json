@@ -8,7 +8,6 @@
 	"type": "module",
 	"scripts": {
 		"build": "astro build && npx pagefind --site dist",
-		"commit": "cz",
 		"dev": "astro dev",
 		"format": "biome format . --write",
 		"prepare": "is-ci || husky || true",
@@ -16,11 +15,6 @@
 		"lint": "biome check . && astro check",
 		"lint:fix": "astro check && biome check . --write",
 		"preview": "astro preview"
-	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.4",
@@ -61,7 +55,6 @@
 		"autoprefixer": "10.4.21",
 		"commitizen": "4.3.1",
 		"cross-env": "7.0.3",
-		"cz-conventional-changelog": "3.3.0",
 		"husky": "9.1.7",
 		"lint-staged": "15.5.0",
 		"tailwindcss": "^4.1.3",
