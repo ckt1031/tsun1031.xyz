@@ -6,12 +6,6 @@ import robotsTxt from 'astro-robots-txt';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
-import { getUserAgents } from './src/user-agents';
-
-const normalUA = await getUserAgents('https://www.ditig.com/robots.txt');
-const aiCrawlerUA = await getUserAgents(
-	'https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt',
-);
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
@@ -32,14 +26,10 @@ export default defineConfig({
 		robotsTxt({
 			sitemap: ['https://tsun1031.xyz/sitemap-index.xml'],
 			policy: [
-				...normalUA.map((ua) => ({
-					userAgent: ua,
-					allow: ['/'],
-				})),
-				...aiCrawlerUA.map((ua) => ({
-					userAgent: ua,
-					disallow: ['/'],
-				})),
+				{
+					disallow: ['/404'],
+					userAgent: '*',
+				},
 			],
 		}),
 		(await import('@playform/compress')).default(),
