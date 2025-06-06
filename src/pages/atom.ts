@@ -30,7 +30,7 @@ export async function GET(context: { site: string | URL }) {
 
 	return new Response(feed.atom1(), {
 		headers: {
-			'Content-Type': 'application/xml',
+			'Content-Type': 'application/xml; charset=utf-8',
 		},
 	});
 }
