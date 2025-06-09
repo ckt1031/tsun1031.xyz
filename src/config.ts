@@ -13,11 +13,9 @@ const config = {
 	twitter: '@cktsun1031', // Twitter username.
 
 	social: {
-		feed: '/rss',
 		github: 'https://github.com/ckt1031',
 		instagram: 'https://www.instagram.com/ckt.1031/',
 		twitter: 'https://twitter.com/@cktsun1031',
-		youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 	},
 
 	headbar: {
