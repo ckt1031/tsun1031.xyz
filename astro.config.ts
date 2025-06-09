@@ -9,27 +9,13 @@ import remarkMath from 'remark-math';
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
-	build: {
-		assets: 'assets',
-		inlineStylesheets: 'never',
-	},
 	integrations: [
 		icon(),
-		sitemap({
-			changefreq: 'weekly',
-			priority: 0.7,
-			lastmod: new Date(),
-		}),
-		mdx({
-			optimize: true,
-		}),
+		sitemap(),
+		mdx(),
 		robotsTxt({
 			sitemap: ['https://tsun1031.xyz/sitemap-index.xml'],
 			policy: [
-				{
-					disallow: ['/404'],
-					userAgent: '*',
-				},
 				{
 					allow: ['/'],
 					userAgent: '*',
