@@ -23,6 +23,7 @@
 		"@astrojs/sitemap": "3.4.1",
 		"@fireworks-js/web": "2.10.8",
 		"@fontsource-variable/lora": "^5.2.5",
+		"@fontsource-variable/signika-negative": "^5.2.6",
 		"@fontsource/lxgw-wenkai-tc": "^5.2.5",
 		"@iconify-json/hugeicons": "^1.2.5",
 		"@iconify-json/iconoir": "^1.2.7",
