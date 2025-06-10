@@ -4,8 +4,6 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, passthroughImageService } from 'astro/config';
-import rehypeKatex from 'rehype-katex';
-import remarkMath from 'remark-math';
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
@@ -26,10 +24,6 @@ export default defineConfig({
 	image: {
 		service: passthroughImageService(),
 		domains: ['obsidian-img.tsun1031.xyz'],
-	},
-	markdown: {
-		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeKatex],
 	},
 	vite: {
 		plugins: [tailwindcss()],
