@@ -35,11 +35,3 @@ const dateString = data.published.toLocaleDateString('en-US', {
     </div>
   </div>
 </div>
-
-<script is:inline>
-  const dateElement = document.getElementById('{dateElementId}');
-  console.log(dateElement);
-  if (dateElement) {
-    dateElement.textContent += ` • ${sAgo(new Date(data.published))}`;
-  }
-</script>
