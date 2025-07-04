@@ -26,6 +26,7 @@ export default defineConfig({
 		domains: ['obsidian-img.tsun1031.xyz'],
 	},
 	vite: {
+		// @ts-expect-error
 		plugins: [tailwindcss()],
 	},
 });
