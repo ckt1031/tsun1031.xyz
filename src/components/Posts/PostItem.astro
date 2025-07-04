@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import sAgo from 's-ago';
+
+interface Props {
+	data: CollectionEntry<'posts'>['data'];
+	slug: string;
+}
+
+const { data, slug } = Astro.props;
+---
+
+<div class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5">
+    <div class="flex max-h-fit flex-col justify-between break-words">
+      <div>
+        <a
+          class="cursor-pointer text-2xl font-semibold hover:underline"
+          href={`/posts/${slug}`}
+        >
+          {data.title}
+        </a>
+        <p class="text-neutral-500 dark:text-neutral-400">
+          {sAgo(new Date(data.published))}
+        </p>
+        <p class="text-neutral-600 dark:text-neutral-300">
+          {data.description}
+        </p>
+      </div>
+    </div>
+  </div>
