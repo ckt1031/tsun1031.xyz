@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import sAgo from 's-ago';
 
 interface Props {
 	data: CollectionEntry<'posts'>['data'];
@@ -8,23 +7,39 @@ interface Props {
 }
 
 const { data, slug } = Astro.props;
+
+const dateElementId = `date-${slug}`;
+
+const dateString = data.published.toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
 ---
 
 <div class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5">
-    <div class="flex max-h-fit flex-col justify-between break-words">
-      <div>
-        <a
-          class="cursor-pointer text-2xl font-semibold hover:underline"
-          href={`/posts/${slug}`}
-        >
-          {data.title}
-        </a>
-        <p class="text-neutral-500 dark:text-neutral-400">
-          {sAgo(new Date(data.published))}
-        </p>
-        <p class="text-neutral-600 dark:text-neutral-300">
-          {data.description}
-        </p>
-      </div>
+  <div class="flex max-h-fit flex-col justify-between break-words">
+    <div>
+      <a
+        class="cursor-pointer text-2xl font-semibold hover:underline"
+        href={`/posts/${slug}`}
+      >
+        {data.title}
+      </a>
+      <p class="text-neutral-500 dark:text-neutral-400" id={dateElementId}>
+        {dateString}
+      </p>
+      <p class="text-neutral-600 dark:text-neutral-300">
+        {data.description}
+      </p>
     </div>
   </div>
+</div>
+
+<script is:inline>
+  const dateElement = document.getElementById('{dateElementId}');
+  console.log(dateElement);
+  if (dateElement) {
+    dateElement.textContent += ` • ${sAgo(new Date(data.published))}`;
+  }
+</script>

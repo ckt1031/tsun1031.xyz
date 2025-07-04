@@ -12,11 +12,7 @@ const { allPosts } = Astro.props;
 <div class="flex flex-col mb-3">
   {
     allPosts.length > 0 ? (
-      allPosts.map(({ data, slug }) => {
-        return (
-          <PostItem data={data} slug={slug} />
-        );
-      })
+      allPosts.map(({ data, slug }) => <PostItem data={data} slug={slug} />)
     ) : (
       <div class="flex flex-col items-center">
         <p class="p-5">Nothing can be found!</p>
