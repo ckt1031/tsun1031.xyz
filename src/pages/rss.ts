@@ -1,9 +1,9 @@
 import { loadRenderers } from 'astro:container';
 import { getCollection, render } from 'astro:content';
-import config from '@/config';
 import { getContainerRenderer as getMDXRenderer } from '@astrojs/mdx';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { Feed } from 'feed';
+import config from '@/config';
 
 export async function generateFeed(context: { site: string | URL }) {
 	const renderers = await loadRenderers([getMDXRenderer()]);
