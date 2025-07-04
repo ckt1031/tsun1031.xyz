@@ -30,16 +30,6 @@ const meta = {
 	description:
 		"Hey there! I'm cktsun, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me.",
 };
-
-const birthday = new Date('2006-10-31');
-
-// Calculate age
-const ageDiffMs = Date.now() - birthday.getTime();
-
-// Convert age from milliseconds to years
-const ageDate = new Date(ageDiffMs);
-
-const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 ---
 
 <meta charset="utf-8" />
@@ -47,29 +37,22 @@ const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 <MainLayout>
   <PageTitle
     title="About Myself"
-    description="👋 Hey there! I'm CHAN, Ka Tsun (You might call me Kelvin or ckt1031) 😁, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me."
+    description="👋 What's up! I'm CHAN (You might call me Kelvin) 😁, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me."
   />
   <div class="mb-10 mt-3 w-full space-y-6 text-left" data-pagefind-body>
     <p>
-      An undergraduate student of SENG in The Hong Kong University of Science
-      and Technology, currently year 1, {age} yrs.
+      An undergraduate student of SENG in HKUST, studying Electronics
+      Engineering (ELEC), currently year 1.
     </p>
     <p>
-      Studying Engineering, and I am interested in software development, web
-      development, and machine learning.
+      Interested in computer, in both hardware and software, I also want to
+      learn more about machine learning as well, I think AI is the most
+      important thing in coming decades.
     </p>
     <p>
-      love reading, writing, and coding. I enjoy investigating philosophical
-      questions and the intersection between technology and ethics
-    </p>
-    <p>
-      Passionated about exploring ideas and discussing them with others, and I
-      enjoy sharing my thoughts and knowledge with people online.
-    </p>
-    <p>
-      Additionally, I find programming to be a fascinating way to create and
-      problem-solve, and I love the feeling of accomplishment that comes from
-      building something new and useful with code.
+      Also like to discuss and think about social and political issues, which
+      these parts are the most direct way to reflect how good and how smart is
+      this person.
     </p>
     <div
       class="flex flex-row flex-wrap gap-2 text-neutral-800 dark:text-neutral-300"
