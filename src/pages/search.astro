@@ -2,6 +2,7 @@
 import MainSEO from '@components/SEO/Main.astro';
 
 import MainLayout from '@/layouts/main.astro';
+import { default as PageFindSearch } from 'astro-pagefind/components/Search';
 ---
 
 <head>
@@ -20,20 +21,16 @@ import MainLayout from '@/layouts/main.astro';
     data-pagefind-ignore="all"
   >
     <h1 class="text-3xl font-semibold mb-8 placeholder:text-lg">Search Here</h1>
-    <div id="search"></div>
-
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        // @ts-ignore
-        new PagefindUI({
-          element: "#search",
-          resetStyles: false,
-          showImages: false,
-          debounceTimeoutMs: 500,
-          autofocus: true,
-        });
-      });
-    </script>
+    <PageFindSearch
+      id="search"
+      className="pagefind-ui"
+      uiOptions={{
+        showImages: false,
+        resetStyles: false,
+        debounceTimeoutMs: 500,
+        autofocus: true,
+      }}
+    />
 
     <style is:global>
       /* when html tag data-theme is light */
@@ -49,7 +46,7 @@ import MainLayout from '@/layouts/main.astro';
       html[data-theme="dark"] {
         --pagefind-ui-primary: #eeeeee;
         --pagefind-ui-text: #eeeeee;
-        --pagefind-ui-background: #000000;
+        --pagefind-ui-background: #222222;
         --pagefind-ui-border: #464646;
         --pagefind-ui-tag: #464646;
       }

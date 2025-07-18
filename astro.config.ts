@@ -1,8 +1,11 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { shield } from '@kindspells/astro-shield';
+import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import icon from 'astro-icon';
+import pagefind from 'astro-pagefind';
 import robotsTxt from 'astro-robots-txt';
 
 export default defineConfig({
@@ -20,6 +23,9 @@ export default defineConfig({
 				},
 			],
 		}),
+		pagefind(),
+		playformCompress(),
+		shield({}),
 	],
 	image: {
 		service: passthroughImageService(),
