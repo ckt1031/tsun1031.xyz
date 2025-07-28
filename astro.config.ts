@@ -8,6 +8,8 @@ import icon from 'astro-icon';
 import pagefind from 'astro-pagefind';
 import robotsTxt from 'astro-robots-txt';
 
+const SITE_URL = 'https://tsun1031.xyz';
+
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
 	trailingSlash: 'never',
@@ -17,10 +19,11 @@ export default defineConfig({
 			changefreq: 'weekly',
 			priority: 0.8,
 			lastmod: new Date(),
+			filter: (page) => page !== `${SITE_URL}/search`,
 		}),
 		mdx(),
 		robotsTxt({
-			sitemap: ['https://tsun1031.xyz/sitemap-index.xml'],
+			sitemap: [`${SITE_URL}/sitemap-index.xml`],
 			policy: [
 				{
 					allow: ['/'],
