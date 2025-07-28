@@ -30,8 +30,8 @@ export async function generateFeed(context: { site: string | URL }) {
 
 		feed.addItem({
 			title: post.data.title,
-			id: `${url}posts/${post.slug}`,
-			link: `${url}posts/${post.slug}`,
+			id: `${url}posts/${post.id}`,
+			link: `${url}posts/${post.id}`,
 			description: post.data.description,
 			content,
 			date: post.data.published,

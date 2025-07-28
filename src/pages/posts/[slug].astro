@@ -1,7 +1,7 @@
 ---
 import '@/styles/post.css';
 
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 				: 'Less than 1' + ' minute';
 
 		return {
-			params: { slug: p.slug },
+			params: { slug: p.id },
 			props: { post: p, readingMinutes },
 		};
 	});
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post, readingMinutes } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <meta charset="utf-8" />
