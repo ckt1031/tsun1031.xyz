@@ -10,9 +10,14 @@ import robotsTxt from 'astro-robots-txt';
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
+	trailingSlash: 'never',
 	integrations: [
 		icon(),
-		sitemap(),
+		sitemap({
+			changefreq: 'weekly',
+			priority: 0.8,
+			lastmod: new Date(),
+		}),
 		mdx(),
 		robotsTxt({
 			sitemap: ['https://tsun1031.xyz/sitemap-index.xml'],
