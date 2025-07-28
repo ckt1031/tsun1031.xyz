@@ -47,7 +47,12 @@ export default defineConfig({
 		// @ts-expect-error
 		plugins: [tailwindcss()],
 	},
+	prefetch: {
+		prefetchAll: true,
+		defaultStrategy: 'viewport',
+	},
 	experimental: {
+		clientPrerender: true,
 		fonts: [
 			{
 				provider: fontProviders.google(),
