@@ -1,6 +1,6 @@
 ---
 import '@/styles/main.css';
-import '@fontsource/shippori-antique-b1';
+import { Font } from 'astro:assets';
 
 import Firework from '@/components/Firework.astro';
 import Headbar from '@/components/Headbar.astro';
@@ -34,10 +34,12 @@ import config from '@/config';
       type="application/atom+xml"
       href="/atom"
     />
+    
+    <Font cssVariable='--font-shippori-antique-b1' preload />
 
     <style>
       body {
-        font-family: 'Shippori Antique B1', sans-serif;
+        font-family: var(--font-shippori-antique-b1), sans-serif;
       }
     </style>
   </head>

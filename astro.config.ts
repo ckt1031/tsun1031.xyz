@@ -3,7 +3,11 @@ import sitemap from '@astrojs/sitemap';
 import { shield } from '@kindspells/astro-shield';
 import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig, passthroughImageService } from 'astro/config';
+import {
+	defineConfig,
+	fontProviders,
+	passthroughImageService,
+} from 'astro/config';
 import icon from 'astro-icon';
 import pagefind from 'astro-pagefind';
 import robotsTxt from 'astro-robots-txt';
@@ -42,5 +46,14 @@ export default defineConfig({
 	vite: {
 		// @ts-expect-error
 		plugins: [tailwindcss()],
+	},
+	experimental: {
+		fonts: [
+			{
+				provider: fontProviders.google(),
+				name: 'Shippori Antique B1',
+				cssVariable: '--font-shippori-antique-b1',
+			},
+		],
 	},
 });
