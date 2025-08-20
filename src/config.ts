@@ -29,12 +29,12 @@ const config = {
 				name: 'Posts',
 			},
 			{
-				href: '/about',
-				name: 'About',
-			},
-			{
 				href: '/contact',
 				name: 'Contact',
+			},
+			{
+				href: '/about',
+				name: 'About',
 			},
 		],
 	},
