@@ -56,8 +56,8 @@ export default defineConfig({
 		fonts: [
 			{
 				provider: fontProviders.google(),
-				name: 'Shippori Antique B1',
-				cssVariable: '--font-shippori-antique-b1',
+				name: 'Inter',
+				cssVariable: '--font-inter',
 			},
 		],
 	},
