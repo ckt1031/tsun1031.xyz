@@ -36,7 +36,9 @@ export default defineConfig({
 			],
 		}),
 		pagefind(),
-		playformCompress(),
+		playformCompress({
+			JavaScript: false,
+		}),
 		shield({}),
 	],
 	image: {
@@ -46,10 +48,6 @@ export default defineConfig({
 	vite: {
 		// @ts-expect-error
 		plugins: [tailwindcss()],
-	},
-	prefetch: {
-		prefetchAll: true,
-		defaultStrategy: 'viewport',
 	},
 	experimental: {
 		clientPrerender: true,
