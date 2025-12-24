@@ -1,22 +1,32 @@
 ---
 // Make a countdown timer updating every second
 const className =
-	'bg-white p-2 dark:bg-neutral-800 dark:text-white rounded-md mx-0.5 md:mx-1 shadow-sm border border-neutral-200 dark:border-neutral-700 font-mono font-bold';
+	'bg-white px-1.5 py-1 md:px-2 md:py-0.5 dark:bg-neutral-800 dark:text-white rounded-md shadow-sm border border-neutral-200 dark:border-neutral-700 font-mono font-bold';
 ---
 
-<div class="bg-amber-50 p-3 dark:bg-amber-950/20 text-center text-base md:text-lg hidden border-b border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-100" id="countdown">
-    <span id="day[0]" class={className}></span>
-    <span id="day[1]" class={className}></span>
-    <span class="opacity-50 font-bold mx-0.5">:</span>
-    <span id="hour[0]" class={className}></span>
-    <span id="hour[1]" class={className}></span>
-    <span class="opacity-50 font-bold mx-0.5">:</span>
-    <span id="minute[0]" class={className}></span>
-    <span id="minute[1]" class={className}></span>
-    <span class="opacity-50 font-bold mx-0.5">:</span>
-    <span id="second[0]" class={className}></span>
-    <span id="second[1]" class={className}></span>
-    <span class="ml-2"> until <strong id="next-year" class="text-amber-600 dark:text-amber-400"></strong>!</span>
+<div class="bg-amber-50 p-2 md:p-1.5 dark:bg-amber-950/20 text-center text-xs sm:text-sm md:text-base hidden border-b border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-100 flex-row flex-wrap items-center justify-center gap-x-1 gap-y-2" id="countdown">
+    <div class="flex items-center gap-0.5 md:gap-1">
+        <div class="flex items-center gap-0.5">
+            <span id="day[0]" class={className}></span>
+            <span id="day[1]" class={className}></span>
+        </div>
+        <span class="opacity-50 font-bold">:</span>
+        <div class="flex items-center gap-0.5">
+            <span id="hour[0]" class={className}></span>
+            <span id="hour[1]" class={className}></span>
+        </div>
+        <span class="opacity-50 font-bold">:</span>
+        <div class="flex items-center gap-0.5">
+            <span id="minute[0]" class={className}></span>
+            <span id="minute[1]" class={className}></span>
+        </div>
+        <span class="opacity-50 font-bold">:</span>
+        <div class="flex items-center gap-0.5">
+            <span id="second[0]" class={className}></span>
+            <span id="second[1]" class={className}></span>
+        </div>
+    </div>
+    <span class="whitespace-nowrap ml-1"> until <strong id="next-year" class="text-amber-600 dark:text-amber-400"></strong>!</span>
 </div>
 <script>
     let intervalId: any;
@@ -36,17 +46,20 @@ const className =
         // Show banner only if it's within 15 days of the end of the year
         if (daysLeft <= 15 && daysLeft >= 0) {
             countdownElement.classList.remove('hidden');
+            countdownElement.classList.add('flex');
             if (nextYearElement) {
                 nextYearElement.textContent = (currentYear + 1).toString();
             }
         } else {
             countdownElement.classList.add('hidden');
+            countdownElement.classList.remove('flex');
             return;
         }
 
         // If the year has already ended, hide the banner
         if (diff <= 0) {
             countdownElement.classList.add('hidden');
+            countdownElement.classList.remove('flex');
             if (intervalId) clearInterval(intervalId);
             return;
         }
