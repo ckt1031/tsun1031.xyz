@@ -1,3 +1,4 @@
+import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { shield } from '@kindspells/astro-shield';
@@ -40,6 +41,7 @@ export default defineConfig({
 			JavaScript: false,
 		}),
 		shield({}),
+		alpinejs(),
 	],
 	image: {
 		service: passthroughImageService(),
