@@ -1,73 +1,70 @@
 ---
-// Check if there is only 15 days left until the end of the year
-const now = new Date();
-const end = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
-
-const daysLeft = Math.floor(
-	(end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24),
-);
-
-const nextYear = now.getFullYear() + 1;
-
 // Make a countdown timer updating every second
 const className =
-	'bg-white p-2 dark:bg-neutral-800 dark:text-white rounded-md mx-1';
+	'bg-white p-2 dark:bg-neutral-800 dark:text-white rounded-md mx-0.5 md:mx-1 shadow-sm border border-neutral-200 dark:border-neutral-700 font-mono font-bold';
 ---
 
-{(daysLeft <= 15) && (daysLeft > 0) && (
-<div class="bg-yellow-100 p-4 dark:bg-yellow-800 text-center text-lg md:text-xl" id="countdown">
+<div class="bg-amber-50 p-3 dark:bg-amber-950/20 text-center text-base md:text-lg hidden border-b border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-100" id="countdown">
     <span id="day[0]" class={className}></span>
     <span id="day[1]" class={className}></span>
-    <span>:</span>
+    <span class="opacity-50 font-bold mx-0.5">:</span>
     <span id="hour[0]" class={className}></span>
     <span id="hour[1]" class={className}></span>
-    <span>:</span>
+    <span class="opacity-50 font-bold mx-0.5">:</span>
     <span id="minute[0]" class={className}></span>
     <span id="minute[1]" class={className}></span>
-    <span>:</span>
+    <span class="opacity-50 font-bold mx-0.5">:</span>
     <span id="second[0]" class={className}></span>
     <span id="second[1]" class={className}></span>
-    <span> until <strong>{nextYear}</strong>!</span>
+    <span class="ml-2"> until <strong id="next-year" class="text-amber-600 dark:text-amber-400"></strong>!</span>
 </div>
 <script>
-    const currentYear = new Date().getFullYear();
-
     const countdown = () => {
         const params = ['day', 'hour', 'minute', 'second'];
-
         const now = new Date();
+        const currentYear = now.getFullYear();
         const end = new Date(currentYear, 11, 31, 23, 59, 59, 999);
+        const countdownElement = document.getElementById('countdown');
+        const nextYearElement = document.getElementById('next-year');
 
-        // Do not show the countdown if day[0] is larger or equal to 2
-        if (Number(document.getElementById('day[0]').textContent) >= 2) {
-            document.getElementById('countdown').style.display = 'none';
+        if (!countdownElement) return;
+
+        const diff = end.getTime() - now.getTime();
+        const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        // Show banner only if it's within 15 days of the end of the year
+        if (daysLeft <= 15 && daysLeft >= 0) {
+            countdownElement.classList.remove('hidden');
+            if (nextYearElement) {
+                nextYearElement.textContent = (currentYear + 1).toString();
+            }
+        } else {
+            countdownElement.classList.add('hidden');
             return;
         }
 
-        // If the year has already ended, reload the page
-        if (now.getTime() > end.getTime()) {
+        // If the year has already ended, reload or just hide
+        if (diff <= 0) {
             location.reload();
             return;
         }
 
+        const time = {
+            day: daysLeft,
+            hour: 23 - now.getHours(),
+            minute: 59 - now.getMinutes(),
+            second: 59 - now.getSeconds()
+        };
+
         for (const param of params) {
-            const time = {
-                day: Math.floor((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)),
-                hour: 23 - now.getHours(),
-                minute: 59 - now.getMinutes(),
-                second: 59 - now.getSeconds()
-            };
-
             const timeString = time[param].toString().padStart(2, '0');
-
             for (let i = 0; i < 2; i++) {
-                document.getElementById(`${param}[${i}]`).textContent = timeString[i];
+                const el = document.getElementById(`${param}[${i}]`);
+                if (el) el.textContent = timeString[i];
             }
         }
     };
 
     countdown();
-
     setInterval(countdown, 1000);
 </script>
-    )}
