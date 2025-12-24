@@ -19,6 +19,7 @@ const className =
     <span class="ml-2"> until <strong id="next-year" class="text-amber-600 dark:text-amber-400"></strong>!</span>
 </div>
 <script>
+    let intervalId: any;
     const countdown = () => {
         const params = ['day', 'hour', 'minute', 'second'];
         const now = new Date();
@@ -43,13 +44,14 @@ const className =
             return;
         }
 
-        // If the year has already ended, reload or just hide
+        // If the year has already ended, hide the banner
         if (diff <= 0) {
-            location.reload();
+            countdownElement.classList.add('hidden');
+            if (intervalId) clearInterval(intervalId);
             return;
         }
 
-        const time = {
+        const time: Record<string, number> = {
             day: daysLeft,
             hour: 23 - now.getHours(),
             minute: 59 - now.getMinutes(),
@@ -66,5 +68,5 @@ const className =
     };
 
     countdown();
-    setInterval(countdown, 1000);
+    intervalId = setInterval(countdown, 1000);
 </script>

@@ -2,7 +2,8 @@
 ---
 
 <script>
-    const container = document.querySelector("#firework");
+    let fireworksInstance: any = null;
+    const container = document.querySelector("#firework") as HTMLElement;
 
     if (!container) throw new Error("No container (#firework) found");
 
@@ -38,11 +39,12 @@
         return false;
     };
 
-    const now = new Date();
-    if (isGregorianNewYear(now) || isLunarNewYear(now)) {
+    const startFireworks = async () => {
+        if (fireworksInstance) return;
+
         const { Fireworks } = await import('fireworks-js');
 
-        const fireworks = new Fireworks(container, {
+        fireworksInstance = new Fireworks(container, {
             autoresize: true,
             opacity: 0.1,
             particles: 100,
@@ -54,6 +56,26 @@
             },
         });
 
-        fireworks.start();
-    }
+        fireworksInstance.start();
+    };
+
+    const stopFireworks = () => {
+        if (fireworksInstance) {
+            fireworksInstance.stop();
+            fireworksInstance = null;
+        }
+    };
+
+    const check = () => {
+        const now = new Date();
+        if (isGregorianNewYear(now) || isLunarNewYear(now)) {
+            startFireworks();
+        } else {
+            stopFireworks();
+        }
+    };
+
+    // Check immediately and then every second
+    check();
+    setInterval(check, 1000);
 </script>
