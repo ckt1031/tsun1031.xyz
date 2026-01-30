@@ -1,7 +1,6 @@
 import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { shield } from '@kindspells/astro-shield';
 import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
 import {
@@ -40,7 +39,6 @@ export default defineConfig({
 		playformCompress({
 			JavaScript: false,
 		}),
-		shield({}),
 		alpinejs(),
 	],
 	image: {
