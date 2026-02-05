@@ -1,4 +1,3 @@
-import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -32,7 +31,6 @@ export default defineConfig({
 				},
 			],
 		}),
-		alpinejs(),
 	],
 	image: {
 		service: passthroughImageService(),

@@ -17,7 +17,6 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@astrojs/alpinejs": "^0.4.9",
 		"@astrojs/check": "0.9.6",
 		"@astrojs/mdx": "4.3.13",
 		"@astrojs/rss": "^4.0.15",
@@ -25,8 +24,6 @@
 		"@fireworks-js/web": "2.10.8",
 		"@iconify-json/hugeicons": "^1.2.23",
 		"@iconify-json/iconoir": "^1.2.10",
-		"@types/alpinejs": "^3.13.11",
-		"alpinejs": "^3.15.8",
 		"astro": "5.17.1",
 		"astro-icon": "1.1.5",
 		"astro-robots-txt": "1.0.0",
