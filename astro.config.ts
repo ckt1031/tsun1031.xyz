@@ -8,7 +8,6 @@ import {
 	passthroughImageService,
 } from 'astro/config';
 import icon from 'astro-icon';
-import pagefind from 'astro-pagefind';
 import robotsTxt from 'astro-robots-txt';
 
 const SITE_URL = 'https://tsun1031.xyz';
@@ -22,7 +21,6 @@ export default defineConfig({
 			changefreq: 'weekly',
 			priority: 0.8,
 			lastmod: new Date(),
-			filter: (page) => page !== `${SITE_URL}/search`,
 		}),
 		mdx(),
 		robotsTxt({
@@ -34,7 +32,6 @@ export default defineConfig({
 				},
 			],
 		}),
-		pagefind(),
 		alpinejs(),
 	],
 	image: {

@@ -29,10 +29,6 @@ public/*.xml
 # Repl.it
 replit.nix
 .replit
-
 dist
-
-public/pagefind
-
 .astro
 .idea

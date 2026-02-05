@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import Countdown from './Countdown.astro';
 
 import MobileNavigationMenu from './Headbar/MobileNavigationMenu.astro';
@@ -7,7 +6,7 @@ import NavigationBarPages from './Headbar/NavigationBarPages.astro';
 import ThemeSwitcher from './Headbar/ThemeSwitcher.astro';
 ---
 
-<header class="flex flex-col w-screen justify-center" data-pagefind-ignore="all">
+<header class="flex flex-col w-screen justify-center">
   <Countdown />
   <div
     class="flex w-full max-w-[800px] self-center flex-row items-center justify-between px-5 py-2 text-lg md:py-3"
@@ -16,15 +15,5 @@ import ThemeSwitcher from './Headbar/ThemeSwitcher.astro';
       <MobileNavigationMenu />
       <NavigationBarPages />
     </nav>
-    <div class="flex flex-row">
-      <a
-        class="base-button-hover base-button-animation p-2"
-        href="/search"
-        aria-label="Search"
-      >
-        <Icon name="hugeicons:search-01" size={24} />
-      </a>
-      <ThemeSwitcher />
-    </div>
-  </div>
+    <ThemeSwitcher />
 </header>
