@@ -34,7 +34,7 @@ export default defineConfig({
 	],
 	image: {
 		service: passthroughImageService(),
-		domains: ['obsidian-img.tsun1031.xyz'],
+		domains: ['obs-cdn.tsun1031.xyz'],
 	},
 	vite: {
 		// @ts-expect-error
