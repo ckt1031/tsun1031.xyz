@@ -37,17 +37,13 @@ export default defineConfig({
 		domains: ['obs-cdn.tsun1031.xyz'],
 	},
 	vite: {
-		// @ts-expect-error
 		plugins: [tailwindcss()],
 	},
-	experimental: {
-		clientPrerender: true,
-		fonts: [
-			{
-				provider: fontProviders.google(),
-				name: 'Inter',
-				cssVariable: '--font-inter',
-			},
-		],
-	},
+	fonts: [
+		{
+			provider: fontProviders.google(),
+			name: 'Inter',
+			cssVariable: '--font-inter',
+		},
+	],
 });
