@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 	const posts = await getCollection('posts');
 
 	return posts.map((p) => {
-		const readingTime = readingTimeModule(p.body);
+		const readingTime = readingTimeModule(p.body ?? '');
 		const readingMinutes =
 			readingTime.minutes >= 1
 				? `${Math.round(readingTime.minutes)} minutes`
