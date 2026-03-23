@@ -26,12 +26,13 @@ const {
 	tags,
 	//images,
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, config.url).toString();
 ---
 
 <head>
   <SEO
     title={includeSiteTitle ? `${config.siteTitle} - ${title}` : title}
-    canonical={config.url}
+    canonical={canonicalUrl}
     description={description}
     openGraph={{
       article: {
@@ -42,8 +43,8 @@ const {
       },
       basic: {
         title: title,
-        type: "website",
-        image: "",
+        type: "article",
+        image: config.siteIconPublicPath,
       },
     }}
     twitter={{

@@ -38,7 +38,7 @@ const { Content } = await render(post);
   title={post.data.title}
   description={post.data.description}
   author={["ckt1031"]}
-  published_time={dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
+  published_time={post.data.published.toISOString()}
   tags={post.data.tags || []}
   section={post.data.tags ? post.data.tags[0] : "post"}
 />

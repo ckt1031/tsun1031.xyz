@@ -7,16 +7,19 @@ interface Props {
 	title: string;
 	description: string;
 	includeSiteTitle?: boolean;
+	noindex?: boolean;
 }
 
-const { title, description, includeSiteTitle } = Astro.props;
+const { title, description, includeSiteTitle, noindex } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, config.url).toString();
 ---
 
 <head>
   <SEO
     title={includeSiteTitle ? `${config.siteTitle} - ${title}` : title}
-    canonical={config.url}
+    canonical={canonicalUrl}
     description={description}
+    noindex={noindex}
     openGraph={{
       basic: {
         title: title,
