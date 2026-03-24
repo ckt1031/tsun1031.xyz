@@ -7,47 +7,89 @@ import config from '@/config';
 const pathname = Astro.url.pathname;
 ---
 
-<details class="relative md:hidden group">
+<details class="group relative md:hidden" data-mobile-menu>
   <summary
     aria-label="Mobile Menu"
     title="Mobile Menu"
-    class="relative z-[60] flex items-center p-2 base-button-hover base-button-animation list-none cursor-pointer"
+    class="base-button-hover base-button-animation relative z-30 flex list-none items-center p-2 cursor-pointer"
   >
     <span class="sr-only">Mobile Menu</span>
     <div class="relative h-6 w-6">
       <Icon
         name="hugeicons:cancel-01"
         size={24}
-        class="absolute inset-0 transition-all duration-300 opacity-0 scale-50 rotate-90 group-open:opacity-100 group-open:scale-100 group-open:rotate-0"
+        class="absolute inset-0 scale-90 rotate-45 opacity-0 transition-all duration-200 group-open:scale-100 group-open:rotate-0 group-open:opacity-100"
       />
       <Icon
         name="hugeicons:menu-02"
         size={24}
-        class="absolute inset-0 transition-all duration-300 opacity-100 scale-100 rotate-0 group-open:opacity-0 group-open:scale-50 group-open:rotate-90"
+        class="absolute inset-0 scale-100 rotate-0 opacity-100 transition-all duration-200 group-open:scale-90 group-open:-rotate-45 group-open:opacity-0"
       />
     </div>
   </summary>
 
-  <div class="fixed inset-0 z-50 flex flex-col bg-neutral-100/90 p-6 backdrop-blur-xl dark:bg-neutral-900/90">
-    <div class="flex flex-col items-center justify-center h-full space-y-8">
+  <div
+    class="pointer-events-none fixed inset-0 z-10 bg-stone-950/0 opacity-0 transition-all duration-200 group-open:pointer-events-auto group-open:bg-stone-950/6 group-open:opacity-100 dark:group-open:bg-black/12"
+    data-mobile-menu-overlay
+  >
+  </div>
+
+  <div class="absolute left-0 top-full z-20 mt-3 w-[min(18rem,calc(100vw-2.5rem))] origin-top-left rounded-2xl border border-stone-200 bg-stone-50/98 p-2 shadow-lg shadow-stone-950/8 transition-all duration-200 ease-out opacity-0 translate-y-2 scale-95 pointer-events-none group-open:pointer-events-auto group-open:opacity-100 group-open:translate-y-0 group-open:scale-100 dark:border-stone-800 dark:bg-stone-900/98 dark:shadow-black/25">
+    <div class="flex flex-col gap-1">
       {
         config.headbar.routes.map((item) => (
           <a
             href={item.href}
             class={clsx(
-              "text-4xl font-bold tracking-tight transition-transform duration-300 hover:scale-110 active:scale-95",
+              "nav-link flex w-full items-center justify-between px-3 py-2 text-base",
               (pathname === "/"
                 ? pathname === item.href
                 : pathname.startsWith(item.href ?? "") &&
                   item.href !== "/")
-                ? "text-orange-600 dark:text-orange-500"
-                : "text-neutral-800 dark:text-neutral-200"
+                ? "nav-link-active"
+                : "text-stone-700 dark:text-stone-200"
             )}
+            data-mobile-menu-link
           >
             {item.name}
+            <Icon
+              name="hugeicons:arrow-right-02"
+              size={18}
+              class="opacity-50"
+            />
           </a>
         ))
       }
     </div>
   </div>
 </details>
+
+<script is:inline>
+  const menu = document.querySelector("[data-mobile-menu]");
+
+  if (menu instanceof HTMLDetailsElement) {
+    const overlay = menu.querySelector("[data-mobile-menu-overlay]");
+
+    const closeMenu = () => {
+      menu.open = false;
+    };
+
+    document.addEventListener("pointerdown", (event) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        closeMenu();
+      }
+    });
+
+    menu.querySelectorAll("[data-mobile-menu-link]").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    overlay?.addEventListener("pointerdown", closeMenu);
+  }
+</script>

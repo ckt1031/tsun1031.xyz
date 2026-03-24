@@ -55,7 +55,7 @@
 		"*.{js,jsx,ts,tsx}": [
 			"biome check && tsc"
 		],
-		"*.{yml,cjs,mjs,js,jsx,ts,tsx,json,css,html,md}": [
+		"*.{yml,cjs,mjs,js,jsx,ts,tsx,json,html,md}": [
 			"biome check"
 		]
 	}
