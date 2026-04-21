@@ -24,7 +24,7 @@
 		"@fireworks-js/web": "2.10.8",
 		"@iconify-json/hugeicons": "^1.2.25",
 		"@iconify-json/iconoir": "^1.2.10",
-		"astro": "6.1.5",
+		"astro": "6.1.6",
 		"astro-icon": "1.1.5",
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "1.1.0",
