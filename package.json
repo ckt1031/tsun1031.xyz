@@ -18,13 +18,13 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.8",
-		"@astrojs/mdx": "5.0.3",
+		"@astrojs/mdx": "5.0.4",
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "3.7.2",
 		"@fireworks-js/web": "2.10.8",
-		"@iconify-json/hugeicons": "^1.2.25",
-		"@iconify-json/iconoir": "^1.2.10",
-		"astro": "6.1.5",
+		"@iconify-json/hugeicons": "^1.2.26",
+		"@iconify-json/iconoir": "^1.2.11",
+		"astro": "6.1.9",
 		"astro-icon": "1.1.5",
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "1.1.0",
@@ -38,18 +38,18 @@
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.7",
-		"@biomejs/biome": "2.4.10",
-		"@tailwindcss/postcss": "^4.2.2",
+		"@biomejs/biome": "2.4.13",
+		"@tailwindcss/postcss": "^4.2.4",
 		"@tailwindcss/typography": "0.5.19",
-		"@tailwindcss/vite": "^4.2.2",
-		"@types/node": "25.5.2",
-		"autoprefixer": "10.4.27",
+		"@tailwindcss/vite": "^4.2.4",
+		"@types/node": "25.6.0",
+		"autoprefixer": "10.5.0",
 		"commitizen": "4.3.1",
 		"husky": "9.1.7",
 		"lint-staged": "16.4.0",
-		"tailwindcss": "^4.2.2",
-		"typescript": "6.0.2",
-		"vite": "8.0.8"
+		"tailwindcss": "^4.2.4",
+		"typescript": "6.0.3",
+		"vite": "8.0.10"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
@@ -58,5 +58,8 @@
 		"*.{yml,cjs,mjs,js,jsx,ts,tsx,json,html,md}": [
 			"biome check"
 		]
+	},
+	"overrides": {
+		"vite": "^7"
 	}
 }
