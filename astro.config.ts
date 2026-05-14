@@ -36,7 +36,6 @@ export default defineConfig({
 		domains: ['obs-cdn.tsun1031.xyz'],
 	},
 	vite: {
-		// @ts-expect-error
 		plugins: [tailwindcss()],
 	},
 	fonts: [

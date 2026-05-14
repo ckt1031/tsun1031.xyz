@@ -2,7 +2,6 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
 		"target": "esnext",
-		"baseUrl": ".",
 		"noEmit": true,
 		"incremental": true,
 		"skipLibCheck": true,

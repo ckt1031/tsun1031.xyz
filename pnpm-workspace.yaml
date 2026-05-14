@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: false
+  sharp: false
+
+overrides:
+  "vite": "^7"
+
+minimumReleaseAge: 4320 # 3 days
+minimumReleaseAgeIgnoreMissingTime: true
