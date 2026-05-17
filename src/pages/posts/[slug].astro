@@ -3,11 +3,11 @@ import '@/styles/post.css';
 
 import { getCollection, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
-import dayjs from 'dayjs';
 import readingTimeModule from 'reading-time';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
+import { formatHongKongDate, formatHongKongISOString } from '@/utils/date';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -30,7 +30,13 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post, readingMinutes } = Astro.props;
 const { Content } = await render(post);
-const modifiedTime = post.data.updated?.toISOString();
+const publishedTime = formatHongKongISOString(post.data.published);
+const modifiedTime = post.data.updated
+	? formatHongKongISOString(post.data.updated)
+	: undefined;
+
+const publishedHKTAtStr = formatHongKongDate(post.data.published);
+const modifiedHKTAtStr = modifiedTime ? formatHongKongDate(modifiedTime) : null;
 ---
 
 <MainLayout>
@@ -40,7 +46,7 @@ const modifiedTime = post.data.updated?.toISOString();
     title={post.data.title}
     description={post.data.description}
     author={["ckt1031"]}
-    published_time={post.data.published.toISOString()}
+    published_time={publishedTime}
     modified_time={modifiedTime}
     tags={post.data.tags || []}
     section={post.data.tags ? post.data.tags[0] : "post"}
@@ -49,10 +55,10 @@ const modifiedTime = post.data.updated?.toISOString();
   <article class="mb-20 mt-5 w-full">
     <div class="base-border border-b">
       <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-        Published {dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
-        {modifiedTime && `; updated ${dayjs(modifiedTime).format("MMMM D, YYYY h:mm A")}`}
+        {publishedHKTAtStr == modifiedHKTAtStr && `Published at ${publishedHKTAtStr}`}
+        {publishedHKTAtStr != modifiedHKTAtStr && `Updated at ${modifiedHKTAtStr}`}
       </p>
-      <h1 class="text-3xl break-words font-bold md:text-4xl">
+      <h1 class="text-3xl wrap-break-word font-bold md:text-4xl">
         {post.data.title}
       </h1>
       <p

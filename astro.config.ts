@@ -1,5 +1,12 @@
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import {
+	existsSync,
+	readdirSync,
+	readFileSync,
+	statSync,
+	writeFileSync,
+} from 'node:fs';
 import { join, relative, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -10,6 +17,7 @@ import {
 } from 'astro/config';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
+import { formatHongKongISOString, parseHongKongDate } from './src/utils/date';
 
 const SITE_URL = 'https://tsun1031.xyz';
 const POST_DIR = join(process.cwd(), 'src/content/posts');
@@ -20,11 +28,7 @@ function getUpdatedDate(content: string) {
 
 	if (!dateValue) return;
 
-	const timestamp = new Date(dateValue.trim()).getTime();
-
-	if (Number.isNaN(timestamp)) return;
-
-	return new Date(timestamp).toISOString();
+	return formatHongKongISOString(parseHongKongDate(dateValue));
 }
 
 function getPostLastmodByPath(dir = POST_DIR) {
@@ -51,7 +55,7 @@ function getPostLastmodByPath(dir = POST_DIR) {
 
 		lastmodByPath.set(
 			`/posts/${slug}`,
-			frontmatterUpdated ?? statSync(path).mtime.toISOString(),
+			frontmatterUpdated ?? formatHongKongISOString(statSync(path).mtime),
 		);
 	}
 
@@ -59,6 +63,35 @@ function getPostLastmodByPath(dir = POST_DIR) {
 }
 
 const postLastmodByPath = getPostLastmodByPath();
+
+function escapeRegExp(value: string) {
+	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function localizeSitemapLastmod() {
+	return {
+		name: 'localize-sitemap-lastmod',
+		hooks: {
+			'astro:build:done': ({ dir }: { dir: URL }) => {
+				const sitemapPath = join(fileURLToPath(dir), 'sitemap-0.xml');
+
+				if (!existsSync(sitemapPath)) return;
+
+				let sitemap = readFileSync(sitemapPath, 'utf-8');
+
+				for (const [path, lastmod] of postLastmodByPath) {
+					const loc = `<loc>${SITE_URL}${path}</loc>`;
+					const pattern = new RegExp(
+						`(${escapeRegExp(loc)}<lastmod>)[^<]+(</lastmod>)`,
+					);
+					sitemap = sitemap.replace(pattern, `$1${lastmod}$2`);
+				}
+
+				writeFileSync(sitemapPath, sitemap);
+			},
+		},
+	};
+}
 
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
@@ -96,6 +129,7 @@ export default defineConfig({
 				},
 			],
 		}),
+		localizeSitemapLastmod(),
 	],
 	image: {
 		service: passthroughImageService(),
