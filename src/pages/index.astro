@@ -7,8 +7,13 @@ import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
 ---
 
-<MainSEO title={config.siteTitle} description={config.description} />
 <MainLayout>
+  <MainSEO
+    slot="head"
+    title="Kelvin Chan | Software, Electronics, and Personal Blog"
+    description={config.description}
+    type="profile"
+  />
   <main
     class="my-10 flex flex-col items-center justify-center text-center"
   >

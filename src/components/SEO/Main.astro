@@ -2,35 +2,92 @@
 import { SEO } from 'astro-seo';
 
 import config from '@/config';
+import StructuredData from './StructuredData.astro';
 
 interface Props {
 	title: string;
 	description: string;
 	includeSiteTitle?: boolean;
 	noindex?: boolean;
+	type?: 'website' | 'profile';
+	canonical?: string;
 }
 
-const { title, description, includeSiteTitle, noindex } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, config.url).toString();
+const {
+	title,
+	description,
+	includeSiteTitle,
+	noindex,
+	type = 'website',
+	canonical,
+} = Astro.props;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
+const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
+const siteIconUrl = new URL(config.siteIconPublicPath, config.url).toString();
+const sameAs = Object.values(config.social);
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: config.siteTitle,
+		url: config.url,
+		description: config.description,
+		author: {
+			'@type': 'Person',
+			name: config.author,
+			url: config.url,
+			sameAs,
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': type === 'profile' ? 'ProfilePage' : 'WebPage',
+		name: title,
+		headline: title,
+		description,
+		url: canonicalUrl,
+		isPartOf: {
+			'@type': 'WebSite',
+			name: config.siteTitle,
+			url: config.url,
+		},
+		about:
+			type === 'profile'
+				? {
+						'@type': 'Person',
+						name: config.author,
+						url: config.url,
+						sameAs,
+					}
+				: undefined,
+	},
+];
 ---
 
-<head>
-  <SEO
-    title={includeSiteTitle ? `${config.siteTitle} - ${title}` : title}
-    canonical={canonicalUrl}
-    description={description}
-    noindex={noindex}
-    openGraph={{
-      basic: {
-        title: title,
-        type: "website",
-        image: config.siteIconPublicPath,
-      },
-    }}
-    twitter={{
-      creator: config.twitter,
-      title: title,
-      description: description,
-    }}
-  />
-</head>
+<SEO
+  title={pageTitle}
+  canonical={canonicalUrl}
+  description={description}
+  noindex={noindex}
+  openGraph={{
+    basic: {
+      title: pageTitle,
+      type: "website",
+      image: siteIconUrl,
+    },
+  }}
+  twitter={{
+    card: "summary",
+    creator: config.twitter,
+    site: config.twitter,
+    title: pageTitle,
+    description: description,
+  }}
+  extend={{
+    meta: [
+      { property: "og:description", content: description },
+      { property: "og:site_name", content: config.siteTitle },
+    ],
+  }}
+/>
+<StructuredData data={structuredData} />

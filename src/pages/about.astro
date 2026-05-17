@@ -28,13 +28,18 @@ const socialMedia = [
 const meta = {
 	title: 'About Me',
 	description:
-		"Hey there! I'm cktsun, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me.",
+		'Learn more about Kelvin Chan, an electronics engineering undergraduate at HKUST interested in software, hardware, machine learning, and technology.',
 };
 ---
 
-<meta charset="utf-8" />
-<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
+  <MainSEO
+    slot="head"
+    includeSiteTitle
+    title={meta.title}
+    description={meta.description}
+    type="profile"
+  />
   <PageTitle
     title="About Myself"
     description="👋 What's up! I'm CHAN (You might call me Kelvin) 😁, here's the information about me and messages which is going to tell you! This is the place where you can find out more about me."

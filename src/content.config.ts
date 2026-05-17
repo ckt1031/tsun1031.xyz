@@ -8,6 +8,12 @@ const posts = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		published: z.string().transform((val) => new Date(val)),
+		updated: z
+			.string()
+			.transform((val) => new Date(val))
+			.optional(),
+		canonical: z.url().optional(),
+		draft: z.boolean().optional(),
 		tags: z.array(z.string()).optional(),
 	}),
 });

@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon/components';
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
 
-const collections = await getCollection('posts');
+const collections = await getCollection('posts', ({ data }) => !data.draft);
 const allPosts = collections.sort(
 	(a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
@@ -16,12 +16,12 @@ const allPosts = collections.sort(
 const meta = {
 	title: 'Posts',
 	description:
-		'Welcome to my post, where I embark on a journey of sharing knowledge and meaningful insights with the world.',
+		'Read Kelvin Chan’s blog posts about software, electronics, university life, projects, and personal reflections.',
 };
 ---
 
-<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
+    <MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
     <div class="mb-2">
         <PageTitle
             title="Blog"

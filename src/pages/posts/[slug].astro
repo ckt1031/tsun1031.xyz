@@ -10,7 +10,7 @@ import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts');
+	const posts = await getCollection('posts', ({ data }) => !data.draft);
 
 	return posts.map((p) => {
 		const readingTime = readingTimeModule(p.body ?? '');
@@ -30,23 +30,27 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post, readingMinutes } = Astro.props;
 const { Content } = await render(post);
+const modifiedTime = post.data.updated?.toISOString();
 ---
 
-<meta charset="utf-8" />
-<ArticleSEO
-  includeSiteTitle
-  title={post.data.title}
-  description={post.data.description}
-  author={["ckt1031"]}
-  published_time={post.data.published.toISOString()}
-  tags={post.data.tags || []}
-  section={post.data.tags ? post.data.tags[0] : "post"}
-/>
 <MainLayout>
+  <ArticleSEO
+    slot="head"
+    includeSiteTitle
+    title={post.data.title}
+    description={post.data.description}
+    author={["ckt1031"]}
+    published_time={post.data.published.toISOString()}
+    modified_time={modifiedTime}
+    tags={post.data.tags || []}
+    section={post.data.tags ? post.data.tags[0] : "post"}
+    canonical={post.data.canonical}
+  />
   <article class="mb-20 mt-5 w-full">
     <div class="base-border border-b">
       <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-        {dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
+        Published {dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
+        {modifiedTime && `; updated ${dayjs(modifiedTime).format("MMMM D, YYYY h:mm A")}`}
       </p>
       <h1 class="text-3xl break-words font-bold md:text-4xl">
         {post.data.title}

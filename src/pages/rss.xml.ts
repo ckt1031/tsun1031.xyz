@@ -8,7 +8,7 @@ import config from '@/config';
 const stylesheet = '/rss-style.xsl';
 
 export async function GET(context: { site: string | URL }) {
-	const posts = await getCollection('posts');
+	const posts = await getCollection('posts', ({ data }) => !data.draft);
 
 	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });

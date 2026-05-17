@@ -5,7 +5,7 @@ import MainSEO from '@components/SEO/Main.astro';
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
 
-const allPosts = await getCollection('posts');
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 
 const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
 
@@ -16,8 +16,8 @@ const meta = {
 };
 ---
 
-<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
+  <MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
   <PageTitle title="Available Tags for Posts" />
   <div class="flex flex-wrap gap-2 mt-5">
     <!-- Loop through allTags and display each tag -->
