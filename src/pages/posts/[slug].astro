@@ -4,7 +4,6 @@ import '@/styles/post.css';
 import { getCollection, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import dayjs from 'dayjs';
-import readingTimeModule from 'reading-time';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
@@ -12,23 +11,17 @@ import MainLayout from '@/layouts/main.astro';
 export async function getStaticPaths() {
 	const posts = await getCollection('posts');
 
-	return posts.map((p) => {
-		const readingTime = readingTimeModule(p.body ?? '');
-		const readingMinutes =
-			readingTime.minutes >= 1
-				? `${Math.round(readingTime.minutes)} minutes`
-				: 'Less than 1' + ' minute';
-
+	return posts.map((post) => {
 		return {
-			params: { slug: p.id },
-			props: { post: p, readingMinutes },
+			params: { slug: post.id },
+			props: { post },
 		};
 	});
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post, readingMinutes } = Astro.props;
+const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -51,11 +44,6 @@ const { Content } = await render(post);
       <h1 class="text-3xl break-words font-bold md:text-4xl">
         {post.data.title}
       </h1>
-      <p
-        class="mt-3 mb-4 text-slate-600 dark:text-slate-400 text-left"
-      >
-        Reading: {readingMinutes}
-      </p>
     </div>
     <div class="blog-style">
       <Content />
