@@ -13,12 +13,13 @@ import config from '@/config';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <link rel="shortcut icon" href={config.siteIconPublicPath} />
-    <link rel="icon" type="image/svg+xml" href={config.siteIconPublicPath} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
     <link
-      rel="alternate icon"
-      type="image/x-icon"
-      href={config.siteIconPublicPath}
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
     />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -28,6 +29,7 @@ import config from '@/config';
       rel="alternate"
       type="application/rss+xml"
       href="/rss.xml"
+      title={config.siteTitle}
     />
     
     <Font cssVariable='--font-inter' preload />
@@ -37,6 +39,7 @@ import config from '@/config';
         font-family: var(--font-inter), sans-serif;
       }
     </style>
+    <slot name="head" />
   </head>
   <body class="root">
     <Snowflake />

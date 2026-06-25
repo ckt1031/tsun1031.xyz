@@ -8,13 +8,17 @@ import MainLayout from '@/layouts/main.astro';
 const meta = {
 	title: 'Contact',
 	description:
-		'Informations about how to contact me, feel free to reach out to me!',
+		'Contact Kelvin Chan by email or social media for questions, conversations, and project-related messages.',
 };
 ---
 
-<meta charset="utf-8" />
-<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
+  <MainSEO
+    slot="head"
+    includeSiteTitle
+    title={meta.title}
+    description={meta.description}
+  />
   <PageTitle
     title="Contact Me"
     description="Have questions or want to chat? Feel free to reach out! Please be respectful in your communication."

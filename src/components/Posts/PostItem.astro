@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { formatHongKongDate } from '@/utils/date';
 
 interface Props {
 	data: CollectionEntry<'posts'>['data'];
@@ -10,11 +11,7 @@ const { data, slug } = Astro.props;
 
 const dateElementId = `date-${slug}`;
 
-const dateString = data.published.toLocaleDateString('en-US', {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
-});
+const dateString = formatHongKongDate(data.published);
 ---
 
 <div class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5">

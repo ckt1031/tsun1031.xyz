@@ -1,14 +1,15 @@
 import { loadRenderers } from 'astro:container';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import { getContainerRenderer as getMDXRenderer } from '@astrojs/mdx';
 import rss, { type RSSFeedItem } from '@astrojs/rss';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import config from '@/config';
+import { getPublishedPosts, sortPostsByPublishedDate } from '@/utils/posts';
 
 const stylesheet = '/rss-style.xsl';
 
 export async function GET(context: { site: string | URL }) {
-	const posts = await getCollection('posts');
+	const posts = await getPublishedPosts();
 
 	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });
@@ -16,9 +17,7 @@ export async function GET(context: { site: string | URL }) {
 	const items: RSSFeedItem[] = [];
 
 	// Sort posts by published date and limit to 25
-	const sortedPosts = posts
-		.sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
-		.slice(0, 25);
+	const sortedPosts = sortPostsByPublishedDate(posts).slice(0, 25);
 
 	for (const post of sortedPosts) {
 		const { Content } = await render(post);

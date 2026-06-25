@@ -2,6 +2,7 @@
 import { SEO } from 'astro-seo';
 
 import config from '@/config';
+import StructuredData from './StructuredData.astro';
 
 interface Props {
 	title: string;
@@ -10,10 +11,11 @@ interface Props {
 
 	// Article
 	published_time: string;
+	modified_time?: string;
 	author: string[];
 	section: string;
 	tags: string[];
-	//images: string[];
+	canonical?: string;
 }
 
 const {
@@ -21,40 +23,98 @@ const {
 	description,
 	includeSiteTitle,
 	published_time,
+	modified_time,
 	author,
 	section,
 	tags,
-	//images,
+	canonical,
 } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, config.url).toString();
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
+const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
+const siteIconUrl = new URL(config.siteIconPublicPath, config.url).toString();
+const person = {
+	'@type': 'Person',
+	name: author[0] ?? config.author,
+	url: config.url,
+	sameAs: Object.values(config.social),
+};
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: title,
+		description,
+		url: canonicalUrl,
+		mainEntityOfPage: canonicalUrl,
+		datePublished: published_time,
+		dateModified: modified_time ?? published_time,
+		author: person,
+		publisher: person,
+		keywords: tags.join(', '),
+		articleSection: section,
+		isPartOf: {
+			'@type': 'Blog',
+			name: config.siteTitle,
+			url: new URL('/posts', config.url).toString(),
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Home',
+				item: config.url,
+			},
+			{
+				'@type': 'ListItem',
+				position: 2,
+				name: 'Posts',
+				item: new URL('/posts', config.url).toString(),
+			},
+			{
+				'@type': 'ListItem',
+				position: 3,
+				name: title,
+				item: canonicalUrl,
+			},
+		],
+	},
+];
 ---
 
-<head>
-  <SEO
-    title={includeSiteTitle ? `${config.siteTitle} - ${title}` : title}
-    canonical={canonicalUrl}
-    description={description}
-    openGraph={{
-      article: {
-        publishedTime: published_time,
-        authors: author,
-        section: section,
-        tags: tags,
-      },
-      basic: {
-        title: title,
-        type: "article",
-        image: config.siteIconPublicPath,
-      },
-    }}
-    twitter={{
-      creator: config.twitter,
-    }}
-    extend={{
-      meta: [
-        { name: "twitter:title", content: title },
-        { name: "twitter:description", content: description },
-      ],
-    }}
-  />
-</head>
+<SEO
+  title={pageTitle}
+  canonical={canonicalUrl}
+  description={description}
+  openGraph={{
+    article: {
+      publishedTime: published_time,
+      modifiedTime: modified_time,
+      authors: author,
+      section: section,
+      tags: tags,
+    },
+    basic: {
+      title: pageTitle,
+      type: "article",
+      image: siteIconUrl,
+    },
+  }}
+  twitter={{
+    card: "summary",
+    creator: config.twitter,
+    site: config.twitter,
+  }}
+  extend={{
+    meta: [
+      { property: "og:description", content: description },
+      { property: "og:site_name", content: config.siteTitle },
+      { name: "twitter:title", content: pageTitle },
+      { name: "twitter:description", content: description },
+    ],
+  }}
+/>
+<StructuredData data={structuredData} />

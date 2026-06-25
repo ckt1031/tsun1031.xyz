@@ -1,15 +1,17 @@
 ---
 import '@/styles/post.css';
 
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import dayjs from 'dayjs';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
+import { formatHongKongDate, formatHongKongISOString } from '@/utils/date';
+import { getPublishedPosts } from '@/utils/posts';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts');
+	const posts = await getPublishedPosts();
 
 	return posts.map((post) => {
 		return {
@@ -23,23 +25,34 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const publishedTime = formatHongKongISOString(post.data.published);
+const updatedDate = post.data.updated;
+const isUpdated =
+	updatedDate && !dayjs(updatedDate).isSame(post.data.published, 'second');
+const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefined;
+const publishedHKTAtStr = formatHongKongDate(post.data.published);
+const displayDate = isUpdated
+	? `Updated at ${formatHongKongDate(updatedDate)}`
+	: `Published at ${publishedHKTAtStr}`;
 ---
 
-<meta charset="utf-8" />
-<ArticleSEO
-  includeSiteTitle
-  title={post.data.title}
-  description={post.data.description}
-  author={["ckt1031"]}
-  published_time={post.data.published.toISOString()}
-  tags={post.data.tags || []}
-  section={post.data.tags ? post.data.tags[0] : "post"}
-/>
 <MainLayout>
+  <ArticleSEO
+    slot="head"
+    includeSiteTitle
+    title={post.data.title}
+    description={post.data.description}
+    author={["ckt1031"]}
+    published_time={publishedTime}
+    modified_time={modifiedTime}
+    tags={post.data.tags || []}
+    section={post.data.tags ? post.data.tags[0] : "post"}
+    canonical={post.data.canonical}
+  />
   <article class="mb-20 mt-5 w-full">
     <div class="base-border border-b">
       <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-        {dayjs(post.data.published).format("MMMM D, YYYY h:mm A")}
+        {displayDate}
       </p>
       <h1 class="text-3xl break-words font-bold md:text-4xl">
         {post.data.title}

@@ -1,27 +1,24 @@
 ---
-import { getCollection } from 'astro:content';
 import PostList from '@components/Posts/List.astro';
 import MainSEO from '@components/SEO/Main.astro';
 import { Icon } from 'astro-icon/components';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
+import { getPublishedPosts, sortPostsByPublishedDate } from '@/utils/posts';
 
-const collections = await getCollection('posts');
-const allPosts = collections.sort(
-	(a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
-);
+const allPosts = sortPostsByPublishedDate(await getPublishedPosts());
 
 // Meta data
 const meta = {
 	title: 'Posts',
 	description:
-		'Welcome to my post, where I embark on a journey of sharing knowledge and meaningful insights with the world.',
+		'Read Kelvin Chan’s blog posts about software, electronics, university life, projects, and personal reflections.',
 };
 ---
 
-<MainSEO includeSiteTitle title={meta.title} description={meta.description} />
 <MainLayout>
+    <MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
     <div class="mb-2">
         <PageTitle
             title="Blog"

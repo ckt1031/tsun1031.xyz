@@ -1,15 +1,15 @@
 ---
 import '@/styles/post.css';
 
-import { getCollection } from 'astro:content';
 import PostList from '@components/Posts/List.astro';
 import MainSEO from '@components/SEO/Main.astro';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
+import { getPublishedPosts } from '@/utils/posts';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts');
+	const posts = await getPublishedPosts();
 
 	const tags = posts.flatMap((post) => {
 		if (!post.data.tags) return [];
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 
 // get all posts with the same tag
-const posts = (await getCollection('posts')).filter((post) => {
+const posts = (await getPublishedPosts()).filter((post) => {
 	if (!post.data.tags || !slug) return false;
 
 	return post.data.tags.includes(slug);
@@ -37,13 +37,13 @@ const posts = (await getCollection('posts')).filter((post) => {
 
 // Meta data
 const meta = {
-	title: `Tag of ${slug}`,
-	description: `Posts tagged with #${slug}`,
+	title: `Posts tagged with ${slug}`,
+	description: `Browse Kelvin Chan's blog posts tagged with ${slug}.`,
 };
 ---
 
-<MainSEO title={meta.title} description={meta.description} />
 <MainLayout>
+	<MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
 	<div class="mb-2">
 		<PageTitle title={`Posts tagged with "${slug}"`} />
 	</div>
