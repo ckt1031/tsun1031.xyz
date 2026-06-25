@@ -18,37 +18,37 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.9",
-		"@astrojs/mdx": "5.0.4",
+		"@astrojs/mdx": "7.0.0",
 		"@astrojs/rss": "^4.0.18",
-		"@astrojs/sitemap": "3.7.2",
+		"@astrojs/sitemap": "3.7.3",
 		"@fireworks-js/web": "2.10.8",
-		"@iconify-json/hugeicons": "^1.2.27",
+		"@iconify-json/hugeicons": "^1.2.29",
 		"@iconify-json/iconoir": "^1.2.11",
-		"astro": "6.3.1",
+		"astro": "7.0.0",
 		"astro-icon": "1.1.5",
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "1.1.0",
 		"clsx": "^2.1.1",
-		"dayjs": "1.11.20",
+		"dayjs": "1.11.21",
 		"fireworks-js": "2.10.8",
 		"is-ci": "4.1.0",
 		"magic-snowflakes": "7.0.2",
-		"sharp": "^0.34.5"
+		"sharp": "^0.35.2"
 	},
 	"devDependencies": {
-		"@astrojs/ts-plugin": "1.10.7",
-		"@biomejs/biome": "2.4.15",
-		"@tailwindcss/postcss": "^4.3.0",
-		"@tailwindcss/typography": "0.5.19",
-		"@tailwindcss/vite": "^4.3.0",
-		"@types/node": "25.6.2",
+		"@astrojs/ts-plugin": "1.10.9",
+		"@biomejs/biome": "2.5.0",
+		"@tailwindcss/postcss": "^4.3.1",
+		"@tailwindcss/typography": "0.5.20",
+		"@tailwindcss/vite": "^4.3.1",
+		"@types/node": "26.0.0",
 		"autoprefixer": "10.5.0",
-		"commitizen": "4.3.1",
+		"commitizen": "4.3.2",
 		"husky": "9.1.7",
-		"lint-staged": "17.0.4",
-		"tailwindcss": "^4.3.0",
+		"lint-staged": "17.0.8",
+		"tailwindcss": "^4.3.1",
 		"typescript": "6.0.3",
-		"vite": "8.0.10"
+		"vite": "^8.0.16"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
@@ -57,5 +57,6 @@
 		"*.{yml,cjs,mjs,js,jsx,ts,tsx,json,html,md}": [
 			"biome check"
 		]
-	}
+	},
+	"packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b"
 }

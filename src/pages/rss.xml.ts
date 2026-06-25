@@ -1,6 +1,6 @@
 import { loadRenderers } from 'astro:container';
 import { render } from 'astro:content';
-import { getContainerRenderer as getMDXRenderer } from '@astrojs/mdx';
+import { getContainerRenderer as getMDXRenderer } from '@astrojs/mdx/container-renderer';
 import rss, { type RSSFeedItem } from '@astrojs/rss';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import config from '@/config';
