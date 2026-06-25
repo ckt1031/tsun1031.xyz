@@ -1,46 +1,53 @@
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(customParseFormat);
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 export const HONG_KONG_TIME_ZONE = 'Asia/Hong_Kong';
 
-const PLAIN_DATE_RE =
-	/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?$/;
+const HONG_KONG_DATE_FORMATS = [
+	'YYYY-MM-DD',
+	'YYYY-MM-DD HH:mm',
+	'YYYY-MM-DD HH:mm:ss',
+	'YYYY-MM-DDTHH:mm',
+	'YYYY-MM-DDTHH:mm:ss',
+];
+const HAS_TIME_ZONE_RE = /(?:Z|[+-]\d{2}:?\d{2})$/i;
 
 export function parseHongKongDate(value: string) {
 	const trimmed = value.trim();
-	const plainDate = trimmed.match(PLAIN_DATE_RE);
-	const date = plainDate
-		? new Date(
-				`${plainDate[1]}-${plainDate[2]}-${plainDate[3]}T${plainDate[4] ?? '00'}:${plainDate[5] ?? '00'}:${plainDate[6] ?? '00'}+08:00`,
-			)
-		: new Date(trimmed);
+	let parsed = HAS_TIME_ZONE_RE.test(trimmed) ? dayjs(trimmed) : undefined;
 
-	if (Number.isNaN(date.getTime())) {
+	if (!parsed) {
+		for (const format of HONG_KONG_DATE_FORMATS) {
+			try {
+				const date = dayjs.tz(trimmed, format, HONG_KONG_TIME_ZONE);
+
+				if (date.isValid() && date.format(format) === trimmed) {
+					parsed = date;
+					break;
+				}
+			} catch {}
+		}
+	}
+
+	if (!parsed?.isValid()) {
 		throw new Error(`Invalid date: ${value}`);
 	}
 
-	return date;
+	return parsed.toDate();
 }
 
 export function formatHongKongDate(date: Date | string) {
-	const value = typeof date === 'string' ? new Date(date) : date;
-	const datePart = new Intl.DateTimeFormat('en-US', {
-		timeZone: HONG_KONG_TIME_ZONE,
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	}).format(value);
-	const timePart = new Intl.DateTimeFormat('en-US', {
-		timeZone: HONG_KONG_TIME_ZONE,
-		hour: 'numeric',
-		minute: '2-digit',
-		hour12: true,
-	}).format(value);
-
-	return `${datePart} ${timePart} (HKT)`;
+	return dayjs(date)
+		.tz(HONG_KONG_TIME_ZONE)
+		.format('MMMM D, YYYY h:mm A [HKT]');
 }
 
 export function formatHongKongISOString(date: Date | string) {
-	const value = typeof date === 'string' ? new Date(date) : date;
-	const hongKongTime = new Date(value.getTime() + 8 * 60 * 60 * 1000);
-	const pad = (num: number) => num.toString().padStart(2, '0');
-
-	return `${hongKongTime.getUTCFullYear()}-${pad(hongKongTime.getUTCMonth() + 1)}-${pad(hongKongTime.getUTCDate())}T${pad(hongKongTime.getUTCHours())}:${pad(hongKongTime.getUTCMinutes())}:${pad(hongKongTime.getUTCSeconds())}+08:00`;
+	return dayjs(date).tz(HONG_KONG_TIME_ZONE).format('YYYY-MM-DDTHH:mm:ssZ');
 }

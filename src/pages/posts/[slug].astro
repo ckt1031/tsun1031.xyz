@@ -1,42 +1,39 @@
 ---
 import '@/styles/post.css';
 
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
-import readingTimeModule from 'reading-time';
+import dayjs from 'dayjs';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
 import { formatHongKongDate, formatHongKongISOString } from '@/utils/date';
+import { getPublishedPosts } from '@/utils/posts';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts', ({ data }) => !data.draft);
+	const posts = await getPublishedPosts();
 
-	return posts.map((p) => {
-		const readingTime = readingTimeModule(p.body ?? '');
-		const readingMinutes =
-			readingTime.minutes >= 1
-				? `${Math.round(readingTime.minutes)} minutes`
-				: 'Less than 1' + ' minute';
-
+	return posts.map((post) => {
 		return {
-			params: { slug: p.id },
-			props: { post: p, readingMinutes },
+			params: { slug: post.id },
+			props: { post },
 		};
 	});
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post, readingMinutes } = Astro.props;
+const { post } = Astro.props;
 const { Content } = await render(post);
 const publishedTime = formatHongKongISOString(post.data.published);
-const modifiedTime = post.data.updated
-	? formatHongKongISOString(post.data.updated)
-	: undefined;
-
+const updatedDate = post.data.updated;
+const isUpdated =
+	updatedDate && !dayjs(updatedDate).isSame(post.data.published, 'second');
+const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefined;
 const publishedHKTAtStr = formatHongKongDate(post.data.published);
-const modifiedHKTAtStr = modifiedTime ? formatHongKongDate(modifiedTime) : null;
+const displayDate = isUpdated
+	? `Updated at ${formatHongKongDate(updatedDate)}`
+	: `Published at ${publishedHKTAtStr}`;
 ---
 
 <MainLayout>
@@ -55,17 +52,11 @@ const modifiedHKTAtStr = modifiedTime ? formatHongKongDate(modifiedTime) : null;
   <article class="mb-20 mt-5 w-full">
     <div class="base-border border-b">
       <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-        {publishedHKTAtStr == modifiedHKTAtStr && `Published at ${publishedHKTAtStr}`}
-        {publishedHKTAtStr != modifiedHKTAtStr && `Updated at ${modifiedHKTAtStr}`}
+        {displayDate}
       </p>
-      <h1 class="text-3xl wrap-break-word font-bold md:text-4xl">
+      <h1 class="text-3xl break-words font-bold md:text-4xl">
         {post.data.title}
       </h1>
-      <p
-        class="mt-3 mb-4 text-slate-600 dark:text-slate-400 text-left"
-      >
-        Reading: {readingMinutes}
-      </p>
     </div>
     <div class="blog-style">
       <Content />

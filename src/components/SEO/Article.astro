@@ -34,7 +34,7 @@ const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
 const siteIconUrl = new URL(config.siteIconPublicPath, config.url).toString();
 const person = {
 	'@type': 'Person',
-	name: config.author,
+	name: author[0] ?? config.author,
 	url: config.url,
 	sameAs: Object.values(config.social),
 };
