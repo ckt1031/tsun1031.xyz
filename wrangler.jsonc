@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tsun",
+  "compatibility_date": "2026-07-01",
+  "workers_dev": false,
+  "keep_vars": true,
+  "cache": {
+    "enabled": true,
+  },
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash",
+  },
+  "placement": {
+    "mode": "smart",
+  },
+}
