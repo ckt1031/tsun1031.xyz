@@ -1,7 +1,7 @@
 allowBuilds:
   esbuild: false
   sharp: false
-  workerd: set this to true or false
+  workerd: false
 
 minimumReleaseAge: 4320 # 3 days
 minimumReleaseAgeIgnoreMissingTime: true
