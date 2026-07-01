@@ -24,7 +24,7 @@
 		"@fireworks-js/web": "2.10.8",
 		"@iconify-json/hugeicons": "^1.2.29",
 		"@iconify-json/iconoir": "^1.2.11",
-		"astro": "7.0.0",
+		"astro": "7.0.3",
 		"astro-icon": "1.1.5",
 		"astro-robots-txt": "1.0.0",
 		"astro-seo": "1.1.0",
@@ -37,18 +37,18 @@
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.9",
-		"@biomejs/biome": "2.5.0",
+		"@biomejs/biome": "2.5.1",
 		"@tailwindcss/postcss": "^4.3.1",
 		"@tailwindcss/typography": "0.5.20",
 		"@tailwindcss/vite": "^4.3.1",
-		"@types/node": "26.0.0",
-		"autoprefixer": "10.5.0",
+		"@types/node": "26.0.1",
+		"autoprefixer": "10.5.2",
 		"commitizen": "4.3.2",
 		"husky": "9.1.7",
 		"lint-staged": "17.0.8",
 		"tailwindcss": "^4.3.1",
 		"typescript": "6.0.3",
-		"vite": "^8.0.16"
+		"vite": "^8.1.0"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
