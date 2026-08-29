@@ -1,1 +1,1 @@
-bunx lint-staged --quiet
+pnpm lint-staged --quiet
