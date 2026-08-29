@@ -3,3 +3,6 @@ allowBuilds:
   sharp: true
 
 minimumReleaseAge: 4320 # 3 days
+
+overrides:
+  vite: "^8.2.1"
