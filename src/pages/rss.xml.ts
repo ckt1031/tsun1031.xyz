@@ -6,8 +6,6 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import config from '@/config';
 import { getPublishedPosts, sortPostsByPublishedDate } from '@/utils/posts';
 
-const stylesheet = '/rss-style.xsl';
-
 export async function GET(context: { site: string | URL }) {
 	const posts = await getPublishedPosts();
 
@@ -37,6 +35,5 @@ export async function GET(context: { site: string | URL }) {
 		description: config.description,
 		site: context.site,
 		items,
-		stylesheet,
 	});
 }
