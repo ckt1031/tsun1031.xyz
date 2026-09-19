@@ -40,3 +40,18 @@
 .blog-style :where(code):not(:where([class~="not-prose"] *))::after {
 	content: none;
 }
+
+.blog-style .astro-code {
+	@apply rounded-lg border border-neutral-300;
+	background-color: #fff !important;
+}
+
+[data-theme="dark"] .blog-style .astro-code {
+	@apply border-neutral-800;
+	background-color: #0a0a0a !important;
+	color: var(--shiki-dark) !important;
+}
+
+[data-theme="dark"] .blog-style .astro-code span {
+	color: var(--shiki-dark) !important;
+}

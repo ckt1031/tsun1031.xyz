@@ -48,6 +48,14 @@ export default defineConfig({
 		service: passthroughImageService(),
 		domains: ['obs-cdn.tsun1031.xyz'],
 	},
+	markdown: {
+		shikiConfig: {
+			themes: {
+				light: 'github-light',
+				dark: 'github-dark',
+			},
+		},
+	},
 	vite: {
 		plugins: [tailwindcss()],
 	},
