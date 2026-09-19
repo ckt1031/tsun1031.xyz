@@ -3,9 +3,10 @@ import '@/styles/main.css';
 import { Font } from 'astro:assets';
 
 import Firework from '@/components/Firework.astro';
-import Headbar from '@/components/Headbar.astro';
 import Snowflake from '@/components/Snowflake.astro';
 import config from '@/config';
+
+const { padded = true } = Astro.props;
 ---
 
 <html lang="en">
@@ -40,7 +41,6 @@ import config from '@/config';
   <body class="root">
     <Snowflake />
     <Firework />
-    <Headbar />
     <div
       id="firework"
       class="fixed top-0 left-0 w-full h-full pointer-events-none"
@@ -48,7 +48,10 @@ import config from '@/config';
     </div>
     <main
       id="main"
-      class="flex m-auto w-full max-w-[800px] flex-1 flex-col px-5 text-left"
+      class:list={[
+        'flex m-auto w-full max-w-[800px] flex-1 flex-col px-5 text-left',
+        padded && 'pt-8',
+      ]}
     >
       <slot />
     </main>

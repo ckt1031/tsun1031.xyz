@@ -20,6 +20,8 @@ export default defineConfig({
 		icon(),
 		sitemap({
 			changefreq: 'weekly',
+			filter: (page) =>
+				!['/about', '/contact'].includes(new URL(page).pathname),
 			priority: 0.8,
 			serialize: serializeSitemapItem,
 		}),

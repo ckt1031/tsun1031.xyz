@@ -69,7 +69,7 @@ export async function serializeSitemapItem(
 
 	if (pathname === '/') {
 		item.priority = 1;
-	} else if (pathname === '/about' || pathname === '/posts') {
+	} else if (pathname === '/posts') {
 		item.priority = 0.9;
 	} else if (pathname.startsWith('/posts/tags/')) {
 		item.priority = 0.5;
