@@ -1,0 +1,8 @@
+{
+  "name": "tsun1031-xyz",
+  "compatibility_date": "2026-09-19",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+  },
+}
