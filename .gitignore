@@ -32,3 +32,4 @@ replit.nix
 dist
 .astro
 .idea
+.wrangler
