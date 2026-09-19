@@ -5,12 +5,16 @@ published: 2026-09-19 16:18
 tags: ["dev"]
 ---
 
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 
-import Callout from '@/components/Callout.astro';
+import Callout from "@/components/Callout.astro";
 
-<Callout variant="warning">
-  This blog is for educational purposes. Protect your access tokens: sharing them can cause privacy issues and enable course spamming. Always ask your school office for permission, follow your school's rules, and comply with cyber laws in your region or country.
+This tutorial does NOT limit to HKUST, or any specific school, this works for any schools that use Canvas LMS which can be accessed via mobile apps, but expiry of tokens, and available endpoints may vary depending on the school. I will not provide any school-specific information in this tutorial.
+
+<Callout variant="warning" title="EDUCATIONAL PURPOSE ONLY">
+  Protect your access tokens, sharing them can cause huge issues. Always ask
+  your school office for any problems, follow your school's rules. I am not
+  responsible for any consequences caused by this tutorial.
 </Callout>
 
 ## Background
@@ -26,7 +30,7 @@ Well, my school, HKUST, disabled API key access in early 2026:
   alt="Canvas settings showing that access-token creation is unavailable"
   width={1518}
   height={314}
-  formats={['avif', 'webp']}
+  formats={["avif", "webp"]}
 />
 
 Their reason was one word: **security**. I emailed the office in early 2026.
@@ -46,7 +50,7 @@ The reality is, the application is heavily using the API, suppose your course's 
   alt="Canvas API response in a browser"
   width={2940}
   height={890}
-  formats={['avif', 'webp']}
+  formats={["avif", "webp"]}
 />
 
 So there is NO point to disallow power user to access Canvas data programatically, but, well, I won't blame anyone blocking me creating the API keys, _because they might have compliance issues, or sometimes they might do surface work to make the system automatically safer haha._
@@ -58,7 +62,9 @@ Although permanent API keys are blocked, there are still many ways to programmat
 We can retrieve tokens from the browser, but you will only find a short-lived cookie (`Cookies: canvas_session=xxx`). It expires quickly, is unsuitable for non-interactive automated scripts, and web authentication does not generate long-lived refresh tokens. Therefore, we will not focus on the web approach.
 
 <Callout>
-  From here, I will refer to OAuth2 and token issuance, but I will not explain them in detail. You can ask Google or ChatGPT for more information. It is fairly straightforward if you know how to make `GET` and `POST` requests.
+  From here, I will refer to OAuth2 and token issuance, but I will not explain
+  them in detail. You can ask Google or ChatGPT for more information. It is
+  fairly straightforward if you know how to make `GET` and `POST` requests.
 </Callout>
 
 I then realized that Canvas for Android and iOS were still available. After basic packet capture, I found that the Canvas mobile apps use standard OAuth2 authentication. This means that we can generate access and refresh tokens without school office restrictions.
@@ -92,7 +98,7 @@ For authorization, you can set a purpose in the query parameters (`?purpose=Pyth
   alt="Canvas settings showing an issued access token"
   width={2398}
   height={1522}
-  formats={['avif', 'webp']}
+  formats={["avif", "webp"]}
 />
 
 Once you have successfully obtained a token, you will receive an access token and a refresh token. Refer to the general OAuth2 flow to refresh it. In my observation, generated access tokens do not appear to expire, so you can treat an access token as a very long-lived API key alternative.
@@ -132,7 +138,7 @@ I use the Canvas API to build some small projects, for example:
   alt="New File and Module Monitor interface"
   width={1410}
   height={710}
-  formats={['avif', 'webp']}
+  formats={["avif", "webp"]}
 />
 
 **Course Page Modification Monitoring with an LLM** - This keeps track of course changes. Many changes are announced very late, so this helps me receive updates on time.
@@ -142,7 +148,7 @@ I use the Canvas API to build some small projects, for example:
   alt="Course Page Modification Monitoring interface"
   width={1484}
   height={574}
-  formats={['avif', 'webp']}
+  formats={["avif", "webp"]}
 />
 
 ## Additional Information
@@ -150,6 +156,14 @@ I use the Canvas API to build some small projects, for example:
 One reminder: Canvas LMS uses _Token Rotation_. This means that when a new access token is generated from the same refresh token, the previous access token is invalidated.
 
 To make your access token safer—for example, by making it read-only—you can set its scope to `url:GET`, or restrict it to specific endpoints with `url:GET|/api/v1/courses`.
+
+<Callout variant="warning" title="Important">
+  Adding scopes does not automatically give you access to resources that you are
+  not authorized to access. For example, you cannot update any courses if you
+  are not an instructor, even if you have a token with the
+  `url:PUT|/api/v1/courses` scope. The Canvas API will return a 403 error in
+  this case.
+</Callout>
 
 Using `/courses` as an example, the issued token can only be used with that exact endpoint. It does not automatically allow access to sub-resources, such as detailed course data at `/courses/<my_course_id>`, which returns:
 
