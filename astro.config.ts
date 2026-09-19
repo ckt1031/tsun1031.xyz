@@ -62,8 +62,14 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Inter',
-			cssVariable: '--font-inter',
+			name: 'IBM Plex Sans',
+			cssVariable: '--font-ibm-plex-sans',
+			weights: [400, 600, 700, 800],
+		},
+		{
+			provider: fontProviders.google(),
+			name: 'IBM Plex Mono',
+			cssVariable: '--font-ibm-plex-mono',
 			weights: [400, 600, 700, 800],
 		},
 	],
