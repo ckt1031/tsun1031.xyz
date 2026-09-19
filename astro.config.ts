@@ -9,6 +9,8 @@ import {
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 
+import { serializeSitemapItem } from './src/utils/sitemap';
+
 const SITE_URL = 'https://tsun1031.xyz';
 
 export default defineConfig({
@@ -19,19 +21,7 @@ export default defineConfig({
 		sitemap({
 			changefreq: 'weekly',
 			priority: 0.8,
-			serialize(item) {
-				const { pathname } = new URL(item.url);
-
-				if (pathname === '/') {
-					item.priority = 1;
-				} else if (pathname === '/about' || pathname === '/posts') {
-					item.priority = 0.9;
-				} else if (pathname.startsWith('/posts/tags/')) {
-					item.priority = 0.5;
-				}
-
-				return item;
-			},
+			serialize: serializeSitemapItem,
 		}),
 		mdx(),
 		robotsTxt({
