@@ -25,7 +25,7 @@ const posts = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		published: hongKongDateSchema('published'),
-		updated: hongKongDateSchema('updated').optional(),
+		modified: hongKongDateSchema('modified').optional(),
 		canonical: z
 			.url()
 			.refine(

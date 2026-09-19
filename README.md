@@ -26,6 +26,17 @@ To start the development server:
 bun run dev
 ```
 
+## Post front matter
+
+Posts in `src/content/posts/` require a `published` date. Add an optional
+`modified` date after a substantive update; it is shown to readers and emitted
+in article metadata, the sitemap, and RSS.
+
+```yaml
+published: "2026-09-19 16:18"
+modified: "2026-09-20 09:30"
+```
+
 Build the project:
 
 ```bash

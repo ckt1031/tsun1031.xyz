@@ -24,7 +24,7 @@ async function getMarkdownFiles(directory: string): Promise<string[]> {
 	return files.flat();
 }
 
-function getFrontmatterDate(source: string, field: 'published' | 'updated') {
+function getFrontmatterDate(source: string, field: 'published' | 'modified') {
 	const frontmatter = source.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
 	const rawValue = frontmatter?.[1].match(
 		new RegExp(`^${field}:\\s*(.+?)\\s*$`, 'm'),
@@ -43,7 +43,7 @@ async function getPostLastModifiedByPath() {
 			const source = await readFile(file, 'utf8');
 			const slug = relative(POSTS_DIRECTORY, file).replace(/\.(md|mdx)$/, '');
 			const lastModified =
-				getFrontmatterDate(source, 'updated') ??
+				getFrontmatterDate(source, 'modified') ??
 				getFrontmatterDate(source, 'published');
 
 			return [`/posts/${slug}`, lastModified] as const;

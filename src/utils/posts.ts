@@ -13,3 +13,11 @@ export function sortPostsByPublishedDate(posts: CollectionEntry<'posts'>[]) {
 		(a, b) => b.data.published.getTime() - a.data.published.getTime(),
 	);
 }
+
+export function getPostModifiedDate(data: CollectionEntry<'posts'>['data']) {
+	const { modified, published } = data;
+
+	return modified && modified.getTime() !== published.getTime()
+		? modified
+		: undefined;
+}

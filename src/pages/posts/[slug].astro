@@ -3,7 +3,6 @@ import '@/styles/post.css';
 
 import { render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
-import dayjs from 'dayjs';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
 import ExternalLink from '@/components/Posts/ExternalLink.astro';
@@ -14,7 +13,7 @@ import {
 	formatHongKongISOString,
 	formatHongKongShortDate,
 } from '@/utils/date';
-import { getPublishedPosts } from '@/utils/posts';
+import { getPostModifiedDate, getPublishedPosts } from '@/utils/posts';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts();
@@ -32,10 +31,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { post } = Astro.props;
 const { Content } = await render(post);
 const publishedTime = formatHongKongISOString(post.data.published);
-const updatedDate = post.data.updated;
-const isUpdated =
-	updatedDate && !dayjs(updatedDate).isSame(post.data.published, 'second');
-const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefined;
+const modifiedDate = getPostModifiedDate(post.data);
+const modifiedTime = modifiedDate
+	? formatHongKongISOString(modifiedDate)
+	: undefined;
 ---
 
 <MainLayout>
@@ -58,11 +57,11 @@ const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefine
           Published {formatHongKongShortDate(post.data.published)}
         </time>
         {
-          isUpdated && updatedDate && (
+          modifiedDate && (
             <>
               <span aria-hidden="true">·</span>
-              <time datetime={modifiedTime} title={formatHongKongDate(updatedDate)}>
-                Updated {formatHongKongShortDate(updatedDate)}
+              <time datetime={modifiedTime} title={formatHongKongDate(modifiedDate)}>
+                Modified {formatHongKongShortDate(modifiedDate)}
               </time>
             </>
           )
