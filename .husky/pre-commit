@@ -1,1 +1,1 @@
-pnpm lint-staged --quiet
+bun run lint-staged --quiet
