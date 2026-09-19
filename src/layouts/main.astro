@@ -3,6 +3,7 @@ import '@/styles/main.css';
 import { Font } from 'astro:assets';
 
 import Firework from '@/components/Firework.astro';
+import Footer from '@/components/Footer.astro';
 import Snowflake from '@/components/Snowflake.astro';
 import config from '@/config';
 
@@ -55,5 +56,6 @@ const { padded = true } = Astro.props;
     >
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
