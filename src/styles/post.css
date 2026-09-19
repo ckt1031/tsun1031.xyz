@@ -36,6 +36,15 @@
 	@apply text-base;
 }
 
+.blog-style blockquote {
+	@apply my-5 rounded-xl border border-neutral-300 px-4 py-3 not-italic text-neutral-700 dark:border-neutral-600 dark:text-neutral-200;
+}
+
+.blog-style blockquote p:first-of-type::before,
+.blog-style blockquote p:last-of-type::after {
+	content: none;
+}
+
 .blog-style :where(code):not(:where([class~="not-prose"] *))::before,
 .blog-style :where(code):not(:where([class~="not-prose"] *))::after {
 	content: none;

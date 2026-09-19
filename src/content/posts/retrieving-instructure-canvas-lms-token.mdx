@@ -5,9 +5,11 @@ published: 2026-09-19 16:18
 tags: ["dev"]
 ---
 
-> Disclaimer:  
-> _This blog is for educational purposes. Protect your access tokens: sharing them can cause privacy issues and enable course spamming._
-> Always ask your school office for permission, follow your school's rules, and comply with cyber laws in your region or country.
+import Callout from '@/components/Callout.astro';
+
+<Callout variant="warning">
+  This blog is for educational purposes. Protect your access tokens: sharing them can cause privacy issues and enable course spamming. Always ask your school office for permission, follow your school's rules, and comply with cyber laws in your region or country.
+</Callout>
 
 ## Background
 
@@ -41,8 +43,9 @@ Although permanent API keys are blocked, there are still many ways to programmat
 
 We can retrieve tokens from the browser, but you will only find a short-lived cookie (`Cookies: canvas_session=xxx`). It expires quickly, is unsuitable for non-interactive automated scripts, and web authentication does not generate long-lived refresh tokens. Therefore, we will not focus on the web approach.
 
-> From here, I will refer to OAuth2 and token issuance, but I will not explain them in detail. You can ask Google or ChatGPT for more information.
-> It is fairly straightforward if you know how to make `GET` and `POST` requests.
+<Callout>
+  From here, I will refer to OAuth2 and token issuance, but I will not explain them in detail. You can ask Google or ChatGPT for more information. It is fairly straightforward if you know how to make `GET` and `POST` requests.
+</Callout>
 
 I then realized that Canvas for Android and iOS were still available. After basic packet capture, I found that the Canvas mobile apps use standard OAuth2 authentication. This means that we can generate access and refresh tokens without school office restrictions.
 

@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	variant?: 'info' | 'warning';
+	title?: string;
+}
+
+const { variant = 'info', title = variant === 'warning' ? 'Warning' : 'Info' } =
+	Astro.props;
+const isWarning = variant === 'warning';
+const icon = isWarning ? 'iconoir:warning-triangle' : 'iconoir:info-circle';
+const colors = isWarning
+	? 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100'
+	: 'border-neutral-300 text-neutral-700 dark:border-neutral-600 dark:text-neutral-200';
+---
+
+<aside class:list={['not-prose my-5 rounded-xl border px-3 py-2.5', colors]}>
+	<div class="flex items-center gap-2 font-semibold">
+		<Icon class="shrink-0" name={icon} size={20} aria-hidden="true" />
+		<p class="m-0">{title}</p>
+	</div>
+	<div class="mt-1 text-sm leading-6 [&>p]:m-0">
+		<slot />
+	</div>
+</aside>
