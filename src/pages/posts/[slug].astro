@@ -7,7 +7,11 @@ import dayjs from 'dayjs';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
 import MainLayout from '@/layouts/main.astro';
-import { formatHongKongDate, formatHongKongISOString } from '@/utils/date';
+import {
+	formatHongKongDate,
+	formatHongKongISOString,
+	formatHongKongShortDate,
+} from '@/utils/date';
 import { getPublishedPosts } from '@/utils/posts';
 
 export async function getStaticPaths() {
@@ -30,10 +34,6 @@ const updatedDate = post.data.updated;
 const isUpdated =
 	updatedDate && !dayjs(updatedDate).isSame(post.data.published, 'second');
 const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefined;
-const publishedHKTAtStr = formatHongKongDate(post.data.published);
-const displayDate = isUpdated
-	? `Updated at ${formatHongKongDate(updatedDate)}`
-	: `Published at ${publishedHKTAtStr}`;
 ---
 
 <MainLayout>
@@ -50,14 +50,29 @@ const displayDate = isUpdated
     canonical={post.data.canonical}
   />
   <article class="mb-20 mt-5 w-full">
-    <div class="base-border border-b">
-      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-        {displayDate}
-      </p>
+    <header class="base-border mb-7 border-b pb-6">
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+        <time datetime={publishedTime} title={formatHongKongDate(post.data.published)}>
+          Published {formatHongKongShortDate(post.data.published)}
+        </time>
+        {
+          isUpdated && updatedDate && (
+            <>
+              <span aria-hidden="true">·</span>
+              <time datetime={modifiedTime} title={formatHongKongDate(updatedDate)}>
+                Updated {formatHongKongShortDate(updatedDate)}
+              </time>
+            </>
+          )
+        }
+      </div>
       <h1 class="text-xl break-words font-extrabold md:text-2xl">
         {post.data.title}
       </h1>
-    </div>
+      <p class="mt-2 max-w-2xl text-base leading-6 text-neutral-600 dark:text-neutral-300">
+        {post.data.description}
+      </p>
+    </header>
     <div class="blog-style">
       <Content />
     </div>

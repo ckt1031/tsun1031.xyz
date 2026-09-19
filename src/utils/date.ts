@@ -48,6 +48,10 @@ export function formatHongKongDate(date: Date | string) {
 		.format('MMMM D, YYYY h:mm A [HKT]');
 }
 
+export function formatHongKongShortDate(date: Date | string) {
+	return dayjs(date).tz(HONG_KONG_TIME_ZONE).format('MMM D, YYYY');
+}
+
 export function formatHongKongISOString(date: Date | string) {
 	return dayjs(date).tz(HONG_KONG_TIME_ZONE).format('YYYY-MM-DDTHH:mm:ssZ');
 }
