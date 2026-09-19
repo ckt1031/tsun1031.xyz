@@ -74,24 +74,24 @@ const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefine
       <p class="mt-2 max-w-2xl text-base leading-6 text-neutral-600 dark:text-neutral-300">
         {post.data.description}
       </p>
+      {
+        post.data.tags && (
+          <div class="mt-5 flex flex-wrap gap-x-2 gap-y-1">
+            {post.data.tags.map((tag: string) => (
+              <a
+                class="text-sm font-medium text-neutral-600 hover:underline dark:text-neutral-400"
+                href={`/posts/tags/${tag}`}
+              >
+                #{tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
     </header>
     <div class="blog-style">
       <Content components={{ a: ExternalLink, table: MarkdownTable }} />
     </div>
-    {
-      post.data.tags && (
-        <div class="base-border mt-7 border-t">
-          <div class="mt-5">
-            <p class="mb-2 font-medium">Tags:</p>
-            {post.data.tags.map((tag: string) => (
-              <a class="post-tag " href={`/posts/tags/${tag}`}>
-                {tag}
-              </a>
-            ))}
-          </div>
-        </div>
-      )
-    }
   </article>
 </MainLayout>
 
