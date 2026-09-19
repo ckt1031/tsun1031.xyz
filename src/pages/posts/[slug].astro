@@ -6,6 +6,7 @@ import type { InferGetStaticPropsType } from 'astro';
 import dayjs from 'dayjs';
 
 import ArticleSEO from '@/components/SEO/Article.astro';
+import ExternalLink from '@/components/Posts/ExternalLink.astro';
 import MainLayout from '@/layouts/main.astro';
 import {
 	formatHongKongDate,
@@ -74,7 +75,7 @@ const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefine
       </p>
     </header>
     <div class="blog-style">
-      <Content />
+      <Content components={{ a: ExternalLink }} />
     </div>
     {
       post.data.tags && (

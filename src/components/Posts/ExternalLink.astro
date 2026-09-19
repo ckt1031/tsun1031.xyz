@@ -1,0 +1,22 @@
+---
+import config from '@/config';
+
+const { href, ...attributes } = Astro.props;
+const isExternal =
+	typeof href === 'string' &&
+	(() => {
+		try {
+			return new URL(href, config.url).origin !== new URL(config.url).origin;
+		} catch {
+			return false;
+		}
+	})();
+---
+
+<a
+  href={href}
+  {...attributes}
+  {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  <slot />
+</a>
