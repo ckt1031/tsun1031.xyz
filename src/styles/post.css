@@ -36,6 +36,10 @@
 	@apply text-base;
 }
 
+.blog-style img {
+	@apply cursor-zoom-in;
+}
+
 .blog-style table {
 	@apply overflow-hidden rounded-lg border-separate border-spacing-0 border border-neutral-300 dark:border-neutral-600;
 }
