@@ -31,13 +31,24 @@ const {
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
-const siteIconUrl = new URL(config.siteIconPublicPath, config.url).toString();
 const person = {
 	'@type': 'Person',
 	name: author[0] ?? config.author,
 	url: config.url,
 	sameAs: Object.values(config.social),
 };
+const openGraphArticleMeta = [
+	{ property: 'og:title', content: pageTitle },
+	{ property: 'og:type', content: 'article' },
+	{ property: 'og:url', content: canonicalUrl },
+	{ property: 'article:published_time', content: published_time },
+	...(modified_time
+		? [{ property: 'article:modified_time', content: modified_time }]
+		: []),
+	...author.map((name) => ({ property: 'article:author', content: name })),
+	{ property: 'article:section', content: section },
+	...tags.map((tag) => ({ property: 'article:tag', content: tag })),
+];
 const structuredData = [
 	{
 		'@context': 'https://schema.org',
@@ -89,20 +100,6 @@ const structuredData = [
   title={pageTitle}
   canonical={canonicalUrl}
   description={description}
-  openGraph={{
-    article: {
-      publishedTime: published_time,
-      modifiedTime: modified_time,
-      authors: author,
-      section: section,
-      tags: tags,
-    },
-    basic: {
-      title: pageTitle,
-      type: "article",
-      image: siteIconUrl,
-    },
-  }}
   twitter={{
     card: "summary",
     creator: config.twitter,
@@ -110,6 +107,7 @@ const structuredData = [
   }}
   extend={{
     meta: [
+      ...openGraphArticleMeta,
       { property: "og:description", content: description },
       { property: "og:site_name", content: config.siteTitle },
       { name: "twitter:title", content: pageTitle },
