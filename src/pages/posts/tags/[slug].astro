@@ -6,7 +6,7 @@ import MainSEO from '@components/SEO/Main.astro';
 
 import PageTitle from '@/components/PageTitle.astro';
 import MainLayout from '@/layouts/main.astro';
-import { getPublishedPosts } from '@/utils/posts';
+import { getPublishedPosts, sortPostsByPublishedDate } from '@/utils/posts';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts();
@@ -29,11 +29,11 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 
 // get all posts with the same tag
-const posts = (await getPublishedPosts()).filter((post) => {
+const posts = sortPostsByPublishedDate((await getPublishedPosts()).filter((post) => {
 	if (!post.data.tags || !slug) return false;
 
 	return post.data.tags.includes(slug);
-});
+}));
 
 // Meta data
 const meta = {
