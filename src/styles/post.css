@@ -36,6 +36,28 @@
 	@apply text-base;
 }
 
+.blog-style table {
+	@apply overflow-hidden rounded-lg border-separate border-spacing-0 border border-neutral-300 dark:border-neutral-600;
+}
+
+.blog-style th,
+.blog-style td {
+	@apply border-r border-b border-neutral-300 px-3 py-2 dark:border-neutral-600;
+}
+
+.blog-style th {
+	@apply bg-neutral-100 dark:bg-neutral-800;
+}
+
+.blog-style th:last-child,
+.blog-style td:last-child {
+	@apply border-r-0;
+}
+
+.blog-style tbody tr:last-child td {
+	@apply border-b-0;
+}
+
 .blog-style blockquote {
 	@apply my-5 rounded-xl border border-neutral-300 px-4 py-3 not-italic text-neutral-700 dark:border-neutral-600 dark:text-neutral-200;
 }
