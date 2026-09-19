@@ -40,6 +40,14 @@
 	@apply overflow-hidden rounded-lg border-separate border-spacing-0 border border-neutral-300 dark:border-neutral-600;
 }
 
+.blog-style .markdown-table-wrapper {
+	@apply my-5 w-full max-w-full overflow-x-auto;
+}
+
+.blog-style .markdown-table-wrapper > table {
+	@apply my-0 min-w-full max-w-none w-max;
+}
+
 .blog-style th,
 .blog-style td {
 	@apply border-r border-b border-neutral-300 px-3 py-2 dark:border-neutral-600;
