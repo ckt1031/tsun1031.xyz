@@ -50,8 +50,12 @@
 	content: none;
 }
 
+.blog-style .code-block-wrapper {
+	@apply relative;
+}
+
 .blog-style .astro-code {
-	@apply relative rounded-lg border border-neutral-300;
+	@apply rounded-lg border border-neutral-300;
 	background-color: #fff !important;
 }
 

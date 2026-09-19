@@ -128,7 +128,10 @@ const modifiedTime = isUpdated ? formatHongKongISOString(updatedDate) : undefine
 				}
 			});
 
-			codeBlock.append(button);
+			const wrapper = document.createElement('div');
+			wrapper.className = 'code-block-wrapper';
+			codeBlock.before(wrapper);
+			wrapper.append(codeBlock, button);
 		},
 	);
 </script>
