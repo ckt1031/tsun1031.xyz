@@ -4,7 +4,7 @@
 const config = {
 	url: 'https://tsun1031.xyz', // Site domain. Do not include a trailing slash!
 	description:
-		"Kelvin Chan's personal website and blog about software, electronics, university life, and projects.",
+		"Kelvin Chan's personal website and blog about life and daily updates.",
 	author: 'Kelvin Chan', // Your name.
 	siteTitle: 'ckt1031', // Site title.
 	siteIconPublicPath: '/favicon.ico', // Path to the public folder, where the site icon is located.
