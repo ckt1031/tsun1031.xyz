@@ -10,6 +10,7 @@
 		"build": "astro build",
 		"dev": "astro dev",
 		"format": "biome format . --write",
+		"indexnow": "bun scripts/indexnow.ts",
 		"prepare": "is-ci || husky || true",
 		"start": "astro dev",
 		"lint": "biome check . && astro check",

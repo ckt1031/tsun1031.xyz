@@ -32,6 +32,23 @@ Build the project:
 bun run build
 ```
 
+## IndexNow
+
+Set `INDEXNOW_KEY` in `.env` and the deployment environment. Builds with this
+variable publish `/<key>.txt`, which IndexNow uses to verify this site. Generate
+a key with `openssl rand -hex 16`, or follow [Bing's IndexNow
+setup](https://www.bing.com/indexnow/getstarted).
+
+After deploying the matching build, submit every URL in the production sitemap:
+
+```bash
+bun run indexnow
+```
+
+The script defaults to `https://tsun1031.xyz`. Set `INDEXNOW_SITE_URL` to use a
+different deployment, and use `INDEXNOW_DRY_RUN=1` to verify its sitemap and
+key file without notifying IndexNow.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
