@@ -35,3 +35,8 @@
 .blog-style p {
 	@apply text-base;
 }
+
+.blog-style :where(code):not(:where([class~="not-prose"] *))::before,
+.blog-style :where(code):not(:where([class~="not-prose"] *))::after {
+	content: none;
+}
