@@ -9,7 +9,7 @@ interface Props {
 const { variant = 'info', title = variant === 'warning' ? 'Warning' : 'Info' } =
 	Astro.props;
 const isWarning = variant === 'warning';
-const icon = isWarning ? 'iconoir:warning-triangle' : 'iconoir:info-circle';
+const icon = isWarning ? 'bi:exclamation-triangle' : 'bi:info-circle';
 const colors = isWarning
 	? 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100'
 	: 'border-neutral-300 text-neutral-700 dark:border-neutral-600 dark:text-neutral-200';

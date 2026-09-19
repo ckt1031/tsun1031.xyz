@@ -16,6 +16,7 @@ const config = {
 	social: {
 		github: 'https://github.com/ckt1031',
 		instagram: 'https://www.instagram.com/kelvinova31/',
+		linkedin: 'https://www.linkedin.com/in/cktsun-kelvin/',
 		twitter: 'https://twitter.com/kelvinova31',
 	},
 

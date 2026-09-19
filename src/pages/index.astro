@@ -12,17 +12,22 @@ import { getPublishedPosts, sortPostsByPublishedDate } from '@/utils/posts';
 const socialMedia = [
 	{
 		name: 'GitHub',
-		icon: 'hugeicons:github',
+		icon: 'bi:github',
 		link: config.social.github,
 	},
 	{
 		name: 'Instagram',
-		icon: 'hugeicons:instagram',
+		icon: 'bi:instagram',
 		link: config.social.instagram,
 	},
 	{
+		name: 'LinkedIn',
+		icon: 'bi:linkedin',
+		link: config.social.linkedin,
+	},
+	{
 		name: 'Twitter',
-		icon: 'hugeicons:new-twitter',
+		icon: 'bi:twitter',
 		link: config.social.twitter,
 	},
 ];
@@ -110,7 +115,7 @@ const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(0,
         <a class="group inline-flex items-center gap-1 hover:underline" href="/posts">
           Blog posts
           <Icon
-            name="hugeicons:arrow-right-02"
+            name="bi:arrow-right"
             size={20}
             class="text-neutral-600 transition-transform duration-200 ease-out group-hover:translate-x-1"
           />

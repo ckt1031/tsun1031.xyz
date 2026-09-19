@@ -16,12 +16,12 @@ const pathname = Astro.url.pathname;
     <span class="sr-only">Mobile Menu</span>
     <div class="relative h-6 w-6">
       <Icon
-        name="hugeicons:cancel-01"
+        name="bi:x"
         size={24}
         class="absolute inset-0 scale-90 rotate-45 opacity-0 transition-all duration-200 group-open:scale-100 group-open:rotate-0 group-open:opacity-100"
       />
       <Icon
-        name="hugeicons:menu-02"
+        name="bi:list"
         size={24}
         class="absolute inset-0 scale-100 rotate-0 opacity-100 transition-all duration-200 group-open:scale-90 group-open:-rotate-45 group-open:opacity-0"
       />
@@ -53,7 +53,7 @@ const pathname = Astro.url.pathname;
           >
             {item.name}
             <Icon
-              name="hugeicons:arrow-right-02"
+              name="bi:arrow-right"
               size={18}
               class="opacity-50"
             />
