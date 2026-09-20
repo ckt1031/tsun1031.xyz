@@ -8,6 +8,7 @@ import { Icon } from 'astro-icon/components';
 import ArticleSEO from '@/components/SEO/Article.astro';
 import ExternalLink from '@/components/Posts/ExternalLink.astro';
 import MarkdownTable from '@/components/Posts/MarkdownTable.astro';
+import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
 import {
 	formatHongKongDate,
@@ -46,7 +47,7 @@ const image = getPostOpenGraphImageUrl(post);
     includeSiteTitle
     title={post.data.title}
     description={post.data.description}
-    author={["ckt1031"]}
+    author={[config.author]}
     published_time={publishedTime}
     modified_time={modifiedTime}
     tags={post.data.tags || []}
@@ -61,6 +62,8 @@ const image = getPostOpenGraphImageUrl(post);
         <time datetime={publishedTime} title={formatHongKongDate(post.data.published)}>
           Published {formatHongKongShortDate(post.data.published)}
         </time>
+        <span aria-hidden="true">·</span>
+        <span>By {config.author}</span>
         {
           modifiedDate && (
             <>

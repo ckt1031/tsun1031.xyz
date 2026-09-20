@@ -4,7 +4,10 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const json = JSON.stringify(data).replace(/</g, '\\u003c');
+const document = Array.isArray(data)
+	? { '@context': 'https://schema.org', '@graph': data }
+	: data;
+const json = JSON.stringify(document).replace(/</g, '\\u003c');
 ---
 
 <script type="application/ld+json" set:html={json} is:inline />

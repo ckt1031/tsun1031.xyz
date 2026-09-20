@@ -27,41 +27,35 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toStri
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
 const imageUrl = new URL(image, config.url).toString();
 const sameAs = Object.values(config.social);
+const websiteId = `${config.url}/#website`;
+const person = {
+	'@id': `${config.url}/#person`,
+	'@type': 'Person',
+	name: config.author,
+	url: config.url,
+	sameAs,
+};
 const structuredData = [
 	{
-		'@context': 'https://schema.org',
+		'@id': websiteId,
 		'@type': 'WebSite',
 		name: config.siteTitle,
 		url: config.url,
 		description: config.description,
-		author: {
-			'@type': 'Person',
-			name: config.author,
-			url: config.url,
-			sameAs,
-		},
+		author: person,
 	},
 	{
-		'@context': 'https://schema.org',
+		'@id': `${canonicalUrl}#webpage`,
 		'@type': type === 'profile' ? 'ProfilePage' : 'WebPage',
 		name: title,
 		headline: title,
 		description,
 		url: canonicalUrl,
 		isPartOf: {
-			'@type': 'WebSite',
-			name: config.siteTitle,
-			url: config.url,
+			'@id': websiteId,
 		},
 		about:
-			type === 'profile'
-				? {
-						'@type': 'Person',
-						name: config.author,
-						url: config.url,
-						sameAs,
-					}
-				: undefined,
+			type === 'profile' ? person : undefined,
 	},
 ];
 ---

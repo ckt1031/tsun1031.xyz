@@ -9,6 +9,7 @@ import type { JSXNode } from 'satori/jsx';
 import sharp from 'sharp';
 
 import config from '@/config';
+import { getPostModifiedDate } from '@/utils/posts';
 
 const WIDTH = 1200;
 const HEIGHT = 630;
@@ -57,10 +58,14 @@ async function render(card: JSXNode): Promise<ArrayBuffer> {
 export function getPostOpenGraphImageUrl(
 	post: CollectionEntry<'posts'>,
 ): string {
-	return new URL(
+	const imageUrl = new URL(
 		post.data.ogImage ?? `/posts/${post.id}/og.jpeg`,
 		config.url,
-	).toString();
+	);
+	const updatedAt = getPostModifiedDate(post.data) ?? post.data.published;
+
+	imageUrl.searchParams.set('v', updatedAt.toISOString());
+	return imageUrl.toString();
 }
 
 export async function renderHomeOpenGraphImage(): Promise<ArrayBuffer> {

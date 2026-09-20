@@ -36,9 +36,13 @@ const {
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
 const imageUrl = new URL(image, config.url).toString();
+const authorName = author[0] ?? config.author;
+const authorId = `${config.url}/#person`;
+const blogUrl = new URL('/posts', config.url).toString();
 const person = {
+	'@id': authorId,
 	'@type': 'Person',
-	name: author[0] ?? config.author,
+	name: authorName,
 	url: config.url,
 	sameAs: Object.values(config.social),
 };
@@ -47,33 +51,39 @@ const openGraphArticleMeta = [
 	...(modified_time
 		? [{ property: 'article:modified_time', content: modified_time }]
 		: []),
-	...author.map((name) => ({ property: 'article:author', content: name })),
+	{ property: 'article:author', content: config.url },
 	{ property: 'article:section', content: section },
 	...tags.map((tag) => ({ property: 'article:tag', content: tag })),
 ];
 const structuredData = [
 	{
-		'@context': 'https://schema.org',
+		'@id': `${canonicalUrl}#article`,
 		'@type': 'BlogPosting',
 		headline: title,
 		description,
 		image: imageUrl,
 		url: canonicalUrl,
-		mainEntityOfPage: canonicalUrl,
+		mainEntityOfPage: {
+			'@id': canonicalUrl,
+			'@type': 'WebPage',
+		},
 		datePublished: published_time,
 		dateModified: modified_time ?? published_time,
+		inLanguage: 'en',
+		isAccessibleForFree: true,
 		author: person,
 		publisher: person,
-		keywords: tags.join(', '),
+		...(tags.length ? { keywords: tags.join(', ') } : {}),
 		articleSection: section,
 		isPartOf: {
+			'@id': `${blogUrl}#blog`,
 			'@type': 'Blog',
 			name: config.siteTitle,
-			url: new URL('/posts', config.url).toString(),
+			url: blogUrl,
 		},
 	},
 	{
-		'@context': 'https://schema.org',
+		'@id': `${canonicalUrl}#breadcrumb`,
 		'@type': 'BreadcrumbList',
 		itemListElement: [
 			{
@@ -120,9 +130,11 @@ const structuredData = [
   twitter={{
     card: "summary_large_image",
     creator: config.twitter,
+    description: description,
     image: imageUrl,
     imageAlt: pageTitle,
     site: config.twitter,
+    title: pageTitle,
   }}
   extend={{
     meta: [
