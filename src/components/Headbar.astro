@@ -3,18 +3,16 @@ import Countdown from './Countdown.astro';
 
 import MobileNavigationMenu from './Headbar/MobileNavigationMenu.astro';
 import NavigationBarPages from './Headbar/NavigationBarPages.astro';
-import ThemeSwitcher from './Headbar/ThemeSwitcher.astro';
 ---
 
 <header class="flex flex-col w-screen justify-center">
   <Countdown />
   <div
-    class="flex w-full max-w-[800px] self-center flex-row items-center justify-between px-5 py-2 text-base"
+    class="flex w-full max-w-[800px] self-center flex-row items-center px-5 py-2 text-base"
   >
     <nav class="flex flex-row items-center">
       <MobileNavigationMenu />
       <NavigationBarPages />
     </nav>
-    <ThemeSwitcher />
   </div>
 </header>
