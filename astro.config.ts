@@ -40,7 +40,9 @@ export default defineConfig({
 	],
 	image: {
 		// service: passthroughImageService(),
+		breakpoints: [640, 800],
 		domains: ['obs-cdn.tsun1031.xyz'],
+		responsiveStyles: true,
 	},
 	markdown: {
 		shikiConfig: {

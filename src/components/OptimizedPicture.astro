@@ -8,10 +8,22 @@ type WithRequiredDimensions<T> = T extends unknown
 		}
 	: never;
 
-type Props = WithRequiredDimensions<Parameters<typeof Picture>[0]>;
+type ResponsivePictureProps<T> = T extends unknown
+	? Omit<
+			T,
+			'fallbackFormat' | 'formats' | 'layout' | 'widths' | 'densities' | 'sizes'
+		>
+	: never;
+
+type Props = WithRequiredDimensions<
+	ResponsivePictureProps<Parameters<typeof Picture>[0]>
+>;
 ---
 
 <Picture
     {...Astro.props}
-    formats={["avif", "webp", "jpeg"]}
+    fallbackFormat="jpeg"
+    formats={["avif", "webp"]}
+    layout="constrained"
+    sizes="(max-width: 800px) 100vw, 800px"
 />
