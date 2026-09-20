@@ -38,6 +38,7 @@ const modifiedTime = modifiedDate
 	? formatHongKongISOString(modifiedDate)
 	: undefined;
 const image = getPostOpenGraphImageUrl(post);
+const tags = post.data.tags ?? [];
 ---
 
 <MainLayout>
@@ -49,8 +50,8 @@ const image = getPostOpenGraphImageUrl(post);
     author={[config.author]}
     published_time={publishedTime}
     modified_time={modifiedTime}
-    tags={post.data.tags || []}
-    section={post.data.tags ? post.data.tags[0] : "post"}
+    tags={tags}
+    section={tags[0] ?? 'post'}
     canonical={post.data.canonical}
     image={image}
     imageType={post.data.ogImage ? undefined : "image/jpeg"}
@@ -81,9 +82,9 @@ const image = getPostOpenGraphImageUrl(post);
         {post.data.description}
       </p>
       {
-        post.data.tags && (
+        tags.length > 0 && (
           <div class="mt-5 flex flex-wrap gap-x-2 gap-y-1">
-            {post.data.tags.map((tag: string) => (
+            {tags.map((tag) => (
               <a
                 class="text-sm font-medium text-neutral-600 hover:underline dark:text-neutral-400"
                 href={`/posts/tags/${tag}`}

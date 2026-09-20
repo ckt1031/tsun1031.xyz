@@ -7,7 +7,7 @@ import { getPublishedPosts } from '@/utils/posts';
 
 const allPosts = await getPublishedPosts();
 
-const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
+const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags ?? []))];
 
 // Meta data
 const meta = {

@@ -1,6 +1,4 @@
 ---
-import clsx from 'clsx';
-
 import config from '@/config';
 
 const currentPath = Astro.url.pathname;
@@ -11,13 +9,14 @@ const currentPath = Astro.url.pathname;
     config.headbar.routes.map((item) => (
       <a
         href={item.href}
-        class={clsx(
-          "nav-link",
-          (currentPath === "/"
-            ? currentPath === item.href
-            : currentPath.startsWith(item.href ?? "") && item.href !== "/") &&
-            "nav-link-active"
-        )}
+        class:list={[
+          'nav-link',
+          {
+            'nav-link-active':
+              currentPath === item.href ||
+              (item.href !== '/' && currentPath.startsWith(item.href)),
+          },
+        ]}
       >
         {item.name}
       </a>

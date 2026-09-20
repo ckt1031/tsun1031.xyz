@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import clsx from 'clsx';
 
 import config from '@/config';
 
@@ -40,15 +39,13 @@ const pathname = Astro.url.pathname;
         config.headbar.routes.map((item) => (
           <a
             href={item.href}
-            class={clsx(
-              "nav-link flex w-full items-center justify-between px-3 py-2 text-base",
-              (pathname === "/"
-                ? pathname === item.href
-                : pathname.startsWith(item.href ?? "") &&
-                  item.href !== "/")
-                ? "nav-link-active"
-                : "text-stone-700 dark:text-stone-200"
-            )}
+            class:list={[
+              'nav-link flex w-full items-center justify-between px-3 py-2 text-base',
+              pathname === item.href ||
+              (item.href !== '/' && pathname.startsWith(item.href))
+                ? 'nav-link-active'
+                : 'text-stone-700 dark:text-stone-200',
+            ]}
             data-mobile-menu-link
           >
             {item.name}
