@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { formatHongKongDate } from '@/utils/date';
-import { getPostModifiedDate } from '@/utils/posts';
 
 interface Props {
 	data: CollectionEntry<'posts'>['data'];
@@ -13,7 +12,6 @@ const { data, slug } = Astro.props;
 const dateElementId = `date-${slug}`;
 
 const publishedDateString = formatHongKongDate(data.published);
-const modifiedDate = getPostModifiedDate(data);
 ---
 
 <div class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5">
@@ -31,20 +29,8 @@ const modifiedDate = getPostModifiedDate(data);
 					datetime={data.published.toISOString()}
 					title={publishedDateString}
 				>
-					Published{' '}
 					{publishedDateString}
 				</time>
-				{modifiedDate && (
-            <>
-              <span aria-hidden="true"> · </span>
-              <time
-                datetime={modifiedDate.toISOString()}
-                title={formatHongKongDate(modifiedDate)}
-              >
-                Modified {formatHongKongDate(modifiedDate)}
-              </time>
-            </>
-          )}
 			</p>
 			<p class="text-neutral-600 dark:text-neutral-300">
 				{data.description}

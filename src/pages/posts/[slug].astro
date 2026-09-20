@@ -64,17 +64,18 @@ const tags = post.data.tags ?? [];
 					datetime={publishedTime}
 					title={formatHongKongDate(post.data.published)}
 				>
-					Published{' '}
-					{formatHongKongShortDate(post.data.published)}
+					{formatHongKongDate(post.data.published)}
 				</time>
 				{modifiedDate && (
-            <>
-              <span aria-hidden="true">·</span>
-              <time datetime={modifiedTime} title={formatHongKongDate(modifiedDate)}>
-                Modified {formatHongKongShortDate(modifiedDate)}
-              </time>
-            </>
-          )}
+					<>
+						<time
+							datetime={modifiedTime}
+							title={formatHongKongDate(modifiedDate)}
+						>
+							Updated {formatHongKongShortDate(modifiedDate)}
+						</time>
+					</>
+				)}
 			</div>
 			<h1 class="text-xl break-words font-extrabold md:text-2xl">
 				{post.data.title}
