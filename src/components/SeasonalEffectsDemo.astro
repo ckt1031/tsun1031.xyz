@@ -1,0 +1,228 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="space-y-4 pt-4" aria-labelledby="seasonal-details-heading">
+	<h2 id="seasonal-details-heading" class="text-lg font-semibold">
+		Seasonal stuff
+	</h2>
+	<p>
+		Snowflakes and fireworks, powered by magic-snowflakes and fireworks-js. You
+		can see the snow in December and January, fireworks for New Year.
+	</p>
+	<div class="flex flex-wrap gap-3" data-seasonal-preview-controls>
+		<button
+			class="inline-flex cursor-pointer items-center gap-2 rounded-md border border-neutral-300 px-2 py-1 text-sm text-neutral-600 transition-colors hover:bg-neutral-200 hover:text-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 disabled:cursor-not-allowed disabled:opacity-50"
+			type="button"
+			data-preview-snowflakes
+			aria-pressed="false"
+			disabled
+		>
+			<Icon class="size-4" name="bi:snow" aria-hidden="true" />
+			<span data-snowflakes-label>Show Snow</span>
+		</button>
+		<button
+			class="inline-flex cursor-pointer items-center gap-2 rounded-md border border-neutral-300 px-2 py-1 text-sm text-neutral-600 transition-colors hover:bg-neutral-200 hover:text-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 disabled:cursor-not-allowed disabled:opacity-50"
+			type="button"
+			data-preview-fireworks
+			aria-pressed="false"
+			disabled
+		>
+			<Icon class="size-4" name="bi:stars" aria-hidden="true" />
+			<span data-fireworks-label>Show Fireworks</span>
+		</button>
+	</div>
+	<p
+		class="flex items-center gap-1.5 text-sm text-neutral-600 dark:text-neutral-400"
+	>
+		<Icon class="size-3.5" name="bi:calendar-event" aria-hidden="true" />
+		<span>Next fireworks:</span>
+		<span class="font-mono tabular-nums" data-fireworks-countdown>
+			Finding the next one...
+		</span>
+	</p>
+	<p class="sr-only" aria-live="polite">Toggle a seasonal effect.</p>
+	<p
+		class="hidden text-sm text-neutral-600 motion-reduce:block dark:text-neutral-400"
+		data-reduced-motion-message
+	>
+		Previews are unavailable because reduced motion is enabled.
+	</p>
+	<div
+		id="seasonal-fireworks"
+		class="pointer-events-none fixed inset-0 z-50"
+		aria-hidden="true"
+	></div>
+</section>
+
+<script>
+import type { Fireworks } from 'fireworks-js';
+import type Snowflakes from 'magic-snowflakes';
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const snowflakesButton = document.querySelector<HTMLButtonElement>(
+	'[data-preview-snowflakes]',
+);
+const fireworksButton = document.querySelector<HTMLButtonElement>(
+	'[data-preview-fireworks]',
+);
+const status = document.querySelector<HTMLElement>('[aria-live="polite"]');
+const fireworkContainer = document.querySelector<HTMLElement>(
+	'#seasonal-fireworks',
+);
+const fireworksCountdown = document.querySelector<HTMLElement>(
+	'[data-fireworks-countdown]',
+);
+const snowflakesLabel = document.querySelector<HTMLElement>(
+	'[data-snowflakes-label]',
+);
+const fireworksLabel = document.querySelector<HTMLElement>(
+	'[data-fireworks-label]',
+);
+
+let snowflakes: Snowflakes | undefined;
+let fireworks: Fireworks | undefined;
+
+const setStatus = (message: string) => {
+	if (status) status.textContent = message;
+};
+
+const setSnowflakesActive = (active: boolean) => {
+	if (snowflakesButton) {
+		snowflakesButton.disabled = reducedMotion.matches;
+		snowflakesButton.ariaPressed = String(active);
+	}
+	if (snowflakesLabel) {
+		snowflakesLabel.textContent = active ? 'Hide Snow' : 'Show Snow';
+	}
+};
+
+const setFireworksActive = (active: boolean) => {
+	if (fireworksButton) {
+		fireworksButton.disabled = reducedMotion.matches;
+		fireworksButton.ariaPressed = String(active);
+	}
+	if (fireworksLabel) {
+		fireworksLabel.textContent = active ? 'Hide Fireworks' : 'Show Fireworks';
+	}
+};
+
+const isFireworksDay = (date: Date) =>
+	(date.getMonth() === 11 && date.getDate() === 31) ||
+	(date.getMonth() === 0 && (date.getDate() === 1 || date.getDate() === 2));
+
+const getNextFireworksNight = (now: Date) => {
+	const thisYearsFireworks = new Date(now.getFullYear(), 11, 31);
+	return now < thisYearsFireworks
+		? thisYearsFireworks
+		: new Date(now.getFullYear() + 1, 11, 31);
+};
+
+const updateFireworksCountdown = () => {
+	if (!fireworksCountdown) return;
+
+	const now = new Date();
+	if (isFireworksDay(now)) {
+		fireworksCountdown.textContent = 'today';
+		return;
+	}
+
+	const difference = getNextFireworksNight(now).getTime() - now.getTime();
+	const totalSeconds = Math.floor(difference / 1_000);
+	const days = Math.floor(totalSeconds / 86_400);
+	const hours = Math.floor((totalSeconds % 86_400) / 3_600);
+	const minutes = Math.floor((totalSeconds % 3_600) / 60);
+	const seconds = totalSeconds % 60;
+
+	fireworksCountdown.textContent = `in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+};
+
+const stopSnowflakes = () => {
+	snowflakes?.destroy();
+	snowflakes = undefined;
+	setSnowflakesActive(false);
+};
+
+const stopFireworks = () => {
+	fireworks?.stop(true);
+	fireworks = undefined;
+	setFireworksActive(false);
+};
+
+const updateAvailability = () => {
+	if (reducedMotion.matches) {
+		stopSnowflakes();
+		stopFireworks();
+		setStatus('Previews are unavailable because reduced motion is enabled.');
+		return;
+	}
+
+	setSnowflakesActive(Boolean(snowflakes));
+	setFireworksActive(Boolean(fireworks));
+	setStatus('Toggle a seasonal effect.');
+};
+
+snowflakesButton?.addEventListener('click', async () => {
+	if (reducedMotion.matches) return;
+	if (snowflakes) {
+		stopSnowflakes();
+		setStatus('Snow hidden.');
+		return;
+	}
+
+	snowflakesButton.disabled = true;
+	setStatus('Snow is starting.');
+
+	try {
+		const { default: Snowflakes } = await import('magic-snowflakes');
+		if (reducedMotion.matches) return;
+
+		snowflakes = new Snowflakes({
+			color: '#777777',
+			container: document.body,
+			zIndex: 50,
+		});
+		setSnowflakesActive(true);
+		setStatus('Snow is showing.');
+	} catch {
+		setSnowflakesActive(false);
+		setStatus('The snowflakes could not be loaded.');
+	}
+});
+
+fireworksButton?.addEventListener('click', async () => {
+	if (reducedMotion.matches || !fireworkContainer) return;
+	if (fireworks) {
+		stopFireworks();
+		setStatus('Fireworks hidden.');
+		return;
+	}
+
+	fireworksButton.disabled = true;
+	setStatus('Fireworks are starting.');
+
+	try {
+		const { Fireworks } = await import('fireworks-js');
+		if (reducedMotion.matches) return;
+
+		fireworks = new Fireworks(fireworkContainer, {
+			autoresize: true,
+			opacity: 0.1,
+			particles: 100,
+			friction: 0.99,
+			intensity: 5,
+		});
+		fireworks.start();
+		setFireworksActive(true);
+		setStatus('Fireworks are showing.');
+	} catch {
+		setFireworksActive(false);
+		setStatus('The fireworks could not be loaded.');
+	}
+});
+
+reducedMotion.addEventListener('change', updateAvailability);
+updateAvailability();
+updateFireworksCountdown();
+setInterval(updateFireworksCountdown, 1_000);
+</script>
