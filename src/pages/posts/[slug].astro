@@ -15,6 +15,7 @@ import {
 	formatHongKongShortDate,
 } from '@/utils/date';
 import { getPostModifiedDate, getPublishedPosts } from '@/utils/posts';
+import { getPostOpenGraphImageUrl } from '@/utils/open-graph';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts();
@@ -36,6 +37,7 @@ const modifiedDate = getPostModifiedDate(post.data);
 const modifiedTime = modifiedDate
 	? formatHongKongISOString(modifiedDate)
 	: undefined;
+const image = getPostOpenGraphImageUrl(post);
 ---
 
 <MainLayout>
@@ -50,6 +52,8 @@ const modifiedTime = modifiedDate
     tags={post.data.tags || []}
     section={post.data.tags ? post.data.tags[0] : "post"}
     canonical={post.data.canonical}
+    image={image}
+    imageType={post.data.ogImage ? undefined : "image/jpeg"}
   />
   <article class="mb-20 w-full">
     <header class="base-border mb-7 border-b pb-6">

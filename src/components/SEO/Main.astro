@@ -11,6 +11,7 @@ interface Props {
 	noindex?: boolean;
 	type?: 'website' | 'profile';
 	canonical?: string;
+	image?: string;
 }
 
 const {
@@ -20,10 +21,11 @@ const {
 	noindex,
 	type = 'website',
 	canonical,
+	image = '/og.jpeg',
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
-const siteIconUrl = new URL(config.siteIconPublicPath, config.url).toString();
+const imageUrl = new URL(image, config.url).toString();
 const sameAs = Object.values(config.social);
 const structuredData = [
 	{
@@ -73,12 +75,20 @@ const structuredData = [
     basic: {
       title: pageTitle,
       type,
-      image: siteIconUrl,
+      image: imageUrl,
+    },
+    image: {
+      alt: pageTitle,
+      height: 630,
+		type: 'image/jpeg',
+      width: 1200,
     },
   }}
   twitter={{
-    card: "summary",
+    card: "summary_large_image",
     creator: config.twitter,
+    image: imageUrl,
+    imageAlt: pageTitle,
     site: config.twitter,
     title: pageTitle,
     description: description,

@@ -35,6 +35,7 @@ const posts = defineCollection({
 				},
 			)
 			.optional(),
+		ogImage: z.string().optional(),
 		draft: z.boolean().optional(),
 		tags: z.array(z.string()).optional(),
 	}),

@@ -16,6 +16,8 @@ interface Props {
 	section: string;
 	tags: string[];
 	canonical?: string;
+	image: string;
+	imageType?: string;
 }
 
 const {
@@ -28,9 +30,12 @@ const {
 	section,
 	tags,
 	canonical,
+	image,
+	imageType,
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
+const imageUrl = new URL(image, config.url).toString();
 const person = {
 	'@type': 'Person',
 	name: author[0] ?? config.author,
@@ -38,9 +43,6 @@ const person = {
 	sameAs: Object.values(config.social),
 };
 const openGraphArticleMeta = [
-	{ property: 'og:title', content: pageTitle },
-	{ property: 'og:type', content: 'article' },
-	{ property: 'og:url', content: canonicalUrl },
 	{ property: 'article:published_time', content: published_time },
 	...(modified_time
 		? [{ property: 'article:modified_time', content: modified_time }]
@@ -55,6 +57,7 @@ const structuredData = [
 		'@type': 'BlogPosting',
 		headline: title,
 		description,
+		image: imageUrl,
 		url: canonicalUrl,
 		mainEntityOfPage: canonicalUrl,
 		datePublished: published_time,
@@ -100,9 +103,25 @@ const structuredData = [
   title={pageTitle}
   canonical={canonicalUrl}
   description={description}
+  openGraph={{
+    basic: {
+      title: pageTitle,
+      type: 'article',
+      image: imageUrl,
+      url: canonicalUrl,
+    },
+    image: {
+      alt: pageTitle,
+      height: 630,
+      width: 1200,
+      ...(imageType ? { type: imageType } : {}),
+    },
+  }}
   twitter={{
-    card: "summary",
+    card: "summary_large_image",
     creator: config.twitter,
+    image: imageUrl,
+    imageAlt: pageTitle,
     site: config.twitter,
   }}
   extend={{
@@ -110,8 +129,6 @@ const structuredData = [
       ...openGraphArticleMeta,
       { property: "og:description", content: description },
       { property: "og:site_name", content: config.siteTitle },
-      { name: "twitter:title", content: pageTitle },
-      { name: "twitter:description", content: description },
     ],
   }}
 />

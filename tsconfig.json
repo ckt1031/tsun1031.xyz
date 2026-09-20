@@ -6,6 +6,8 @@
 		"incremental": true,
 		"skipLibCheck": true,
 		"allowSyntheticDefaultImports": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "satori/jsx",
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"paths": {
