@@ -1,5 +1,6 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
 import {
 	defineConfig,
@@ -9,7 +10,6 @@ import {
 import icon from 'astro-icon';
 import mailObfuscation from 'astro-mail-obfuscation';
 import robotsTxt from 'astro-robots-txt';
-
 import { serializeSitemapItem } from './src/utils/sitemap';
 
 const SITE_URL = 'https://tsun1031.xyz';
@@ -37,6 +37,7 @@ export default defineConfig({
 				},
 			],
 		}),
+		playformCompress(),
 	],
 	image: {
 		// service: passthroughImageService(),
