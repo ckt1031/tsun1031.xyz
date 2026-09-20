@@ -36,6 +36,13 @@
 	@apply text-base;
 }
 
+@media (max-width: 767px) {
+	.blog-style a,
+	.blog-style :where(code):not(:where(pre code)) {
+		overflow-wrap: anywhere;
+	}
+}
+
 .blog-style img {
 	@apply cursor-zoom-in;
 }
