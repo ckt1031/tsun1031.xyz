@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import {
 	defineConfig,
 	fontProviders,
-	passthroughImageService,
+	// passthroughImageService,
 } from 'astro/config';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
@@ -37,7 +37,7 @@ export default defineConfig({
 		}),
 	],
 	image: {
-		service: passthroughImageService(),
+		// service: passthroughImageService(),
 		domains: ['obs-cdn.tsun1031.xyz'],
 	},
 	markdown: {
