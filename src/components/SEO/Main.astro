@@ -23,7 +23,8 @@ const {
 	canonical,
 	image = '/og.jpeg',
 } = Astro.props;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
+const canonicalUrl =
+	canonical ?? new URL(Astro.url.pathname, config.url).toString();
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
 const imageUrl = new URL(image, config.url).toString();
 const sameAs = Object.values(config.social);
@@ -54,8 +55,7 @@ const structuredData = [
 		isPartOf: {
 			'@id': websiteId,
 		},
-		about:
-			type === 'profile' ? person : undefined,
+		about: type === 'profile' ? person : undefined,
 	},
 ];
 ---

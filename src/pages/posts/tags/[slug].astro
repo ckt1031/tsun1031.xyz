@@ -29,11 +29,13 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 
 // get all posts with the same tag
-const posts = sortPostsByPublishedDate((await getPublishedPosts()).filter((post) => {
-	if (!post.data.tags || !slug) return false;
+const posts = sortPostsByPublishedDate(
+	(await getPublishedPosts()).filter((post) => {
+		if (!post.data.tags || !slug) return false;
 
-	return post.data.tags.includes(slug);
-}));
+		return post.data.tags.includes(slug);
+	}),
+);
 
 // Meta data
 const meta = {

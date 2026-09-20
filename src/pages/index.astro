@@ -3,11 +3,11 @@ import MainSEO from '@components/SEO/Main.astro';
 import { Icon } from 'astro-icon/components';
 
 import Avatar from '@/assets/avatar.png';
+import OptimizedPicture from '@/components/OptimizedPicture.astro';
 import PostList from '@/components/Posts/List.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
 import { getPublishedPosts, sortPostsByPublishedDate } from '@/utils/posts';
-import OptimizedPicture from '@/components/OptimizedPicture.astro';
 
 const socialMedia = [
 	{
@@ -32,7 +32,10 @@ const socialMedia = [
 	},
 ];
 
-const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(0, 8);
+const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(
+	0,
+	8,
+);
 ---
 
 <MainLayout padded={false}>

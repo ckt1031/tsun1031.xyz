@@ -4,10 +4,9 @@ import '@/styles/post.css';
 import { render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import { Icon } from 'astro-icon/components';
-
-import ArticleSEO from '@/components/SEO/Article.astro';
 import ExternalLink from '@/components/Posts/ExternalLink.astro';
 import MarkdownTable from '@/components/Posts/MarkdownTable.astro';
+import ArticleSEO from '@/components/SEO/Article.astro';
 import config from '@/config';
 import MainLayout from '@/layouts/main.astro';
 import {
@@ -15,8 +14,8 @@ import {
 	formatHongKongISOString,
 	formatHongKongShortDate,
 } from '@/utils/date';
-import { getPostModifiedDate, getPublishedPosts } from '@/utils/posts';
 import { getPostOpenGraphImageUrl } from '@/utils/open-graph';
+import { getPostModifiedDate, getPublishedPosts } from '@/utils/posts';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts();

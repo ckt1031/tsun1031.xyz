@@ -47,7 +47,9 @@ async function readRemoteText(url: URL, label: string) {
 	});
 
 	if (!response.ok) {
-		throw new Error(`${label} returned ${response.status} ${response.statusText}`);
+		throw new Error(
+			`${label} returned ${response.status} ${response.statusText}`,
+		);
 	}
 
 	return response.text();
@@ -62,10 +64,7 @@ async function readSitemapUrls(siteUrl: URL) {
 	const sitemapUrls = extractSitemapUrls(sitemap, siteUrl);
 	const urlLists = await Promise.all(
 		sitemapUrls.map(async (url) => {
-			const childSitemap = await readRemoteText(
-				new URL(url),
-				'Sitemap entry',
-			);
+			const childSitemap = await readRemoteText(new URL(url), 'Sitemap entry');
 			return extractSitemapUrls(childSitemap, siteUrl);
 		}),
 	);
@@ -77,7 +76,8 @@ async function submitUrls() {
 	const isDryRun = Bun.env.INDEXNOW_DRY_RUN === '1';
 	const key = Bun.env.INDEXNOW_KEY;
 	if (!key) throw new Error('INDEXNOW_KEY environment variable is required');
-	if (!KEY_FORMAT.test(key)) throw new Error('INDEXNOW_KEY has an invalid format');
+	if (!KEY_FORMAT.test(key))
+		throw new Error('INDEXNOW_KEY has an invalid format');
 
 	const siteUrl = new URL(Bun.env.INDEXNOW_SITE_URL ?? DEFAULT_SITE_URL);
 	const isLocalDryRun = isDryRun && siteUrl.hostname === 'localhost';
@@ -94,7 +94,9 @@ async function submitUrls() {
 	]);
 	if (urls.length === 0) throw new Error('No site URLs found in the sitemap');
 	if (remoteKey.trim() !== key) {
-		throw new Error('Production IndexNow key file does not match the local key');
+		throw new Error(
+			'Production IndexNow key file does not match the local key',
+		);
 	}
 
 	if (isDryRun) {
@@ -120,7 +122,9 @@ async function submitUrls() {
 			);
 		}
 
-		console.log(`IndexNow accepted ${urlList.length} URL(s) (${response.status})`);
+		console.log(
+			`IndexNow accepted ${urlList.length} URL(s) (${response.status})`,
+		);
 	}
 }
 

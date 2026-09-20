@@ -1,7 +1,13 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.5.13/schema.json",
 	"files": {
-		"includes": ["src/**/*.ts", "*.ts", "*.json"],
+		"includes": [
+			"**/*.astro",
+			"src/**/*.ts",
+			"scripts/**/*.ts",
+			"*.ts",
+			"*.json"
+		],
 		"ignoreUnknown": true
 	},
 	"formatter": {
@@ -20,7 +26,15 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"preset": "recommended"
+			"preset": "recommended",
+			"style": {
+				"useConst": "off",
+				"useImportType": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "off",
+				"noUnusedImports": "off"
+			}
 		}
 	},
 

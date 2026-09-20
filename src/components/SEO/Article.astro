@@ -33,7 +33,8 @@ const {
 	image,
 	imageType,
 } = Astro.props;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, config.url).toString();
+const canonicalUrl =
+	canonical ?? new URL(Astro.url.pathname, config.url).toString();
 const pageTitle = includeSiteTitle ? `${title} | ${config.siteTitle}` : title;
 const imageUrl = new URL(image, config.url).toString();
 const authorName = author[0] ?? config.author;
