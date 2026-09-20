@@ -71,4 +71,7 @@ export default defineConfig({
 			weights: [400, 600, 700, 800],
 		},
 	],
+	experimental: {
+		incrementalBuild: true,
+	},
 });

@@ -1,7 +1,7 @@
 ---
 import '@/styles/post.css';
 
-import { render } from 'astro:content';
+import { type CollectionEntry, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import { Icon } from 'astro-icon/components';
 import ExternalLink from '@/components/Posts/ExternalLink.astro';
@@ -20,12 +20,11 @@ import { getPostModifiedDate, getPublishedPosts } from '@/utils/posts';
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts();
 
-	return posts.map((post) => {
-		return {
-			params: { slug: post.id },
-			props: { post },
-		};
-	});
+	return posts.map((post: CollectionEntry<'posts'>) => ({
+		params: { slug: post.id },
+		props: { post },
+		cacheKey: post.digest,
+	}));
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;

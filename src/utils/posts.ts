@@ -4,7 +4,7 @@ export function isPublishedPost(post: CollectionEntry<'posts'>) {
 	return !post.data.draft;
 }
 
-export function getPublishedPosts() {
+export function getPublishedPosts(): Promise<CollectionEntry<'posts'>[]> {
 	return getCollection('posts', isPublishedPost);
 }
 
