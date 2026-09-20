@@ -14,7 +14,7 @@ html {
 }
 
 body {
-	font-family: var(--font-ibm-plex-sans), Inter, ui-sans-serif, system-ui, sans-serif;
+	font-family: var(--font-dm-sans), Inter, ui-sans-serif, system-ui, sans-serif;
 	font-kerning: normal;
 	font-synthesis: none;
 }

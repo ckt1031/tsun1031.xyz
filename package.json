@@ -27,6 +27,7 @@
 		"@fireworks-js/web": "2.10.8",
 		"@fontsource/ibm-plex-sans": "^5.3.0",
 		"@iconify-json/bi": "^1.2.7",
+		"@iconify-json/devicon-plain": "^1.2.58",
 		"@playform/compress": "^0.2.5",
 		"astro": "7.3.3",
 		"astro-icon": "1.2.0",

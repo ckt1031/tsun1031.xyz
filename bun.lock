@@ -13,6 +13,7 @@
         "@fireworks-js/web": "2.10.8",
         "@fontsource/ibm-plex-sans": "^5.3.0",
         "@iconify-json/bi": "^1.2.7",
+        "@iconify-json/devicon-plain": "^1.2.58",
         "@playform/compress": "^0.2.5",
         "astro": "7.3.3",
         "astro-icon": "1.2.0",
@@ -255,6 +256,8 @@
     "@fontsource/ibm-plex-sans": ["@fontsource/ibm-plex-sans@5.3.0", "", {}, "sha512-CbE4CbbEEZJX860XyUiRpsksXIQR8Rp2XDva2VO53NJox9tVNtusrysd2x5YkUEY3ErQ66W1IiiQL8/wihhw5w=="],
 
     "@iconify-json/bi": ["@iconify-json/bi@1.2.7", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-IPz8WNxmLkH1I9msl+0Q4OnmjjvP4uU0Z61a4i4sqonB6vKSbMGUWuGn8/YuuszlReVj8rf+3gNv5JU8Xoljyg=="],
+
+    "@iconify-json/devicon-plain": ["@iconify-json/devicon-plain@1.2.58", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-vyEZi9OGRjBUnsuyBm5f5X3+SNLhzkIHyRrmuhwRh7qhgSDkymh0eIi13m6zdA+jj9Fl8fEn931nQqM71S2rpg=="],
 
     "@iconify/tools": ["@iconify/tools@5.0.14", "", { "dependencies": { "@cyberalien/svg-utils": "^1.2.19", "@iconify/types": "^2.0.0", "@iconify/utils": "^3.1.4", "fflate": "^0.8.3", "modern-tar": "^0.8.4", "pathe": "^2.0.3", "svgo": "^4.1.0" } }, "sha512-wJ4ZE3/HZh2iBqLwG+8FOMHe7CMJAJqwSXZSpPwMdj1gZM3Z4t2hbQMVw4Vm45oQ985qn0g89PUIcDEdKTheBA=="],
 

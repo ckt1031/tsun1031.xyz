@@ -65,8 +65,8 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'IBM Plex Sans',
-			cssVariable: '--font-ibm-plex-sans',
+			name: 'DM Sans',
+			cssVariable: '--font-dm-sans',
 			weights: [400, 600, 700, 800],
 		},
 		{
