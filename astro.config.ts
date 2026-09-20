@@ -49,6 +49,9 @@ export default defineConfig({
 		},
 	},
 	vite: {
+		optimizeDeps: {
+			exclude: ['medium-zoom'],
+		},
 		plugins: [tailwindcss()],
 	},
 	fonts: [
