@@ -1,3 +1,4 @@
+import { satteri } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
@@ -50,6 +51,9 @@ export default defineConfig({
 				dark: 'github-dark',
 			},
 		},
+		processor: satteri({
+			features: { directive: true },
+		}),
 	},
 	vite: {
 		optimizeDeps: {
