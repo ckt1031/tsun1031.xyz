@@ -13,65 +13,95 @@ const meta = {
 ---
 
 <MainLayout>
-  <MainSEO
-    slot="head"
-    includeSiteTitle
-    title={meta.title}
-    description={meta.description}
-  />
-  <article class="space-y-4">
-    <PageTitle
-      title={meta.title}
-      description="A small, fast home for my writing, projects, and occasional updates."
-    />
+	<MainSEO
+		slot="head"
+		includeSiteTitle
+		title={meta.title}
+		description={meta.description}
+	/>
+	<article class="space-y-4">
+		<PageTitle
+			title={meta.title}
+			description="A small, fast home for my writing, projects, and occasional updates."
+		/>
 
-    <section class="space-y-4 pt-4" aria-labelledby="built-heading">
-      <h2 id="built-heading" class="text-lg font-semibold">Built with</h2>
-      <p>
-        The site is built with{' '}
-        <a
-          class="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
-          href="https://astro.build"
-          target="_blank"
-          rel="noreferrer"
-        ><Icon class="mr-1 inline-block size-4 align-middle" name="devicon-plain:astro" aria-hidden="true" />Astro</a>,{' '}
-        <a
-          class="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
-          href="https://www.typescriptlang.org"
-          target="_blank"
-          rel="noreferrer"
-        ><Icon class="mr-1 inline-block size-4 align-middle" name="devicon-plain:typescript" aria-hidden="true" />TypeScript</a>,{' '}
-        <a
-          class="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
-          href="https://tailwindcss.com"
-          target="_blank"
-          rel="noreferrer"
-        >Tailwind CSS</a>,{' '}and MDX. Most pages are generated ahead of time,
-        so the browser receives ordinary, lightweight HTML instead of a large
-        application bundle.
-      </p>
+		<section class="space-y-4 pt-4" aria-labelledby="built-heading">
+			<h2 id="built-heading" class="text-lg font-semibold">Built with</h2>
+			<p>
+				The site is built with{' '}
+				<a
+					class="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+					href="https://astro.build"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<Icon
+						class="mr-1 inline-block size-4 align-middle"
+						name="devicon-plain:astro"
+						aria-hidden="true"
+					/>
+					Astro
+				</a>
+				,{' '}
+				<a
+					class="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+					href="https://www.typescriptlang.org"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<Icon
+						class="mr-1 inline-block size-4 align-middle"
+						name="devicon-plain:typescript"
+						aria-hidden="true"
+					/>
+					TypeScript
+				</a>
+				,{' '}
+				<a
+					class="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+					href="https://tailwindcss.com"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Tailwind CSS
+				</a>
+				,{' '}
+				and MDX. Most pages are generated ahead of time, so the browser receives
+				ordinary, lightweight HTML instead of a large application bundle.
+			</p>
 
-      <p>
-        Each production build is deployed to{' '}
-        <a
-          class="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
-          href="https://www.cloudflare.com"
-          target="_blank"
-          rel="noreferrer"
-        ><Icon class="mr-1 inline-block size-4 align-middle" name="devicon-plain:cloudflare" aria-hidden="true" />Cloudflare</a>, where a Worker serves the generated static files. This keeps the site close to readers while remaining simple to run and maintain.
-      </p>
+			<p>
+				Each production build is deployed to{' '}
+				<a
+					class="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+					href="https://www.cloudflare.com"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<Icon
+						class="mr-1 inline-block size-4 align-middle"
+						name="devicon-plain:cloudflare"
+						aria-hidden="true"
+					/>
+					Cloudflare
+				</a>
+				, where a Worker serves the generated static files. This keeps the site
+				close to readers while remaining simple to run and maintain.
+			</p>
 
-      <p>
-        The source code is available on
-        <span> </span>
-        <a
-          class="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
-          href={config.github_project_url}
-          target="_blank"
-          rel="noreferrer"
-        >GitHub</a>. I update the site in the open, from its content and design
-        to the small details that make it pleasant to read.
-      </p>
-    </section>
-  </article>
+			<p>
+				The source code is available on{' '}
+				<a
+					class="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+					href={config.github_project_url}
+					target="_blank"
+					rel="noreferrer"
+				>
+					GitHub
+				</a>
+				. I update the site in the open, from its content and design to the
+				small details that make it pleasant to read.
+			</p>
+		</section>
+	</article>
 </MainLayout>

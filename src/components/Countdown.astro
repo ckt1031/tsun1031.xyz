@@ -4,82 +4,89 @@ const className =
 	'bg-white px-1.5 py-1 md:px-2 md:py-0.5 dark:bg-neutral-800 dark:text-white rounded-md shadow-sm border border-neutral-200 dark:border-neutral-700 font-mono font-bold';
 ---
 
-<div class="bg-amber-50 p-2 md:p-1.5 dark:bg-amber-950/20 text-center text-xs sm:text-sm md:text-base hidden border-b border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-100 flex-row flex-wrap items-center justify-center gap-x-1 gap-y-2" id="countdown">
-    <div class="flex items-center gap-0.5 md:gap-1">
-        <div class="flex items-center gap-0.5">
-            <span id="day[0]" class={className}></span>
-            <span id="day[1]" class={className}></span>
-        </div>
-        <span class="opacity-50 font-bold">:</span>
-        <div class="flex items-center gap-0.5">
-            <span id="hour[0]" class={className}></span>
-            <span id="hour[1]" class={className}></span>
-        </div>
-        <span class="opacity-50 font-bold">:</span>
-        <div class="flex items-center gap-0.5">
-            <span id="minute[0]" class={className}></span>
-            <span id="minute[1]" class={className}></span>
-        </div>
-        <span class="opacity-50 font-bold">:</span>
-        <div class="flex items-center gap-0.5">
-            <span id="second[0]" class={className}></span>
-            <span id="second[1]" class={className}></span>
-        </div>
-    </div>
-    <span class="whitespace-nowrap ml-1"> until <strong id="next-year" class="text-amber-600 dark:text-amber-400"></strong>!</span>
+<div
+	class="bg-amber-50 p-2 md:p-1.5 dark:bg-amber-950/20 text-center text-xs sm:text-sm md:text-base hidden border-b border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-100 flex-row flex-wrap items-center justify-center gap-x-1 gap-y-2"
+	id="countdown"
+>
+	<div class="flex items-center gap-0.5 md:gap-1">
+		<div class="flex items-center gap-0.5">
+			<span id="day[0]" class={className}></span>
+			<span id="day[1]" class={className}></span>
+		</div>
+		<span class="opacity-50 font-bold">:</span>
+		<div class="flex items-center gap-0.5">
+			<span id="hour[0]" class={className}></span>
+			<span id="hour[1]" class={className}></span>
+		</div>
+		<span class="opacity-50 font-bold">:</span>
+		<div class="flex items-center gap-0.5">
+			<span id="minute[0]" class={className}></span>
+			<span id="minute[1]" class={className}></span>
+		</div>
+		<span class="opacity-50 font-bold">:</span>
+		<div class="flex items-center gap-0.5">
+			<span id="second[0]" class={className}></span>
+			<span id="second[1]" class={className}></span>
+		</div>
+	</div>
+	<span class="whitespace-nowrap ml-1">
+		until
+		<strong id="next-year" class="text-amber-600 dark:text-amber-400"></strong>
+		!
+	</span>
 </div>
 <script>
-    let intervalId: any;
-    const countdown = () => {
-        const params = ['day', 'hour', 'minute', 'second'];
-        const now = new Date();
-        const currentYear = now.getFullYear();
-        const end = new Date(currentYear, 11, 31, 23, 59, 59, 999);
-        const countdownElement = document.getElementById('countdown');
-        const nextYearElement = document.getElementById('next-year');
+let intervalId: ReturnType<typeof setInterval> | undefined;
+const countdown = () => {
+	const params = ['day', 'hour', 'minute', 'second'];
+	const now = new Date();
+	const currentYear = now.getFullYear();
+	const end = new Date(currentYear, 11, 31, 23, 59, 59, 999);
+	const countdownElement = document.getElementById('countdown');
+	const nextYearElement = document.getElementById('next-year');
 
-        if (!countdownElement) return;
+	if (!countdownElement) return;
 
-        const diff = end.getTime() - now.getTime();
-        const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+	const diff = end.getTime() - now.getTime();
+	const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-        // Show banner only if it's within 15 days of the end of the year
-        if (daysLeft <= 15 && daysLeft >= 0) {
-            countdownElement.classList.remove('hidden');
-            countdownElement.classList.add('flex');
-            if (nextYearElement) {
-                nextYearElement.textContent = (currentYear + 1).toString();
-            }
-        } else {
-            countdownElement.classList.add('hidden');
-            countdownElement.classList.remove('flex');
-            return;
-        }
+	// Show banner only if it's within 15 days of the end of the year
+	if (daysLeft <= 15 && daysLeft >= 0) {
+		countdownElement.classList.remove('hidden');
+		countdownElement.classList.add('flex');
+		if (nextYearElement) {
+			nextYearElement.textContent = (currentYear + 1).toString();
+		}
+	} else {
+		countdownElement.classList.add('hidden');
+		countdownElement.classList.remove('flex');
+		return;
+	}
 
-        // If the year has already ended, hide the banner
-        if (diff <= 0) {
-            countdownElement.classList.add('hidden');
-            countdownElement.classList.remove('flex');
-            if (intervalId) clearInterval(intervalId);
-            return;
-        }
+	// If the year has already ended, hide the banner
+	if (diff <= 0) {
+		countdownElement.classList.add('hidden');
+		countdownElement.classList.remove('flex');
+		if (intervalId !== undefined) clearInterval(intervalId);
+		return;
+	}
 
-        const time: Record<string, number> = {
-            day: daysLeft,
-            hour: 23 - now.getHours(),
-            minute: 59 - now.getMinutes(),
-            second: 59 - now.getSeconds()
-        };
+	const time: Record<string, number> = {
+		day: daysLeft,
+		hour: 23 - now.getHours(),
+		minute: 59 - now.getMinutes(),
+		second: 59 - now.getSeconds(),
+	};
 
-        for (const param of params) {
-            const timeString = time[param].toString().padStart(2, '0');
-            for (let i = 0; i < 2; i++) {
-                const el = document.getElementById(`${param}[${i}]`);
-                if (el) el.textContent = timeString[i];
-            }
-        }
-    };
+	for (const param of params) {
+		const timeString = time[param].toString().padStart(2, '0');
+		for (let i = 0; i < 2; i++) {
+			const el = document.getElementById(`${param}[${i}]`);
+			if (el) el.textContent = timeString[i];
+		}
+	}
+};
 
-    countdown();
-    intervalId = setInterval(countdown, 1000);
+countdown();
+intervalId = setInterval(countdown, 1000);
 </script>

@@ -17,16 +17,19 @@ const meta = {
 ---
 
 <MainLayout>
-  <MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
-  <PageTitle title="Available Tags for Posts" />
-  <div class="flex flex-wrap gap-2 mt-5">
-    <!-- Loop through allTags and display each tag -->
-    {
-      allTags.map((tag) => (
+	<MainSEO
+		slot="head"
+		includeSiteTitle
+		title={meta.title}
+		description={meta.description}
+	/>
+	<PageTitle title="Available Tags for Posts" />
+	<div class="flex flex-wrap gap-2 mt-5">
+		<!-- Loop through allTags and display each tag -->
+		{allTags.map((tag) => (
         <a href={`/posts/tags/${tag}`} class="post-tag " data-astro-prefetch>
           {tag}
         </a>
-      ))
-    }
-  </div>
+      ))}
+	</div>
 </MainLayout>

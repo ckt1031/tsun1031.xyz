@@ -5,8 +5,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav class="hidden flex-row gap-1 md:flex">
-  {
-    config.headbar.routes.map((item) => (
+	{config.headbar.routes.map((item) => (
       <a
         href={item.href}
         data-astro-prefetch
@@ -21,6 +20,5 @@ const currentPath = Astro.url.pathname;
       >
         {item.name}
       </a>
-    ))
-  }
+    ))}
 </nav>

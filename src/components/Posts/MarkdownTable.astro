@@ -2,13 +2,8 @@
 const { class: className, ...attributes } = Astro.props;
 ---
 
-<div
-	class="markdown-table-wrapper"
-	role="region"
-	aria-label="Scrollable table"
-	tabindex="0"
->
+<section class="markdown-table-wrapper" aria-label="Scrollable table">
 	<table {...attributes} class={className}>
 		<slot />
 	</table>
-</div>
+</section>

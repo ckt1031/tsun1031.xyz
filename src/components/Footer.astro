@@ -5,16 +5,21 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="base-border mt-8 w-full border-t">
-  <div class="mx-auto flex w-full max-w-[800px] items-center justify-between px-5 py-3">
-    <div class="text-neutral-600 dark:text-neutral-300">
-      <a
-        href="/"
-        class="hover:text-neutral-950 rounded-md px-1.5 py-1 font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:hover:text-white"
-      >
-        Kelvin
-      </a>
-      <span class="text-neutral-600 dark:text-neutral-400">&copy; {year}</span>
-    </div>
-    <ThemeSwitcher />
-  </div>
+	<div
+		class="mx-auto flex w-full max-w-[800px] items-center justify-between px-5 py-3"
+	>
+		<div class="text-neutral-600 dark:text-neutral-300">
+			<a
+				href="/"
+				class="hover:text-neutral-950 rounded-md px-1.5 py-1 font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:hover:text-white"
+			>
+				Kelvin
+			</a>
+			<span class="text-neutral-600 dark:text-neutral-400">
+				&copy;{' '}
+				{year}
+			</span>
+		</div>
+		<ThemeSwitcher />
+	</div>
 </footer>

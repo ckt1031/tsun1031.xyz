@@ -17,21 +17,24 @@ const modifiedDate = getPostModifiedDate(data);
 ---
 
 <div class="flex w-full flex-col justify-between py-4 md:flex-row md:space-x-5">
-  <div class="flex max-h-fit flex-col justify-between break-words">
-    <div>
-      <a
-        class="cursor-pointer text-lg font-bold hover:underline"
-        href={`/posts/${slug}`}
-        data-astro-prefetch
-      >
-        {data.title}
-      </a>
-      <p class="text-neutral-500 dark:text-neutral-400" id={dateElementId}>
-        <time datetime={data.published.toISOString()} title={publishedDateString}>
-          Published {publishedDateString}
-        </time>
-        {
-          modifiedDate && (
+	<div class="flex max-h-fit flex-col justify-between break-words">
+		<div>
+			<a
+				class="cursor-pointer text-lg font-bold hover:underline"
+				href={`/posts/${slug}`}
+				data-astro-prefetch
+			>
+				{data.title}
+			</a>
+			<p class="text-neutral-500 dark:text-neutral-400" id={dateElementId}>
+				<time
+					datetime={data.published.toISOString()}
+					title={publishedDateString}
+				>
+					Published{' '}
+					{publishedDateString}
+				</time>
+				{modifiedDate && (
             <>
               <span aria-hidden="true"> · </span>
               <time
@@ -41,12 +44,11 @@ const modifiedDate = getPostModifiedDate(data);
                 Modified {formatHongKongDate(modifiedDate)}
               </time>
             </>
-          )
-        }
-      </p>
-      <p class="text-neutral-600 dark:text-neutral-300">
-        {data.description}
-      </p>
-    </div>
-  </div>
+          )}
+			</p>
+			<p class="text-neutral-600 dark:text-neutral-300">
+				{data.description}
+			</p>
+		</div>
+	</div>
 </div>

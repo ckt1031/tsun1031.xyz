@@ -3,68 +3,53 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <button
-  type="button"
-  id="themeToggle"
-  aria-label="Toggle Theme Mode"
-  title="Toggle Theme Mode"
-  class="base-button-hover base-button-animation p-1.5"
+	type="button"
+	id="themeToggle"
+	aria-label="Toggle Theme Mode"
+	title="Toggle Theme Mode"
+	class="base-button-hover base-button-animation p-1.5"
 >
-  <Icon
-    name="bi:display"
-    id="system-theme-button"
-    size={16}
-    class="hidden"
-  />
-  <Icon
-    name="bi:sun"
-    id="light-theme-button"
-    size={16}
-    class="hidden"
-  />
-  <Icon
-    name="bi:moon"
-    id="dark-theme-button"
-    size={16}
-    class="hidden"
-  />
+	<Icon name="bi:display" id="system-theme-button" size={16} class="hidden" />
+	<Icon name="bi:sun" id="light-theme-button" size={16} class="hidden" />
+	<Icon name="bi:moon" id="dark-theme-button" size={16} class="hidden" />
 </button>
 
 <script is:inline lang="ts">
-  (() => {
-    const themes = ["system", "light", "dark"];
+(() => {
+	const themes = ['system', 'light', 'dark'];
 
-    const getConfiguredTheme = () => {
-      const storedTheme = localStorage.getItem("theme");
+	const getConfiguredTheme = () => {
+		const storedTheme = localStorage.getItem('theme');
 
-      return themes.includes(storedTheme ?? "") ? storedTheme : "system";
-    };
+		return themes.includes(storedTheme ?? '') ? storedTheme : 'system';
+	};
 
-    const setIconStatus = (theme) => {
-      document
-        .getElementById("light-theme-button")
-        ?.classList.toggle("hidden", theme !== "light");
-      document
-        .getElementById("dark-theme-button")
-        ?.classList.toggle("hidden", theme !== "dark");
-      document
-        .getElementById("system-theme-button")
-        ?.classList.toggle("hidden", theme !== "system");
-    };
+	const setIconStatus = (theme) => {
+		document
+			.getElementById('light-theme-button')
+			?.classList.toggle('hidden', theme !== 'light');
+		document
+			.getElementById('dark-theme-button')
+			?.classList.toggle('hidden', theme !== 'dark');
+		document
+			.getElementById('system-theme-button')
+			?.classList.toggle('hidden', theme !== 'system');
+	};
 
-    const handleThemeToggleClick = () => {
-      const currentIndex = themes.indexOf(getConfiguredTheme());
-      const nextTheme = themes[(currentIndex + 1) % themes.length];
+	const handleThemeToggleClick = () => {
+		const currentIndex = themes.indexOf(getConfiguredTheme());
+		const nextTheme = themes[(currentIndex + 1) % themes.length];
 
-      document.dispatchEvent(new CustomEvent("theme:set", { detail: nextTheme }));
-    };
+		document.dispatchEvent(new CustomEvent('theme:set', { detail: nextTheme }));
+	};
 
-    setIconStatus(getConfiguredTheme());
+	setIconStatus(getConfiguredTheme());
 
-    document
-      .getElementById("themeToggle")
-      ?.addEventListener("click", handleThemeToggleClick);
-    document.addEventListener("theme:change", (event) =>
-      setIconStatus(event.detail),
-    );
-  })();
+	document
+		.getElementById('themeToggle')
+		?.addEventListener('click', handleThemeToggleClick);
+	document.addEventListener('theme:change', (event) =>
+		setIconStatus(event.detail),
+	);
+})();
 </script>

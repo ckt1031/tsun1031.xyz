@@ -14,9 +14,10 @@ const isExternal =
 ---
 
 <a
-  href={href}
-  {...attributes}
-  {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+	href={href}
+	{...attributes}
+	{...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+	aria-label={attributes['aria-label'] ?? href}
 >
-  <slot />
+	<slot />
 </a>

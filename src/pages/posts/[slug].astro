@@ -41,47 +41,55 @@ const tags = post.data.tags ?? [];
 ---
 
 <MainLayout>
-  <ArticleSEO
-    slot="head"
-    includeSiteTitle
-    title={post.data.title}
-    description={post.data.description}
-    author={[config.author]}
-    published_time={publishedTime}
-    modified_time={modifiedTime}
-    tags={tags}
-    section={tags[0] ?? 'post'}
-    canonical={post.data.canonical}
-    image={image}
-    imageType={post.data.ogImage ? undefined : "image/jpeg"}
-  />
-  <article class="mb-20 w-full">
-    <header class="base-border mb-7 border-b pb-6">
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-neutral-500 dark:text-neutral-400">
-        <time datetime={publishedTime} title={formatHongKongDate(post.data.published)}>
-          Published {formatHongKongShortDate(post.data.published)}
-        </time>
-        <span aria-hidden="true">·</span>
-        <span>By {config.author}</span>
-        {
-          modifiedDate && (
+	<ArticleSEO
+		slot="head"
+		includeSiteTitle
+		title={post.data.title}
+		description={post.data.description}
+		author={[config.author]}
+		published_time={publishedTime}
+		modified_time={modifiedTime}
+		tags={tags}
+		section={tags[0] ?? 'post'}
+		canonical={post.data.canonical}
+		image={image}
+		imageType={post.data.ogImage ? undefined : "image/jpeg"}
+	/>
+	<article class="mb-20 w-full">
+		<header class="base-border mb-7 border-b pb-6">
+			<div
+				class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-neutral-500 dark:text-neutral-400"
+			>
+				<time
+					datetime={publishedTime}
+					title={formatHongKongDate(post.data.published)}
+				>
+					Published{' '}
+					{formatHongKongShortDate(post.data.published)}
+				</time>
+				<span aria-hidden="true">·</span>
+				<span>
+					By{' '}
+					{config.author}
+				</span>
+				{modifiedDate && (
             <>
               <span aria-hidden="true">·</span>
               <time datetime={modifiedTime} title={formatHongKongDate(modifiedDate)}>
                 Modified {formatHongKongShortDate(modifiedDate)}
               </time>
             </>
-          )
-        }
-      </div>
-      <h1 class="text-xl break-words font-extrabold md:text-2xl">
-        {post.data.title}
-      </h1>
-      <p class="mt-2 max-w-2xl text-base leading-6 text-neutral-600 dark:text-neutral-300">
-        {post.data.description}
-      </p>
-      {
-        tags.length > 0 && (
+          )}
+			</div>
+			<h1 class="text-xl break-words font-extrabold md:text-2xl">
+				{post.data.title}
+			</h1>
+			<p
+				class="mt-2 max-w-2xl text-base leading-6 text-neutral-600 dark:text-neutral-300"
+			>
+				{post.data.description}
+			</p>
+			{tags.length > 0 && (
           <div class="mt-5 flex flex-wrap gap-x-2 gap-y-1">
             {tags.map((tag) => (
               <a
@@ -93,29 +101,28 @@ const tags = post.data.tags ?? [];
               </a>
             ))}
           </div>
-        )
-      }
-    </header>
-    <div class="blog-style">
-      <Content components={{ a: ExternalLink, table: MarkdownTable }} />
-    </div>
-  </article>
-  <template id="code-copy-icon">
-    <Icon name="bi:copy" aria-hidden="true" />
-  </template>
-  <template id="code-copied-icon">
-    <Icon name="bi:check-lg" aria-hidden="true" />
-  </template>
+        )}
+		</header>
+		<div class="blog-style">
+			<Content components={{ a: ExternalLink, table: MarkdownTable }} />
+		</div>
+	</article>
+	<template id="code-copy-icon">
+		<Icon name="bi:copy" aria-hidden="true" />
+	</template>
+	<template id="code-copied-icon">
+		<Icon name="bi:check-lg" aria-hidden="true" />
+	</template>
 </MainLayout>
 
 <script>
-	import mediumZoom from 'medium-zoom';
-	import { addCodeCopyButtons } from '@/scripts/code-copy';
+import mediumZoom from 'medium-zoom';
+import { addCodeCopyButtons } from '@/scripts/code-copy';
 
-	mediumZoom('.blog-style img', {
-		background: 'rgba(10, 10, 10, 0.9)',
-		margin: 24,
-	});
+mediumZoom('.blog-style img', {
+	background: 'rgba(10, 10, 10, 0.9)',
+	margin: 24,
+});
 
-	addCodeCopyButtons();
+addCodeCopyButtons();
 </script>

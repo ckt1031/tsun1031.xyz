@@ -61,11 +61,11 @@ const structuredData = [
 ---
 
 <SEO
-  title={pageTitle}
-  canonical={canonicalUrl}
-  description={description}
-  noindex={noindex}
-  openGraph={{
+	title={pageTitle}
+	canonical={canonicalUrl}
+	description={description}
+	noindex={noindex}
+	openGraph={{
     basic: {
       title: pageTitle,
       type,
@@ -78,7 +78,7 @@ const structuredData = [
       width: 1200,
     },
   }}
-  twitter={{
+	twitter={{
     card: "summary_large_image",
     creator: config.twitter,
     image: imageUrl,
@@ -87,7 +87,7 @@ const structuredData = [
     title: pageTitle,
     description: description,
   }}
-  extend={{
+	extend={{
     meta: [
       { property: "og:description", content: description },
       { property: "og:site_name", content: config.siteTitle },

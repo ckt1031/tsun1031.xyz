@@ -26,18 +26,16 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"preset": "recommended",
-			"style": {
-				"useConst": "off",
-				"useImportType": "off"
-			},
-			"correctness": {
-				"noUnusedVariables": "off",
-				"noUnusedImports": "off"
-			}
+			"preset": "recommended"
 		}
 	},
-
+	"html": {
+		"experimentalFullSupportEnabled": true,
+		"formatter": {
+			"enabled": true,
+			"whitespaceSensitivity": "ignore"
+		}
+	},
 	"assist": {
 		"actions": {
 			"source": {
@@ -47,5 +45,25 @@
 				}
 			}
 		}
-	}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro"],
+			"formatter": {
+				"enabled": true
+			},
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		}
+	]
 }

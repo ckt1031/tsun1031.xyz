@@ -1,52 +1,52 @@
 <script is:inline>
-  (() => {
-    const themes = ["system", "light", "dark"];
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+(() => {
+	const themes = ['system', 'light', 'dark'];
+	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const getConfiguredTheme = () => {
-      const storedTheme = localStorage.getItem("theme");
+	const getConfiguredTheme = () => {
+		const storedTheme = localStorage.getItem('theme');
 
-      return themes.includes(storedTheme ?? "") ? storedTheme : "system";
-    };
+		return themes.includes(storedTheme ?? '') ? storedTheme : 'system';
+	};
 
-    const applyTheme = (configuredTheme) => {
-      const theme =
-        configuredTheme === "system"
-          ? prefersDark.matches
-            ? "dark"
-            : "light"
-          : configuredTheme;
+	const applyTheme = (configuredTheme) => {
+		const theme =
+			configuredTheme === 'system'
+				? prefersDark.matches
+					? 'dark'
+					: 'light'
+				: configuredTheme;
 
-      document.documentElement.dataset.theme = theme;
-      document.documentElement.style.colorScheme = theme;
-      document.dispatchEvent(
-        new CustomEvent("theme:change", { detail: configuredTheme }),
-      );
-    };
+		document.documentElement.dataset.theme = theme;
+		document.documentElement.style.colorScheme = theme;
+		document.dispatchEvent(
+			new CustomEvent('theme:change', { detail: configuredTheme }),
+		);
+	};
 
-    const setTheme = (theme) => {
-      localStorage.setItem("theme", theme);
-      applyTheme(theme);
-    };
+	const setTheme = (theme) => {
+		localStorage.setItem('theme', theme);
+		applyTheme(theme);
+	};
 
-    setTheme(getConfiguredTheme());
+	setTheme(getConfiguredTheme());
 
-    document.addEventListener("theme:set", (event) => {
-      if (themes.includes(event.detail)) {
-        setTheme(event.detail);
-      }
-    });
+	document.addEventListener('theme:set', (event) => {
+		if (themes.includes(event.detail)) {
+			setTheme(event.detail);
+		}
+	});
 
-    prefersDark.addEventListener("change", () => {
-      if (getConfiguredTheme() === "system") {
-        applyTheme("system");
-      }
-    });
+	prefersDark.addEventListener('change', () => {
+		if (getConfiguredTheme() === 'system') {
+			applyTheme('system');
+		}
+	});
 
-    window.addEventListener("storage", (event) => {
-      if (event.key === "theme") {
-        applyTheme(getConfiguredTheme());
-      }
-    });
-  })();
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'theme') {
+			applyTheme(getConfiguredTheme());
+		}
+	});
+})();
 </script>

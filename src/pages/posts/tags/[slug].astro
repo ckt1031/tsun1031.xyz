@@ -33,7 +33,12 @@ const meta = {
 ---
 
 <MainLayout>
-	<MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
+	<MainSEO
+		slot="head"
+		includeSiteTitle
+		title={meta.title}
+		description={meta.description}
+	/>
 	<div class="mb-2">
 		<PageTitle title={`Posts tagged with "${slug}"`} />
 	</div>

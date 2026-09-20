@@ -2,80 +2,87 @@
 ---
 
 <script>
-    let fireworksInstance: any = null;
-    const container = document.querySelector("#firework") as HTMLElement;
+import type { Fireworks } from 'fireworks-js';
 
-    if (!container) throw new Error("No container (#firework) found");
+let fireworksInstance: Fireworks | null = null;
+const container = document.querySelector('#firework') as HTMLElement;
 
-    const isGregorianNewYear = (now: Date) => {
-        const month = now.getMonth();
-        const date = now.getDate();
-        
-        // Celebrate on 12/31 (New Year's Eve) and 1/1, 1/2 (First 2 days)
-        return (month === 11 && date === 31) || (month === 0 && (date === 1 || date === 2));
-    };
+if (!container) throw new Error('No container (#firework) found');
 
-    const isLunarNewYear = (now: Date) => {
-        const formatter = new Intl.DateTimeFormat('en-u-ca-chinese', { day: 'numeric', month: 'numeric' });
-        
-        const getLunarDate = (date: Date) => {
-            const parts = formatter.formatToParts(date);
-            const lMonth = parts.find(p => p.type === 'month')?.value;
-            const lDay = parts.find(p => p.type === 'day')?.value;
-            return { lMonth, lDay };
-        };
+const isGregorianNewYear = (now: Date) => {
+	const month = now.getMonth();
+	const date = now.getDate();
 
-        const { lMonth, lDay } = getLunarDate(now);
-        
-        // Lunar New Year is 1/1, and we celebrate for the first 3 days
-        if (lMonth === '1' && Number(lDay) >= 1 && Number(lDay) <= 3) return true;
-        
-        // Lunar New Year's Eve (if tomorrow is L1/D1)
-        const tomorrow = new Date(now);
-        tomorrow.setDate(now.getDate() + 1);
-        const tDate = getLunarDate(tomorrow);
-        if (tDate.lMonth === '1' && tDate.lDay === '1') return true;
+	// Celebrate on 12/31 (New Year's Eve) and 1/1, 1/2 (First 2 days)
+	return (
+		(month === 11 && date === 31) || (month === 0 && (date === 1 || date === 2))
+	);
+};
 
-        return false;
-    };
+const isLunarNewYear = (now: Date) => {
+	const formatter = new Intl.DateTimeFormat('en-u-ca-chinese', {
+		day: 'numeric',
+		month: 'numeric',
+	});
 
-    const startFireworks = async () => {
-        if (fireworksInstance) return;
+	const getLunarDate = (date: Date) => {
+		const parts = formatter.formatToParts(date);
+		const lMonth = parts.find((p) => p.type === 'month')?.value;
+		const lDay = parts.find((p) => p.type === 'day')?.value;
+		return { lMonth, lDay };
+	};
 
-        const { Fireworks } = await import('fireworks-js');
+	const { lMonth, lDay } = getLunarDate(now);
 
-        fireworksInstance = new Fireworks(container, {
-            autoresize: true,
-            opacity: 0.1,
-            particles: 100,
-            friction: 0.99,
-            intensity: 5,
-            boundaries: {
-                width: container.clientWidth,
-                height: container.clientHeight,
-            },
-        });
+	// Lunar New Year is 1/1, and we celebrate for the first 3 days
+	if (lMonth === '1' && Number(lDay) >= 1 && Number(lDay) <= 3) return true;
 
-        fireworksInstance.start();
-    };
+	// Lunar New Year's Eve (if tomorrow is L1/D1)
+	const tomorrow = new Date(now);
+	tomorrow.setDate(now.getDate() + 1);
+	const tDate = getLunarDate(tomorrow);
+	if (tDate.lMonth === '1' && tDate.lDay === '1') return true;
 
-    const stopFireworks = () => {
-        if (fireworksInstance) {
-            fireworksInstance.stop();
-            fireworksInstance = null;
-        }
-    };
+	return false;
+};
 
-    const check = () => {
-        const now = new Date();
-        if (isGregorianNewYear(now) || isLunarNewYear(now)) {
-            startFireworks();
-        } else {
-            stopFireworks();
-        }
-    };
+const startFireworks = async () => {
+	if (fireworksInstance) return;
 
-    // Check immediately and then every second
-    check();
-    setInterval(check, 1000);
+	const { Fireworks } = await import('fireworks-js');
+
+	fireworksInstance = new Fireworks(container, {
+		autoresize: true,
+		opacity: 0.1,
+		particles: 100,
+		friction: 0.99,
+		intensity: 5,
+		boundaries: {
+			width: container.clientWidth,
+			height: container.clientHeight,
+		},
+	});
+
+	fireworksInstance.start();
+};
+
+const stopFireworks = () => {
+	if (fireworksInstance) {
+		fireworksInstance.stop();
+		fireworksInstance = null;
+	}
+};
+
+const check = () => {
+	const now = new Date();
+	if (isGregorianNewYear(now) || isLunarNewYear(now)) {
+		startFireworks();
+	} else {
+		stopFireworks();
+	}
+};
+
+// Check immediately and then every second
+check();
+setInterval(check, 1000);
 </script>

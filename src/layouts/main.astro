@@ -12,55 +12,64 @@ const { padded = true } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <ThemeController />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<ThemeController />
 
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/icons/apple-touch-icon.png"
-    />
+		<link rel="icon" href="/favicon.ico" sizes="any">
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/icons/favicon-32x32.png"
+		>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/icons/favicon-16x16.png"
+		>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/icons/apple-touch-icon.png"
+		>
 
-    <link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="sitemap" href="/sitemap-index.xml">
 
-    <!-- RSS Feed -->
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      href="/rss.xml"
-      title={config.siteTitle}
-    />
+		<!-- RSS Feed -->
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			href="/rss.xml"
+			title={config.siteTitle}
+		>
 
-    <Font
-      cssVariable='--font-dm-sans'
-      preload={[{ weight: 400, style: 'normal' }]}
-    />
-    <Font cssVariable='--font-ibm-plex-mono' />
+		<Font
+			cssVariable="--font-dm-sans"
+			preload={[{ weight: 400, style: 'normal' }]}
+		/>
+		<Font cssVariable="--font-ibm-plex-mono" />
 
-    <slot name="head" />
-  </head>
-  <body class="root">
-    <Snowflake />
-    <Firework />
-    <div
-      id="firework"
-      class="fixed top-0 left-0 w-full h-full pointer-events-none"
-    >
-    </div>
-    <main
-      id="main"
-      class:list={[
+		<slot name="head" />
+	</head>
+	<body class="root">
+		<Snowflake />
+		<Firework />
+		<div
+			id="firework"
+			class="fixed top-0 left-0 w-full h-full pointer-events-none"
+		></div>
+		<main
+			id="main"
+			class:list={[
         'flex m-auto w-full max-w-[800px] flex-1 flex-col px-5 text-left',
         padded && 'pt-8',
       ]}
-    >
-      <slot />
-    </main>
-    <Footer />
-  </body>
+		>
+			<slot />
+		</main>
+		<Footer />
+	</body>
 </html>

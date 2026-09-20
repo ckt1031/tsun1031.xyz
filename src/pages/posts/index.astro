@@ -18,20 +18,25 @@ const meta = {
 ---
 
 <MainLayout>
-    <MainSEO slot="head" includeSiteTitle title={meta.title} description={meta.description} />
-    <div class="mb-2">
-        <PageTitle
-            title="Blog"
-            description="Welcome to my blog, where I embark on a journey of sharing knowledge and meaningful insights with the world."
-        />
-    </div>
-    <a
-        class="text-neutral-600 dark:text-neutral-400"
-        href="/rss.xml"
-        aria-label="RSS Feed"
-        title="RSS Feed"
-    >
-        <Icon name="bi:rss" size={20} />
-    </a>
-    <PostList allPosts={allPosts} />
+	<MainSEO
+		slot="head"
+		includeSiteTitle
+		title={meta.title}
+		description={meta.description}
+	/>
+	<div class="mb-2">
+		<PageTitle
+			title="Blog"
+			description="Welcome to my blog, where I embark on a journey of sharing knowledge and meaningful insights with the world."
+		/>
+	</div>
+	<a
+		class="text-neutral-600 dark:text-neutral-400"
+		href="/rss.xml"
+		aria-label="RSS Feed"
+		title="RSS Feed"
+	>
+		<Icon name="bi:rss" size={20} />
+	</a>
+	<PostList allPosts={allPosts} />
 </MainLayout>
