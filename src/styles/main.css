@@ -51,7 +51,7 @@ body {
 }
 
 .base-border {
-	@apply border-neutral-300 dark:border-neutral-600;
+	@apply border-neutral-300 dark:border-neutral-700;
 }
 
 .base-input-box {
