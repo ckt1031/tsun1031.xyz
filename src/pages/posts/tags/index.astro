@@ -23,7 +23,7 @@ const meta = {
     <!-- Loop through allTags and display each tag -->
     {
       allTags.map((tag) => (
-        <a href={`/posts/tags/${tag}`} class="post-tag ">
+        <a href={`/posts/tags/${tag}`} class="post-tag " data-astro-prefetch>
           {tag}
         </a>
       ))

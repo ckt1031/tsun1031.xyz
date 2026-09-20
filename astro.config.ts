@@ -17,6 +17,7 @@ const SITE_URL = 'https://tsun1031.xyz';
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
 	trailingSlash: 'never',
+	prefetch: true,
 	integrations: [
 		mailObfuscation(),
 		icon(),

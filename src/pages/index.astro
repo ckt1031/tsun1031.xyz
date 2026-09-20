@@ -129,7 +129,11 @@ const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(
 
     <section aria-labelledby="posts-heading" class="base-border border-t pt-8">
       <h2 id="posts-heading" class="text-xl font-semibold">
-        <a class="group inline-flex items-center gap-1 hover:underline" href="/posts">
+        <a
+          class="group inline-flex items-center gap-1 hover:underline"
+          href="/posts"
+          data-astro-prefetch
+        >
           Posts
           <Icon
             name="bi:arrow-right"

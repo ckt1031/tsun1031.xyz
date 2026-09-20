@@ -9,6 +9,7 @@ const currentPath = Astro.url.pathname;
     config.headbar.routes.map((item) => (
       <a
         href={item.href}
+        data-astro-prefetch
         class:list={[
           'nav-link',
           {

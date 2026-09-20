@@ -22,6 +22,7 @@ const modifiedDate = getPostModifiedDate(data);
       <a
         class="cursor-pointer text-lg font-bold hover:underline"
         href={`/posts/${slug}`}
+        data-astro-prefetch
       >
         {data.title}
       </a>

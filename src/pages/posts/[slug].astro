@@ -87,6 +87,7 @@ const tags = post.data.tags ?? [];
               <a
                 class="text-sm font-medium text-neutral-600 hover:underline dark:text-neutral-400"
                 href={`/posts/tags/${tag}`}
+                data-astro-prefetch
               >
                 #{tag}
               </a>
