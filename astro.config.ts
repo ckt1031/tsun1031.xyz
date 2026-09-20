@@ -7,6 +7,7 @@ import {
 	// passthroughImageService,
 } from 'astro/config';
 import icon from 'astro-icon';
+import mailObfuscation from 'astro-mail-obfuscation';
 import robotsTxt from 'astro-robots-txt';
 
 import { serializeSitemapItem } from './src/utils/sitemap';
@@ -17,6 +18,7 @@ export default defineConfig({
 	site: 'https://tsun1031.xyz',
 	trailingSlash: 'never',
 	integrations: [
+		mailObfuscation(),
 		icon(),
 		sitemap({
 			changefreq: 'weekly',
