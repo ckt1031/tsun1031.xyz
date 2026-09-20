@@ -1,7 +1,6 @@
 import { satteri } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
 import {
 	defineConfig,
@@ -38,7 +37,6 @@ export default defineConfig({
 				},
 			],
 		}),
-		playformCompress(),
 	],
 	image: {
 		// service: passthroughImageService(),
