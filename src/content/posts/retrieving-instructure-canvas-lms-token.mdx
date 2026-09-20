@@ -6,9 +6,8 @@ modified: 2026-09-20 00:10
 tags: ["dev"]
 ---
 
-import { Picture } from "astro:assets";
-
 import Callout from "@/components/Callout.astro";
+import OptimizedPicture from "@/components/OptimizedPicture.astro";
 
 This tutorial does NOT limit to HKUST, or any specific school, this works for any schools that use Canvas LMS which can be accessed via mobile apps, but expiry of tokens, and available endpoints may vary depending on the school. I will not provide any school-specific information in this tutorial.
 
@@ -26,12 +25,11 @@ If your school also uses Canvas LMS, you might ask why I had to write this tutor
 
 Well, my school, HKUST, disabled API key access in early 2026:
 
-<Picture
+<OptimizedPicture
   src="https://obs-cdn.tsun1031.xyz/2026/09/19/3f041e6427187076ddd3b47aa674021e.jpg"
   alt="Canvas settings showing that access-token creation is unavailable"
   width={1518}
   height={314}
-  formats={["avif", "webp"]}
 />
 
 Their reason was one word: **security**. I emailed the office in early 2026.
@@ -46,12 +44,11 @@ Generally, this makes sense for most people who do not use the Canvas API. Howev
 
 The reality is, the application is heavily using the API, suppose your course's Modules tab is `https://canvas.example.com/courses/1234/modules`. Open it in your browser and add `/api/v1/` after the host, for example: `https://canvas.example.com/api/v1/courses/1234/modules`. It returns structured JSON, so blocking API key creation does not prevent API access.
 
-<Picture
+<OptimizedPicture
   src="https://obs-cdn.tsun1031.xyz/2026/09/19/647c3526b7e2b613899800b4d4d08f6f.jpg"
   alt="Canvas API response in a browser"
   width={2940}
   height={890}
-  formats={["avif", "webp"]}
 />
 
 So there is NO point to disallow power user to access Canvas data programatically, but, well, I won't blame anyone blocking me creating the API keys, _because they might have compliance issues, or sometimes they might do surface work to make the system automatically safer haha._
@@ -94,12 +91,11 @@ curl --request GET \
 
 For authorization, you can set a purpose in the query parameters (`?purpose=Python`). This is the token purpose shown on the Settings page, for example:
 
-<Picture
+<OptimizedPicture
   src="https://obs-cdn.tsun1031.xyz/2026/09/19/a87c7ee698c9570e31cf7fc33e0ad056.jpg"
   alt="Canvas settings showing an issued access token"
   width={2398}
   height={1522}
-  formats={["avif", "webp"]}
 />
 
 Once you have successfully obtained a token, you will receive an access token and a refresh token. Refer to the general OAuth2 flow to refresh it. In my observation, generated access tokens do not appear to expire, so you can treat an access token as a very long-lived API key alternative.
@@ -134,22 +130,20 @@ I use the Canvas API to build some small projects, for example:
 
 **New File and Module Monitor** - Some files might only appear temporarily, so download them ASAP.
 
-<Picture
+<OptimizedPicture
   src="https://obs-cdn.tsun1031.xyz/2026/09/19/c94fdb8757a0f5ab7d7dd01377a2074d.jpg"
   alt="New File and Module Monitor interface"
-  width={1410}
+  width="auto"
   height={710}
-  formats={["avif", "webp"]}
 />
 
 **Course Page Modification Monitoring with an LLM** - This keeps track of course changes. Many changes are announced very late, so this helps me receive updates on time.
 
-<Picture
+<OptimizedPicture
   src="https://obs-cdn.tsun1031.xyz/2026/09/19/948e940d9456139774c5f07e520eedd6.jpg"
   alt="Course Page Modification Monitoring interface"
   width={1484}
   height={574}
-  formats={["avif", "webp"]}
 />
 
 ## Additional Information

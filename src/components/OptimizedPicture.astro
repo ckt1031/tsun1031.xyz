@@ -1,0 +1,17 @@
+---
+import { Picture } from 'astro:assets';
+
+type WithRequiredDimensions<T> = T extends unknown
+  ? Omit<T, "height" | "width"> & {
+      height: number;
+      width: number;
+    }
+  : never;
+
+type Props = WithRequiredDimensions<Parameters<typeof Picture>[0]>;
+---
+
+<Picture
+    {...Astro.props}
+    formats={["avif", "webp", "jpeg"]}
+/>

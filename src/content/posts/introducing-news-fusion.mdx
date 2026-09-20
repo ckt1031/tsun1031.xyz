@@ -6,7 +6,7 @@ modified: "2025-06-10 01:45"
 tags: ["dev"]
 ---
 
-import { Picture } from 'astro:assets';
+import OptimizedPicture from "@/components/OptimizedPicture.astro";
 
 > **Updates from 08, December 2025:** This project is no longer maintained.
 >
@@ -28,12 +28,11 @@ The News Fusion homepage offers a clean layout, making it easy for users to read
 
 It also provides different categories like World, Technology, and Business. More categories will be added in the future to meet diverse user demands.
 
-<Picture
+<OptimizedPicture
   src="https://obs-cdn.tsun1031.xyz/2025/06/11/118830729a6d37456a03a059a5601364.png"
   alt="News Fusion interface"
-  width={3132}
-  height={1916}
-  formats={['avif', 'webp']}
+  width="auto"
+  height={480}
 />
 
 ## Future
