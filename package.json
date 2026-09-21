@@ -48,6 +48,7 @@
 		"@tailwindcss/postcss": "^4.3.3",
 		"@tailwindcss/typography": "0.5.20",
 		"@tailwindcss/vite": "^4.3.3",
+		"@types/bun": "^1.4.2",
 		"@types/node": "26.6.1",
 		"autoprefixer": "10.6.1",
 		"commitizen": "4.3.2",

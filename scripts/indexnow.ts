@@ -99,6 +99,17 @@ async function submitUrls() {
 		);
 	}
 
+	for (const url of urls) {
+		if (!url.startsWith(siteUrl.origin)) {
+			throw new Error(
+				`URL ${url} does not belong to the site ${siteUrl.origin}`,
+			);
+		}
+
+		// Print URL:
+		console.info(`Submitting URL: ${url}`);
+	}
+
 	if (isDryRun) {
 		console.log(
 			`IndexNow dry run: ${urls.length} URL(s) for ${siteUrl.host} in ${Math.ceil(urls.length / MAX_URLS_PER_REQUEST)} request(s)`,

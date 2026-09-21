@@ -46,9 +46,7 @@ const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(
 		type="profile"
 	/>
 	<section class="my-10 flex flex-row gap-5 md:gap-6 items-center">
-		<div
-			class="flex-none overflow-hidden rounded-full w-20 h-20"
-		>
+		<div class="flex-none overflow-hidden rounded-full w-20 h-20">
 			<OptimizedPicture
 				alt="ckt1031's Avatar"
 				src={Avatar}
@@ -140,7 +138,9 @@ const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(
 		</section>
 
 		<section aria-labelledby="other-pages-heading" class="space-y-2">
-			<h2 id="other-pages-heading" class="text-xl font-semibold">Other pages</h2>
+			<h2 id="other-pages-heading" class="text-xl font-semibold">
+				Other pages
+			</h2>
 			<a
 				href="/about"
 				class="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
