@@ -139,6 +139,17 @@ const recentPosts = sortPostsByPublishedDate(await getPublishedPosts()).slice(
 			</p>
 		</section>
 
+		<section aria-labelledby="other-pages-heading" class="space-y-2">
+			<h2 id="other-pages-heading" class="text-xl font-semibold">Other pages</h2>
+			<a
+				href="/about"
+				class="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+				data-astro-prefetch
+			>
+				About
+			</a>
+		</section>
+
 		<section aria-labelledby="posts-heading" class="base-border border-t pt-8">
 			<h2 id="posts-heading" class="text-xl font-semibold">
 				<a
