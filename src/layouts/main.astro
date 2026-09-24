@@ -53,6 +53,12 @@ const { padded = true } = Astro.props;
 		<Font cssVariable="--font-ibm-plex-mono" />
 
 		<slot name="head" />
+
+		<script>
+		import { inject } from '@vercel/analytics';
+
+		inject();
+		</script>
 	</head>
 	<body class="root">
 		<Snowflake />

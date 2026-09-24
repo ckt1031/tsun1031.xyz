@@ -29,6 +29,7 @@
 		"@iconify-json/bi": "^1.2.7",
 		"@iconify-json/devicon-plain": "^1.2.58",
 		"@playform/compress": "^0.2.5",
+		"@vercel/analytics": "^2.0.1",
 		"astro": "7.3.3",
 		"astro-icon": "1.2.0",
 		"astro-mail-obfuscation": "^3.0.1",
