@@ -13,7 +13,7 @@
 		"indexnow": "bun scripts/indexnow.ts",
 		"prepare": "is-ci || husky || true",
 		"start": "astro dev",
-		"lint": "astro check",
+		"lint": "biome check .",
 		"lint:fix": "biome check . --write",
 		"typecheck": "astro check",
 		"preview": "astro preview",
