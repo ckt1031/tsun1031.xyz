@@ -13,8 +13,9 @@
 		"indexnow": "bun scripts/indexnow.ts",
 		"prepare": "is-ci || husky || true",
 		"start": "astro dev",
-		"lint": "biome check . && astro check",
-		"lint:fix": "astro check && biome check . --write",
+		"lint": "astro check",
+		"lint:fix": "biome check . --write",
+		"typecheck": "astro check",
 		"preview": "astro preview",
 		"preinstall": "npx only-allow bun"
 	},

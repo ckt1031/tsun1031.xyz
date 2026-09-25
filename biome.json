@@ -20,7 +20,14 @@
 	},
 	"javascript": {
 		"formatter": {
+			"indentStyle": "tab",
 			"quoteStyle": "single"
+		}
+	},
+	"css": {
+		"formatter": {
+			"indentStyle": "space",
+			"indentWidth": 4
 		}
 	},
 	"linter": {
@@ -38,6 +45,7 @@
 	},
 	"assist": {
 		"actions": {
+			"preset": "recommended",
 			"source": {
 				"organizeImports": {
 					"level": "on",
