@@ -9,6 +9,7 @@ import ThemeController from '@/components/ThemeController.astro';
 import config from '@/config';
 
 const { padded = true } = Astro.props;
+const isVercel = import.meta.env.VERCEL === '1';
 ---
 
 <html lang="en">
@@ -53,6 +54,14 @@ const { padded = true } = Astro.props;
 		<Font cssVariable="--font-ibm-plex-mono" />
 
 		<slot name="head" />
+
+		{isVercel ? (
+			<script>
+				import { inject } from '@vercel/analytics';
+
+				inject();
+			</script>
+		) : null}
 	</head>
 	<body class="root">
 		<Snowflake />
