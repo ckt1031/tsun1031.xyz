@@ -1,12 +1,9 @@
 import { satteri } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
-import {
-	defineConfig,
-	fontProviders,
-	// passthroughImageService,
-} from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import icon from 'astro-icon';
 import mailObfuscation from 'astro-mail-obfuscation';
 import robotsTxt from 'astro-robots-txt';
@@ -14,10 +11,20 @@ import { serializeSitemapItem } from './src/utils/sitemap';
 
 const SITE_URL = 'https://tsun1031.xyz';
 
+const vercelAdapter = vercel({
+	imageService: true,
+	staticHeaders: true,
+	devImageService: 'sharp',
+	webAnalytics: {
+		enabled: true,
+	},
+});
+
 export default defineConfig({
 	site: 'https://tsun1031.xyz',
 	trailingSlash: 'never',
 	prefetch: true,
+	adapter: process.env.VERCEL === '1' ? vercelAdapter : undefined,
 	integrations: [
 		mailObfuscation(),
 		icon(),
@@ -40,7 +47,6 @@ export default defineConfig({
 		}),
 	],
 	image: {
-		// service: passthroughImageService(),
 		breakpoints: [640, 800],
 		domains: ['obs-cdn.tsun1031.xyz'],
 		responsiveStyles: true,
