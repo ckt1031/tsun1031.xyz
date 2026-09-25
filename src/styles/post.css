@@ -44,7 +44,7 @@
 }
 
 .blog-style img {
-	@apply cursor-zoom-in;
+	@apply h-auto max-w-full cursor-zoom-in;
 }
 
 .blog-style table {
