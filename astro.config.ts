@@ -5,7 +5,6 @@ import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 import icon from 'astro-icon';
-import mailObfuscation from 'astro-mail-obfuscation';
 import robotsTxt from 'astro-robots-txt';
 import { serializeSitemapItem } from './src/utils/sitemap';
 
@@ -26,12 +25,10 @@ export default defineConfig({
 	prefetch: true,
 	adapter: process.env.VERCEL === '1' ? vercelAdapter : undefined,
 	integrations: [
-		mailObfuscation(),
 		icon(),
 		sitemap({
 			changefreq: 'weekly',
-			filter: (page) =>
-				!['/about', '/contact'].includes(new URL(page).pathname),
+			filter: (page) => !['/contact'].includes(new URL(page).pathname),
 			priority: 0.8,
 			serialize: serializeSitemapItem,
 		}),
