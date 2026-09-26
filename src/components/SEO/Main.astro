@@ -55,6 +55,7 @@ const structuredData = [
 		isPartOf: {
 			'@id': websiteId,
 		},
+		mainEntity: type === 'profile' ? person : undefined,
 		about: type === 'profile' ? person : undefined,
 	},
 ];
