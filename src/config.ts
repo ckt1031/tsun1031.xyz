@@ -14,6 +14,7 @@ const config = {
 	twitter: '@cktsun1031', // Twitter username.
 
 	social: {
+		discord: 'https://discord.com/users/926686424865058876',
 		github: 'https://github.com/ckt1031',
 		instagram: 'https://www.instagram.com/kelvinova31/',
 		linkedin: 'https://linkedin.com/in/cktsun-kelvin/',
